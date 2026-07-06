@@ -1,0 +1,22 @@
+{"level":"error","message":"500 - Cannot destructure property 'refreshToken' of 'req.body' as it is undefined. - /api/v1/auth/refresh - POST - ::1","timestamp":"2026-07-06T14:52:27.780Z"}
+{"level":"error","message":"500 - Cannot destructure property 'refreshToken' of 'req.body' as it is undefined. - /api/v1/auth/refresh - POST - ::1","timestamp":"2026-07-06T14:52:27.805Z"}
+{"level":"error","message":"401 - Refresh token required - /api/v1/auth/refresh - POST - ::1","timestamp":"2026-07-06T14:57:18.181Z"}
+{"level":"error","message":"401 - Refresh token required - /api/v1/auth/refresh - POST - ::1","timestamp":"2026-07-06T14:57:18.208Z"}
+{"level":"error","message":"500 - Cannot read properties of undefined (reading 'map') - /api/v1/auth/register - POST - ::1","timestamp":"2026-07-06T14:57:38.760Z"}
+{"level":"error","message":"500 - Cannot read properties of undefined (reading 'map') - /api/v1/auth/register - POST - ::1","timestamp":"2026-07-06T14:57:39.592Z"}
+{"level":"error","message":"500 - Cannot read properties of undefined (reading 'map') - /api/v1/auth/register - POST - ::1","timestamp":"2026-07-06T14:57:46.022Z"}
+{"level":"error","message":"500 - Cannot read properties of undefined (reading 'map') - /api/v1/auth/register - POST - ::1","timestamp":"2026-07-06T14:57:46.622Z"}
+{"level":"error","message":"500 - Cannot read properties of undefined (reading 'map') - /api/v1/auth/register - POST - ::1","timestamp":"2026-07-06T14:57:46.821Z"}
+{"level":"error","message":"500 - Cannot read properties of undefined (reading 'map') - /api/v1/auth/register - POST - ::1","timestamp":"2026-07-06T14:57:46.973Z"}
+{"level":"error","message":"500 - Cannot read properties of undefined (reading 'map') - /api/v1/auth/register - POST - ::1","timestamp":"2026-07-06T14:57:47.125Z"}
+{"level":"error","message":"500 - Cannot read properties of undefined (reading 'map') - /api/v1/auth/register - POST - ::1","timestamp":"2026-07-06T14:57:47.285Z"}
+{"level":"error","message":"500 - Cannot read properties of undefined (reading 'map') - /api/v1/auth/register - POST - ::1","timestamp":"2026-07-06T14:57:47.442Z"}
+{"level":"error","message":"500 - Cannot read properties of undefined (reading 'map') - /api/v1/auth/register - POST - ::1","timestamp":"2026-07-06T14:57:47.601Z"}
+{"level":"error","message":"500 - Cannot read properties of undefined (reading 'map') - /api/v1/auth/register - POST - ::1","timestamp":"2026-07-06T14:57:47.772Z"}
+{"level":"error","message":"500 - Cannot read properties of undefined (reading 'map') - /api/v1/auth/register - POST - ::1","timestamp":"2026-07-06T14:57:47.917Z"}
+{"level":"error","message":"401 - Refresh token required - /api/v1/auth/refresh - POST - ::1","timestamp":"2026-07-06T15:00:40.359Z"}
+{"level":"error","message":"401 - Refresh token required - /api/v1/auth/refresh - POST - ::1","timestamp":"2026-07-06T15:00:40.381Z"}
+{"level":"error","message":"401 - Refresh token required - /api/v1/auth/refresh - POST - ::1","timestamp":"2026-07-06T15:02:33.174Z"}
+{"level":"error","message":"401 - Refresh token required - /api/v1/auth/refresh - POST - ::1","timestamp":"2026-07-06T15:02:33.177Z"}
+{"level":"error","message":"401 - Invalid credentials - /api/v1/auth/login - POST - ::1","timestamp":"2026-07-06T15:02:58.440Z"}
+{"level":"error","message":"500 - insert into `refresh_tokens` (`expires_at`, `id`, `token`, `user_id`) values ('2026-07-13 21:08:34.130', 'c7509556-6761-4ea2-b044-9f3d2c1781fd', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA3OTNkMzhiLTY0ZTMtNGNjYi04NjdkLWE4MDk5ZWFiYzUyNyIsInJvbGUiOiJjbGllbnQiLCJpYXQiOjE3ODMzNTIzMTQsImV4cCI6MTc4Mzk1NzExNH0.qov4iEEUWk4FCKIU9z-bhATdYea3DjDpYG0KUrFZWAY', '0793d38b-64e3-4ccb-867d-a8099eabc527') - SQLITE_CONSTRAINT: UNIQUE constraint failed: refresh_tokens.token - /api/v1/auth/refresh - POST - ::1","timestamp":"2026-07-06T15:38:34.148Z"}
