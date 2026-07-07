@@ -38,13 +38,13 @@ class ConsultationService {
       const mailOptions = {
         from: '"Justice & Associates Booking" <no-reply@justiceassociates.com>',
         to: process.env.ADMIN_EMAIL || 'lawfirm.delhi.official@gmail.com',
-        subject: `New Consultation Booking: ${data.fullName}`,
+        subject: `New Consultation Booking: ${data.name}`,
         text: `A new consultation has been booked.
         
 Details:
-- Name: ${data.fullName}
+- Name: ${data.name}
 - Email: ${data.email}
-- Phone: ${data.mobile}
+- Phone: ${data.phone}
 - Practice Area: ${data.practiceArea}
 - Reference Number: ${consultation.reference_number}
 
