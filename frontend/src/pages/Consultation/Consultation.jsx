@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { UploadCloud, CheckCircle, Shield, Briefcase, Star, MapPin, ChevronRight, X, Clock, Video, Phone } from 'lucide-react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import './Consultation.css';
 
 // --- ANIMATION VARIANTS ---
@@ -249,8 +251,18 @@ export default function Consultation() {
                   </div>
                 </div>
                 <div className="form-row-split">
-                  <div className="floating-input">
-                    <input type="date" value={formData.date} onChange={e=>updateForm('date', e.target.value)}/>
+                  <div className="floating-input date-picker-wrapper">
+                    <DatePicker 
+                      selected={formData.date ? new Date(formData.date) : null}
+                      onChange={(date) => {
+                         // Fix timezone offset issue to keep the local date correct
+                         const localDate = new Date(date.getTime() - (date.getTimezoneOffset() * 60000)).toISOString().split('T')[0];
+                         updateForm('date', localDate);
+                      }}
+                      dateFormat="MMMM d, yyyy"
+                      minDate={new Date()}
+                      placeholderText=" "
+                    />
                     <label>Preferred Date</label>
                   </div>
                   <div className="floating-input">
