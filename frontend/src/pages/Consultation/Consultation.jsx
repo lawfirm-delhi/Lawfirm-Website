@@ -149,7 +149,14 @@ export default function Consultation() {
       {step < 6 && <Timeline currentStep={step} />}
 
       <section className="container" id="wizard">
-        <div className="wizard-container">
+        <motion.div 
+          className="wizard-container"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          whileHover={{ y: -5, boxShadow: "0 25px 50px -12px rgba(0,0,0,0.15)" }}
+        >
           <AnimatePresence mode="wait">
             
             {step === 1 && (
@@ -365,7 +372,7 @@ export default function Consultation() {
             )}
             
           </AnimatePresence>
-        </div>
+        </motion.div>
       </section>
 
       {/* --- CONTACT SECTION --- */}
