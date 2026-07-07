@@ -71,12 +71,7 @@ export default function WhyUs() {
     { icon: Users, title: "Personalized Strategy", desc: "We don't use boilerplate solutions. Every case is handled with bespoke legal strategies." }
   ];
 
-  const timeline = [
-    { year: "1998", title: "Firm Founded", desc: "Justice & Associates was established with a focus on corporate litigation." },
-    { year: "2005", title: "100+ Corporate Clients", desc: "Reached a milestone of representing 100 Fortune 500 companies." },
-    { year: "2012", title: "International Expansion", desc: "Opened branch offices to handle cross-border disputes." },
-    { year: "2026", title: "Industry Recognition", desc: "Ranked Tier 1 in Legal500 for Dispute Resolution and Corporate Advisory." }
-  ];
+
 
   return (
     <PageWrapper title="Why Choose Us">
@@ -144,51 +139,7 @@ export default function WhyUs() {
         </div>
       </section>
 
-      {/* Timeline */}
-      <section className="landing-section alt">
-        <div className="section-header">
-          <motion.h2 className="section-title" variants={fadeInUp} initial="initial" whileInView="whileInView">Our Legacy</motion.h2>
-        </div>
-        <div style={{ maxWidth: '800px', margin: '0 auto', position: 'relative' }}>
-          <div style={{ position: 'absolute', left: '50%', top: 0, bottom: 0, width: '2px', background: 'var(--border)', transform: 'translateX(-50%)' }}></div>
-          {timeline.map((item, idx) => (
-            <motion.div 
-              key={idx}
-              variants={fadeInUp}
-              initial="initial"
-              whileInView="whileInView"
-              viewport={{ once: true, margin: "-100px" }}
-              style={{ 
-                display: 'flex', 
-                justifyContent: idx % 2 === 0 ? 'flex-start' : 'flex-end',
-                paddingBottom: '4rem',
-                position: 'relative'
-              }}
-            >
-              <div style={{ 
-                width: '45%', 
-                textAlign: idx % 2 === 0 ? 'right' : 'left',
-                position: 'relative'
-              }}>
-                <div style={{
-                  position: 'absolute',
-                  top: '0',
-                  [idx % 2 === 0 ? 'right' : 'left']: '-11%',
-                  width: '20px', height: '20px',
-                  borderRadius: '50%',
-                  background: 'var(--bg-primary)',
-                  border: '3px solid var(--primary-gold)',
-                  boxShadow: '0 0 15px rgba(200,164,106,0.5)',
-                  zIndex: 2
-                }}></div>
-                <h3 className="card-title text-primary-gold mb-2" style={{ color: 'var(--primary-gold)', marginBottom: '0.5rem' }}>{item.year}</h3>
-                <h4 style={{ fontSize: '1.25rem', color: 'var(--heading)', marginBottom: '0.5rem' }}>{item.title}</h4>
-                <p className="card-text">{item.desc}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </section>
+
 
       {/* CTA */}
       <section className="landing-section text-center">
