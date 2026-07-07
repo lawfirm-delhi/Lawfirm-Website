@@ -18,6 +18,8 @@ import Services from './pages/LandingPages/Services/Services';
 import Testimonials from './pages/LandingPages/Testimonials/Testimonials';
 import FAQ from './pages/LandingPages/FAQ/FAQ';
 import TeamMember from './pages/LandingPages/TeamMember';
+import PrivacyPolicy from './pages/LandingPages/Legal/PrivacyPolicy';
+import TermsOfUse from './pages/LandingPages/Legal/TermsOfUse';
 
 // Context
 import { AuthProvider } from './context/AuthContext';
@@ -153,9 +155,8 @@ function Layout({ children }) {
           <div className="footer-bottom">
             <span>© 2026 Justice &amp; Associates. All rights reserved.</span>
             <div className="footer-legal">
-              <a href="#">Privacy Policy</a>
-              <a href="#">Terms of Use</a>
-              <a href="#">Disclaimer</a>
+              <Link to="/privacy">Privacy Policy</Link>
+              <Link to="/terms">Terms of Use</Link>
             </div>
           </div>
         </div>
@@ -202,6 +203,8 @@ function MainApp() {
             <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/team/:slug" element={<TeamMember />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfUse />} />
           </Routes>
         </Layout>
       )}
