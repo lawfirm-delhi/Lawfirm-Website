@@ -70,14 +70,18 @@ function Layout({ children }) {
               <Link to="/faq" onClick={() => setMenuOpen(false)}>FAQ</Link>
               <Link to="/consultation" className="nav-cta" onClick={() => setMenuOpen(false)}>Book a Consultation</Link>
             </div>
+            <div className="mobile-auth-nav">
+              <Link to="/signin" className="btn btn-ghost" onClick={() => setMenuOpen(false)}>Client Login</Link>
+              <Link to="/signup" className="btn btn-primary" onClick={() => setMenuOpen(false)}>Create Account</Link>
+            </div>
           </div>
 
-          <div className="nav-actions" style={{display: 'flex', alignItems: 'center', gap: '1rem'}}>
-            <div className="desktop-auth-nav" style={{display: 'flex', gap: '1rem'}}>
-              <Link to="/signin" className="btn btn-ghost" style={{padding: '0.5rem 1rem', fontSize: '0.85rem'}} onClick={() => setMenuOpen(false)}>Client Login</Link>
-              <Link to="/signup" className="btn btn-primary" style={{padding: '0.5rem 1rem', fontSize: '0.85rem'}} onClick={() => setMenuOpen(false)}>Create Account</Link>
+          <div className="nav-actions">
+            <div className="desktop-auth-nav">
+              <Link to="/signin" className="btn btn-ghost" onClick={() => setMenuOpen(false)}>Client Login</Link>
+              <Link to="/signup" className="btn btn-primary" onClick={() => setMenuOpen(false)}>Create Account</Link>
             </div>
-            <button className={`nav-toggle ${menuOpen ? 'is-active' : ''}`} aria-expanded={menuOpen} onClick={() => { setMenuOpen(!menuOpen); }} aria-label="Open menu" style={{marginLeft: '0.5rem'}}>
+            <button className={`nav-toggle ${menuOpen ? 'is-active' : ''}`} aria-expanded={menuOpen} onClick={() => { setMenuOpen(!menuOpen); }} aria-label="Open menu">
               <span></span><span></span><span></span>
             </button>
           </div>
