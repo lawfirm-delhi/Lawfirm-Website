@@ -72,14 +72,15 @@
 }
 
 .sidebar-footer .btn-outline {
-  border-color: rgba(255, 255, 255, 0.2);
-  color: var(--bg-primary);
+  background: var(--bg-primary);
+  border-color: transparent;
+  color: var(--heading);
   width: 100%;
 }
 
 .sidebar-footer .btn-outline:hover {
-  background: var(--bg-primary);
-  color: var(--heading);
+  background: var(--primary-gold);
+  color: var(--bg-primary);
 }
 
 /* Main Content */
