@@ -37,7 +37,7 @@ class ConsultationService {
       const transporter = await createTransporter();
       const mailOptions = {
         from: '"Justice & Associates Booking" <no-reply@justiceassociates.com>',
-        to: 'codebreaker2603@gmail.com',
+        to: process.env.ADMIN_EMAIL || 'lawfirm.delhi.official@gmail.com',
         subject: `New Consultation Booking: ${data.fullName}`,
         text: `A new consultation has been booked.
         
