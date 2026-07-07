@@ -8,32 +8,32 @@
    ========================================================================== */
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 
-  /* Backgrounds */
-  --bg-primary: #0B1628;
-  --bg-secondary: #101C31;
-  --bg-tertiary: #162744;
+  /* Backgrounds (Cream) */
+  --bg-primary: #FCFBF8;
+  --bg-secondary: #F3EFE6;
+  --bg-tertiary: #E8E2D2;
 
   /* Luxury Gradient */
-  --gradient-start: #091423;
-  --gradient-middle: #0E1D33;
-  --gradient-end: #132748;
+  --gradient-start: #FFFFFF;
+  --gradient-middle: #F5F2EA;
+  --gradient-end: #EBE4D5;
   --bg-gradient: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-middle) 40%, var(--gradient-end) 100%);
 
-  /* Brand Colors */
-  --primary-gold: #C8A46A;
-  --gold-hover: #D7B67A;
-  --gold-dark: #A37A3A;
+  /* Brand Colors (Light Royal Blue) */
+  --primary-gold: #4A7AFF;
+  --gold-hover: #3A66E5;
+  --gold-dark: #2B52CC;
 
-  /* Typography */
-  --heading: #F6F2EC;
-  --body: #C4CBD7;
-  --muted: #9BA9BE;
+  /* Typography (Dark Royal Blue) */
+  --heading: #0B1D45;
+  --body: #2B3A5A;
+  --muted: #5C6E91;
 
   /* Borders */
-  --border: #263A59;
-  --divider: rgba(200, 164, 106, 0.15);
+  --border: #D8D2C3;
+  --divider: rgba(11, 29, 69, 0.1);
 
   /* Status */
   --success: #3FA26C;
@@ -47,10 +47,10 @@
   --font-mono: 'IBM Plex Mono', monospace;
 
   /* Shadows */
-  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.12);
-  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.18);
-  --shadow-lg: 0 18px 50px rgba(0, 0, 0, 0.30);
-  --shadow-gold: 0 8px 24px rgba(200, 164, 106, 0.25);
+  --shadow-sm: 0 4px 12px rgba(11, 29, 69, 0.05);
+  --shadow-md: 0 8px 24px rgba(11, 29, 69, 0.08);
+  --shadow-lg: 0 18px 50px rgba(11, 29, 69, 0.12);
+  --shadow-gold: 0 8px 24px rgba(74, 122, 255, 0.25);
 
   /* Utilities */
   --container-w: 1240px;
@@ -153,7 +153,7 @@ h1, h2, h3, h4 {
 
 :focus-visible {
   outline: none;
-  box-shadow: 0 0 0 4px rgba(200, 164, 106, 0.15);
+  box-shadow: 0 0 0 4px rgba(74, 122, 255, 0.15);
   border-color: var(--primary-gold);
 }
 
@@ -200,7 +200,7 @@ h1, h2, h3, h4 {
 .btn-primary:hover {
   background: var(--gold-hover);
   transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(200, 164, 106, 0.35);
+  box-shadow: 0 12px 28px rgba(74, 122, 255, 0.35);
 }
 
 .btn-ghost {
@@ -209,7 +209,7 @@ h1, h2, h3, h4 {
   color: var(--heading);
 }
 .btn-ghost:hover {
-  background: rgba(200, 164, 106, 0.08);
+  background: rgba(74, 122, 255, 0.08);
   transform: translateY(-4px);
 }
 
@@ -275,7 +275,7 @@ h1, h2, h3, h4 {
   border-bottom: 1px solid transparent;
 }
 .site-header.is-solid {
-  background: rgba(11, 22, 40, 0.85);
+  background: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--divider);
@@ -381,7 +381,7 @@ h1, h2, h3, h4 {
   display: none !important;
 }
 .nav-cta:hover {
-  background: rgba(200, 164, 106, 0.08);
+  background: rgba(74, 122, 255, 0.08);
   transform: translateY(-2px);
 }
 
@@ -409,7 +409,7 @@ h1, h2, h3, h4 {
   transition: background var(--duration) var(--ease);
 }
 .icon-btn:hover {
-  background: rgba(200, 164, 106, 0.08);
+  background: rgba(74, 122, 255, 0.08);
 }
 .nav-toggle {
   display: none;
@@ -429,7 +429,7 @@ h1, h2, h3, h4 {
 .search-panel {
   max-height: 0;
   overflow: hidden;
-  background: rgba(11, 22, 40, 0.95);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid transparent;
   transition: max-height 400ms var(--ease), border-color 400ms var(--ease);
@@ -488,7 +488,7 @@ h1, h2, h3, h4 {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 15% 20%, rgba(200, 164, 106, 0.08), transparent 45%);
+  background: radial-gradient(circle at 15% 20%, rgba(74, 122, 255, 0.08), transparent 45%);
   pointer-events: none;
 }
 .hero-grid {
@@ -780,7 +780,7 @@ h1, h2, h3, h4 {
 .team-card.is-revealed:hover, .service-card.is-revealed:hover, .testimonial-card.is-revealed:hover, 
 .blog-card.is-revealed:hover, .faq-item.is-revealed:hover {
   border-color: var(--primary-gold);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.30), 0 0 30px rgba(200,164,106,0.12);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.30), 0 0 30px rgba(74, 122, 255,0.12);
   z-index: 10;
 }
 
@@ -790,7 +790,7 @@ h1, h2, h3, h4 {
   content: '';
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
-  background: radial-gradient(circle 180px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(200, 164, 106, 0.08), transparent 70%);
+  background: radial-gradient(circle 180px at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(74, 122, 255, 0.08), transparent 70%);
   opacity: 0;
   transition: opacity 300ms var(--ease);
   pointer-events: none;
@@ -1045,7 +1045,7 @@ h1, h2, h3, h4 {
 }
 .upload-drop:hover {
   border-color: var(--primary-gold);
-  background: rgba(200, 164, 106, 0.05);
+  background: rgba(74, 122, 255, 0.05);
 }
 
 .case-track-form {
@@ -1271,7 +1271,7 @@ input::placeholder, select::placeholder, textarea::placeholder {
 input:focus, select:focus, textarea:focus {
   outline: none;
   border-color: var(--primary-gold);
-  box-shadow: 0 0 0 4px rgba(200, 164, 106, 0.15);
+  box-shadow: 0 0 0 4px rgba(74, 122, 255, 0.15);
 }
 
 /* Global styling for select dropdown options */
@@ -1328,7 +1328,7 @@ tr:nth-child(odd) {
   background: var(--bg-secondary);
 }
 tr:hover {
-  background: rgba(200, 164, 106, 0.08);
+  background: rgba(74, 122, 255, 0.08);
 }
 
 /* ---------- Footer ---------- */
@@ -1537,7 +1537,7 @@ tr:hover {
 }
 .live-chat-toggle:hover {
   transform: scale(1.08);
-  box-shadow: 0 12px 28px rgba(200, 164, 106, 0.35);
+  box-shadow: 0 12px 28px rgba(74, 122, 255, 0.35);
 }
 
 /* ---------- Responsive ---------- */
@@ -1584,7 +1584,7 @@ tr:hover {
     width: 100%;
     max-width: 320px;
     height: 100vh;
-    background: rgba(11, 22, 40, 0.98);
+    background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(12px);
     flex-direction: column;
     justify-content: center;
@@ -1611,7 +1611,7 @@ tr:hover {
     gap: 1rem;
     width: 80%;
     margin-top: 1rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 1px solid rgba(11, 29, 69, 0.1);
     padding-top: 2rem;
   }
   .mobile-auth-nav .btn {

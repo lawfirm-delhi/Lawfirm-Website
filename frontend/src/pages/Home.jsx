@@ -139,31 +139,31 @@ export default function Home() {
               <svg className="hero-visual" viewBox="0 0 420 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Illustration of a classical courthouse facade with a balanced scale of justice">
                 <defs>
                   <radialGradient id="auraGrad" cx="50%" cy="35%" r="60%">
-                    <stop offset="0%" stopColor="#B8935A" stopOpacity="0.35"/>
-                    <stop offset="100%" stopColor="#0A1628" stopOpacity="0"/>
+                    <stop offset="0%" stopColor="#3A66E5" stopOpacity="0.35"/>
+                    <stop offset="100%" stopColor="#F3EFE6" stopOpacity="0"/>
                   </radialGradient>
                   <linearGradient id="pillarGrad" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="0%" stopColor="#D4B888"/>
-                    <stop offset="100%" stopColor="#8A6A3E"/>
+                    <stop offset="0%" stopColor="#4A7AFF"/>
+                    <stop offset="100%" stopColor="#2B52CC"/>
                   </linearGradient>
                   <linearGradient id="sweepGrad" x1="0" y1="0" x2="1" y2="0">
-                    <stop offset="0%" stopColor="#D4B888" stopOpacity="0"/>
-                    <stop offset="50%" stopColor="#D4B888" stopOpacity="0.5"/>
-                    <stop offset="100%" stopColor="#D4B888" stopOpacity="0"/>
+                    <stop offset="0%" stopColor="#4A7AFF" stopOpacity="0"/>
+                    <stop offset="50%" stopColor="#4A7AFF" stopOpacity="0.5"/>
+                    <stop offset="100%" stopColor="#4A7AFF" stopOpacity="0"/>
                   </linearGradient>
                   <clipPath id="frameClip"><rect x="0" y="0" width="420" height="460" rx="4"/></clipPath>
                 </defs>
 
-                <rect width="420" height="460" fill="#0A1628"/>
+                <rect width="420" height="460" fill="#F3EFE6"/>
                 <circle className="hero-visual-bg" cx="210" cy="150" r="180" fill="url(#auraGrad)"/>
 
                 <g clipPath="url(#frameClip)">
-                  <circle className="hero-visual-star" cx="60" cy="70" r="1.4" fill="#D4B888"/>
-                  <circle className="hero-visual-star" cx="340" cy="55" r="1.6" fill="#D4B888"/>
-                  <circle className="hero-visual-star" cx="300" cy="110" r="1.1" fill="#D4B888"/>
+                  <circle className="hero-visual-star" cx="60" cy="70" r="1.4" fill="#4A7AFF"/>
+                  <circle className="hero-visual-star" cx="340" cy="55" r="1.6" fill="#4A7AFF"/>
+                  <circle className="hero-visual-star" cx="300" cy="110" r="1.1" fill="#4A7AFF"/>
 
-                  <path d="M70 190 L210 120 L350 190 Z" fill="#15304F" stroke="#B8935A" strokeWidth="1"/>
-                  <rect x="60" y="188" width="300" height="14" fill="#1B3A5C" stroke="#B8935A" strokeWidth="0.75"/>
+                  <path d="M70 190 L210 120 L350 190 Z" fill="#EBE4D5" stroke="#3A66E5" strokeWidth="1"/>
+                  <rect x="60" y="188" width="300" height="14" fill="#D8D2C3" stroke="#3A66E5" strokeWidth="0.75"/>
 
                   <g>
                     <rect className="hero-visual-column" x="88" y="205" width="16" height="150" fill="url(#pillarGrad)"/>
@@ -173,28 +173,28 @@ export default function Home() {
                     <rect className="hero-visual-column" x="320" y="205" width="16" height="150" fill="url(#pillarGrad)"/>
                   </g>
 
-                  <rect x="60" y="355" width="300" height="10" fill="#1B3A5C"/>
-                  <rect x="45" y="365" width="330" height="10" fill="#15304F"/>
-                  <rect x="30" y="375" width="360" height="10" fill="#0F2440"/>
+                  <rect x="60" y="355" width="300" height="10" fill="#D8D2C3"/>
+                  <rect x="45" y="365" width="330" height="10" fill="#EBE4D5"/>
+                  <rect x="30" y="375" width="360" height="10" fill="#D1C9B6"/>
 
                   <rect className="hero-visual-sweep" x="0" y="0" width="120" height="460" fill="url(#sweepGrad)"/>
 
                   <g className="hero-visual-beam">
-                    <line x1="140" y1="150" x2="280" y2="150" stroke="#D4B888" strokeWidth="2.5" strokeLinecap="round"/>
-                    <line x1="210" y1="118" x2="210" y2="150" stroke="#D4B888" strokeWidth="2.5"/>
-                    <circle className="hero-visual-glow" cx="210" cy="118" r="46" fill="#B8935A" opacity="0.4"/>
-                    <circle cx="210" cy="118" r="7" fill="#D4B888"/>
+                    <line x1="140" y1="150" x2="280" y2="150" stroke="#4A7AFF" strokeWidth="2.5" strokeLinecap="round"/>
+                    <line x1="210" y1="118" x2="210" y2="150" stroke="#4A7AFF" strokeWidth="2.5"/>
+                    <circle className="hero-visual-glow" cx="210" cy="118" r="46" fill="#3A66E5" opacity="0.4"/>
+                    <circle cx="210" cy="118" r="7" fill="#4A7AFF"/>
 
-                    <line x1="140" y1="150" x2="140" y2="172" stroke="#D4B888" strokeWidth="1.6"/>
-                    <path d="M124 172 Q140 194 156 172" stroke="#D4B888" strokeWidth="1.6" fill="none"/>
-                    <line x1="124" y1="172" x2="156" y2="172" stroke="#D4B888" strokeWidth="1.6"/>
+                    <line x1="140" y1="150" x2="140" y2="172" stroke="#4A7AFF" strokeWidth="1.6"/>
+                    <path d="M124 172 Q140 194 156 172" stroke="#4A7AFF" strokeWidth="1.6" fill="none"/>
+                    <line x1="124" y1="172" x2="156" y2="172" stroke="#4A7AFF" strokeWidth="1.6"/>
 
-                    <line x1="280" y1="150" x2="280" y2="172" stroke="#D4B888" strokeWidth="1.6"/>
-                    <path d="M264 172 Q280 194 296 172" stroke="#D4B888" strokeWidth="1.6" fill="none"/>
-                    <line x1="264" y1="172" x2="296" y2="172" stroke="#D4B888" strokeWidth="1.6"/>
+                    <line x1="280" y1="150" x2="280" y2="172" stroke="#4A7AFF" strokeWidth="1.6"/>
+                    <path d="M264 172 Q280 194 296 172" stroke="#4A7AFF" strokeWidth="1.6" fill="none"/>
+                    <line x1="264" y1="172" x2="296" y2="172" stroke="#4A7AFF" strokeWidth="1.6"/>
                   </g>
                 </g>
-                <rect x="1" y="1" width="418" height="458" fill="none" stroke="#B8935A" strokeOpacity="0.25"/>
+                <rect x="1" y="1" width="418" height="458" fill="none" stroke="#3A66E5" strokeOpacity="0.25"/>
               </svg>
               <div className="hero-art-caption">
                 <span>Est. Delhi, 2011</span>
