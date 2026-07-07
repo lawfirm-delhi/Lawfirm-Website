@@ -2,16 +2,17 @@ const { db } = require('../config/database');
 const { v4: uuidv4 } = require('uuid');
 
 class ConsultationRepository {
-  async getNextReferenceNumber() {
+  async getNextReferenceNumber(trx) {
     const year = new Date().getFullYear();
-    const countRecord = await db('consultations').count('id as count').first();
+    const query = trx ? trx('consultations') : db('consultations');
+    const countRecord = await query.count('id as count').first();
     const nextNum = parseInt(countRecord.count, 10) + 1;
     return `CONS-${year}-${nextNum.toString().padStart(6, '0')}`;
   }
 
   async createConsultation(data, documents) {
     return await db.transaction(async (trx) => {
-      const refNumber = await this.getNextReferenceNumber();
+      const refNumber = await this.getNextReferenceNumber(trx);
       
       const consultation = await trx('consultations').insert({
         id: uuidv4(),
