@@ -127,11 +127,21 @@ export default function Consultation() {
     setIsSubmitting(true);
     try {
       const data = new FormData();
+      
+      const keyMap = {
+        fullName: 'name',
+        mobile: 'phone',
+        mode: 'consultationMode',
+        date: 'preferredDate',
+        time: 'preferredTime'
+      };
+
       Object.keys(formData).forEach(key => {
         if (key === 'files') {
           formData.files.forEach(file => data.append('documents', file));
         } else {
-          data.append(key, formData[key]);
+          const backendKey = keyMap[key] || key;
+          data.append(backendKey, formData[key]);
         }
       });
       
