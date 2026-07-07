@@ -4,6 +4,7 @@ const cors = require('cors');
 const compression = require('compression');
 const rateLimit = require('express-rate-limit');
 const cookieParser = require('cookie-parser');
+const path = require('path');
 const errorHandler = require('./middleware/errorHandler');
 const { successResponse } = require('./utils/response');
 
@@ -21,6 +22,7 @@ app.use(compression());
 app.use(express.json({ limit: '1mb' }));
 app.use(express.urlencoded({ extended: true, limit: '1mb' }));
 app.use(cookieParser());
+app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
 // Rate Limiting
 const limiter = rateLimit({
@@ -40,6 +42,7 @@ app.get('/health', (req, res) => {
 app.use('/api/v1/auth', require('./routes/auth.routes'));
 app.use('/api/v1/consultations', require('./routes/consultation.routes'));
 app.use('/api/v1/admin', require('./routes/admin.routes'));
+app.use('/api/v1/documents', require('./routes/document.routes'));
 
 // Central Error Handler
 app.use(errorHandler);
