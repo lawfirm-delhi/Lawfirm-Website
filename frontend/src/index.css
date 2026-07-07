@@ -679,9 +679,9 @@ h1, h2, h3, h4 {
 }
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.95rem;
+  font-size: 1.25rem;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
   color: var(--primary-gold);
   display: flex;
@@ -703,7 +703,7 @@ h1, h2, h3, h4 {
   color: var(--primary-gold);
 }
 .section-head h2 {
-  font-size: clamp(2.6rem, 5vw, 4.4rem);
+  font-size: clamp(3.2rem, 6vw, 5rem);
   line-height: 1.06;
   margin-bottom: 1.15rem;
 }
