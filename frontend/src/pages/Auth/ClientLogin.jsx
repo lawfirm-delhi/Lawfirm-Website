@@ -35,7 +35,7 @@ export default function ClientLogin() {
       setLoadingText('Secure Session Created');
       // Briefly show success state then redirect
       setTimeout(() => {
-        navigate('/');
+        navigate('/dashboard');
       }, 500);
     } catch (err) {
       setIsSubmitting(false);

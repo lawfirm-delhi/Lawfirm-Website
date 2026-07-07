@@ -10,6 +10,15 @@ class ConsultationController {
       next(err);
     }
   }
+
+  async getMe(req, res, next) {
+    try {
+      const consultations = await consultationService.getConsultationsForUser(req.user.id);
+      successResponse(res, 200, 'User consultations retrieved', consultations);
+    } catch (err) {
+      next(err);
+    }
+  }
 }
 
 module.exports = new ConsultationController();

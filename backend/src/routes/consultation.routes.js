@@ -3,7 +3,10 @@ const router = express.Router();
 const consultationController = require('../controllers/consultation.controller');
 const upload = require('../middleware/upload');
 const validate = require('../middleware/validate');
+const authenticate = require('../middleware/authenticate');
 const { consultationSchema } = require('../models/consultation.schema');
+
+router.get('/me', authenticate, consultationController.getMe);
 
 const handleUpload = (req, res, next) => {
   const uploadArray = upload.array('documents', 5);

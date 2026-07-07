@@ -5,6 +5,8 @@ import Consultation from './pages/Consultation/Consultation';
 import ClientLogin from './pages/Auth/ClientLogin';
 import ClientRegister from './pages/Auth/ClientRegister';
 import ForgotPassword from './pages/Auth/ForgotPassword';
+import Dashboard from './pages/ClientPortal/Dashboard';
+import ProtectedRoute from './components/ProtectedRoute';
 
 // Landing Pages
 import WhyUs from './pages/LandingPages/WhyUs/WhyUs';
@@ -158,6 +160,7 @@ function Layout({ children }) {
 function MainApp() {
   const { pathname } = useLocation();
   const isAuthPage = pathname === '/signin' || pathname === '/signup' || pathname === '/forgot-password';
+  const isDashboard = pathname.startsWith('/dashboard');
 
   return (
     <>
@@ -167,6 +170,12 @@ function MainApp() {
           <Route path="/signin" element={<ClientLogin />} />
           <Route path="/signup" element={<ClientRegister />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
+        </Routes>
+      ) : isDashboard ? (
+        <Routes>
+          <Route element={<ProtectedRoute />}>
+            <Route path="/dashboard/*" element={<Dashboard />} />
+          </Route>
         </Routes>
       ) : (
         <Layout>

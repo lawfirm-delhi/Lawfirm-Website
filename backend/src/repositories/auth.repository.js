@@ -29,6 +29,23 @@ class AuthRepository {
     return await db('users').where({ email, deleted_at: null }).first();
   }
 
+  async getUserById(id) {
+    // Select user and client details if they exist
+    return await db('users')
+      .leftJoin('clients', 'users.id', 'clients.user_id')
+      .where('users.id', id)
+      .whereNull('users.deleted_at')
+      .select(
+        'users.id',
+        'users.email',
+        'users.role',
+        'clients.full_name',
+        'clients.mobile',
+        'clients.company'
+      )
+      .first();
+  }
+
   async saveRefreshToken(userId, token, expiresAt) {
     return await db('refresh_tokens').insert({
       id: uuidv4(),

@@ -69,6 +69,10 @@ ${data.description}
       message: 'Consultation booked successfully. We will contact you shortly.'
     };
   }
+
+  async getConsultationsForUser(userId) {
+    return await consultationRepo.getConsultationsByUserId(userId);
+  }
 }
 
 module.exports = new ConsultationService();

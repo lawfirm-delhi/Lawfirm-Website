@@ -25,3 +25,4 @@
 {"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-07-06T15:07:29.191Z"}
 {"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-07-06T15:16:09.241Z"}
 {"level":"error","message":"500 - insert into `refresh_tokens` (`expires_at`, `id`, `token`, `user_id`) values ('2026-07-13 21:08:34.130', 'c7509556-6761-4ea2-b044-9f3d2c1781fd', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjA3OTNkMzhiLTY0ZTMtNGNjYi04NjdkLWE4MDk5ZWFiYzUyNyIsInJvbGUiOiJjbGllbnQiLCJpYXQiOjE3ODMzNTIzMTQsImV4cCI6MTc4Mzk1NzExNH0.qov4iEEUWk4FCKIU9z-bhATdYea3DjDpYG0KUrFZWAY', '0793d38b-64e3-4ccb-867d-a8099eabc527') - SQLITE_CONSTRAINT: UNIQUE constraint failed: refresh_tokens.token - /api/v1/auth/refresh - POST - ::1","timestamp":"2026-07-06T15:38:34.148Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-07-07T10:18:37.584Z"}

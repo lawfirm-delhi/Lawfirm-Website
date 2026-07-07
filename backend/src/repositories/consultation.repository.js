@@ -47,6 +47,29 @@ class ConsultationRepository {
       return consultation[0];
     });
   }
+  async getConsultationsByUserId(userId) {
+    // 1. Get the client record for this user
+    const client = await db('clients').where('user_id', userId).first();
+    const user = await db('users').where('id', userId).first();
+
+    // 2. Fetch consultations matching either the client_id or the user's email
+    let query = db('consultations')
+      .where('deleted_at', null)
+      .orderBy('created_at', 'desc');
+
+    if (client) {
+      query = query.where(function() {
+        this.where('client_id', client.id)
+            .orWhere('email', user.email);
+      });
+    } else if (user) {
+      query = query.where('email', user.email);
+    } else {
+      return [];
+    }
+
+    return await query;
+  }
 }
 
 module.exports = new ConsultationRepository();

@@ -17,12 +17,9 @@ export const AuthProvider = ({ children }) => {
         const { accessToken } = response.data.data;
         setAuthToken(accessToken);
         
-        // Since refresh doesn't return user, we would normally fetch /auth/me here.
-        // For now, we will set a placeholder or decode the JWT if needed.
-        // Let's assume we decode the JWT or we just set isAuthenticated to true by setting a dummy user for now if /me doesn't exist.
-        // Wait, does the JWT have user info? Yes, usually.
-        // For now, setting a minimal user so isAuthenticated is true.
-        setUser({ id: 'active-session' });
+        // Fetch the user's full profile
+        const userResponse = await api.get('/auth/me');
+        setUser(userResponse.data.data);
       } catch (error) {
         setAuthToken(null);
         setUser(null);

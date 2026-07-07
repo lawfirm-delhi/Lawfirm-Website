@@ -68,7 +68,7 @@ export default function ClientRegister() {
       });
       setLoadingText('Secure Session Created');
       setTimeout(() => {
-        navigate('/');
+        navigate('/dashboard');
       }, 500);
     } catch (err) {
       setIsSubmitting(false);

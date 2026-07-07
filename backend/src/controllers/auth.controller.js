@@ -36,6 +36,15 @@ class AuthController {
     }
   }
 
+  async getMe(req, res, next) {
+    try {
+      // req.user is injected by the authenticate middleware
+      successResponse(res, 200, 'User retrieved successfully', req.user);
+    } catch (err) {
+      next(err);
+    }
+  }
+
   async refresh(req, res, next) {
     try {
       const { refreshToken } = req.body || {};
