@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Mail, Phone, Linkedin } from 'lucide-react';
+import { ArrowLeft, Mail, Phone } from 'lucide-react';
 import './TeamMember.css';
 
 const teamData = {
@@ -83,7 +83,6 @@ export default function TeamMember() {
                 {member.phone}
               </a>
               <a href="#" className="contact-item">
-                <Linkedin size={18} />
                 LinkedIn Profile
               </a>
             </div>

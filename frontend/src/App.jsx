@@ -17,7 +17,6 @@ import Team from './pages/LandingPages/Team/Team';
 import Services from './pages/LandingPages/Services/Services';
 import Testimonials from './pages/LandingPages/Testimonials/Testimonials';
 import FAQ from './pages/LandingPages/FAQ/FAQ';
-import Contact from './pages/LandingPages/Contact';
 import TeamMember from './pages/LandingPages/TeamMember';
 
 // Context
@@ -198,7 +197,6 @@ function MainApp() {
             <Route path="/services" element={<Services />} />
             <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/faq" element={<FAQ />} />
-            <Route path="/contact" element={<Contact />} />
             <Route path="/team/:slug" element={<TeamMember />} />
           </Routes>
         </Layout>
