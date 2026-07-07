@@ -31,11 +31,15 @@ export default function ClientLogin() {
     setLoadingText('Authenticating...');
     
     try {
-      await login(email, password);
+      const loggedInUser = await login(email, password);
       setLoadingText('Secure Session Created');
       // Briefly show success state then redirect
       setTimeout(() => {
-        navigate('/dashboard');
+        if (loggedInUser.role === 'admin' || loggedInUser.role === 'superadmin' || loggedInUser.role === 'lawyer') {
+          navigate('/admin/dashboard');
+        } else {
+          navigate('/dashboard');
+        }
       }, 500);
     } catch (err) {
       setIsSubmitting(false);

@@ -7,6 +7,8 @@ import ClientRegister from './pages/Auth/ClientRegister';
 import ForgotPassword from './pages/Auth/ForgotPassword';
 import Dashboard from './pages/ClientPortal/Dashboard';
 import ProtectedRoute from './components/ProtectedRoute';
+import AdminDashboard from './pages/AdminPortal/AdminDashboard';
+import AdminRoute from './components/AdminRoute';
 
 // Landing Pages
 import WhyUs from './pages/LandingPages/WhyUs/WhyUs';
@@ -175,6 +177,12 @@ function MainApp() {
         <Routes>
           <Route element={<ProtectedRoute />}>
             <Route path="/dashboard/*" element={<Dashboard />} />
+          </Route>
+        </Routes>
+      ) : pathname.startsWith('/admin') ? (
+        <Routes>
+          <Route element={<AdminRoute />}>
+            <Route path="/admin/dashboard/*" element={<AdminDashboard />} />
           </Route>
         </Routes>
       ) : (

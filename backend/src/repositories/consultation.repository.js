@@ -70,6 +70,20 @@ class ConsultationRepository {
 
     return await query;
   }
+
+  async getAllConsultations() {
+    return await db('consultations')
+      .where('deleted_at', null)
+      .orderBy('created_at', 'desc');
+  }
+
+  async updateConsultationStatus(id, status) {
+    const updated = await db('consultations')
+      .where({ id })
+      .update({ status })
+      .returning('*');
+    return updated[0];
+  }
 }
 
 module.exports = new ConsultationRepository();
