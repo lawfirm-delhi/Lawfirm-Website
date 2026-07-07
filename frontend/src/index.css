@@ -679,7 +679,8 @@ h1, h2, h3, h4 {
 }
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.76rem;
+  font-size: 0.95rem;
+  font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--primary-gold);
