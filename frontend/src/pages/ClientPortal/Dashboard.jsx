@@ -91,7 +91,7 @@ export default function Dashboard() {
 
       <main className="dashboard-main">
         <header className="dashboard-header">
-          <h1>Welcome back, {user?.fullName || 'Client'}</h1>
+          <h1>Welcome back, {user?.full_name || user?.fullName || 'Client'}</h1>
           <p className="subtitle">Manage your legal matters securely.</p>
         </header>
 
@@ -111,7 +111,7 @@ export default function Dashboard() {
             <div className="profile-card">
               <h3>Profile Information</h3>
               <div className="profile-details">
-                <p><strong>Name:</strong> {user?.fullName}</p>
+                <p><strong>Name:</strong> {user?.full_name || user?.fullName}</p>
                 <p><strong>Email:</strong> {user?.email}</p>
                 <p><strong>Phone:</strong> {user?.mobile}</p>
                 {user?.company && <p><strong>Company:</strong> {user?.company}</p>}
