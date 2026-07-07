@@ -309,26 +309,26 @@ export default function Home() {
           </div>
 
           <div className="team-grid">
-            <div className="team-card reveal">
+            <Link to="/team/arjun-mehta" className="team-card reveal" style={{ textDecoration: 'none', color: 'inherit' }}>
               <div className="team-photo"></div>
               <h3>Arjun Mehta</h3>
               <p className="team-role">Managing Partner</p>
-            </div>
-            <div className="team-card reveal">
+            </Link>
+            <Link to="/team/priya-sharma" className="team-card reveal" style={{ textDecoration: 'none', color: 'inherit' }}>
               <div className="team-photo"></div>
               <h3>Priya Sharma</h3>
               <p className="team-role">Head of Litigation</p>
-            </div>
-            <div className="team-card reveal">
+            </Link>
+            <Link to="/team/rohan-kapoor" className="team-card reveal" style={{ textDecoration: 'none', color: 'inherit' }}>
               <div className="team-photo"></div>
               <h3>Rohan Kapoor</h3>
               <p className="team-role">Partner, Corporate Practice</p>
-            </div>
-            <div className="team-card reveal">
+            </Link>
+            <Link to="/team/ananya-desai" className="team-card reveal" style={{ textDecoration: 'none', color: 'inherit' }}>
               <div className="team-photo"></div>
               <h3>Ananya Desai</h3>
               <p className="team-role">Partner, IP &amp; Technology</p>
-            </div>
+            </Link>
           </div>
         </div>
       </section>

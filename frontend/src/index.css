@@ -826,8 +826,7 @@ h1, h2, h3, h4 {
   opacity: 0;
   transform: scale(1.12);
   filter: blur(4px);
-  clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
-  transition: opacity 800ms var(--ease), transform 800ms var(--ease), filter 800ms var(--ease), clip-path 800ms var(--ease);
+  transition: opacity 800ms var(--ease), transform 800ms var(--ease), filter 800ms var(--ease);
   transition-delay: 200ms;
 }
 
@@ -851,7 +850,6 @@ h1, h2, h3, h4 {
   opacity: 1;
   transform: scale(1);
   filter: blur(0);
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }
 
 /* ---------- Why Choose Us ---------- */
@@ -965,8 +963,8 @@ h1, h2, h3, h4 {
   text-align: left;
 }
 .team-photo {
-  aspect-ratio: 3/4;
-  border-radius: var(--radius-sm);
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
   margin-bottom: 1.1rem;
   position: relative;
   overflow: hidden;
@@ -976,6 +974,7 @@ h1, h2, h3, h4 {
   content: '';
   position: absolute;
   inset: 0;
+  border-radius: 50%;
   border: 1px solid var(--divider);
 }
 .team-card h3 {
