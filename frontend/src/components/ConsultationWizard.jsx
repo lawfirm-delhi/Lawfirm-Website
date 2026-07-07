@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { UploadCloud, CheckCircle, Briefcase, ChevronRight, X, Video, Phone } from 'lucide-react';
+import api from '../../api/axios';
 import '../pages/Consultation/Consultation.css';
 
 export default function ConsultationWizard() {
@@ -20,14 +21,40 @@ export default function ConsultationWizard() {
   const handleNext = () => setStep(s => Math.min(s + 1, 6));
   const handleBack = () => setStep(s => Math.max(s - 1, 1));
 
-  const submitForm = () => {
+  const submitForm = async () => {
     setIsSubmitting(true);
-    // Mock API Call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setRefNumber(`CONS-2026-${Math.floor(100000 + Math.random() * 900000)}`);
+    try {
+      const data = new FormData();
+      
+      const keyMap = {
+        fullName: 'name',
+        mobile: 'phone',
+        mode: 'consultationMode',
+        date: 'preferredDate',
+        time: 'preferredTime'
+      };
+
+      Object.keys(formData).forEach(key => {
+        if (key === 'files') {
+          formData.files.forEach(file => data.append('documents', file));
+        } else {
+          const backendKey = keyMap[key] || key;
+          data.append(backendKey, formData[key]);
+        }
+      });
+      
+      const response = await api.post('/consultations', data, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      });
+      
+      setRefNumber(response.data.data.reference_number);
       setStep(6);
-    }, 2000);
+    } catch (err) {
+      console.error(err);
+      alert('Failed to submit consultation request. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleFileUpload = (e) => {
