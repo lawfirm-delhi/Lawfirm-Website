@@ -83,7 +83,7 @@ export default function Testimonials() {
                   </div>
                 </div>
                 <div style={{ position: 'absolute', bottom: '2rem', left: '2rem' }}>
-                  <h3 className="card-title text-white" style={{ marginBottom: '0.2rem', color: '#fff' }}>{video === 1 ? 'Meridian Tech Acquisition' : 'Rostova Development Appeal'}</h3>
+                  <h3 className="card-title " style={{ marginBottom: '0.2rem', color: 'var(--heading)' }}>{video === 1 ? 'Meridian Tech Acquisition' : 'Rostova Development Appeal'}</h3>
                   <p style={{ color: 'var(--primary-gold)' }}>Watch Case Study</p>
                 </div>
               </div>

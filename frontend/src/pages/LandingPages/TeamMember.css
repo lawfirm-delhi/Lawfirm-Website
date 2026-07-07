@@ -23,7 +23,7 @@
 }
 
 .back-link:hover {
-  color: #fff;
+  color: var(--heading);
 }
 
 .profile-layout {
@@ -68,7 +68,7 @@
 
 .profile-name {
   font-size: 3rem;
-  color: #fff;
+  color: var(--heading);
   margin: 0 0 0.5rem 0;
 }
 
@@ -87,7 +87,7 @@
 
 .profile-section h2 {
   font-size: 1.5rem;
-  color: #fff;
+  color: var(--heading);
   margin-bottom: 1rem;
   border-bottom: 1px solid var(--divider);
   padding-bottom: 0.5rem;
@@ -138,7 +138,7 @@
 }
 
 .profile-cta h3 {
-  color: #fff;
+  color: var(--heading);
   font-size: 1.8rem;
   margin: 0 0 1rem 0;
 }
