@@ -144,11 +144,7 @@ function Layout({ children }) {
                 <li>+91 11 4567 8900</li>
                 <li>enquiries@justiceassociates.example</li>
               </ul>
-              <form className="newsletter-form" onSubmit={(e) => e.preventDefault()}>
-                <label htmlFor="newsletterEmail" className="sr-only">Email for newsletter</label>
-                <input type="email" id="newsletterEmail" placeholder="Subscribe to our briefings" />
-                <button type="submit" aria-label="Subscribe">→</button>
-              </form>
+
             </div>
           </div>
 

@@ -141,7 +141,7 @@ export default function FAQ() {
           <motion.p className="section-subtitle" variants={fadeInUp} initial="initial" whileInView="whileInView">Our client relations team is available 24/7 for urgent inquiries.</motion.p>
         </div>
 
-        <div className="grid-3" style={{ maxWidth: '900px' }}>
+        <div className="grid-3">
           <motion.div className="premium-card text-center" style={{ alignItems: 'center' }} variants={fadeInUp} initial="initial" whileInView="whileInView" viewport={{ once: true }}>
             <Phone className="card-icon mx-auto" />
             <h3 className="card-title">Call Us</h3>
