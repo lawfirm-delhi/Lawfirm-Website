@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { UploadCloud, CheckCircle, Shield, Briefcase, Star, MapPin, ChevronRight, X, Clock, Video, Phone } from 'lucide-react';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import api from '../../api/axios';
 import './Consultation.css';
 
 // --- ANIMATION VARIANTS ---
@@ -122,14 +123,30 @@ export default function Consultation() {
   const handleNext = () => setStep(s => Math.min(s + 1, 6));
   const handleBack = () => setStep(s => Math.max(s - 1, 1));
 
-  const submitForm = () => {
+  const submitForm = async () => {
     setIsSubmitting(true);
-    // Mock API Call
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setRefNumber(`CONS-2026-${Math.floor(100000 + Math.random() * 900000)}`);
+    try {
+      const data = new FormData();
+      Object.keys(formData).forEach(key => {
+        if (key === 'files') {
+          formData.files.forEach(file => data.append('documents', file));
+        } else {
+          data.append(key, formData[key]);
+        }
+      });
+      
+      const response = await api.post('/consultations', data, {
+        headers: { 'Content-Type': 'multipart/form-data' }
+      });
+      
+      setRefNumber(response.data.data.reference_number);
       setStep(6);
-    }, 2000);
+    } catch (err) {
+      console.error(err);
+      alert('Failed to submit consultation request. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleFileUpload = (e) => {
