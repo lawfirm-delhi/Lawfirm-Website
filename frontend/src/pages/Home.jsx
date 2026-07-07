@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useInView, animate } from 'framer-motion';
-
+import ConsultationWizard from '../components/ConsultationWizard';
 function CounterNumber({ value, suffix = "", prefix = "" }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
@@ -340,7 +340,9 @@ export default function Home() {
               <p className="eyebrow" style={{justifyContent: 'center'}}>Your Legal Matter Deserves Expert Attention</p>
               <h2>Schedule a confidential consultation today.</h2>
               <p className="section-lede" style={{margin: '0 auto 2.5rem'}}>Receive strategic legal guidance from experienced professionals dedicated to protecting your interests.</p>
-              <Link to="/consultation" className="btn btn-primary" style={{fontSize: '1.1rem', padding: '1rem 2.5rem'}}>Book Your Consultation Now</Link>
+              <div style={{ marginTop: '4rem', textAlign: 'left' }}>
+                <ConsultationWizard />
+              </div>
            </div>
         </div>
       </section>

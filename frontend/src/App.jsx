@@ -70,7 +70,7 @@ function Layout({ children }) {
               <Link to="/services" onClick={() => setMenuOpen(false)}>Services</Link>
               <Link to="/testimonials" onClick={() => setMenuOpen(false)}>Testimonials</Link>
               <Link to="/faq" onClick={() => setMenuOpen(false)}>FAQ</Link>
-              <Link to="/consultation" className="nav-cta" onClick={() => setMenuOpen(false)}>Book a Consultation</Link>
+
             </div>
             <div className="mobile-auth-nav">
               <Link to="/signin" className="btn btn-ghost" onClick={() => setMenuOpen(false)}>Client Login</Link>
