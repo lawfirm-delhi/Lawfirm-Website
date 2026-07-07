@@ -48,8 +48,17 @@ class AuthService {
     
     await authRepo.saveRefreshToken(user.id, tokens.refreshToken, expiresAt);
 
+    const fullUser = await authRepo.getUserById(user.id);
+
     return {
-      user: { id: user.id, email: user.email, role: user.role },
+      user: { 
+        id: fullUser.id, 
+        email: fullUser.email, 
+        role: fullUser.role,
+        fullName: fullUser.full_name,
+        mobile: fullUser.mobile,
+        company: fullUser.company
+      },
       tokens
     };
   }
