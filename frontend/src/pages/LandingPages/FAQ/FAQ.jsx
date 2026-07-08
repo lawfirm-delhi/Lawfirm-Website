@@ -4,6 +4,7 @@ import { Search, ChevronDown, Phone, Mail, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PageWrapper from '../Shared/PageWrapper';
 import PageHero from '../Shared/PageHero';
+import { useAuth } from '../../../context/AuthContext';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 40 },
@@ -69,6 +70,7 @@ function FAQItem({ question, answer, isOpen, onClick }) {
 export default function FAQ() {
   const [searchTerm, setSearchTerm] = useState('');
   const [openId, setOpenId] = useState(null);
+  const { user } = useAuth();
 
   const faqs = [
     { id: 1, category: "Consultations", q: "How do I schedule an initial consultation?", a: "You can schedule a consultation using our online portal or by calling our firm directly. Our intake specialists will gather preliminary details to pair you with the most appropriate senior partner." },
@@ -160,7 +162,11 @@ export default function FAQ() {
             <MessageCircle className="card-icon mx-auto" />
             <h3 className="card-title">WhatsApp</h3>
             <p className="card-text mb-4">Secure Messaging</p>
-            <a href="https://wa.me/919986378144?text=Hello,%20I%20am%20interested%20in%20scheduling%20a%20legal%20consultation%20with%20Justice%20%26%20Associates." target="_blank" rel="noopener noreferrer" className="btn btn-ghost" style={{ width: '100%', textAlign: 'center' }}>Message Us</a>
+            <a href={`https://wa.me/919986378144?text=${encodeURIComponent(
+              user 
+                ? `Hello, I am interested in scheduling a legal consultation with Justice & Associates. My name is ${user.fullName}, and my phone number is ${user.mobile}.`
+                : "Hello, I am interested in scheduling a legal consultation with Justice & Associates."
+            )}`} target="_blank" rel="noopener noreferrer" className="btn btn-ghost" style={{ width: '100%', textAlign: 'center' }}>Message Us</a>
           </motion.div>
         </div>
       </section>
