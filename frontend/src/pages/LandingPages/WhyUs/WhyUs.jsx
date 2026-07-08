@@ -143,7 +143,7 @@ export default function WhyUs() {
 
       {/* CTA */}
       <section className="landing-section text-center">
-        <motion.div variants={fadeInUp} initial="initial" whileInView="whileInView">
+        <motion.div variants={fadeInUp} initial="initial" whileInView="whileInView" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
           <h2 className="section-title" style={{ marginBottom: '1.5rem' }}>Ready to Discuss Your Case?</h2>
           <p className="hero-subtitle" style={{ marginBottom: '2rem' }}>Schedule a confidential consultation with our senior partners.</p>
           <Link to="/consultation" className="btn btn-primary" style={{ padding: '1rem 2.5rem', fontSize: '1.1rem' }}>
