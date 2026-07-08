@@ -47,7 +47,7 @@ export default function ConsultationWizard() {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       
-      setRefNumber(response.data.data.reference_number);
+      setRefNumber(response.data.data.referenceNumber);
       setStep(6);
     } catch (err) {
       console.error(err);
@@ -284,7 +284,7 @@ export default function ConsultationWizard() {
               <span>{refNumber}</span>
             </div>
 
-            <p style={{color:'var(--muted)', marginBottom: '2rem'}}>A confirmation email has been sent to {formData.email}. Estimated response time: Within 24 hours.</p>
+            <p style={{color:'var(--muted)', marginBottom: '2rem'}}>Our legal team will review your details and contact you shortly.</p>
 
             <div style={{display:'flex', gap:'1rem', justifyContent:'center'}}>
               <Link to="/" className="btn btn-primary">Return to Home</Link>
