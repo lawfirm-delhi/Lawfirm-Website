@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { UploadCloud, CheckCircle, Briefcase, ChevronRight, X, Video, Phone } from 'lucide-react';
-import api from '../../api/axios';
-import '../pages/Consultation/Consultation.css';
+import api from '../api/axios';
+import './ConsultationWizard.css';
 
 export default function ConsultationWizard() {
   const [step, setStep] = useState(1);
