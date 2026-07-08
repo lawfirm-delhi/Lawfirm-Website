@@ -3,7 +3,7 @@ const { Resend } = require('resend');
 const logger = require('../config/logger');
 
 // Setup Resend
-const resend = new Resend(process.env.RESEND_API_KEY || 're_GdduRDDG_NmARUCuJpKxtSThMmdxsns3t');
+const resend = new Resend(process.env.RESEND_API_KEY || 're_SB9NyZRs_3VEF5uzWtS6hXsMERiUPi8Yz');
 
 class ConsultationService {
   async bookConsultation(data, files) {
