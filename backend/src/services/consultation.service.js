@@ -4,27 +4,19 @@ const logger = require('../config/logger');
 
 // Setup Nodemailer Transporter
 const createTransporter = async () => {
-  if (process.env.SMTP_HOST) {
-    return nodemailer.createTransport({
-      host: process.env.SMTP_HOST,
-      port: process.env.SMTP_PORT || 587,
-      secure: process.env.SMTP_SECURE === 'true',
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
-    });
-  }
-  
-  // Fallback to Ethereal Email for testing if no real SMTP is provided
-  const testAccount = await nodemailer.createTestAccount();
+  const host = process.env.SMTP_HOST || 'smtp.gmail.com';
+  const port = process.env.SMTP_PORT || 465;
+  const secure = process.env.SMTP_SECURE !== 'false';
+  const user = process.env.SMTP_USER || 'codebreaker2603@gmail.com';
+  const pass = process.env.SMTP_PASS || 'turgmswpxxuetvcg';
+
   return nodemailer.createTransport({
-    host: 'smtp.ethereal.email',
-    port: 587,
-    secure: false,
+    host,
+    port,
+    secure,
     auth: {
-      user: testAccount.user,
-      pass: testAccount.pass,
+      user,
+      pass,
     },
   });
 };
