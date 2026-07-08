@@ -38,6 +38,22 @@ app.get('/health', (req, res) => {
   successResponse(res, 200, 'Server is healthy', { timestamp: new Date().toISOString() });
 });
 
+// TEMPORARY LOG EXPOSURE FOR DEBUGGING
+const fs = require('fs');
+app.get('/api/v1/logs', (req, res) => {
+  try {
+    const errorLogPath = path.join(__dirname, '../../logs/error.log');
+    if (fs.existsSync(errorLogPath)) {
+      const logs = fs.readFileSync(errorLogPath, 'utf8');
+      res.send(`<pre>${logs}</pre>`);
+    } else {
+      res.send('No error log found');
+    }
+  } catch (err) {
+    res.send(err.message);
+  }
+});
+
 // API Routes
 app.use('/api/v1/auth', require('./routes/auth.routes'));
 app.use('/api/v1/consultations', require('./routes/consultation.routes'));
