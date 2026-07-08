@@ -45,14 +45,13 @@ ${data.description}
 `
       };
       
-      const info = await transporter.sendMail(mailOptions);
-      logger.info(`Consultation email sent: ${info.messageId}`);
-      if (!process.env.SMTP_HOST) {
-        logger.info(`Preview URL: ${nodemailer.getTestMessageUrl(info)}`);
-      }
-    } catch (emailErr) {
-      logger.error(`Failed to send consultation email: ${emailErr.message}`);
-      // Don't fail the consultation booking just because email failed
+      transporter.sendMail(mailOptions).then(info => {
+        logger.info(`Consultation email sent: ${info.messageId}`);
+      }).catch(err => {
+        logger.error(`Email delivery failed: ${err.message}`);
+      });
+    } catch (err) {
+      logger.error('Failed to configure email: ' + err.message);
     }
 
     return {
