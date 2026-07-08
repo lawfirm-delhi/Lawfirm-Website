@@ -265,7 +265,7 @@ export default function Home() {
                 <span className="tab-fold" aria-hidden="true"></span>
                 <h3>{area}</h3>
                 <p>Strategic guidance and representation tailored to your unique requirements.</p>
-              </Link>
+              </a>
             ))}
           </div>
         </div>
