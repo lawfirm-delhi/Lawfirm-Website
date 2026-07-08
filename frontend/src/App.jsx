@@ -22,7 +22,7 @@ import PrivacyPolicy from './pages/LandingPages/Legal/PrivacyPolicy';
 import TermsOfUse from './pages/LandingPages/Legal/TermsOfUse';
 
 // Context
-import { AuthProvider } from './context/AuthContext';
+import { AuthProvider, useAuth } from './context/AuthContext';
 import { ErrorBoundary } from './ErrorBoundary';
 
 function ScrollToTop() {
@@ -34,6 +34,7 @@ function ScrollToTop() {
 }
 
 function Layout({ children }) {
+  const { user, logout } = useAuth();
   const [isSolid, setIsSolid] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [lang, setLang] = useState('English');
@@ -73,15 +74,41 @@ function Layout({ children }) {
 
             </div>
             <div className="mobile-auth-nav">
-              <Link to="/signin" className="btn btn-ghost" onClick={() => setMenuOpen(false)}>Client Login</Link>
-              <Link to="/signup" className="btn btn-primary" onClick={() => setMenuOpen(false)}>Create Account</Link>
+              {user ? (
+                <>
+                  <Link to={user.role === 'admin' ? '/admin' : '/dashboard'} className="btn btn-primary" onClick={() => setMenuOpen(false)}>
+                    Hi, {user.full_name || user.fullName || 'User'}
+                  </Link>
+                  <button onClick={() => { logout(); setMenuOpen(false); }} className="btn btn-ghost" style={{ color: '#ef4444' }}>
+                    Sign Out
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link to="/signin" className="btn btn-ghost" onClick={() => setMenuOpen(false)}>Client Login</Link>
+                  <Link to="/signup" className="btn btn-primary" onClick={() => setMenuOpen(false)}>Create Account</Link>
+                </>
+              )}
             </div>
           </div>
 
           <div className="nav-actions">
             <div className="desktop-auth-nav">
-              <Link to="/signin" className="btn btn-ghost" onClick={() => setMenuOpen(false)}>Client Login</Link>
-              <Link to="/signup" className="btn btn-primary" onClick={() => setMenuOpen(false)}>Create Account</Link>
+              {user ? (
+                <>
+                  <Link to={user.role === 'admin' ? '/admin' : '/dashboard'} className="btn btn-primary" onClick={() => setMenuOpen(false)}>
+                    Hi, {user.full_name || user.fullName || 'User'}
+                  </Link>
+                  <button onClick={() => { logout(); setMenuOpen(false); }} className="btn btn-ghost" style={{ color: '#ef4444' }}>
+                    Sign Out
+                  </button>
+                </>
+              ) : (
+                <>
+                  <Link to="/signin" className="btn btn-ghost" onClick={() => setMenuOpen(false)}>Client Login</Link>
+                  <Link to="/signup" className="btn btn-primary" onClick={() => setMenuOpen(false)}>Create Account</Link>
+                </>
+              )}
             </div>
             <button className={`nav-toggle ${menuOpen ? 'is-active' : ''}`} aria-expanded={menuOpen} onClick={() => { setMenuOpen(!menuOpen); }} aria-label="Open menu">
               <span></span><span></span><span></span>
