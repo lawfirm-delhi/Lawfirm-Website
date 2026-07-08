@@ -108,7 +108,42 @@ function Layout({ children }) {
     }
     button.appendChild(circle);
     
-    toggleTheme();
+    const isDark = theme === 'dark';
+    const nextTheme = isDark ? 'light' : 'dark';
+
+    if (!document.startViewTransition) {
+      setTheme(nextTheme);
+      return;
+    }
+
+    const x = e.clientX;
+    const y = e.clientY;
+    const endRadius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y)
+    );
+
+    const transition = document.startViewTransition(() => {
+      setTheme(nextTheme);
+    });
+
+    transition.ready.then(() => {
+      const clipPath = [
+        `circle(0px at ${x}px ${y}px)`,
+        `circle(${endRadius}px at ${x}px ${y}px)`
+      ];
+
+      document.documentElement.animate(
+        {
+          clipPath: isDark ? [...clipPath].reverse() : clipPath,
+        },
+        {
+          duration: 600,
+          easing: 'ease-in-out',
+          pseudoElement: isDark ? '::view-transition-old(root)' : '::view-transition-new(root)',
+        }
+      );
+    });
   };
 
   return (
