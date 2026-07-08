@@ -77,7 +77,15 @@ export default function ConsultationWizard() {
   }
 
   return (
-    <div className="wizard-container" style={{ margin: '0 auto' }}>
+    <motion.div 
+      className="wizard-container" 
+      style={{ margin: '0 auto', transition: 'box-shadow 0.3s ease, transform 0.3s ease' }}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{ y: -4, boxShadow: 'var(--shadow-gold)' }}
+    >
       <AnimatePresence mode="wait">
         
         {step === 1 && (
@@ -293,6 +301,6 @@ export default function ConsultationWizard() {
         )}
         
       </AnimatePresence>
-    </div>
+    </motion.div>
   );
 }
