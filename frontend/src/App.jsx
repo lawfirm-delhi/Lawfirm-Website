@@ -91,6 +91,26 @@ function Layout({ children }) {
     }
   };
 
+  const handleThemeToggleClick = (e) => {
+    const button = e.currentTarget;
+    const circle = document.createElement("span");
+    const diameter = Math.max(button.clientWidth, button.clientHeight);
+    const radius = diameter / 2;
+    const rect = button.getBoundingClientRect();
+    circle.style.width = circle.style.height = `${diameter}px`;
+    circle.style.left = `${e.clientX - rect.left - radius}px`;
+    circle.style.top = `${e.clientY - rect.top - radius}px`;
+    circle.classList.add("ripple");
+    
+    const existingRipple = button.querySelector(".ripple");
+    if (existingRipple) {
+      existingRipple.remove();
+    }
+    button.appendChild(circle);
+    
+    toggleTheme();
+  };
+
   return (
     <>
       <div id="google_translate_element" style={{ display: 'none' }}></div>
@@ -139,7 +159,7 @@ function Layout({ children }) {
           </div>
 
           <div className="nav-actions">
-            <button onClick={toggleTheme} className="theme-toggle-btn" aria-label="Toggle Theme" style={{ background: 'transparent', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', padding: '0.5rem', color: 'var(--heading)' }}>
+            <button onClick={handleThemeToggleClick} className="theme-toggle-btn" aria-label="Toggle Theme" style={{ background: 'transparent', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', padding: '0.5rem', color: 'var(--heading)' }}>
               {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
             </button>
             <div className="desktop-auth-nav">
