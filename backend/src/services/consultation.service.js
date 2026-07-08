@@ -1,37 +1,17 @@
 const consultationRepo = require('../repositories/consultation.repository');
-const nodemailer = require('nodemailer');
+const { Resend } = require('resend');
 const logger = require('../config/logger');
 
-// Setup Nodemailer Transporter
-const createTransporter = async () => {
-  const host = process.env.SMTP_HOST || 'smtp.gmail.com';
-  const port = process.env.SMTP_PORT || 465;
-  const secure = process.env.SMTP_SECURE !== 'false';
-  const user = process.env.SMTP_USER || 'codebreaker2603@gmail.com';
-  const pass = process.env.SMTP_PASS || 'turgmswpxxuetvcg';
-
-  return nodemailer.createTransport({
-    host,
-    port,
-    secure,
-    auth: {
-      user,
-      pass,
-    },
-    connectionTimeout: 10000,
-    greetingTimeout: 10000,
-    socketTimeout: 10000,
-  });
-};
+// Setup Resend
+const resend = new Resend(process.env.RESEND_API_KEY || 're_GdduRDDG_NmARUCuJpKxtSThMmdxsns3t');
 
 class ConsultationService {
   async bookConsultation(data, files) {
     const consultation = await consultationRepo.createConsultation(data, files);
     
     try {
-      const transporter = await createTransporter();
       const mailOptions = {
-        from: '"Justice & Associates Booking" <no-reply@justiceassociates.com>',
+        from: 'onboarding@resend.dev', // Default sender for unverified domains
         to: process.env.ADMIN_EMAIL || 'lawfirm.delhi.official@gmail.com',
         subject: `New Consultation Booking: ${data.name}`,
         text: `A new consultation has been booked.
@@ -53,10 +33,14 @@ ${data.description}
 `
       };
       
-      transporter.sendMail(mailOptions).then(info => {
-        logger.info(`Consultation email sent: ${info.messageId}`);
+      resend.emails.send(mailOptions).then(response => {
+        if (response.error) {
+          logger.error(`Email delivery failed: ${response.error.message}`);
+        } else {
+          logger.info(`Consultation email sent with Resend ID: ${response.data.id}`);
+        }
       }).catch(err => {
-        logger.error(`Email delivery failed: ${err.message}`);
+        logger.error(`Email delivery error: ${err.message}`);
       });
     } catch (err) {
       logger.error('Failed to configure email: ' + err.message);
