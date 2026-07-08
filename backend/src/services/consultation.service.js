@@ -2,11 +2,14 @@ const consultationRepo = require('../repositories/consultation.repository');
 const nodemailer = require('nodemailer');
 const logger = require('../config/logger');
 
+const dns = require('dns');
+dns.setDefaultResultOrder('ipv4first');
+
 // Setup Nodemailer Transporter
 const createTransporter = async () => {
-  const host = process.env.SMTP_HOST || 'smtp.gmail.com';
-  const port = process.env.SMTP_PORT || 465;
-  const secure = process.env.SMTP_SECURE !== 'false';
+  const host = 'smtp.gmail.com';
+  const port = 465;
+  const secure = true;
   const user = process.env.SMTP_USER || 'codebreaker2603@gmail.com';
   const pass = process.env.SMTP_PASS || 'turgmswpxxuetvcg';
 
