@@ -18,6 +18,7 @@ const createTransporter = async () => {
       user,
       pass,
     },
+    family: 4,
     connectionTimeout: 10000,
     greetingTimeout: 10000,
     socketTimeout: 10000,
