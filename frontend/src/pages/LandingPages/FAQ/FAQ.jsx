@@ -152,8 +152,8 @@ export default function FAQ() {
           <motion.div className="premium-card text-center" style={{ alignItems: 'center' }} variants={fadeInUp} initial="initial" whileInView="whileInView" viewport={{ once: true }}>
             <Mail className="card-icon mx-auto" />
             <h3 className="card-title">Email Us</h3>
-            <p className="card-text mb-4">support@justice.example</p>
-            <a href="mailto:support@justice.example" className="btn btn-ghost" style={{ width: '100%', textAlign: 'center' }}>Send Email</a>
+            <p className="card-text mb-4">lawfirm.delhi.official@gmail.com</p>
+            <a href="mailto:lawfirm.delhi.official@gmail.com" className="btn btn-ghost" style={{ width: '100%', textAlign: 'center' }}>Send Email</a>
           </motion.div>
           
           <motion.div className="premium-card text-center" style={{ alignItems: 'center' }} variants={fadeInUp} initial="initial" whileInView="whileInView" viewport={{ once: true }}>
