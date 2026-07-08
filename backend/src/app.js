@@ -42,13 +42,14 @@ app.get('/health', (req, res) => {
 const fs = require('fs');
 app.get('/api/v1/logs', (req, res) => {
   try {
-    const logPath = path.join(__dirname, '../../logs/combined.log');
-    if (fs.existsSync(logPath)) {
-      const logs = fs.readFileSync(logPath, 'utf8');
-      res.send(`<pre>${logs}</pre>`);
-    } else {
-      res.send('No log found');
-    }
+    let output = '';
+    const errLogPath = path.join(__dirname, '../logs/error.log');
+    const combLogPath = path.join(__dirname, '../logs/combined.log');
+    
+    if (fs.existsSync(errLogPath)) output += `<h3>error.log</h3><pre>${fs.readFileSync(errLogPath, 'utf8')}</pre>`;
+    if (fs.existsSync(combLogPath)) output += `<h3>combined.log</h3><pre>${fs.readFileSync(combLogPath, 'utf8')}</pre>`;
+    
+    res.send(output || 'No logs found');
   } catch (err) {
     res.send(err.message);
   }
