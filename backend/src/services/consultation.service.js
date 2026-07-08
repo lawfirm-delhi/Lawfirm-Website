@@ -34,11 +34,16 @@ class ConsultationService {
         text: `A new consultation has been booked.
         
 Details:
+- Reference Number: ${consultation.reference_number}
 - Name: ${data.name}
 - Email: ${data.email}
 - Phone: ${data.phone}
+- Company: ${data.company || 'N/A'}
 - Practice Area: ${data.practiceArea}
-- Reference Number: ${consultation.reference_number}
+- Consultation Mode: ${data.consultationMode || 'N/A'}
+- Preferred Date: ${data.preferredDate || 'N/A'}
+- Preferred Time: ${data.preferredTime || 'N/A'}
+- Subject: ${data.subject || 'N/A'}
 
 Message/Description:
 ${data.description}
