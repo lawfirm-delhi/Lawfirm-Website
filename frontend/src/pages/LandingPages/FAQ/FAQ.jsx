@@ -160,7 +160,7 @@ export default function FAQ() {
             <MessageCircle className="card-icon mx-auto" />
             <h3 className="card-title">WhatsApp</h3>
             <p className="card-text mb-4">Secure Messaging</p>
-            <a href="#" className="btn btn-ghost" style={{ width: '100%', textAlign: 'center' }}>Message Us</a>
+            <a href="https://wa.me/919986378144" target="_blank" rel="noopener noreferrer" className="btn btn-ghost" style={{ width: '100%', textAlign: 'center' }}>Message Us</a>
           </motion.div>
         </div>
       </section>
