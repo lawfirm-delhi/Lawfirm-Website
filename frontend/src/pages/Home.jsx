@@ -20,7 +20,7 @@ function CounterNumber({ value, suffix = "", prefix = "" }) {
     }
   }, [isInView, value]);
 
-  return <span ref={ref}>{prefix}{displayValue}{suffix}</span>;
+  return <span ref={ref} className="notranslate">{prefix}{displayValue}{suffix}</span>;
 }
 
 export default function Home() {

@@ -53,7 +53,7 @@ function StatCard({ icon: Icon, target, suffix = '', title }) {
       viewport={{ once: true }}
     >
       <Icon className="card-icon mx-auto mb-4" size={40} />
-      <div style={{ fontSize: '2.5rem', fontFamily: 'var(--font-display)', color: 'var(--primary-gold)', marginBottom: '0.5rem' }}>
+      <div className="notranslate" style={{ fontSize: '2.5rem', fontFamily: 'var(--font-display)', color: 'var(--primary-gold)', marginBottom: '0.5rem' }}>
         {count}{suffix}
       </div>
       <div className="card-title" style={{ fontSize: '1.2rem', marginBottom: 0 }}>{title}</div>
