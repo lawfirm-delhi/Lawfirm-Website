@@ -14,6 +14,7 @@
   --bg-primary: #FCFBF8;
   --bg-secondary: #F3EFE6;
   --bg-tertiary: #E8E2D2;
+  --nav-bg: rgba(255, 255, 255, 0.85);
 
   /* Luxury Gradient */
   --gradient-start: #FFFFFF;
@@ -67,6 +68,7 @@
   --bg-primary: #0A0F1A;
   --bg-secondary: #111827;
   --bg-tertiary: #1F2937;
+  --nav-bg: rgba(10, 15, 26, 0.85);
 
   /* Luxury Gradient for Dark Mode */
   --gradient-start: #0A0F1A;
@@ -331,7 +333,7 @@ h1, h2, h3, h4 {
   border-bottom: 1px solid transparent;
 }
 .site-header.is-solid {
-  background: rgba(255, 255, 255, 0.85);
+  background: var(--nav-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--divider);
