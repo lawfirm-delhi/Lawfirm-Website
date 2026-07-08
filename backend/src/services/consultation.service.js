@@ -2,14 +2,11 @@ const consultationRepo = require('../repositories/consultation.repository');
 const nodemailer = require('nodemailer');
 const logger = require('../config/logger');
 
-const dns = require('dns');
-
 // Setup Nodemailer Transporter
 const createTransporter = async () => {
-  const addresses = await dns.promises.resolve4('smtp.gmail.com');
-  const host = addresses[0];
-  const port = 465;
-  const secure = true;
+  const host = process.env.SMTP_HOST || 'smtp.gmail.com';
+  const port = process.env.SMTP_PORT || 465;
+  const secure = process.env.SMTP_SECURE !== 'false';
   const user = process.env.SMTP_USER || 'codebreaker2603@gmail.com';
   const pass = process.env.SMTP_PASS || 'turgmswpxxuetvcg';
 
@@ -20,9 +17,6 @@ const createTransporter = async () => {
     auth: {
       user,
       pass,
-    },
-    tls: {
-      servername: 'smtp.gmail.com'
     },
     connectionTimeout: 10000,
     greetingTimeout: 10000,
