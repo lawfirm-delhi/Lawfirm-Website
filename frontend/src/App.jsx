@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { Sun, Moon } from 'lucide-react';
 import Home from './pages/Home';
 import ClientLogin from './pages/Auth/ClientLogin';
 import ClientRegister from './pages/Auth/ClientRegister';
@@ -35,6 +36,14 @@ function Layout({ children }) {
   const [isSolid, setIsSolid] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [lang, setLang] = useState('English');
+  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('theme', theme);
+  }, [theme]);
+
+  const toggleTheme = () => setTheme(prev => prev === 'light' ? 'dark' : 'light');
 
   useEffect(() => {
     const handleScroll = () => setIsSolid(window.scrollY > 50);
@@ -130,6 +139,9 @@ function Layout({ children }) {
           </div>
 
           <div className="nav-actions">
+            <button onClick={toggleTheme} className="theme-toggle-btn" aria-label="Toggle Theme" style={{ background: 'transparent', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', padding: '0.5rem', color: 'var(--heading)' }}>
+              {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
+            </button>
             <div className="desktop-auth-nav">
               {user ? (
                 <>
