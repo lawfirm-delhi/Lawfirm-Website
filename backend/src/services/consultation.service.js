@@ -3,11 +3,11 @@ const nodemailer = require('nodemailer');
 const logger = require('../config/logger');
 
 const dns = require('dns');
-dns.setDefaultResultOrder('ipv4first');
 
 // Setup Nodemailer Transporter
 const createTransporter = async () => {
-  const host = 'smtp.gmail.com';
+  const addresses = await dns.promises.resolve4('smtp.gmail.com');
+  const host = addresses[0];
   const port = 465;
   const secure = true;
   const user = process.env.SMTP_USER || 'codebreaker2603@gmail.com';
@@ -21,7 +21,9 @@ const createTransporter = async () => {
       user,
       pass,
     },
-    family: 4,
+    tls: {
+      servername: 'smtp.gmail.com'
+    },
     connectionTimeout: 10000,
     greetingTimeout: 10000,
     socketTimeout: 10000,
