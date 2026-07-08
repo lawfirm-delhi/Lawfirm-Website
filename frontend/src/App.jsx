@@ -40,11 +40,51 @@ function Layout({ children }) {
     const handleScroll = () => setIsSolid(window.scrollY > 50);
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
+    
+    // Inject Google Translate script and styles if not present
+    if (!document.getElementById('google-translate-script')) {
+      const style = document.createElement('style');
+      style.innerHTML = `
+        #google_translate_element { display: none !important; }
+        .skiptranslate { display: none !important; }
+        body { top: 0px !important; }
+      `;
+      document.head.appendChild(style);
+
+      window.googleTranslateElementInit = () => {
+        new window.google.translate.TranslateElement({pageLanguage: 'en', autoDisplay: false}, 'google_translate_element');
+      };
+
+      const script = document.createElement('script');
+      script.id = 'google-translate-script';
+      script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      document.body.appendChild(script);
+    }
+    
+    // Sync state with cookie
+    if (document.cookie.includes('googtrans=/en/hi')) {
+      setLang('Hindi');
+    }
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleLangChange = (e) => {
+    const newLang = e.target.value;
+    setLang(newLang);
+    if (newLang === 'Hindi') {
+      document.cookie = 'googtrans=/en/hi; path=/';
+      window.location.reload();
+    } else {
+      document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+      document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=' + window.location.hostname;
+      window.location.reload();
+    }
+  };
+
   return (
     <>
+      <div id="google_translate_element" style={{ display: 'none' }}></div>
       <a href="#main" className="skip-link">Skip to main content</a>
       <header className={`site-header ${isSolid ? 'is-solid' : ''}`} id="siteHeader">
         <nav className="nav-bar" aria-label="Primary">
@@ -134,7 +174,7 @@ function Layout({ children }) {
                   : '"कानूनी सलाह जो परीक्षण की कसौटी पर खरी उतरती है।"'}
               </p>
               <div className="footer-lang">
-                <select aria-label="Select language" value={lang} onChange={(e) => setLang(e.target.value)}>
+                <select aria-label="Select language" value={lang} onChange={handleLangChange}>
                   <option value="English">English</option>
                   <option value="Hindi">हिन्दी</option>
                 </select>
