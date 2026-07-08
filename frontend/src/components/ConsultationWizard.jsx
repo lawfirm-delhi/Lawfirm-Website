@@ -51,7 +51,14 @@ export default function ConsultationWizard() {
       setStep(6);
     } catch (err) {
       console.error(err);
-      alert('Failed to submit consultation request. Please try again.');
+      let errorMsg = 'Failed to submit consultation request. Please try again.';
+      if (err.response?.data?.message) {
+        errorMsg = err.response.data.message;
+        if (err.response.data.errors && err.response.data.errors.length > 0) {
+          errorMsg = err.response.data.errors.map(e => e.message).join(', ');
+        }
+      }
+      alert(errorMsg);
     } finally {
       setIsSubmitting(false);
     }
@@ -137,7 +144,7 @@ export default function ConsultationWizard() {
             </div>
             <div className="wizard-actions">
               <button className="btn btn-ghost" onClick={handleBack}>Back</button>
-              <button className="btn btn-primary" onClick={handleNext} disabled={!formData.practiceArea || !formData.subject || !formData.description}>Next Step <ChevronRight size={16}/></button>
+              <button className="btn btn-primary" onClick={handleNext} disabled={!formData.practiceArea || !formData.subject || formData.description.length < 10}>Next Step <ChevronRight size={16}/></button>
             </div>
           </motion.div>
         )}
