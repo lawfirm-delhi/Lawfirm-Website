@@ -1,12 +1,9 @@
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Home from './pages/Home';
-import Consultation from './pages/Consultation/Consultation';
 import ClientLogin from './pages/Auth/ClientLogin';
 import ClientRegister from './pages/Auth/ClientRegister';
 import ForgotPassword from './pages/Auth/ForgotPassword';
-import Dashboard from './pages/ClientPortal/Dashboard';
-import ProtectedRoute from './components/ProtectedRoute';
 import AdminDashboard from './pages/AdminPortal/AdminDashboard';
 import AdminRoute from './components/AdminRoute';
 
@@ -76,7 +73,7 @@ function Layout({ children }) {
             <div className="mobile-auth-nav">
               {user ? (
                 <>
-                  <Link to={user.role === 'admin' ? '/admin' : '/dashboard'} className="btn btn-primary" onClick={() => setMenuOpen(false)}>
+                  <Link to={user.role === 'admin' ? '/admin' : '/'} className="btn btn-primary" onClick={() => setMenuOpen(false)}>
                     Hi, {user.full_name || user.fullName || 'User'}
                   </Link>
                   <button onClick={() => { logout(); setMenuOpen(false); }} className="btn btn-ghost" style={{ color: '#ef4444' }}>
@@ -96,7 +93,7 @@ function Layout({ children }) {
             <div className="desktop-auth-nav">
               {user ? (
                 <>
-                  <Link to={user.role === 'admin' ? '/admin' : '/dashboard'} className="btn btn-primary" onClick={() => setMenuOpen(false)}>
+                  <Link to={user.role === 'admin' ? '/admin' : '/'} className="btn btn-primary" onClick={() => setMenuOpen(false)}>
                     Hi, {user.full_name || user.fullName || 'User'}
                   </Link>
                   <button onClick={() => { logout(); setMenuOpen(false); }} className="btn btn-ghost" style={{ color: '#ef4444' }}>
@@ -191,7 +188,6 @@ function Layout({ children }) {
 function MainApp() {
   const { pathname } = useLocation();
   const isAuthPage = pathname === '/signin' || pathname === '/signup' || pathname === '/forgot-password';
-  const isDashboard = pathname.startsWith('/dashboard');
 
   return (
     <>
@@ -201,12 +197,6 @@ function MainApp() {
           <Route path="/signin" element={<ClientLogin />} />
           <Route path="/signup" element={<ClientRegister />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
-        </Routes>
-      ) : isDashboard ? (
-        <Routes>
-          <Route element={<ProtectedRoute />}>
-            <Route path="/dashboard/*" element={<Dashboard />} />
-          </Route>
         </Routes>
       ) : pathname.startsWith('/admin') ? (
         <Routes>
@@ -218,7 +208,6 @@ function MainApp() {
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/consultation" element={<Consultation />} />
             <Route path="/why-us" element={<WhyUs />} />
             <Route path="/practice-areas" element={<PracticeAreas />} />
             <Route path="/team" element={<Team />} />

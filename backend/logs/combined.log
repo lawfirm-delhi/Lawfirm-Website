@@ -28,3 +28,18 @@
 {"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-07-07T10:18:37.584Z"}
 {"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-07-07T10:38:28.213Z"}
 {"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-07-07T10:56:57.991Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-07-07T12:36:05.045Z"}
+{"level":"error","message":"409 - Email already registered - /api/v1/auth/register - POST - ::1","timestamp":"2026-07-07T12:36:15.824Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-07-07T12:45:52.576Z"}
+{"level":"info","message":"Running database migrations...","timestamp":"2026-07-07T16:04:47.101Z"}
+{"level":"info","message":"Database migrations complete.","timestamp":"2026-07-07T16:04:47.145Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-07-07T16:04:47.148Z"}
+{"level":"error","message":"500 - Knex: Timeout acquiring a connection. The pool is probably full. Are you missing a .transacting(trx) call? - /api/v1/consultations - POST - ::1","timestamp":"2026-07-07T16:06:30.776Z"}
+{"level":"error","message":"500 - Knex: Timeout acquiring a connection. The pool is probably full. Are you missing a .transacting(trx) call? - /api/v1/consultations - POST - ::1","timestamp":"2026-07-07T16:07:30.798Z"}
+{"level":"info","message":"Running database migrations...","timestamp":"2026-07-07T16:07:49.024Z"}
+{"level":"info","message":"Database migrations complete.","timestamp":"2026-07-07T16:07:49.059Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-07-07T16:07:49.062Z"}
+{"level":"info","message":"Running database migrations...","timestamp":"2026-07-07T16:17:46.896Z"}
+{"level":"info","message":"Database migrations complete.","timestamp":"2026-07-07T16:17:46.931Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-07-07T16:17:46.934Z"}
+{"level":"info","message":"Consultation email sent: <1e58eb7b-6e16-1fd4-e9d4-4b41f332560a@justiceassociates.com>","timestamp":"2026-07-07T16:18:04.334Z"}

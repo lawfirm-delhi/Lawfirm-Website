@@ -38,9 +38,9 @@ export default function ClientLogin() {
         if (loggedInUser.role === 'admin' || loggedInUser.role === 'superadmin' || loggedInUser.role === 'lawyer') {
           navigate('/admin/dashboard');
         } else {
-          navigate('/dashboard');
+          navigate('/');
         }
-      }, 500);
+      }, 800);
     } catch (err) {
       setIsSubmitting(false);
       setShake(true);

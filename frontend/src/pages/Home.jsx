@@ -261,7 +261,7 @@ export default function Home() {
 
           <div className="practice-grid">
             {['Corporate & Commercial', 'Mergers & Acquisitions', 'Litigation & Disputes', 'Intellectual Property', 'Real Estate & Construction', 'Taxation', 'Employment & Labour', 'Family & Estate Planning'].map((area, i) => (
-              <Link to="/consultation" className="practice-tab reveal" key={i}>
+              <a href="#consultation" className="practice-tab reveal" key={i}>
                 <span className="tab-fold" aria-hidden="true"></span>
                 <h3>{area}</h3>
                 <p>Strategic guidance and representation tailored to your unique requirements.</p>
@@ -334,7 +334,7 @@ export default function Home() {
       </section>
 
       {/* CALL TO ACTION */}
-      <section className="section consultation-cta">
+      <section className="section consultation-cta" id="consultation">
         <div className="container" style={{textAlign: 'center'}}>
            <div className="reveal">
               <p className="eyebrow" style={{justifyContent: 'center'}}>Your Legal Matter Deserves Expert Attention</p>
