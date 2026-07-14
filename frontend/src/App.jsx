@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import { Sun, Moon } from 'lucide-react';
 import Home from './pages/Home';
 import ClientLogin from './pages/Auth/ClientLogin';
 import ClientRegister from './pages/Auth/ClientRegister';
@@ -36,14 +35,7 @@ function Layout({ children }) {
   const [isSolid, setIsSolid] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [lang, setLang] = useState('English');
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
 
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  }, [theme]);
-
-  const toggleTheme = () => setTheme(prev => prev === 'light' ? 'dark' : 'light');
 
   useEffect(() => {
     const handleScroll = () => setIsSolid(window.scrollY > 50);
@@ -91,60 +83,7 @@ function Layout({ children }) {
     }
   };
 
-  const handleThemeToggleClick = (e) => {
-    const button = e.currentTarget;
-    const circle = document.createElement("span");
-    const diameter = Math.max(button.clientWidth, button.clientHeight);
-    const radius = diameter / 2;
-    const rect = button.getBoundingClientRect();
-    circle.style.width = circle.style.height = `${diameter}px`;
-    circle.style.left = `${e.clientX - rect.left - radius}px`;
-    circle.style.top = `${e.clientY - rect.top - radius}px`;
-    circle.classList.add("ripple");
-    
-    const existingRipple = button.querySelector(".ripple");
-    if (existingRipple) {
-      existingRipple.remove();
-    }
-    button.appendChild(circle);
-    
-    const isDark = theme === 'dark';
-    const nextTheme = isDark ? 'light' : 'dark';
 
-    if (!document.startViewTransition) {
-      setTheme(nextTheme);
-      return;
-    }
-
-    const x = e.clientX;
-    const y = e.clientY;
-    const endRadius = Math.hypot(
-      Math.max(x, window.innerWidth - x),
-      Math.max(y, window.innerHeight - y)
-    );
-
-    const transition = document.startViewTransition(() => {
-      setTheme(nextTheme);
-    });
-
-    transition.ready.then(() => {
-      const clipPath = [
-        `circle(0px at ${x}px ${y}px)`,
-        `circle(${endRadius}px at ${x}px ${y}px)`
-      ];
-
-      document.documentElement.animate(
-        {
-          clipPath: isDark ? [...clipPath].reverse() : clipPath,
-        },
-        {
-          duration: 600,
-          easing: 'ease-in-out',
-          pseudoElement: isDark ? '::view-transition-old(root)' : '::view-transition-new(root)',
-        }
-      );
-    });
-  };
 
   return (
     <>
@@ -194,9 +133,6 @@ function Layout({ children }) {
           </div>
 
           <div className="nav-actions">
-            <button onClick={handleThemeToggleClick} className="theme-toggle-btn" aria-label="Toggle Theme" style={{ background: 'transparent', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', padding: '0.5rem', color: 'var(--heading)' }}>
-              {theme === 'light' ? <Moon size={20} /> : <Sun size={20} />}
-            </button>
             <div className="desktop-auth-nav">
               {user ? (
                 <>
