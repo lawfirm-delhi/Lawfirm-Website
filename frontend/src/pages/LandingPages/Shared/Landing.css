@@ -16,6 +16,8 @@
   overflow: hidden;
   padding: 8rem 2rem 4rem;
   background: var(--bg-gradient);
+  --heading: #E2E8F0;
+  --body: #94A3B8;
 }
 
 .page-hero::before {
