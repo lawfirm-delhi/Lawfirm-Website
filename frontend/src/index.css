@@ -856,6 +856,18 @@ h1, h2, h3, h4 {
   filter: blur(0);
 }
 
+@media (max-width: 768px) {
+  .why-card, .practice-tab, .stat-card, .team-card, .service-card, .testimonial-card, .blog-card, .faq-item, .consultation-form {
+    transform: translateY(60px) scale(0.98);
+    filter: none;
+    transition: opacity 600ms cubic-bezier(0.2, 0.8, 0.2, 1), transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .why-card.is-revealed, .practice-tab.is-revealed, .stat-card.is-revealed, .team-card.is-revealed, 
+  .service-card.is-revealed, .testimonial-card.is-revealed, .blog-card.is-revealed, .faq-item.is-revealed, .consultation-form.is-revealed {
+    transform: translateY(0) scale(1);
+  }
+}
+
 /* Hover State (JS handles the 3D tilt transform) */
 .why-card.is-revealed:hover, .practice-tab.is-revealed:hover, .stat-card.is-revealed:hover, 
 .team-card.is-revealed:hover, .service-card.is-revealed:hover, .testimonial-card.is-revealed:hover, 
