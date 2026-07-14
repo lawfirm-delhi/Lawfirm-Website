@@ -1051,6 +1051,8 @@ h1, h2, h3, h4 {
 .team-card {
   padding: 1.5rem;
   text-align: left;
+  background: var(--bg-primary) !important;
+  border-color: var(--border);
 }
 .team-photo {
   aspect-ratio: 1 / 1;
