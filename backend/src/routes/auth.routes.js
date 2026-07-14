@@ -3,9 +3,11 @@ const router = express.Router();
 const authController = require('../controllers/auth.controller');
 const validate = require('../middleware/validate');
 const authenticate = require('../middleware/authenticate');
-const { registerSchema, loginSchema } = require('../models/auth.schema');
+const { registerSchema, loginSchema, updateProfileSchema, changePasswordSchema } = require('../models/auth.schema');
 
 router.get('/me', authenticate, authController.getMe);
+router.put('/me', authenticate, validate(updateProfileSchema), authController.updateMe);
+router.put('/password', authenticate, validate(changePasswordSchema), authController.changePassword);
 router.post('/register', validate(registerSchema), authController.register);
 router.post('/login', validate(loginSchema), authController.login);
 router.post('/refresh', authController.refresh);

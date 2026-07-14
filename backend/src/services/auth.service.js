@@ -95,6 +95,45 @@ class AuthService {
     }
     return true;
   }
+
+  async updateProfile(userId, data) {
+    if (data.email) {
+      const existingUser = await authRepo.getUserByEmail(data.email);
+      if (existingUser && existingUser.id !== userId) {
+        throw { status: 409, message: 'Email already in use', isOperational: true };
+      }
+    }
+    
+    await authRepo.updateProfile(userId, data);
+    
+    // Return updated user
+    const fullUser = await authRepo.getUserById(userId);
+    return {
+      id: fullUser.id, 
+      email: fullUser.email, 
+      role: fullUser.role,
+      fullName: fullUser.full_name,
+      mobile: fullUser.mobile,
+      company: fullUser.company
+    };
+  }
+
+  async changePassword(userId, currentPassword, newPassword) {
+    const user = await authRepo.getUserById(userId);
+    // getUserById returns limited info, we need the password hash.
+    // Let's get the raw user record using email.
+    const rawUser = await authRepo.getUserByEmail(user.email);
+    
+    const isValid = await verifyPassword(currentPassword, rawUser.password_hash);
+    if (!isValid) {
+      throw { status: 401, message: 'Invalid current password', isOperational: true };
+    }
+
+    const newPasswordHash = await hashPassword(newPassword);
+    await authRepo.updatePassword(userId, newPasswordHash);
+    
+    return true;
+  }
 }
 
 module.exports = new AuthService();

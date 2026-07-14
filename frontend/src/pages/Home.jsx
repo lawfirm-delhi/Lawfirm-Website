@@ -62,6 +62,20 @@ export default function Home() {
 
       premiumCards.forEach(card => cardObserver.observe(card));
       
+      // Mobile Scroll Focus Observer
+      const mobileFocusObserver = new IntersectionObserver((entries) => {
+        if (window.innerWidth > 768) return; // Only apply on mobile screens
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-mobile-focused');
+          } else {
+            entry.target.classList.remove('is-mobile-focused');
+          }
+        });
+      }, { threshold: 0.5, rootMargin: "-15% 0px -15% 0px" });
+      
+      premiumCards.forEach(card => mobileFocusObserver.observe(card));
+
       // Hover 3D Tilt for Premium Cards
       const handleMouseMove = (e) => {
         const card = e.currentTarget;
@@ -93,6 +107,7 @@ export default function Home() {
       return () => {
         basicObserver.disconnect();
         cardObserver.disconnect();
+        mobileFocusObserver.disconnect();
         premiumCards.forEach(card => {
           card.removeEventListener('mousemove', handleMouseMove);
           card.removeEventListener('mouseleave', handleMouseLeave);

@@ -6,6 +6,7 @@ import ClientRegister from './pages/Auth/ClientRegister';
 import ForgotPassword from './pages/Auth/ForgotPassword';
 import AdminDashboard from './pages/AdminPortal/AdminDashboard';
 import AdminRoute from './components/AdminRoute';
+import ProtectedRoute from './components/ProtectedRoute';
 
 // Landing Pages
 import AboutUs from './pages/LandingPages/AboutUs/AboutUs';
@@ -16,6 +17,7 @@ import Services from './pages/LandingPages/Services/Services';
 import Testimonials from './pages/LandingPages/Testimonials/Testimonials';
 import FAQ from './pages/LandingPages/FAQ/FAQ';
 import TeamMember from './pages/LandingPages/TeamMember';
+import UserProfile from './pages/UserProfile/UserProfile';
 import PrivacyPolicy from './pages/LandingPages/Legal/PrivacyPolicy';
 import TermsOfUse from './pages/LandingPages/Legal/TermsOfUse';
 
@@ -246,6 +248,8 @@ function MainApp() {
         </Routes>
       ) : pathname.startsWith('/admin') ? (
         <Routes>
+
+
           <Route element={<AdminRoute />}>
             <Route path="/admin/dashboard/*" element={<AdminDashboard />} />
           </Route>
@@ -253,6 +257,9 @@ function MainApp() {
       ) : (
         <Layout>
           <Routes>
+            <Route element={<ProtectedRoute />}>
+              <Route path="/profile" element={<UserProfile />} />
+            </Route>
             <Route path="/" element={<Home />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/why-us" element={<WhyUs />} />

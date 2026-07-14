@@ -78,6 +78,28 @@ class AuthController {
       next(err);
     }
   }
+
+  async updateMe(req, res, next) {
+    try {
+      // req.user is injected by the authenticate middleware
+      const userId = req.user.id;
+      const updatedUser = await authService.updateProfile(userId, req.body);
+      successResponse(res, 200, 'Profile updated successfully', updatedUser);
+    } catch (err) {
+      next(err);
+    }
+  }
+
+  async changePassword(req, res, next) {
+    try {
+      const userId = req.user.id;
+      const { currentPassword, newPassword } = req.body;
+      await authService.changePassword(userId, currentPassword, newPassword);
+      successResponse(res, 200, 'Password changed successfully');
+    } catch (err) {
+      next(err);
+    }
+  }
 }
 
 module.exports = new AuthController();

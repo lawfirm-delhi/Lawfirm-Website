@@ -79,6 +79,28 @@ class AuthRepository {
       is_locked: isLocked
     });
   }
+  async updateProfile(userId, data) {
+    return await db.transaction(async (trx) => {
+      // Update email in users table if provided
+      if (data.email) {
+        await trx('users').where({ id: userId }).update({ email: data.email });
+      }
+
+      // Update client details
+      const clientUpdate = {};
+      if (data.fullName) clientUpdate.full_name = data.fullName;
+      if (data.mobile) clientUpdate.mobile = data.mobile;
+      if (data.company !== undefined) clientUpdate.company = data.company;
+
+      if (Object.keys(clientUpdate).length > 0) {
+        await trx('clients').where({ user_id: userId }).update(clientUpdate);
+      }
+    });
+  }
+
+  async updatePassword(userId, passwordHash) {
+    return await db('users').where({ id: userId }).update({ password_hash: passwordHash });
+  }
 }
 
 module.exports = new AuthRepository();

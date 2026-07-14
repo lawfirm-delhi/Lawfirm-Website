@@ -43,3 +43,12 @@
 {"level":"info","message":"Database migrations complete.","timestamp":"2026-07-07T16:17:46.931Z"}
 {"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-07-07T16:17:46.934Z"}
 {"level":"info","message":"Consultation email sent: <1e58eb7b-6e16-1fd4-e9d4-4b41f332560a@justiceassociates.com>","timestamp":"2026-07-07T16:18:04.334Z"}
+{"level":"info","message":"Running database migrations...","timestamp":"2026-07-08T04:03:56.817Z"}
+{"level":"info","message":"Database migrations complete.","timestamp":"2026-07-08T04:03:56.884Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-07-08T04:03:56.895Z"}
+{"level":"info","message":"Consultation email sent: <7679ae86-a087-7d2a-87a8-bc661ac5f3ca@justiceassociates.com>","timestamp":"2026-07-08T04:04:07.694Z"}
+{"level":"info","message":"Running database migrations...","timestamp":"2026-07-08T04:27:41.753Z"}
+{"level":"info","message":"Database migrations complete.","timestamp":"2026-07-08T04:27:41.822Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-07-08T04:27:41.832Z"}
+{"level":"info","message":"Consultation email sent: <40b2423c-ccec-f726-1a5a-b3e06b4c82d5@justiceassociates.com>","timestamp":"2026-07-08T04:27:59.985Z"}
+{"level":"info","message":"Consultation email sent: <933d3942-38a6-4061-ef7e-ff8bde812bcd@justiceassociates.com>","timestamp":"2026-07-08T04:47:08.913Z"}
