@@ -810,13 +810,22 @@ h1, h2, h3, h4 {
 /* ---------- Background Alternation ---------- */
 .why-us { background: var(--bg-secondary); }
 .practice-areas { background: var(--bg-primary); }
-.stats-band { background: var(--bg-gradient); padding: clamp(4.5rem, 8vw, 6.5rem) 0; }
+.stats-band { 
+  background: var(--bg-gradient); 
+  padding: clamp(4.5rem, 8vw, 6.5rem) 0;
+  --heading: #E2E8F0;
+  --body: #94A3B8;
+}
 #team { background: var(--bg-secondary); }
 .services { background: var(--bg-primary); }
 .testimonials { background: var(--bg-secondary); }
 #insights { background: var(--bg-primary); }
 #faq { background: var(--bg-secondary); }
-.consultation-cta { background: var(--bg-gradient); }
+.consultation-cta { 
+  background: var(--bg-gradient);
+  --heading: #E2E8F0;
+  --body: #94A3B8;
+}
 
 /* ==========================================================================
    PREMIUM CARDS & 3D REVEAL SYSTEM
@@ -858,13 +867,17 @@ h1, h2, h3, h4 {
 
 @media (max-width: 768px) {
   .why-card, .practice-tab, .stat-card, .team-card, .service-card, .testimonial-card, .blog-card, .faq-item, .consultation-form {
-    transform: translateY(60px) scale(0.98);
+    transform: scale(0.95);
+    opacity: 0.5;
     filter: none;
-    transition: opacity 600ms cubic-bezier(0.2, 0.8, 0.2, 1), transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition: opacity 600ms cubic-bezier(0.2, 0.8, 0.2, 1), transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 600ms var(--ease);
   }
-  .why-card.is-revealed, .practice-tab.is-revealed, .stat-card.is-revealed, .team-card.is-revealed, 
-  .service-card.is-revealed, .testimonial-card.is-revealed, .blog-card.is-revealed, .faq-item.is-revealed, .consultation-form.is-revealed {
-    transform: translateY(0) scale(1);
+  .why-card.is-mobile-focused, .practice-tab.is-mobile-focused, .stat-card.is-mobile-focused, .team-card.is-mobile-focused, 
+  .service-card.is-mobile-focused, .testimonial-card.is-mobile-focused, .blog-card.is-mobile-focused, .faq-item.is-mobile-focused, .consultation-form.is-mobile-focused {
+    transform: scale(1.02);
+    opacity: 1;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    z-index: 2;
   }
 }
 
@@ -1431,6 +1444,8 @@ tr:hover {
   background: var(--bg-gradient);
   padding: 4rem 0 2rem;
   border-top: 1px solid var(--divider);
+  --heading: #E2E8F0;
+  --body: #94A3B8;
 }
 .footer-grid {
   display: grid;
