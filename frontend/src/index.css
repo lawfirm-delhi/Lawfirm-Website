@@ -14,23 +14,23 @@
   --bg-primary: #FAF9F6;
   --bg-secondary: #F3EFE6;
   --bg-tertiary: #E8E2D2;
-  --nav-bg: rgba(11, 18, 33, 0.95);
+  --nav-bg: rgba(9, 13, 23, 0.95);
 
-  /* Luxury Gradient */
-  --gradient-start: #0B1221;
-  --gradient-middle: #0F172A;
-  --gradient-end: #1E293B;
+  /* Luxury Gradient - Darker Navy */
+  --gradient-start: #090D17;
+  --gradient-middle: #0C121F;
+  --gradient-end: #101726;
   --bg-gradient: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-middle) 40%, var(--gradient-end) 100%);
 
-  /* Brand Colors (True Gold) */
-  --primary-gold: #C5A059;
-  --gold-hover: #D4AF37;
-  --gold-dark: #B38B40;
+  /* Brand Colors (Muted Gold) */
+  --primary-gold: #A38342;
+  --gold-hover: #B89955;
+  --gold-dark: #8A6D33;
 
-  /* Typography (Dark Royal Blue) */
+  /* Typography */
   --heading: #0B1D45;
   --body: #2B3A5A;
-  --muted: #5C6E91;
+  --muted: #64748B;
 
   /* Borders */
   --border: #D8D2C3;
@@ -342,8 +342,8 @@ h1, h2, h3, h4 {
    NAVIGATION
    ========================================================================== */
 .site-header {
-  --heading: #FFFFFF;
-  --body: rgba(255, 255, 255, 0.85);
+  --heading: #E2E8F0;
+  --body: #94A3B8;
   position: fixed;
   top: 0;
   left: 0;
@@ -556,8 +556,8 @@ h1, h2, h3, h4 {
    HERO
    ========================================================================== */
 .hero {
-  --heading: #FFFFFF;
-  --body: rgba(255, 255, 255, 0.85);
+  --heading: #E2E8F0;
+  --body: #94A3B8;
   position: relative;
   min-height: 100vh;
   background: var(--bg-gradient);
@@ -569,7 +569,7 @@ h1, h2, h3, h4 {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 75% 50%, rgba(197, 160, 89, 0.18), transparent 50%);
+  background: transparent;
   pointer-events: none;
 }
 .hero-grid {
