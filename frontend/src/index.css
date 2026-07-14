@@ -11,21 +11,21 @@
   color-scheme: light;
 
   /* Backgrounds (Cream) */
-  --bg-primary: #FCFBF8;
+  --bg-primary: #FAF9F6;
   --bg-secondary: #F3EFE6;
   --bg-tertiary: #E8E2D2;
-  --nav-bg: rgba(255, 255, 255, 0.85);
+  --nav-bg: rgba(11, 18, 33, 0.95);
 
   /* Luxury Gradient */
-  --gradient-start: #FFFFFF;
-  --gradient-middle: #F5F2EA;
-  --gradient-end: #EBE4D5;
+  --gradient-start: #0B1221;
+  --gradient-middle: #0F172A;
+  --gradient-end: #1E293B;
   --bg-gradient: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-middle) 40%, var(--gradient-end) 100%);
 
-  /* Brand Colors (Light Royal Blue) */
-  --primary-gold: #4A7AFF;
-  --gold-hover: #3A66E5;
-  --gold-dark: #2B52CC;
+  /* Brand Colors (True Gold) */
+  --primary-gold: #C5A059;
+  --gold-hover: #D4AF37;
+  --gold-dark: #B38B40;
 
   /* Typography (Dark Royal Blue) */
   --heading: #0B1D45;
@@ -51,7 +51,7 @@
   --shadow-sm: 0 4px 12px rgba(11, 29, 69, 0.05);
   --shadow-md: 0 8px 24px rgba(11, 29, 69, 0.08);
   --shadow-lg: 0 18px 50px rgba(11, 29, 69, 0.12);
-  --shadow-gold: 0 8px 24px rgba(74, 122, 255, 0.25);
+  --shadow-gold: 0 8px 24px rgba(197, 160, 89, 0.25);
 
   /* Utilities */
   --container-w: 1240px;
@@ -277,7 +277,7 @@ h1, h2, h3, h4 {
 .btn-primary:hover {
   background: var(--gold-hover);
   transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(74, 122, 255, 0.35);
+  box-shadow: 0 12px 28px rgba(197, 160, 89, 0.35);
 }
 
 .btn-ghost {
@@ -286,7 +286,7 @@ h1, h2, h3, h4 {
   color: var(--heading);
 }
 .btn-ghost:hover {
-  background: rgba(74, 122, 255, 0.08);
+  background: rgba(197, 160, 89, 0.15);
   transform: translateY(-4px);
 }
 
@@ -342,12 +342,14 @@ h1, h2, h3, h4 {
    NAVIGATION
    ========================================================================== */
 .site-header {
+  --heading: #FFFFFF;
+  --body: rgba(255, 255, 255, 0.85);
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 500;
-  background: transparent;
+  background: var(--gradient-start);
   transition: background var(--duration) var(--ease), padding var(--duration) var(--ease);
   border-bottom: 1px solid transparent;
 }
@@ -554,6 +556,8 @@ h1, h2, h3, h4 {
    HERO
    ========================================================================== */
 .hero {
+  --heading: #FFFFFF;
+  --body: rgba(255, 255, 255, 0.85);
   position: relative;
   min-height: 100vh;
   background: var(--bg-gradient);
@@ -565,7 +569,7 @@ h1, h2, h3, h4 {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 15% 20%, rgba(74, 122, 255, 0.08), transparent 45%);
+  background: radial-gradient(circle at 75% 50%, rgba(197, 160, 89, 0.18), transparent 50%);
   pointer-events: none;
 }
 .hero-grid {
