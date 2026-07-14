@@ -8,6 +8,7 @@ import AdminDashboard from './pages/AdminPortal/AdminDashboard';
 import AdminRoute from './components/AdminRoute';
 
 // Landing Pages
+import AboutUs from './pages/LandingPages/AboutUs/AboutUs';
 import WhyUs from './pages/LandingPages/WhyUs/WhyUs';
 import PracticeAreas from './pages/LandingPages/PracticeAreas/PracticeAreas';
 import Team from './pages/LandingPages/Team/Team';
@@ -105,6 +106,7 @@ function Layout({ children }) {
 
           <div className={`nav-menu ${menuOpen ? 'is-open' : ''}`} id="navMenu">
             <div className="nav-links">
+              <Link to="/about-us" onClick={() => setMenuOpen(false)}>About Us</Link>
               <Link to="/why-us" onClick={() => setMenuOpen(false)}>Why Us</Link>
               <Link to="/practice-areas" onClick={() => setMenuOpen(false)}>Practice Areas</Link>
               <Link to="/team" onClick={() => setMenuOpen(false)}>Our Team</Link>
@@ -187,6 +189,7 @@ function Layout({ children }) {
             <div className="footer-col">
               <h4>Firm</h4>
               <ul>
+                <li><Link to="/about-us">About Us</Link></li>
                 <li><Link to="/why-us">Why Choose Us</Link></li>
                 <li><Link to="/team">Our Team</Link></li>
                 <li><Link to="/#insights">Insights</Link></li>
@@ -251,6 +254,7 @@ function MainApp() {
         <Layout>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/about-us" element={<AboutUs />} />
             <Route path="/why-us" element={<WhyUs />} />
             <Route path="/practice-areas" element={<PracticeAreas />} />
             <Route path="/team" element={<Team />} />
