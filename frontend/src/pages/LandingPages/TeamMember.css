@@ -60,6 +60,8 @@
   text-decoration: none;
   font-size: 0.95rem;
   transition: color 0.2s ease;
+  overflow-wrap: anywhere;
+  word-break: break-all;
 }
 
 .contact-item:hover {
