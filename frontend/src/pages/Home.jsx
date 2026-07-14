@@ -110,7 +110,7 @@ export default function Home() {
       <section className="hero" id="top">
         <div className="hero-grid">
           <div className="hero-left">
-            <p className="eyebrow eyebrow-light">Est. 2011 · New Delhi</p>
+            <p className="eyebrow eyebrow-light">Welcome to Nyati Law Chamber</p>
             <p className="tagline">"Counsel that stands where the law is tested."</p>
             <h1 className="hero-headline">Precision advocacy for businesses that cannot afford to be wrong.</h1>
             <p className="hero-support">Justice &amp; Associates advises boards, promoters, and institutions on the matters that define them — from courtroom litigation to the fine print of a billion‑rupee merger.</p>
