@@ -1050,6 +1050,8 @@ h1, h2, h3, h4 {
   position: relative;
   overflow: hidden;
   background: var(--bg-tertiary);
+  --heading: #0B1D45;
+  --body: #334155;
 }
 .stat-num {
   display: block;
