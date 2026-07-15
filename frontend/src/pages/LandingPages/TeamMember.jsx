@@ -104,7 +104,7 @@ export default function TeamMember() {
               <img 
                 src={member.image} 
                 alt={member.name} 
-                style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} 
+                style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'top', borderRadius: '50%' }} 
               />
             </div>
             <div className="profile-contact">

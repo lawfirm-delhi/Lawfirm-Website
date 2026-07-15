@@ -325,7 +325,7 @@ export default function Home() {
 
           <div className="team-grid" style={{ display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
             <Link to="/team/pankaj-sinha" className="team-card reveal" style={{ textDecoration: 'none', color: 'inherit', maxWidth: '300px', width: '100%' }}>
-              <div className="team-photo" style={{ backgroundImage: 'url(/images/team/pankaj.jpg)', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+              <div className="team-photo" style={{ backgroundImage: 'url(/images/team/pankaj.jpg)', backgroundSize: 'cover', backgroundPosition: 'top' }}></div>
               <h3>Pankaj Sinha</h3>
               <p className="team-role">Advocate, Delhi High Court</p>
             </Link>
