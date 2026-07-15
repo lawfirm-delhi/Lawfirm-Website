@@ -42,7 +42,7 @@ const teamData = {
     role: 'Advocate',
     email: 'garima040810@gmail.com',
     phone: '+91 7210067910',
-    image: '/images/team/garima.png',
+    image: '/images/team/garima.jpg',
     bio: 'A dedicated and highly motivated legal professional with experience in legal research, drafting, litigation support, and case management. Garima is proficient in handling service matters, criminal cases, and civil litigation. Adept at legal documentation, court procedures, and e-filing, with strong analytical and problem-solving skills.',
     education: [
       'LL.B., Campus Law Centre, Faculty of Law, University of Delhi (2021-2024)',

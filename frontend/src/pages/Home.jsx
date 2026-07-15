@@ -330,7 +330,7 @@ export default function Home() {
               <p className="team-role">Advocate, Delhi High Court</p>
             </Link>
             <Link to="/team/garima" className="team-card reveal" style={{ textDecoration: 'none', color: 'inherit', maxWidth: '300px', width: '100%' }}>
-              <div className="team-photo" style={{ backgroundImage: 'url(/images/team/garima.png)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundPositionY: 'top' }}></div>
+              <div className="team-photo" style={{ backgroundImage: 'url(/images/team/garima.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundPositionY: 'top' }}></div>
               <h3>Garima</h3>
               <p className="team-role">Advocate</p>
             </Link>

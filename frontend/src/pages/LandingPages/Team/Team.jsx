@@ -131,7 +131,7 @@ export default function Team() {
       experience: '3 Years', 
       education: 'LL.B. Campus Law Centre, DU',
       email: 'garima040810@gmail.com',
-      image: '/images/team/garima.png'
+      image: '/images/team/garima.jpg'
     }
   ];
 
