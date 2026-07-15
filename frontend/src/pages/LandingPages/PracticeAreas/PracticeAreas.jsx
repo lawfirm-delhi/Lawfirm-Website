@@ -152,6 +152,8 @@ export default function PracticeAreas() {
                 padding: '3rem',
                 maxWidth: '700px',
                 width: '100%',
+                maxHeight: '90vh',
+                overflowY: 'auto',
                 position: 'relative',
                 boxShadow: 'var(--shadow-lg)'
               }}
