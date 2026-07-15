@@ -1,44 +1,74 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Mail, Phone } from 'lucide-react';
+import { ArrowLeft, Mail, Phone, BookOpen, Award, CheckCircle, Briefcase, Star, Users } from 'lucide-react';
 import './TeamMember.css';
 
 const teamData = {
-  'arjun-mehta': {
-    name: 'Arjun Mehta',
-    role: 'Managing Partner',
-    email: 'arjun.mehta@justiceassociates.example',
-    phone: '+91 98765 43210',
-    bio: 'Arjun Mehta is the Managing Partner at Justice & Associates, bringing over 20 years of unparalleled expertise in corporate law, mergers and acquisitions, and complex commercial litigation. Recognized consistently as a top-tier litigator, he has successfully represented Fortune 500 companies in high-stakes legal battles across multiple jurisdictions. Arjun\'s strategic vision and dedication to client success form the cornerstone of our firm\'s philosophy.',
-    education: ['LL.M., Harvard Law School', 'LL.B., National Law School of India University'],
-    expertise: ['Corporate Law', 'Mergers & Acquisitions', 'Commercial Litigation']
+  'pankaj-sinha': {
+    name: 'Pankaj Sinha',
+    role: 'Advocate, Delhi High Court',
+    email: 'sinhapankaj81@gmail.com',
+    phone: '+91-9910247816',
+    image: '/images/team/pankaj.png',
+    bio: 'Pankaj Sinha is a highly experienced Advocate practicing in the Supreme Court of India, Delhi High Court, and Subordinate Courts since 2006. With over 19 years of legal experience, he represents clients in civil and criminal matters, Consumer Forums from District to National level, Central Administrative Tribunal, and cases involving Juveniles in conflict with Law. He also has teaching experience as Guest Faculty Assistant Professor at Law Centre II, Delhi University.',
+    education: [
+      'L.L.B., Campus Law Centre, New Delhi (2003-2006)',
+      'B.A. (History), St. Stephen\'s College, New Delhi (2000-2003)',
+      'J.P.M. Senior Secondary School, New Delhi (1988-2000)'
+    ],
+    expertise: ['Criminal Law', 'Civil Litigation', 'Human Rights', 'Consumer Disputes', 'Administrative Law'],
+    experience: [
+      'Panel advocate Criminal Law-I in Legal Aid Services of Delhi High Court (2025-2028).',
+      'Panel advocate of Punjab & Sind Bank Since May, 2015.',
+      'Civil Panel Advocate of Govt. of NCT of Delhi in Delhi High Court since June, 2015.',
+      'Legal Consultant with Human Rights Law Network (HRLN) since August 2008 till April, 2015.',
+      'Practiced as an Associate under Advocate S C Vashishth, Delhi High Court (2007-2008).',
+      'Practiced under Senior Advocate S. K. Rungta, Delhi High Court (2006-2007).'
+    ],
+    extraCurricular: [
+      'Participated as a panelist at the ICON-S 2016 Conference held at Berlin, Germany on "Borders, Otherness and Public Law".',
+      'Represented Socio Legal Information Centre (SLIC) in a conference on Access to Justice in Ireland (2014).',
+      'Represented International Jurist Organisation in UN Headquarters, NY (2005) & Ottawa (2005).'
+    ],
+    miscellaneous: [
+      'Participating in advocacy initiatives in the disability sector on the Rights of Persons with Disabilities.',
+      'Resource person and participant in seminars relating to Human Rights (Women, Dalits, HIV/AIDS).',
+      'Edited a book on "Indian Laws for Protecting Children".',
+      'Attended Basic Mountaineering and Adventure course ARU Jammu and Kashmir (1999).'
+    ]
   },
-  'priya-sharma': {
-    name: 'Priya Sharma',
-    role: 'Head of Litigation',
-    email: 'priya.sharma@justiceassociates.example',
-    phone: '+91 98765 43211',
-    bio: 'Priya Sharma leads our Litigation practice with a fierce commitment to justice and an exceptional track record in the courtroom. With over 15 years of experience handling civil, criminal, and constitutional matters, she is known for her meticulous preparation and persuasive advocacy. Priya has been instrumental in several landmark Supreme Court judgments and continues to be a formidable force in complex dispute resolution.',
-    education: ['LL.M., University of Oxford', 'B.A. LL.B. (Hons.), NALSAR University of Law'],
-    expertise: ['Civil Litigation', 'Criminal Defense', 'Constitutional Law']
-  },
-  'rohan-kapoor': {
-    name: 'Rohan Kapoor',
-    role: 'Partner, Corporate Practice',
-    email: 'rohan.kapoor@justiceassociates.example',
-    phone: '+91 98765 43212',
-    bio: 'Rohan Kapoor is a Partner in the Corporate Practice group, specializing in private equity, venture capital, and cross-border transactions. He regularly advises startups, established corporations, and investors on complex structuring, compliance, and regulatory frameworks. Rohan\'s pragmatic approach and deep understanding of the business landscape allow him to deliver innovative legal solutions that drive corporate growth.',
-    education: ['J.D., Columbia Law School', 'B.Com, Shri Ram College of Commerce'],
-    expertise: ['Private Equity', 'Venture Capital', 'Corporate Structuring']
-  },
-  'ananya-desai': {
-    name: 'Ananya Desai',
-    role: 'Partner, IP & Technology',
-    email: 'ananya.desai@justiceassociates.example',
-    phone: '+91 98765 43213',
-    bio: 'Ananya Desai heads our Intellectual Property and Technology law division. She is a pioneer in advising tech companies on data privacy, cybersecurity, and patent law. With the rapid evolution of digital landscapes, Ananya provides critical counsel on software licensing, trademark protection, and IP infringement disputes. Her forward-thinking strategies ensure our clients\' innovations are securely protected worldwide.',
-    education: ['LL.M. in IP Law, Stanford University', 'LL.B., Government Law College, Mumbai'],
-    expertise: ['Intellectual Property', 'Data Privacy', 'Technology Law']
+  'garima': {
+    name: 'Garima',
+    role: 'Advocate',
+    email: 'garima040810@gmail.com',
+    phone: '+91 7210067910',
+    image: '/images/team/garima.png',
+    bio: 'A dedicated and highly motivated legal professional with experience in legal research, drafting, litigation support, and case management. Garima is proficient in handling service matters, criminal cases, and civil litigation. Adept at legal documentation, court procedures, and e-filing, with strong analytical and problem-solving skills.',
+    education: [
+      'LL.B., Campus Law Centre, Faculty of Law, University of Delhi (2021-2024)',
+      'B.A. (Hons.) Political Science, Indraprastha College for Women, University of Delhi (2018-2021)',
+      'CBSE (12th Std.), Rajkiya Pratibha Vikas Vidyalaya, Delhi (2017-2018)'
+    ],
+    expertise: ['Service Matters', 'Criminal Cases', 'Civil Litigation', 'Legal Research'],
+    experience: [
+      'Medico Legal Associate, Health Rights Associates: Assisting in drafting applications for medical board proceedings, managing end-to-end process of filing applications.',
+      'Legal Associate (Advocate Pankaj Sinha): Assisted in handling Service matters, Criminal cases and Civil matters. Provided research support, drafted Writ Petitions and Appeals. Appeared before Delhi High Court and Supreme Court.',
+      'Internship at NEEV Foundation for Legal Aid: Filed RTI and Appeals, assisted in legal research and mediation proceedings.'
+    ],
+    positions: [
+      'Member, Enabling Unit, Campus Law Centre (2023)',
+      'Member, Legal Aid Society, Campus Law Centre (2021-2024)',
+      'Member, Criminal Law Society, Campus Law Centre (2023-2024)',
+      'Member, ADR Society Campus Law Centre (2023-2024)',
+      'Volunteer in Saksham 2.0 project by Nek Mission Foundation'
+    ],
+    extraCurricular: [
+      'Contributed as a student member at the 3rd International Conference on Artificial Intelligence and International Law at CLC, DU.',
+      'Team Leader of a 5 membered team in "Outreach Programme 2023" to dispense legal awareness among slum areas in Delhi with DSLSA.',
+      'Student Volunteer, 19th K.K. Luthra Moot Court Competition.',
+      'Participated in seminar on "ENVIRONMENTAL JUSTICE" by Project Saksham 3.0 in 2024.'
+    ],
+    hobbies: ['Photography', 'Designing', 'Baking', 'Badminton']
   }
 };
 
@@ -64,14 +94,18 @@ export default function TeamMember() {
   return (
     <div className="team-member-page">
       <div className="container">
-        <Link to="/#team" className="back-link">
+        <Link to="/team" className="back-link">
           <ArrowLeft size={18} /> Back to Team
         </Link>
         
         <div className="profile-layout">
           <div className="profile-sidebar">
             <div className="profile-photo-large">
-              {/* Using the same gradient style as the homepage photos */}
+              <img 
+                src={member.image} 
+                alt={member.name} 
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+              />
             </div>
             <div className="profile-contact">
               <a href={`mailto:${member.email}`} className="contact-item">
@@ -81,9 +115,6 @@ export default function TeamMember() {
               <a href={`tel:${member.phone}`} className="contact-item">
                 <Phone size={18} />
                 {member.phone}
-              </a>
-              <a href="#" className="contact-item">
-                LinkedIn Profile
               </a>
             </div>
           </div>
@@ -98,29 +129,82 @@ export default function TeamMember() {
             </div>
             
             <div className="profile-grid">
-              <div className="profile-section">
-                <h2>Areas of Expertise</h2>
-                <ul className="profile-list">
-                  {member.expertise.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
+              <div className="profile-column">
+                <div className="profile-section">
+                  <h2><BookOpen size={20} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'text-bottom', color: 'var(--primary-gold)' }}/> Education</h2>
+                  <ul className="profile-list">
+                    {member.education.map((edu, idx) => (
+                      <li key={idx}>{edu}</li>
+                    ))}
+                  </ul>
+                </div>
+                
+                {member.experience && (
+                  <div className="profile-section">
+                    <h2><Briefcase size={20} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'text-bottom', color: 'var(--primary-gold)' }}/> Work Experience</h2>
+                    <ul className="profile-list">
+                      {member.experience.map((exp, idx) => (
+                        <li key={idx}>{exp}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                
+                {member.extraCurricular && (
+                  <div className="profile-section">
+                    <h2><Award size={20} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'text-bottom', color: 'var(--primary-gold)' }}/> Extra-Curricular Activities</h2>
+                    <ul className="profile-list">
+                      {member.extraCurricular.map((item, idx) => (
+                        <li key={idx}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
               </div>
               
-              <div className="profile-section">
-                <h2>Education</h2>
-                <ul className="profile-list">
-                  {member.education.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
+              <div className="profile-column">
+                <div className="profile-section">
+                  <h2><CheckCircle size={20} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'text-bottom', color: 'var(--primary-gold)' }}/> Practice Areas</h2>
+                  <div className="expertise-tags">
+                    {member.expertise.map((exp, idx) => (
+                      <span key={idx} className="expertise-tag">{exp}</span>
+                    ))}
+                  </div>
+                </div>
+
+                {member.positions && (
+                  <div className="profile-section">
+                    <h2><Users size={20} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'text-bottom', color: 'var(--primary-gold)' }}/> Positions of Responsibility</h2>
+                    <ul className="profile-list">
+                      {member.positions.map((item, idx) => (
+                        <li key={idx}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                
+                {member.miscellaneous && (
+                  <div className="profile-section">
+                    <h2><Star size={20} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'text-bottom', color: 'var(--primary-gold)' }}/> Miscellaneous</h2>
+                    <ul className="profile-list">
+                      {member.miscellaneous.map((item, idx) => (
+                        <li key={idx}>{item}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
+                {member.hobbies && (
+                  <div className="profile-section">
+                    <h2>Hobbies</h2>
+                    <div className="expertise-tags">
+                      {member.hobbies.map((hobby, idx) => (
+                        <span key={idx} className="expertise-tag">{hobby}</span>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
-            </div>
-            
-            <div className="profile-cta">
-              <h3>Work with {member.name.split(' ')[0]}</h3>
-              <p>Schedule a consultation to discuss your legal matters with our expert team.</p>
-              <Link to="/consultation" className="btn btn-primary">Book Consultation</Link>
             </div>
           </div>
         </div>

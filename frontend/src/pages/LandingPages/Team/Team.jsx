@@ -67,12 +67,15 @@ function LawyerCard({ lawyer }) {
         transition={{ type: 'spring', stiffness: 300, damping: 20 }}
       >
         <div style={{ height: '300px', background: 'var(--bg-tertiary)', position: 'relative', overflow: 'hidden' }}>
-          {/* Silhouette Placeholder */}
-          <div style={{ position: 'absolute', bottom: 0, left: '50%', transform: 'translateX(-50%)', width: '200px', height: '280px', background: 'linear-gradient(to top, var(--bg-secondary), transparent)', borderRadius: '100px 100px 0 0', display: 'flex', justifyContent: 'center', alignItems: 'flex-end', paddingBottom: '20px' }}>
-             <svg width="120" height="120" viewBox="0 0 24 24" fill="var(--primary-gold)" opacity="0.3">
-               <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-             </svg>
-          </div>
+          {lawyer.image ? (
+            <img src={lawyer.image} alt={lawyer.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+          ) : (
+            <div style={{ position: 'absolute', bottom: 0, left: '50%', transform: 'translateX(-50%)', width: '200px', height: '280px', background: 'linear-gradient(to top, var(--bg-secondary), transparent)', borderRadius: '100px 100px 0 0', display: 'flex', justifyContent: 'center', alignItems: 'flex-end', paddingBottom: '20px' }}>
+               <svg width="120" height="120" viewBox="0 0 24 24" fill="var(--primary-gold)" opacity="0.3">
+                 <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+               </svg>
+            </div>
+          )}
         </div>
         
         <div style={{ padding: '2rem', flex: 1, display: 'flex', flexDirection: 'column' }}>
@@ -96,8 +99,7 @@ function LawyerCard({ lawyer }) {
           
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '1.5rem', borderTop: '1px solid var(--border)' }}>
             <div style={{ display: 'flex', gap: '1rem' }}>
-              <a href="#" style={{ color: 'var(--muted)' }}><Mail size={18} /></a>
-              <a href="#" style={{ color: 'var(--muted)' }}><Globe size={18} /></a>
+              <a href={`mailto:${lawyer.email}`} style={{ color: 'var(--muted)' }}><Mail size={18} /></a>
             </div>
             <Link to={`/team/${lawyer.id}`} style={{ color: 'var(--primary-gold)', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 500 }}>
               View Profile <ArrowRight size={16} />
@@ -111,12 +113,26 @@ function LawyerCard({ lawyer }) {
 
 export default function Team() {
   const lawyers = [
-    { id: '1', name: 'Jonathan Sterling', designation: 'Senior Partner', practiceArea: 'Corporate Law', experience: '25+ Years', education: 'Harvard Law School' },
-    { id: '2', name: 'Eleanor Vance', designation: 'Partner', practiceArea: 'Litigation & Disputes', experience: '18 Years', education: 'Yale Law School' },
-    { id: '3', name: 'Marcus Chen', designation: 'Managing Partner', practiceArea: 'Intellectual Property', experience: '20 Years', education: 'Stanford Law School' },
-    { id: '4', name: 'Sarah Kensington', designation: 'Senior Associate', practiceArea: 'International Arbitration', experience: '12 Years', education: 'Oxford University' },
-    { id: '5', name: 'David Roth', designation: 'Partner', practiceArea: 'Taxation', experience: '22 Years', education: 'NYU School of Law' },
-    { id: '6', name: 'Aisha Rahman', designation: 'Associate', practiceArea: 'Real Estate', experience: '8 Years', education: 'Columbia Law School' }
+    { 
+      id: 'pankaj-sinha', 
+      name: 'Pankaj Sinha', 
+      designation: 'Advocate, Delhi High Court', 
+      practiceArea: 'Litigation, Civil & Criminal', 
+      experience: '19+ Years', 
+      education: 'L.L.B Campus Law Centre, New Delhi',
+      email: 'sinhapankaj81@gmail.com',
+      image: '/images/team/pankaj.png'
+    },
+    { 
+      id: 'garima', 
+      name: 'Garima', 
+      designation: 'Advocate', 
+      practiceArea: 'Service matters, Criminal cases', 
+      experience: '3 Years', 
+      education: 'LL.B. Campus Law Centre, DU',
+      email: 'garima040810@gmail.com',
+      image: '/images/team/garima.png'
+    }
   ];
 
   return (
@@ -138,9 +154,12 @@ export default function Team() {
           initial="initial" 
           whileInView="animate" 
           viewport={{ once: true, margin: "-50px" }}
+          style={{ display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}
         >
           {lawyers.map(lawyer => (
-            <LawyerCard key={lawyer.id} lawyer={lawyer} />
+            <div key={lawyer.id} style={{ maxWidth: '350px', width: '100%' }}>
+              <LawyerCard lawyer={lawyer} />
+            </div>
           ))}
         </motion.div>
       </section>
