@@ -1697,6 +1697,8 @@ tr:hover {
     max-width: 320px;
     height: 100vh;
     background: rgba(255, 255, 255, 0.98);
+    --heading: #0B1D45;
+    --body: #334155;
     backdrop-filter: blur(12px);
     flex-direction: column;
     justify-content: center;
