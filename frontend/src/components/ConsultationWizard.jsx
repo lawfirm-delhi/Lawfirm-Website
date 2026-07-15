@@ -295,7 +295,17 @@ export default function ConsultationWizard() {
             <p style={{color:'var(--muted)', marginBottom: '2rem'}}>Our legal team will review your details and contact you shortly.</p>
 
             <div style={{display:'flex', gap:'1rem', justifyContent:'center'}}>
-              <Link to="/" className="btn btn-primary">Return to Home</Link>
+              <button onClick={() => {
+                setStep(1);
+                setFormData({
+                  fullName: '', email: '', mobile: '', company: '',
+                  practiceArea: '', subject: '', description: '',
+                  date: '', time: '', mode: '',
+                  files: []
+                });
+                setRefNumber('');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }} className="btn btn-primary">Return to Home</button>
             </div>
           </motion.div>
         )}
