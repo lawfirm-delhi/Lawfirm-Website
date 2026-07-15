@@ -121,7 +121,7 @@ export default function Team() {
       experience: '19+ Years', 
       education: 'L.L.B Campus Law Centre, New Delhi',
       email: 'sinhapankaj81@gmail.com',
-      image: '/images/team/pankaj.png'
+      image: '/images/team/pankaj.jpg'
     },
     { 
       id: 'garima', 

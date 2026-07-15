@@ -9,7 +9,7 @@ const teamData = {
     role: 'Advocate, Delhi High Court',
     email: 'sinhapankaj81@gmail.com',
     phone: '+91-9910247816',
-    image: '/images/team/pankaj.png',
+    image: '/images/team/pankaj.jpg',
     bio: 'Pankaj Sinha is a highly experienced Advocate practicing in the Supreme Court of India, Delhi High Court, and Subordinate Courts since 2006. With over 19 years of legal experience, he represents clients in civil and criminal matters, Consumer Forums from District to National level, Central Administrative Tribunal, and cases involving Juveniles in conflict with Law. He also has teaching experience as Guest Faculty Assistant Professor at Law Centre II, Delhi University.',
     education: [
       'L.L.B., Campus Law Centre, New Delhi (2003-2006)',
