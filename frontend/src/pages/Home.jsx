@@ -130,7 +130,7 @@ export default function Home() {
             <h1 className="hero-headline">Precision advocacy for businesses that cannot afford to be wrong.</h1>
             <p className="hero-support">Justice &amp; Associates advises boards, promoters, and institutions on the matters that define them — from courtroom litigation to the fine print of a billion‑rupee merger.</p>
             <div className="hero-cta-row">
-              <Link to="/consultation" className="btn btn-primary">Book a Consultation</Link>
+              <a href="#consultation" className="btn btn-primary">Book a Consultation</a>
               <a href="#practice-areas" className="btn btn-ghost">Explore Practice Areas</a>
             </div>
             <dl className="hero-mini-stats">
