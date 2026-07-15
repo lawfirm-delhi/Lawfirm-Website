@@ -137,6 +137,9 @@
   background: var(--bg-secondary);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
+  --heading: #0B1D45;
+  --body: #334155;
+  color: var(--body);
   padding: 3rem;
   box-shadow: var(--shadow-lg);
   position: relative;
