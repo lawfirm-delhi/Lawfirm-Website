@@ -825,6 +825,7 @@ h1, h2, h3, h4 {
   background: var(--bg-gradient);
   --heading: #E2E8F0;
   --body: #94A3B8;
+  color: var(--body);
 }
 
 /* ==========================================================================
@@ -1349,6 +1350,9 @@ h1, h2, h3, h4 {
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-md);
+  --heading: #0B1D45;
+  --body: #334155;
+  color: var(--body);
 }
 .form-row {
   margin-bottom: 1.2rem;
