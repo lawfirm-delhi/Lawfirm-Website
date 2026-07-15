@@ -135,13 +135,13 @@
   max-width: 800px;
   margin: 4rem auto 8rem;
   background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
+  border: 1px solid rgba(197, 168, 128, 0.3); /* Subtle gold border */
+  border-radius: 24px;
   --heading: #0B1D45;
   --body: #334155;
   color: var(--body);
   padding: 3rem;
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1), 0 0 40px rgba(197, 168, 128, 0.05); /* Premium soft shadow with hint of gold */
   position: relative;
   overflow: hidden;
 }
