@@ -100,11 +100,11 @@ export default function TeamMember() {
         
         <div className="profile-layout">
           <div className="profile-sidebar">
-            <div className="profile-photo-large">
+            <div className="profile-photo-large" style={{ overflow: 'hidden' }}>
               <img 
                 src={member.image} 
                 alt={member.name} 
-                style={{ width: '100%', height: '100%', objectFit: 'cover' }} 
+                style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '50%' }} 
               />
             </div>
             <div className="profile-contact">
