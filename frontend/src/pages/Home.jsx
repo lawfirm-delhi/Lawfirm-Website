@@ -323,26 +323,16 @@ export default function Home() {
             <p className="section-lede">Eight practices, one bench of partners each recognised individually in their field.</p>
           </div>
 
-          <div className="team-grid">
-            <Link to="/team/arjun-mehta" className="team-card reveal" style={{ textDecoration: 'none', color: 'inherit' }}>
-              <div className="team-photo"></div>
-              <h3>Arjun Mehta</h3>
-              <p className="team-role">Managing Partner</p>
+          <div className="team-grid" style={{ display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
+            <Link to="/team/pankaj-sinha" className="team-card reveal" style={{ textDecoration: 'none', color: 'inherit', maxWidth: '300px', width: '100%' }}>
+              <div className="team-photo" style={{ backgroundImage: 'url(/images/team/pankaj.png)', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
+              <h3>Pankaj Sinha</h3>
+              <p className="team-role">Advocate, Delhi High Court</p>
             </Link>
-            <Link to="/team/priya-sharma" className="team-card reveal" style={{ textDecoration: 'none', color: 'inherit' }}>
-              <div className="team-photo"></div>
-              <h3>Priya Sharma</h3>
-              <p className="team-role">Head of Litigation</p>
-            </Link>
-            <Link to="/team/rohan-kapoor" className="team-card reveal" style={{ textDecoration: 'none', color: 'inherit' }}>
-              <div className="team-photo"></div>
-              <h3>Rohan Kapoor</h3>
-              <p className="team-role">Partner, Corporate Practice</p>
-            </Link>
-            <Link to="/team/ananya-desai" className="team-card reveal" style={{ textDecoration: 'none', color: 'inherit' }}>
-              <div className="team-photo"></div>
-              <h3>Ananya Desai</h3>
-              <p className="team-role">Partner, IP &amp; Technology</p>
+            <Link to="/team/garima" className="team-card reveal" style={{ textDecoration: 'none', color: 'inherit', maxWidth: '300px', width: '100%' }}>
+              <div className="team-photo" style={{ backgroundImage: 'url(/images/team/garima.png)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundPositionY: 'top' }}></div>
+              <h3>Garima</h3>
+              <p className="team-role">Advocate</p>
             </Link>
           </div>
         </div>
