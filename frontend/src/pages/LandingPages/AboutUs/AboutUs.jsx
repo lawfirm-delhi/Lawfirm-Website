@@ -31,7 +31,7 @@ export default function AboutUs() {
 
       <section className="section" style={{ background: 'var(--bg-primary)' }}>
         <div className="container">
-          <div className="content-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '4rem', alignItems: 'center' }}>
+          <div className="content-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'center' }}>
             <motion.div 
               initial="initial"
               whileInView="whileInView"
