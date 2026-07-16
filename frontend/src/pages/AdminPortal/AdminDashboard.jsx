@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import api from '../../api/axios';
 import './AdminDashboard.css';
+import ClientDetailsModal from './ClientDetailsModal';
 
 export default function AdminDashboard() {
   const { user, logout } = useAuth();
@@ -10,6 +11,7 @@ export default function AdminDashboard() {
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('All');
   const [activeTab, setActiveTab] = useState('Consultations');
+  const [selectedClientEmail, setSelectedClientEmail] = useState(null);
   useEffect(() => {
     fetchConsultations();
   }, []);
@@ -154,8 +156,20 @@ export default function AdminDashboard() {
                             <td><span className="ref-badge">{c.reference_number}</span></td>
                             <td>{new Date(c.created_at).toLocaleDateString()}</td>
                             <td>
-                              <strong>{c.name}</strong><br />
-                              <span className="text-muted">{c.email}</span>
+                              <button 
+                                onClick={() => setSelectedClientEmail(c.email)}
+                                style={{ 
+                                  background: 'transparent', 
+                                  border: 'none', 
+                                  padding: 0, 
+                                  textAlign: 'left', 
+                                  cursor: 'pointer',
+                                  color: 'inherit'
+                                }}
+                              >
+                                <strong>{c.name}</strong><br />
+                                <span className="text-muted" style={{ textDecoration: 'underline' }}>{c.email}</span>
+                              </button>
                             </td>
                             <td>{c.subject}</td>
                             <td>
@@ -191,6 +205,13 @@ export default function AdminDashboard() {
           )}
         </div>
       </main>
+
+      {selectedClientEmail && (
+        <ClientDetailsModal 
+          email={selectedClientEmail} 
+          onClose={() => setSelectedClientEmail(null)} 
+        />
+      )}
     </div>
   );
 }

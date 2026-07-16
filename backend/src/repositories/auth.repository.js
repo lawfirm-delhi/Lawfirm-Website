@@ -101,6 +101,37 @@ class AuthRepository {
   async updatePassword(userId, passwordHash) {
     return await db('users').where({ id: userId }).update({ password_hash: passwordHash });
   }
+  async getClientHistoryByEmail(email) {
+    const user = await db('users')
+      .leftJoin('clients', 'users.id', 'clients.user_id')
+      .select(
+        'users.id',
+        'users.email',
+        'users.created_at',
+        'clients.full_name as fullName',
+        'clients.mobile',
+        'clients.company'
+      )
+      .where('users.email', email)
+      .first();
+
+    if (!user) return null;
+
+    const loginHistory = await db('login_history')
+      .where('user_id', user.id)
+      .orderBy('created_at', 'desc')
+      .limit(50);
+
+    const consultations = await db('consultations')
+      .where('email', email)
+      .orderBy('created_at', 'desc');
+
+    return {
+      profile: user,
+      loginHistory,
+      consultations
+    };
+  }
 }
 
 module.exports = new AuthRepository();

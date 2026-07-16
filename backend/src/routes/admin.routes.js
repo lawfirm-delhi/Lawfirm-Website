@@ -17,5 +17,6 @@ router.use(simpleAdminAuth);
 
 router.get('/consultations', adminController.getAllConsultations);
 router.patch('/consultations/:id/status', adminController.updateConsultationStatus);
+router.get('/clients/:email/details', adminController.getClientDetails);
 
 module.exports = router;

@@ -1,4 +1,5 @@
 const consultationRepo = require('../repositories/consultation.repository');
+const authRepo = require('../repositories/auth.repository');
 const { successResponse } = require('../utils/response');
 
 class AdminController {
@@ -27,6 +28,18 @@ class AdminController {
       }
 
       successResponse(res, 200, 'Consultation status updated', updated);
+    } catch (err) {
+      next(err);
+    }
+  }
+  async getClientDetails(req, res, next) {
+    try {
+      const { email } = req.params;
+      const history = await authRepo.getClientHistoryByEmail(email);
+      if (!history) {
+        return res.status(404).json({ success: false, message: 'Client not found' });
+      }
+      successResponse(res, 200, 'Client details retrieved', history);
     } catch (err) {
       next(err);
     }
