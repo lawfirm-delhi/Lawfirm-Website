@@ -85,6 +85,12 @@ class ConsultationRepository {
       .returning('*');
     return updated[0];
   }
+  async deleteConsultation(id) {
+    return await db('consultations')
+      .where({ id })
+      .update({ deleted_at: new Date() })
+      .returning('*');
+  }
 }
 
 module.exports = new ConsultationRepository();

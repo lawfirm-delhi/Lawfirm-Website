@@ -5,6 +5,7 @@ import './AdminDashboard.css';
 import ClientDetailsModal from './ClientDetailsModal';
 
 import ClientsModule from './ClientsModule';
+import NewConsultationModal from './NewConsultationModal';
 
 export default function AdminDashboard() {
   const { user, logout } = useAuth();
@@ -14,6 +15,7 @@ export default function AdminDashboard() {
   const [statusFilter, setStatusFilter] = useState('All');
   const [activeTab, setActiveTab] = useState('Consultations');
   const [selectedClientEmail, setSelectedClientEmail] = useState(null);
+  const [isNewModalOpen, setIsNewModalOpen] = useState(false);
   useEffect(() => {
     fetchConsultations();
   }, []);
@@ -39,6 +41,20 @@ export default function AdminDashboard() {
     } catch (err) {
       console.error('Failed to update status', err);
       alert('Failed to update status. Please try again.');
+    }
+  };
+
+  const handleDeleteConsultation = async (id) => {
+    if (window.confirm('Are you sure you want to delete this consultation?')) {
+      try {
+        const response = await api.delete(`/admin/consultations/${id}`);
+        if (response.data.success) {
+          setConsultations(prev => prev.filter(c => c.id !== id));
+        }
+      } catch (err) {
+        console.error('Failed to delete consultation', err);
+        alert('Failed to delete consultation.');
+      }
     }
   };
 
@@ -114,7 +130,13 @@ export default function AdminDashboard() {
               <div className="table-container">
                 <div className="table-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                   <h2>All Consultations</h2>
-                  <div style={{ display: 'flex', gap: '1rem' }}>
+                  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                    <button 
+                      onClick={() => setIsNewModalOpen(true)}
+                      style={{ padding: '0.4rem 0.75rem', borderRadius: '4px', border: 'none', background: '#3b82f6', color: 'white', cursor: 'pointer', fontWeight: '500' }}
+                    >
+                      + New Consultation
+                    </button>
                     <input 
                       type="text" 
                       placeholder="Search by name, email, or ref..." 
@@ -180,16 +202,33 @@ export default function AdminDashboard() {
                               </span>
                             </td>
                             <td>
-                              <select 
-                                className="status-select"
-                                value={c.status}
-                                onChange={(e) => handleStatusChange(c.id, e.target.value)}
-                              >
-                                <option value="Pending">Pending</option>
-                                <option value="Approved">Approve</option>
-                                <option value="Completed">Complete</option>
-                                <option value="Rejected">Reject</option>
-                              </select>
+                              <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+                                <select 
+                                  className="status-select"
+                                  value={c.status}
+                                  onChange={(e) => handleStatusChange(c.id, e.target.value)}
+                                >
+                                  <option value="Pending">Pending</option>
+                                  <option value="Approved">Approve</option>
+                                  <option value="Completed">Complete</option>
+                                  <option value="Rejected">Reject</option>
+                                </select>
+                                <button 
+                                  onClick={() => handleDeleteConsultation(c.id)}
+                                  style={{
+                                    background: 'transparent',
+                                    border: 'none',
+                                    color: '#ef4444',
+                                    cursor: 'pointer',
+                                    fontSize: '0.85rem',
+                                    fontWeight: '500',
+                                    padding: '0.4rem'
+                                  }}
+                                  title="Delete Consultation"
+                                >
+                                  Delete
+                                </button>
+                              </div>
                             </td>
                           </tr>
                         ))}
@@ -214,6 +253,16 @@ export default function AdminDashboard() {
         <ClientDetailsModal 
           email={selectedClientEmail} 
           onClose={() => setSelectedClientEmail(null)} 
+        />
+      )}
+
+      {isNewModalOpen && (
+        <NewConsultationModal 
+          onClose={() => setIsNewModalOpen(false)}
+          onCreated={() => {
+            fetchConsultations();
+            alert('Consultation created successfully!');
+          }}
         />
       )}
     </div>

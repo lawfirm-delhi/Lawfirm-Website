@@ -17,6 +17,8 @@ router.use(simpleAdminAuth);
 
 router.get('/consultations', adminController.getAllConsultations);
 router.patch('/consultations/:id/status', adminController.updateConsultationStatus);
+router.post('/consultations', adminController.createConsultation);
+router.delete('/consultations/:id', adminController.deleteConsultation);
 
 router.get('/clients', adminController.getAllClients);
 router.patch('/clients/:id/lock', adminController.toggleUserLock);

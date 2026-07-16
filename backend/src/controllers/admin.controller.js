@@ -81,6 +81,27 @@ class AdminController {
       next(err);
     }
   }
+  async createConsultation(req, res, next) {
+    try {
+      const consultation = await consultationRepo.createConsultation(req.body, []);
+      successResponse(res, 201, 'Consultation created successfully', consultation);
+    } catch (err) {
+      next(err);
+    }
+  }
+
+  async deleteConsultation(req, res, next) {
+    try {
+      const { id } = req.params;
+      const deleted = await consultationRepo.deleteConsultation(id);
+      if (!deleted || deleted.length === 0) {
+        return res.status(404).json({ success: false, message: 'Consultation not found' });
+      }
+      successResponse(res, 200, 'Consultation deleted successfully', deleted[0]);
+    } catch (err) {
+      next(err);
+    }
+  }
 }
 
 module.exports = new AdminController();
