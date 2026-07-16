@@ -9,6 +9,7 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('All');
+  const [activeTab, setActiveTab] = useState('Consultations');
   useEffect(() => {
     fetchConsultations();
   }, []);
@@ -58,9 +59,24 @@ export default function AdminDashboard() {
           <h2>Firm Admin</h2>
         </div>
         <nav className="sidebar-nav">
-          <button className="nav-item active">Consultations</button>
-          <button className="nav-item">Clients</button>
-          <button className="nav-item">Reports</button>
+          <button 
+            className={`nav-item ${activeTab === 'Consultations' ? 'active' : ''}`}
+            onClick={() => setActiveTab('Consultations')}
+          >
+            Consultations
+          </button>
+          <button 
+            className={`nav-item ${activeTab === 'Clients' ? 'active' : ''}`}
+            onClick={() => setActiveTab('Clients')}
+          >
+            Clients
+          </button>
+          <button 
+            className={`nav-item ${activeTab === 'Reports' ? 'active' : ''}`}
+            onClick={() => setActiveTab('Reports')}
+          >
+            Reports
+          </button>
         </nav>
         <div className="sidebar-footer">
           <button className="btn btn-outline" onClick={logout}>Sign Out</button>
@@ -74,96 +90,105 @@ export default function AdminDashboard() {
         </header>
 
         <div className="admin-content">
-          <div className="stat-grid">
-            <div className="stat-card pending">
-              <h3>Pending Cases</h3>
-              <p className="stat-number">{pendingCount}</p>
-            </div>
-            <div className="stat-card approved">
-              <h3>Approved Cases</h3>
-              <p className="stat-number">{approvedCount}</p>
-            </div>
-            <div className="stat-card completed">
-              <h3>Completed</h3>
-              <p className="stat-number">{completedCount}</p>
-            </div>
-          </div>
+          {activeTab === 'Consultations' ? (
+            <>
+              <div className="stat-grid">
+                <div className="stat-card pending">
+                  <h3>Pending Cases</h3>
+                  <p className="stat-number">{pendingCount}</p>
+                </div>
+                <div className="stat-card approved">
+                  <h3>Approved Cases</h3>
+                  <p className="stat-number">{approvedCount}</p>
+                </div>
+                <div className="stat-card completed">
+                  <h3>Completed</h3>
+                  <p className="stat-number">{completedCount}</p>
+                </div>
+              </div>
 
-          <div className="table-container">
-            <div className="table-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-              <h2>All Consultations</h2>
-              <div style={{ display: 'flex', gap: '1rem' }}>
-                <input 
-                  type="text" 
-                  placeholder="Search by name, email, or ref..." 
-                  value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
-                  style={{ padding: '0.4rem 0.75rem', borderRadius: '4px', border: '1px solid #cbd5e1', outline: 'none', width: '250px' }}
-                />
-                <select 
-                  value={statusFilter}
-                  onChange={(e) => setStatusFilter(e.target.value)}
-                  style={{ padding: '0.4rem 0.75rem', borderRadius: '4px', border: '1px solid #cbd5e1', outline: 'none' }}
-                >
-                  <option value="All">All Statuses</option>
-                  <option value="Pending">Pending</option>
-                  <option value="Approved">Approved</option>
-                  <option value="Completed">Completed</option>
-                  <option value="Rejected">Rejected</option>
-                </select>
+              <div className="table-container">
+                <div className="table-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <h2>All Consultations</h2>
+                  <div style={{ display: 'flex', gap: '1rem' }}>
+                    <input 
+                      type="text" 
+                      placeholder="Search by name, email, or ref..." 
+                      value={searchTerm}
+                      onChange={(e) => setSearchTerm(e.target.value)}
+                      style={{ padding: '0.4rem 0.75rem', borderRadius: '4px', border: '1px solid #cbd5e1', outline: 'none', width: '250px' }}
+                    />
+                    <select 
+                      value={statusFilter}
+                      onChange={(e) => setStatusFilter(e.target.value)}
+                      style={{ padding: '0.4rem 0.75rem', borderRadius: '4px', border: '1px solid #cbd5e1', outline: 'none' }}
+                    >
+                      <option value="All">All Statuses</option>
+                      <option value="Pending">Pending</option>
+                      <option value="Approved">Approved</option>
+                      <option value="Completed">Completed</option>
+                      <option value="Rejected">Rejected</option>
+                    </select>
+                  </div>
+                </div>
+                {loading ? (
+                  <p style={{ padding: '2rem' }}>Loading records...</p>
+                ) : filteredConsultations.length === 0 ? (
+                  <p style={{ padding: '2rem' }}>No consultations found matching your filters.</p>
+                ) : (
+                  <div className="table-responsive">
+                    <table className="admin-table">
+                      <thead>
+                        <tr>
+                          <th>Ref Number</th>
+                          <th>Date</th>
+                          <th>Client Name</th>
+                          <th>Subject</th>
+                          <th>Status</th>
+                          <th>Actions</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {filteredConsultations.map(c => (
+                          <tr key={c.id}>
+                            <td><span className="ref-badge">{c.reference_number}</span></td>
+                            <td>{new Date(c.created_at).toLocaleDateString()}</td>
+                            <td>
+                              <strong>{c.name}</strong><br />
+                              <span className="text-muted">{c.email}</span>
+                            </td>
+                            <td>{c.subject}</td>
+                            <td>
+                              <span className={`status-badge status-${c.status.toLowerCase()}`}>
+                                {c.status}
+                              </span>
+                            </td>
+                            <td>
+                              <select 
+                                className="status-select"
+                                value={c.status}
+                                onChange={(e) => handleStatusChange(c.id, e.target.value)}
+                              >
+                                <option value="Pending">Pending</option>
+                                <option value="Approved">Approve</option>
+                                <option value="Completed">Complete</option>
+                                <option value="Rejected">Reject</option>
+                              </select>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                )}
               </div>
+            </>
+          ) : (
+            <div style={{ padding: '4rem', textAlign: 'center', backgroundColor: 'white', borderRadius: '8px', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>
+              <h2 style={{ color: '#1e293b', marginBottom: '1rem' }}>{activeTab} Module</h2>
+              <p style={{ color: '#64748b' }}>This module is currently under active development. Check back soon for updates.</p>
             </div>
-            {loading ? (
-              <p style={{ padding: '2rem' }}>Loading records...</p>
-            ) : filteredConsultations.length === 0 ? (
-              <p style={{ padding: '2rem' }}>No consultations found matching your filters.</p>
-            ) : (
-              <div className="table-responsive">
-                <table className="admin-table">
-                  <thead>
-                    <tr>
-                      <th>Ref Number</th>
-                      <th>Date</th>
-                      <th>Client Name</th>
-                      <th>Subject</th>
-                      <th>Status</th>
-                      <th>Actions</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {filteredConsultations.map(c => (
-                      <tr key={c.id}>
-                        <td><span className="ref-badge">{c.reference_number}</span></td>
-                        <td>{new Date(c.created_at).toLocaleDateString()}</td>
-                        <td>
-                          <strong>{c.name}</strong><br />
-                          <span className="text-muted">{c.email}</span>
-                        </td>
-                        <td>{c.subject}</td>
-                        <td>
-                          <span className={`status-badge status-${c.status.toLowerCase()}`}>
-                            {c.status}
-                          </span>
-                        </td>
-                        <td>
-                          <select 
-                            className="status-select"
-                            value={c.status}
-                            onChange={(e) => handleStatusChange(c.id, e.target.value)}
-                          >
-                            <option value="Pending">Pending</option>
-                            <option value="Approved">Approve</option>
-                            <option value="Completed">Complete</option>
-                            <option value="Rejected">Reject</option>
-                          </select>
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            )}
-          </div>
+          )}
         </div>
       </main>
     </div>
