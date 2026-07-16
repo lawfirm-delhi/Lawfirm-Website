@@ -5,6 +5,7 @@ import ClientLogin from './pages/Auth/ClientLogin';
 import ClientRegister from './pages/Auth/ClientRegister';
 import ForgotPassword from './pages/Auth/ForgotPassword';
 import AdminDashboard from './pages/AdminPortal/AdminDashboard';
+import AdminLogin from './pages/AdminPortal/AdminLogin';
 import AdminRoute from './components/AdminRoute';
 import ProtectedRoute from './components/ProtectedRoute';
 
@@ -248,8 +249,7 @@ function MainApp() {
         </Routes>
       ) : pathname.startsWith('/admin') ? (
         <Routes>
-
-
+          <Route path="/admin" element={<AdminLogin />} />
           <Route element={<AdminRoute />}>
             <Route path="/admin/dashboard/*" element={<AdminDashboard />} />
           </Route>

@@ -1,11 +1,19 @@
 const express = require('express');
 const router = express.Router();
 const adminController = require('../controllers/admin.controller');
-const authenticate = require('../middleware/authenticate');
-const authorize = require('../middleware/authorize');
+
+// Custom simple password authentication middleware
+const simpleAdminAuth = (req, res, next) => {
+  const password = req.headers['x-admin-password'];
+  if (password === 'Welcome@123#') {
+    next();
+  } else {
+    res.status(401).json({ success: false, message: 'Unauthorized. Invalid admin password.' });
+  }
+};
 
 // Protect all admin routes
-router.use(authenticate, authorize('admin', 'superadmin', 'lawyer'));
+router.use(simpleAdminAuth);
 
 router.get('/consultations', adminController.getAllConsultations);
 router.patch('/consultations/:id/status', adminController.updateConsultationStatus);

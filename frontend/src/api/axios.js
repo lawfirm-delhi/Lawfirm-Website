@@ -14,4 +14,16 @@ export const setAuthToken = (token) => {
   }
 };
 
+api.interceptors.request.use((config) => {
+  if (config.url && config.url.includes('/admin/')) {
+    const adminPassword = localStorage.getItem('admin_password');
+    if (adminPassword) {
+      config.headers['x-admin-password'] = adminPassword;
+    }
+  }
+  return config;
+}, (error) => {
+  return Promise.reject(error);
+});
+
 export default api;
