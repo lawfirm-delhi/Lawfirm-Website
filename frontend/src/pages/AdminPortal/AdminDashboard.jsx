@@ -6,6 +6,7 @@ import ClientDetailsModal from './ClientDetailsModal';
 
 import ClientsModule from './ClientsModule';
 import NewConsultationModal from './NewConsultationModal';
+import ReportsModule from './ReportsModule';
 
 export default function AdminDashboard() {
   const { user, logout } = useAuth();
@@ -240,6 +241,8 @@ export default function AdminDashboard() {
             </>
           ) : activeTab === 'Clients' ? (
             <ClientsModule onViewDetails={setSelectedClientEmail} />
+          ) : activeTab === 'Reports' ? (
+            <ReportsModule />
           ) : (
             <div style={{ padding: '4rem', textAlign: 'center', backgroundColor: 'white', borderRadius: '8px', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>
               <h2 style={{ color: '#1e293b', marginBottom: '1rem' }}>{activeTab} Module</h2>
