@@ -11,7 +11,7 @@ export default function ClientDetailsModal({ email, onClose }) {
     const fetchDetails = async () => {
       try {
         setLoading(true);
-        const response = await api.get(`/clients/${email}/details`);
+        const response = await api.get(`/admin/clients/${email}/details`);
         if (response.data.success) {
           setData(response.data.data);
         } else {
