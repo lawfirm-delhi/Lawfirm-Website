@@ -44,6 +44,43 @@ class AdminController {
       next(err);
     }
   }
+
+  async getAllClients(req, res, next) {
+    try {
+      const clients = await authRepo.getAllClients();
+      successResponse(res, 200, 'All clients retrieved', clients);
+    } catch (err) {
+      next(err);
+    }
+  }
+
+  async toggleUserLock(req, res, next) {
+    try {
+      const { id } = req.params;
+      const { isLocked } = req.body;
+      const updated = await authRepo.toggleUserLock(id, isLocked);
+      if (!updated) {
+        return res.status(404).json({ success: false, message: 'User not found' });
+      }
+      successResponse(res, 200, 'User lock status updated', updated);
+    } catch (err) {
+      next(err);
+    }
+  }
+
+  async updateClientNotes(req, res, next) {
+    try {
+      const { email } = req.params;
+      const { notes } = req.body;
+      const updated = await authRepo.updateClientNotes(email, notes);
+      if (!updated) {
+        return res.status(404).json({ success: false, message: 'Client not found' });
+      }
+      successResponse(res, 200, 'Client notes updated', updated);
+    } catch (err) {
+      next(err);
+    }
+  }
 }
 
 module.exports = new AdminController();

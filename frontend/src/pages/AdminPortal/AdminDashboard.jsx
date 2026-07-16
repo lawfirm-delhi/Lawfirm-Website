@@ -4,6 +4,8 @@ import api from '../../api/axios';
 import './AdminDashboard.css';
 import ClientDetailsModal from './ClientDetailsModal';
 
+import ClientsModule from './ClientsModule';
+
 export default function AdminDashboard() {
   const { user, logout } = useAuth();
   const [consultations, setConsultations] = useState([]);
@@ -197,6 +199,8 @@ export default function AdminDashboard() {
                 )}
               </div>
             </>
+          ) : activeTab === 'Clients' ? (
+            <ClientsModule onViewDetails={setSelectedClientEmail} />
           ) : (
             <div style={{ padding: '4rem', textAlign: 'center', backgroundColor: 'white', borderRadius: '8px', boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)' }}>
               <h2 style={{ color: '#1e293b', marginBottom: '1rem' }}>{activeTab} Module</h2>

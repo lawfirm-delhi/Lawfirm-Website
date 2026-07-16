@@ -6,6 +6,10 @@ export default function ClientDetailsModal({ email, onClose }) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  
+  const [notes, setNotes] = useState('');
+  const [isSavingNotes, setIsSavingNotes] = useState(false);
+  const [notesSaved, setNotesSaved] = useState(false);
 
   useEffect(() => {
     const fetchDetails = async () => {
@@ -14,6 +18,7 @@ export default function ClientDetailsModal({ email, onClose }) {
         const response = await api.get(`/admin/clients/${email}/details`);
         if (response.data.success) {
           setData(response.data.data);
+          setNotes(response.data.data.profile.admin_notes || '');
         } else {
           setError(response.data.message);
         }
@@ -27,6 +32,21 @@ export default function ClientDetailsModal({ email, onClose }) {
       fetchDetails();
     }
   }, [email]);
+
+  const handleSaveNotes = async () => {
+    try {
+      setIsSavingNotes(true);
+      const response = await api.patch(`/admin/clients/${email}/notes`, { notes });
+      if (response.data.success) {
+        setNotesSaved(true);
+        setTimeout(() => setNotesSaved(false), 3000);
+      }
+    } catch (err) {
+      console.error('Failed to save notes:', err);
+    } finally {
+      setIsSavingNotes(false);
+    }
+  };
 
   return (
     <div className="modal-overlay" onClick={onClose}>
@@ -62,6 +82,43 @@ export default function ClientDetailsModal({ email, onClose }) {
                 <div>
                   <span className="profile-label">Account Created</span>
                   <p className="profile-value">{new Date(data.profile.created_at).toLocaleString()}</p>
+                </div>
+              </div>
+
+              <div style={{ marginTop: '1.5rem', borderTop: '1px solid #e2e8f0', paddingTop: '1.5rem' }}>
+                <span className="profile-label">Internal Firm Notes (Private)</span>
+                <textarea
+                  value={notes}
+                  onChange={(e) => setNotes(e.target.value)}
+                  placeholder="Add private notes about this client (e.g. preferences, past issues, special instructions)..."
+                  style={{
+                    width: '100%',
+                    minHeight: '80px',
+                    padding: '0.75rem',
+                    borderRadius: '6px',
+                    border: '1px solid #cbd5e1',
+                    marginTop: '0.5rem',
+                    fontFamily: 'inherit',
+                    resize: 'vertical'
+                  }}
+                />
+                <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '0.5rem', alignItems: 'center', gap: '1rem' }}>
+                  {notesSaved && <span style={{ color: '#10b981', fontSize: '0.9rem' }}>Notes saved successfully!</span>}
+                  <button 
+                    onClick={handleSaveNotes}
+                    disabled={isSavingNotes}
+                    style={{
+                      background: '#0b1d45',
+                      color: 'white',
+                      border: 'none',
+                      padding: '0.5rem 1rem',
+                      borderRadius: '4px',
+                      cursor: isSavingNotes ? 'not-allowed' : 'pointer',
+                      opacity: isSavingNotes ? 0.7 : 1
+                    }}
+                  >
+                    {isSavingNotes ? 'Saving...' : 'Save Notes'}
+                  </button>
                 </div>
               </div>
             </div>

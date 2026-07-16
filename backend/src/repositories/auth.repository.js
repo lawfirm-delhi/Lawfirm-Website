@@ -110,7 +110,8 @@ class AuthRepository {
         'users.created_at',
         'clients.full_name as fullName',
         'clients.mobile',
-        'clients.company'
+        'clients.company',
+        'clients.admin_notes'
       )
       .where('users.email', email)
       .first();
@@ -131,6 +132,41 @@ class AuthRepository {
       loginHistory,
       consultations
     };
+  }
+
+  async getAllClients() {
+    return await db('users')
+      .leftJoin('clients', 'users.id', 'clients.user_id')
+      .select(
+        'users.id as userId',
+        'users.email',
+        'users.is_locked as isLocked',
+        'users.created_at as createdAt',
+        'clients.id as clientId',
+        'clients.full_name as fullName',
+        'clients.mobile',
+        'clients.company',
+        'clients.admin_notes as adminNotes'
+      )
+      .where('users.role', '!=', 'superadmin')
+      .orderBy('users.created_at', 'desc');
+  }
+
+  async toggleUserLock(userId, isLocked) {
+    return await db('users')
+      .where({ id: userId })
+      .update({ is_locked: isLocked })
+      .returning('*');
+  }
+
+  async updateClientNotes(email, notes) {
+    const user = await db('users').where({ email }).first();
+    if (!user) return null;
+    
+    return await db('clients')
+      .where({ user_id: user.id })
+      .update({ admin_notes: notes })
+      .returning('*');
   }
 }
 

@@ -17,6 +17,10 @@ router.use(simpleAdminAuth);
 
 router.get('/consultations', adminController.getAllConsultations);
 router.patch('/consultations/:id/status', adminController.updateConsultationStatus);
+
+router.get('/clients', adminController.getAllClients);
+router.patch('/clients/:id/lock', adminController.toggleUserLock);
 router.get('/clients/:email/details', adminController.getClientDetails);
+router.patch('/clients/:email/notes', adminController.updateClientNotes);
 
 module.exports = router;
