@@ -7,7 +7,8 @@ export default function AdminDashboard() {
   const { user, logout } = useAuth();
   const [consultations, setConsultations] = useState([]);
   const [loading, setLoading] = useState(true);
-
+  const [searchTerm, setSearchTerm] = useState('');
+  const [statusFilter, setStatusFilter] = useState('All');
   useEffect(() => {
     fetchConsultations();
   }, []);
@@ -39,6 +40,16 @@ export default function AdminDashboard() {
   const pendingCount = consultations.filter(c => c.status === 'Pending').length;
   const approvedCount = consultations.filter(c => c.status === 'Approved').length;
   const completedCount = consultations.filter(c => c.status === 'Completed').length;
+
+  const filteredConsultations = consultations.filter(c => {
+    const matchesStatus = statusFilter === 'All' || c.status === statusFilter;
+    const searchLower = searchTerm.toLowerCase();
+    const matchesSearch = 
+      (c.name && c.name.toLowerCase().includes(searchLower)) ||
+      (c.email && c.email.toLowerCase().includes(searchLower)) ||
+      (c.reference_number && c.reference_number.toLowerCase().includes(searchLower));
+    return matchesStatus && matchesSearch;
+  });
 
   return (
     <div className="admin-dashboard-container">
@@ -79,13 +90,33 @@ export default function AdminDashboard() {
           </div>
 
           <div className="table-container">
-            <div className="table-header">
+            <div className="table-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
               <h2>All Consultations</h2>
+              <div style={{ display: 'flex', gap: '1rem' }}>
+                <input 
+                  type="text" 
+                  placeholder="Search by name, email, or ref..." 
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  style={{ padding: '0.4rem 0.75rem', borderRadius: '4px', border: '1px solid #cbd5e1', outline: 'none', width: '250px' }}
+                />
+                <select 
+                  value={statusFilter}
+                  onChange={(e) => setStatusFilter(e.target.value)}
+                  style={{ padding: '0.4rem 0.75rem', borderRadius: '4px', border: '1px solid #cbd5e1', outline: 'none' }}
+                >
+                  <option value="All">All Statuses</option>
+                  <option value="Pending">Pending</option>
+                  <option value="Approved">Approved</option>
+                  <option value="Completed">Completed</option>
+                  <option value="Rejected">Rejected</option>
+                </select>
+              </div>
             </div>
             {loading ? (
               <p style={{ padding: '2rem' }}>Loading records...</p>
-            ) : consultations.length === 0 ? (
-              <p style={{ padding: '2rem' }}>No consultations found.</p>
+            ) : filteredConsultations.length === 0 ? (
+              <p style={{ padding: '2rem' }}>No consultations found matching your filters.</p>
             ) : (
               <div className="table-responsive">
                 <table className="admin-table">
@@ -100,7 +131,7 @@ export default function AdminDashboard() {
                     </tr>
                   </thead>
                   <tbody>
-                    {consultations.map(c => (
+                    {filteredConsultations.map(c => (
                       <tr key={c.id}>
                         <td><span className="ref-badge">{c.reference_number}</span></td>
                         <td>{new Date(c.created_at).toLocaleDateString()}</td>
