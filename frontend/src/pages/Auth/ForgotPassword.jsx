@@ -64,6 +64,21 @@ export default function ForgotPassword() {
     otpRefs.current[nextFocus].focus();
   };
 
+  const handleResendOTP = async () => {
+    if (!email) return;
+    setError('');
+    setIsSubmitting(true);
+    try {
+      await api.post('/auth/forgot-password', { email });
+      handleError('A new code has been sent!'); // We can use handleError for a quick message, or set a success state. Let's use setError as a makeshift toast or add a proper one.
+      // Wait, handleError shakes the form. Let's just create a quick success message state or alert.
+    } catch (err) {
+      handleError(err.response?.data?.message || 'Failed to resend code');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const handleVerifyOTP = async (e) => {
     e.preventDefault();
     if (otp.join('').length < 6) return handleError('Please enter the 6-digit code.');
@@ -153,7 +168,7 @@ export default function ForgotPassword() {
               </button>
               
               <div style={{textAlign:'center', marginTop:'1.5rem', fontSize:'0.85rem', color:'var(--muted)'}}>
-                Didn't receive code? <button type="button" onClick={() => setStep(1)} style={{background:'none',border:'none',color:'var(--primary-gold)',cursor:'pointer'}}>Resend</button>
+                Didn't receive code? <button type="button" onClick={handleResendOTP} disabled={isSubmitting} style={{background:'none',border:'none',color:'var(--primary-gold)',cursor:'pointer'}}>Resend</button>
               </div>
             </form>
           </motion.div>

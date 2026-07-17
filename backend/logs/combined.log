@@ -59,3 +59,6 @@
 {"level":"error","message":"500 - Cannot find module '../utils/logger'\nRequire stack:\n- C:\\lawfirm\\backend\\src\\services\\email.service.js\n- C:\\lawfirm\\backend\\src\\services\\auth.service.js\n- C:\\lawfirm\\backend\\src\\controllers\\auth.controller.js\n- C:\\lawfirm\\backend\\src\\routes\\auth.routes.js\n- C:\\lawfirm\\backend\\src\\app.js\n- C:\\lawfirm\\backend\\src\\server.js - /api/v1/auth/forgot-password - POST - ::1","timestamp":"2026-07-17T12:13:21.968Z"}
 {"level":"error","message":"500 - Failed to send verification email - /api/v1/auth/forgot-password - POST - ::1","timestamp":"2026-07-17T12:13:59.100Z"}
 {"level":"error","message":"500 - Failed to send verification email - /api/v1/auth/forgot-password - POST - ::1","timestamp":"2026-07-17T12:15:38.636Z"}
+{"level":"info","message":"Running database migrations...","timestamp":"2026-07-17T12:16:02.501Z"}
+{"level":"info","message":"Database migrations complete.","timestamp":"2026-07-17T12:16:03.717Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-07-17T12:16:03.720Z"}
