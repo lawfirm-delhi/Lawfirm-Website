@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { AlertCircle, CheckCircle, Eye, EyeOff } from 'lucide-react';
 import AuthLayout from './AuthLayout';
+import api from '../../api/axios';
 
 export default function ForgotPassword() {
   const [step, setStep] = useState(1);
@@ -23,15 +24,19 @@ export default function ForgotPassword() {
     setTimeout(() => setShake(false), 400);
   };
 
-  const handleSendCode = (e) => {
+  const handleSendCode = async (e) => {
     e.preventDefault();
     if (!email) return handleError('Please enter your email address.');
     setError('');
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      await api.post('/auth/forgot-password', { email });
       setStep(2);
-    }, 1500);
+    } catch (err) {
+      handleError(err.response?.data?.message || 'Failed to send reset code');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChangeOTP = (element, index) => {
@@ -59,28 +64,35 @@ export default function ForgotPassword() {
     otpRefs.current[nextFocus].focus();
   };
 
-  const handleVerifyOTP = (e) => {
+  const handleVerifyOTP = async (e) => {
     e.preventDefault();
     if (otp.join('').length < 6) return handleError('Please enter the 6-digit code.');
-    if (otp.join('') !== '123456') return handleError('Invalid verification code.'); // mock failure if not 123456
     
     setError('');
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      await api.post('/auth/verify-otp', { email, otp: otp.join('') });
       setStep(3);
-    }, 1500);
+    } catch (err) {
+      handleError(err.response?.data?.message || 'Invalid verification code.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
-  const handleResetPassword = (e) => {
+  const handleResetPassword = async (e) => {
     e.preventDefault();
     if (password.length < 12) return handleError('Password must be at least 12 characters.');
     setError('');
     setIsSubmitting(true);
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      await api.post('/auth/reset-password', { email, otp: otp.join(''), newPassword: password });
       setStep(4);
-    }, 1500);
+    } catch (err) {
+      handleError(err.response?.data?.message || 'Failed to reset password.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (

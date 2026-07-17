@@ -134,6 +134,49 @@ class AuthService {
     
     return true;
   }
+
+  async forgotPassword(email) {
+    const user = await authRepo.getUserByEmail(email);
+    if (!user) {
+      // Don't leak that user doesn't exist
+      return true;
+    }
+
+    // Generate 6-digit OTP
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    const expiresAt = new Date(Date.now() + 15 * 60 * 1000); // 15 mins
+
+    await authRepo.saveResetOtp(email, otp, expiresAt);
+    
+    const emailService = require('./email.service');
+    await emailService.sendPasswordResetEmail(email, otp);
+    return true;
+  }
+
+  async verifyOtp(email, otp) {
+    const user = await authRepo.getUserByEmail(email);
+    if (!user || user.reset_otp !== otp) {
+      throw { status: 400, message: 'Invalid verification code', isOperational: true };
+    }
+    
+    if (new Date() > new Date(user.reset_otp_expires_at)) {
+      throw { status: 400, message: 'Verification code has expired', isOperational: true };
+    }
+
+    return true;
+  }
+
+  async resetPassword(email, otp, newPassword) {
+    await this.verifyOtp(email, otp);
+
+    const newPasswordHash = await hashPassword(newPassword);
+    const user = await authRepo.getUserByEmail(email);
+    
+    await authRepo.updatePassword(user.id, newPasswordHash);
+    await authRepo.clearResetOtp(email);
+    
+    return true;
+  }
 }
 
 module.exports = new AuthService();

@@ -168,6 +168,24 @@ class AuthRepository {
       .update({ admin_notes: notes })
       .returning('*');
   }
+
+  async saveResetOtp(email, otp, expiresAt) {
+    return await db('users')
+      .where({ email })
+      .update({
+        reset_otp: otp,
+        reset_otp_expires_at: expiresAt
+      });
+  }
+
+  async clearResetOtp(email) {
+    return await db('users')
+      .where({ email })
+      .update({
+        reset_otp: null,
+        reset_otp_expires_at: null
+      });
+  }
 }
 
 module.exports = new AuthRepository();

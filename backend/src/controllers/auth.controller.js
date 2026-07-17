@@ -92,10 +92,36 @@ class AuthController {
 
   async changePassword(req, res, next) {
     try {
-      const userId = req.user.id;
       const { currentPassword, newPassword } = req.body;
-      await authService.changePassword(userId, currentPassword, newPassword);
-      successResponse(res, 200, 'Password changed successfully');
+      await authService.changePassword(req.user.id, currentPassword, newPassword);
+      successResponse(res, 200, 'Password updated successfully');
+    } catch (err) {
+      next(err);
+    }
+  }
+
+  async forgotPassword(req, res, next) {
+    try {
+      await authService.forgotPassword(req.body.email);
+      successResponse(res, 200, 'If that email exists, a reset code has been sent');
+    } catch (err) {
+      next(err);
+    }
+  }
+
+  async verifyOtp(req, res, next) {
+    try {
+      await authService.verifyOtp(req.body.email, req.body.otp);
+      successResponse(res, 200, 'OTP verified successfully');
+    } catch (err) {
+      next(err);
+    }
+  }
+
+  async resetPassword(req, res, next) {
+    try {
+      await authService.resetPassword(req.body.email, req.body.otp, req.body.newPassword);
+      successResponse(res, 200, 'Password reset successfully');
     } catch (err) {
       next(err);
     }
