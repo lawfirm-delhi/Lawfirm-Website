@@ -71,7 +71,11 @@ class AuthController {
       const token = refreshToken || req.cookies?.refreshToken;
       
       await authService.logout(token);
-      res.clearCookie('refreshToken');
+      res.clearCookie('refreshToken', {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production',
+        sameSite: 'none'
+      });
       
       successResponse(res, 200, 'Logged out successfully');
     } catch (err) {
