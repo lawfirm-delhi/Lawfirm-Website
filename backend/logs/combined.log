@@ -52,3 +52,10 @@
 {"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-07-08T04:27:41.832Z"}
 {"level":"info","message":"Consultation email sent: <40b2423c-ccec-f726-1a5a-b3e06b4c82d5@justiceassociates.com>","timestamp":"2026-07-08T04:27:59.985Z"}
 {"level":"info","message":"Consultation email sent: <933d3942-38a6-4061-ef7e-ff8bde812bcd@justiceassociates.com>","timestamp":"2026-07-08T04:47:08.913Z"}
+{"level":"info","message":"Running database migrations...","timestamp":"2026-07-17T12:12:52.914Z"}
+{"level":"info","message":"Database migrations complete.","timestamp":"2026-07-17T12:12:53.974Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-07-17T12:12:53.987Z"}
+{"level":"error","message":"400 - Expected property name or '}' in JSON at position 1 (line 1 column 2) - /api/v1/auth/forgot-password - POST - ::1","timestamp":"2026-07-17T12:12:59.403Z"}
+{"level":"error","message":"500 - Cannot find module '../utils/logger'\nRequire stack:\n- C:\\lawfirm\\backend\\src\\services\\email.service.js\n- C:\\lawfirm\\backend\\src\\services\\auth.service.js\n- C:\\lawfirm\\backend\\src\\controllers\\auth.controller.js\n- C:\\lawfirm\\backend\\src\\routes\\auth.routes.js\n- C:\\lawfirm\\backend\\src\\app.js\n- C:\\lawfirm\\backend\\src\\server.js - /api/v1/auth/forgot-password - POST - ::1","timestamp":"2026-07-17T12:13:21.968Z"}
+{"level":"error","message":"500 - Failed to send verification email - /api/v1/auth/forgot-password - POST - ::1","timestamp":"2026-07-17T12:13:59.100Z"}
+{"level":"error","message":"500 - Failed to send verification email - /api/v1/auth/forgot-password - POST - ::1","timestamp":"2026-07-17T12:15:38.636Z"}

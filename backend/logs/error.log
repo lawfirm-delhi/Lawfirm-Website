@@ -23,3 +23,7 @@
 {"level":"error","message":"409 - Email already registered - /api/v1/auth/register - POST - ::1","timestamp":"2026-07-07T12:36:15.824Z"}
 {"level":"error","message":"500 - Knex: Timeout acquiring a connection. The pool is probably full. Are you missing a .transacting(trx) call? - /api/v1/consultations - POST - ::1","timestamp":"2026-07-07T16:06:30.776Z"}
 {"level":"error","message":"500 - Knex: Timeout acquiring a connection. The pool is probably full. Are you missing a .transacting(trx) call? - /api/v1/consultations - POST - ::1","timestamp":"2026-07-07T16:07:30.798Z"}
+{"level":"error","message":"400 - Expected property name or '}' in JSON at position 1 (line 1 column 2) - /api/v1/auth/forgot-password - POST - ::1","timestamp":"2026-07-17T12:12:59.403Z"}
+{"level":"error","message":"500 - Cannot find module '../utils/logger'\nRequire stack:\n- C:\\lawfirm\\backend\\src\\services\\email.service.js\n- C:\\lawfirm\\backend\\src\\services\\auth.service.js\n- C:\\lawfirm\\backend\\src\\controllers\\auth.controller.js\n- C:\\lawfirm\\backend\\src\\routes\\auth.routes.js\n- C:\\lawfirm\\backend\\src\\app.js\n- C:\\lawfirm\\backend\\src\\server.js - /api/v1/auth/forgot-password - POST - ::1","timestamp":"2026-07-17T12:13:21.968Z"}
+{"level":"error","message":"500 - Failed to send verification email - /api/v1/auth/forgot-password - POST - ::1","timestamp":"2026-07-17T12:13:59.100Z"}
+{"level":"error","message":"500 - Failed to send verification email - /api/v1/auth/forgot-password - POST - ::1","timestamp":"2026-07-17T12:15:38.636Z"}

@@ -1,16 +1,15 @@
 const nodemailer = require('nodemailer');
 const env = require('../config/env');
-const logger = require('../utils/logger');
 
 class EmailService {
   constructor() {
     this.transporter = nodemailer.createTransport({
-      host: env.SMTP_HOST || 'smtp.gmail.com',
-      port: env.SMTP_PORT || 465,
-      secure: env.SMTP_SECURE !== 'false',
+      host: process.env.SMTP_HOST || 'smtp.gmail.com',
+      port: process.env.SMTP_PORT || 465,
+      secure: process.env.SMTP_SECURE !== 'false',
       auth: {
-        user: env.SMTP_USER,
-        pass: env.SMTP_PASS,
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
       },
     });
   }
@@ -18,7 +17,7 @@ class EmailService {
   async sendPasswordResetEmail(email, otp) {
     try {
       const mailOptions = {
-        from: `"Justice & Associates" <${env.SMTP_USER}>`,
+        from: `"Justice & Associates" <${process.env.SMTP_USER}>`,
         to: email,
         subject: 'Password Reset Verification Code',
         html: `
@@ -35,10 +34,10 @@ class EmailService {
       };
 
       await this.transporter.sendMail(mailOptions);
-      logger.info(`Password reset email sent to ${email}`);
+      console.log(`Password reset email sent to ${email}`);
       return true;
     } catch (error) {
-      logger.error('Failed to send email:', error);
+      console.error('Failed to send email:', error);
       throw new Error('Failed to send verification email');
     }
   }
