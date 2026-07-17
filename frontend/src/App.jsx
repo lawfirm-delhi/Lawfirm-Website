@@ -108,15 +108,9 @@ function Layout({ children }) {
               <Link to="/testimonials" onClick={() => setMenuOpen(false)}>Testimonials</Link>
               <Link to="/faq" onClick={() => setMenuOpen(false)}>FAQ</Link>
             </div>
-            <div className="mobile-auth-nav">
-              <Link to="/admin" className="btn btn-ghost" onClick={() => setMenuOpen(false)}>Admin Portal</Link>
-            </div>
           </div>
 
           <div className="nav-actions">
-            <div className="desktop-auth-nav">
-              <Link to="/admin" className="btn btn-ghost" onClick={() => setMenuOpen(false)}>Admin Portal</Link>
-            </div>
             <button className={`nav-toggle ${menuOpen ? 'is-active' : ''}`} aria-expanded={menuOpen} onClick={() => { setMenuOpen(!menuOpen); }} aria-label="Open menu">
               <span></span><span></span><span></span>
             </button>
