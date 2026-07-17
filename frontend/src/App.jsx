@@ -2,14 +2,10 @@ import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react
 import { useEffect, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
 import Home from './pages/Home';
-import ClientLogin from './pages/Auth/ClientLogin';
-import ClientRegister from './pages/Auth/ClientRegister';
-import ForgotPassword from './pages/Auth/ForgotPassword';
 import AdminDashboard from './pages/AdminPortal/AdminDashboard';
 import AdminLogin from './pages/AdminPortal/AdminLogin';
 import AdminProfiles from './pages/AdminPortal/AdminProfiles';
 import AdminRoute from './components/AdminRoute';
-import ProtectedRoute from './components/ProtectedRoute';
 
 // Landing Pages
 import AboutUs from './pages/LandingPages/AboutUs/AboutUs';
@@ -20,12 +16,9 @@ import Services from './pages/LandingPages/Services/Services';
 import Testimonials from './pages/LandingPages/Testimonials/Testimonials';
 import FAQ from './pages/LandingPages/FAQ/FAQ';
 import TeamMember from './pages/LandingPages/TeamMember';
-import UserProfile from './pages/UserProfile/UserProfile';
 import PrivacyPolicy from './pages/LandingPages/Legal/PrivacyPolicy';
 import TermsOfUse from './pages/LandingPages/Legal/TermsOfUse';
 
-// Context
-import { AuthProvider, useAuth } from './context/AuthContext';
 import { ErrorBoundary } from './ErrorBoundary';
 
 function ScrollToTop() {
@@ -37,7 +30,6 @@ function ScrollToTop() {
 }
 
 function Layout({ children }) {
-  const { user, logout } = useAuth();
   const [isSolid, setIsSolid] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [lang, setLang] = useState('English');
@@ -117,41 +109,13 @@ function Layout({ children }) {
               <Link to="/faq" onClick={() => setMenuOpen(false)}>FAQ</Link>
             </div>
             <div className="mobile-auth-nav">
-              {user ? (
-                <>
-                  <Link to={user.role === 'admin' ? '/admin' : '/'} className="btn btn-primary" onClick={() => setMenuOpen(false)}>
-                    Hi, {user.full_name || user.fullName || 'User'}
-                  </Link>
-                  <button onClick={() => { logout(); setMenuOpen(false); }} className="btn btn-ghost" style={{ color: '#ef4444' }}>
-                    Sign Out
-                  </button>
-                </>
-              ) : (
-                <>
-                  <Link to="/signin" className="btn btn-ghost" onClick={() => setMenuOpen(false)}>Client Login</Link>
-                  <Link to="/signup" className="btn btn-primary" onClick={() => setMenuOpen(false)}>Create Account</Link>
-                </>
-              )}
+              <Link to="/admin" className="btn btn-ghost" onClick={() => setMenuOpen(false)}>Admin Portal</Link>
             </div>
           </div>
 
           <div className="nav-actions">
             <div className="desktop-auth-nav">
-              {user ? (
-                <>
-                  <Link to={user.role === 'admin' ? '/admin' : '/'} className="btn btn-primary" onClick={() => setMenuOpen(false)}>
-                    Hi, {user.full_name || user.fullName || 'User'}
-                  </Link>
-                  <button onClick={() => { logout(); setMenuOpen(false); }} className="btn btn-ghost" style={{ color: '#ef4444' }}>
-                    Sign Out
-                  </button>
-                </>
-              ) : (
-                <>
-                  <Link to="/signin" className="btn btn-ghost" onClick={() => setMenuOpen(false)}>Client Login</Link>
-                  <Link to="/signup" className="btn btn-primary" onClick={() => setMenuOpen(false)}>Create Account</Link>
-                </>
-              )}
+              <Link to="/admin" className="btn btn-ghost" onClick={() => setMenuOpen(false)}>Admin Portal</Link>
             </div>
             <button className={`nav-toggle ${menuOpen ? 'is-active' : ''}`} aria-expanded={menuOpen} onClick={() => { setMenuOpen(!menuOpen); }} aria-label="Open menu">
               <span></span><span></span><span></span>
@@ -177,12 +141,12 @@ function Layout({ children }) {
               <p className="footer-tagline">
                 {lang === 'English' 
                   ? '"Counsel that stands where the law is tested."' 
-                  : '"कानूनी सलाह जो परीक्षण की कसौटी पर खरी उतरती है।"'}
+                  : ' न्याय और सत्य की दिशा में आपका साथी।'}
               </p>
               <div className="footer-lang">
                 <select aria-label="Select language" value={lang} onChange={handleLangChange}>
                   <option value="English">English</option>
-                  <option value="Hindi">हिन्दी</option>
+                  <option value="Hindi">हिंदी</option>
                 </select>
               </div>
             </div>
@@ -233,18 +197,11 @@ function Layout({ children }) {
 
 function MainApp() {
   const { pathname } = useLocation();
-  const isAuthPage = pathname === '/signin' || pathname === '/signup' || pathname === '/forgot-password';
 
   return (
     <>
       <ScrollToTop />
-      {isAuthPage ? (
-        <Routes>
-          <Route path="/signin" element={<ClientLogin />} />
-          <Route path="/signup" element={<ClientRegister />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-        </Routes>
-      ) : pathname.startsWith('/admin') ? (
+      {pathname.startsWith('/admin') ? (
         <Routes>
           <Route path="/admin" element={<AdminLogin />} />
           <Route element={<AdminRoute />}>
@@ -255,9 +212,6 @@ function MainApp() {
       ) : (
         <Layout>
           <Routes>
-            <Route element={<ProtectedRoute />}>
-              <Route path="/profile" element={<UserProfile />} />
-            </Route>
             <Route path="/" element={<Home />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/why-us" element={<WhyUs />} />
@@ -280,10 +234,8 @@ function App() {
   return (
     <Router>
       <ErrorBoundary>
-        <AuthProvider>
-          <Toaster position="top-center" />
-          <MainApp />
-        </AuthProvider>
+        <Toaster position="top-center" />
+        <MainApp />
       </ErrorBoundary>
     </Router>
   );
