@@ -2,8 +2,10 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { AlertCircle, CheckCircle, Eye, EyeOff } from 'lucide-react';
+import toast from 'react-hot-toast';
 import AuthLayout from './AuthLayout';
 import api from '../../api/axios';
+import { useAuth } from '../../context/AuthContext';
 
 export default function ForgotPassword() {
   const [step, setStep] = useState(1);
@@ -17,6 +19,13 @@ export default function ForgotPassword() {
   
   const otpRefs = useRef([]);
   const navigate = useNavigate();
+  const { user } = useAuth();
+
+  useEffect(() => {
+    if (user) {
+      navigate('/profile');
+    }
+  }, [user, navigate]);
 
   const handleError = (msg) => {
     setError(msg);
@@ -70,8 +79,7 @@ export default function ForgotPassword() {
     setIsSubmitting(true);
     try {
       await api.post('/auth/forgot-password', { email });
-      handleError('A new code has been sent!'); // We can use handleError for a quick message, or set a success state. Let's use setError as a makeshift toast or add a proper one.
-      // Wait, handleError shakes the form. Let's just create a quick success message state or alert.
+      toast.success('A new code has been sent!');
     } catch (err) {
       handleError(err.response?.data?.message || 'Failed to resend code');
     } finally {

@@ -31,8 +31,14 @@ export default function ClientRegister() {
   const strengthText = strengthScore < 2 ? 'Weak' : strengthScore < 4 ? 'Fair' : strengthScore < 5 ? 'Good' : 'Strong';
   const strengthColors = ['#ef4444', '#f59e0b', '#10b981', '#10b981'];
 
-  const { register } = useAuth();
+  const { register, user } = useAuth();
   const [loadingText, setLoadingText] = useState('Creating Account...');
+
+  useEffect(() => {
+    if (user) {
+      navigate('/profile');
+    }
+  }, [user, navigate]);
 
   const handleRegister = async (e) => {
     e.preventDefault();

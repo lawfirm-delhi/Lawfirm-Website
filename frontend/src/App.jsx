@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { Toaster } from 'react-hot-toast';
 import Home from './pages/Home';
 import ClientLogin from './pages/Auth/ClientLogin';
 import ClientRegister from './pages/Auth/ClientRegister';
@@ -280,6 +281,7 @@ function App() {
     <Router>
       <ErrorBoundary>
         <AuthProvider>
+          <Toaster position="top-center" />
           <MainApp />
         </AuthProvider>
       </ErrorBoundary>
