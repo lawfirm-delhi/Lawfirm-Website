@@ -13,9 +13,10 @@ class ConsultationRepository {
   async createConsultation(data, documents) {
     return await db.transaction(async (trx) => {
       const refNumber = await this.getNextReferenceNumber(trx);
+      const consultationId = uuidv4();
       
-      const consultation = await trx('consultations').insert({
-        id: uuidv4(),
+      const newConsultation = {
+        id: consultationId,
         reference_number: refNumber,
         name: data.name,
         email: data.email,
@@ -28,9 +29,9 @@ class ConsultationRepository {
         preferred_date: data.preferredDate,
         preferred_time: data.preferredTime,
         status: 'Pending'
-      }).returning('*');
+      };
 
-      const consultationId = consultation[0].id;
+      await trx('consultations').insert(newConsultation);
 
       if (documents && documents.length > 0) {
         const docsToInsert = documents.map(doc => ({
@@ -45,7 +46,7 @@ class ConsultationRepository {
         await trx('documents').insert(docsToInsert);
       }
 
-      return consultation[0];
+      return newConsultation;
     });
   }
   async getConsultationsByUserId(userId) {
