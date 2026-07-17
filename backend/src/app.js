@@ -56,7 +56,6 @@ app.get('/api/v1/logs', (req, res) => {
 });
 
 // API Routes
-app.use('/api/v1/auth', require('./routes/auth.routes'));
 app.use('/api/v1/consultations', require('./routes/consultation.routes'));
 app.use('/api/v1/admin', require('./routes/admin.routes'));
 app.use('/api/v1/documents', require('./routes/document.routes'));
