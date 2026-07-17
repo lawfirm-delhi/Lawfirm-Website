@@ -1,12 +1,16 @@
 import React, { useEffect, useState } from 'react';
+import { useAuth } from '../../context/AuthContext';
 import api from '../../api/axios';
 import './AdminDashboard.css';
+import ClientDetailsModal from './ClientDetailsModal';
 
+import ClientsModule from './ClientsModule';
 import NewConsultationModal from './NewConsultationModal';
 import ReportsModule from './ReportsModule';
 import { useNavigate } from 'react-router-dom';
 
 export default function AdminDashboard() {
+  const { user, logout } = useAuth();
   const [consultations, setConsultations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
@@ -105,6 +109,12 @@ export default function AdminDashboard() {
           {adminProfile === 'Main Admin' && (
             <>
               <button 
+                className={`nav-item ${activeTab === 'Clients' ? 'active' : ''}`}
+                onClick={() => setActiveTab('Clients')}
+              >
+                Clients
+              </button>
+              <button 
                 className={`nav-item ${activeTab === 'Reports' ? 'active' : ''}`}
                 onClick={() => setActiveTab('Reports')}
               >
@@ -115,7 +125,7 @@ export default function AdminDashboard() {
         </nav>
         <div className="sidebar-footer">
           <button className="btn btn-outline" onClick={() => { localStorage.removeItem('admin_profile'); navigate('/admin/profiles'); }}>Switch Profile</button>
-          <button className="btn btn-outline" style={{ marginTop: '0.5rem' }} onClick={() => { localStorage.removeItem('admin_password'); localStorage.removeItem('admin_profile'); navigate('/admin'); }}>Sign Out</button>
+          <button className="btn btn-outline" style={{ marginTop: '0.5rem' }} onClick={logout}>Sign Out</button>
         </div>
       </aside>
 
@@ -274,6 +284,8 @@ export default function AdminDashboard() {
                 )}
               </div>
             </>
+          ) : activeTab === 'Clients' ? (
+            <ClientsModule onViewDetails={setSelectedClientEmail} />
           ) : activeTab === 'Reports' ? (
             <ReportsModule />
           ) : (
@@ -284,6 +296,13 @@ export default function AdminDashboard() {
           )}
         </div>
       </main>
+
+      {selectedClientEmail && (
+        <ClientDetailsModal 
+          email={selectedClientEmail} 
+          onClose={() => setSelectedClientEmail(null)} 
+        />
+      )}
 
       {isNewModalOpen && (
         <NewConsultationModal 

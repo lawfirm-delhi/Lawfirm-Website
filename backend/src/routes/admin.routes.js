@@ -37,4 +37,9 @@ router.post('/verify-profile', (req, res) => {
   }
 });
 
+router.get('/clients', adminController.getAllClients);
+router.patch('/clients/:id/lock', adminController.toggleUserLock);
+router.get('/clients/:email/details', adminController.getClientDetails);
+router.patch('/clients/:email/notes', adminController.updateClientNotes);
+
 module.exports = router;
