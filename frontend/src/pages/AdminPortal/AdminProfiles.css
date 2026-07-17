@@ -1,0 +1,128 @@
+.profiles-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-primary);
+  color: var(--heading);
+  animation: fadeIn 0.5s ease-out;
+}
+
+.profiles-container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+  color: var(--heading);
+}
+
+.profiles-grid {
+  display: flex;
+  gap: 3rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.profile-card:hover {
+  transform: scale(1.05);
+}
+
+.profile-card:hover .profile-avatar {
+  border-color: var(--primary-gold);
+}
+
+.profile-avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: white;
+  margin-bottom: 1rem;
+  border: 4px solid transparent;
+  transition: border-color 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.profile-name {
+  font-size: 1.25rem;
+  color: var(--body);
+  font-weight: 500;
+}
+
+.password-prompt {
+  background: var(--bg-secondary);
+  padding: 3rem;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  border: 1px solid var(--border);
+  width: 100%;
+  maxWidth: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.selected-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: white;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.back-btn {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--body);
+  cursor: pointer;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.back-btn:hover {
+  color: var(--primary-gold);
+}
+
+.password-prompt input {
+  width: 100%;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-primary);
+  color: var(--heading);
+  margin-bottom: 1.5rem;
+  outline: none;
+  font-size: 1rem;
+}
+
+.password-prompt input:focus {
+  border-color: var(--primary-gold);
+}
+
+.password-prompt h2 {
+  margin-bottom: 0.5rem;
+}
+
+.password-prompt p {
+  color: var(--body);
+  margin-bottom: 2rem;
+}

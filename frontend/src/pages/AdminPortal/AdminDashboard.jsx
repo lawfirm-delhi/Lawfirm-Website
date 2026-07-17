@@ -7,6 +7,7 @@ import ClientDetailsModal from './ClientDetailsModal';
 import ClientsModule from './ClientsModule';
 import NewConsultationModal from './NewConsultationModal';
 import ReportsModule from './ReportsModule';
+import { useNavigate } from 'react-router-dom';
 
 export default function AdminDashboard() {
   const { user, logout } = useAuth();
@@ -17,13 +18,20 @@ export default function AdminDashboard() {
   const [activeTab, setActiveTab] = useState('Consultations');
   const [selectedClientEmail, setSelectedClientEmail] = useState(null);
   const [isNewModalOpen, setIsNewModalOpen] = useState(false);
+  const navigate = useNavigate();
+  const adminProfile = localStorage.getItem('admin_profile');
+
   useEffect(() => {
+    if (!adminProfile) {
+      navigate('/admin/profiles');
+      return;
+    }
     fetchConsultations();
-  }, []);
+  }, [adminProfile]);
 
   const fetchConsultations = async () => {
     try {
-      const response = await api.get('/admin/consultations');
+      const response = await api.get(`/admin/consultations?assigned_to=${adminProfile}`);
       setConsultations(response.data.data || []);
     } catch (err) {
       console.error('Failed to fetch consultations', err);
@@ -42,6 +50,18 @@ export default function AdminDashboard() {
     } catch (err) {
       console.error('Failed to update status', err);
       alert('Failed to update status. Please try again.');
+    }
+  };
+
+  const handleAssignChange = async (id, newAssignee) => {
+    try {
+      await api.patch(`/admin/consultations/${id}/assign`, { assigned_to: newAssignee });
+      setConsultations(prev => 
+        prev.map(c => c.id === id ? { ...c, assigned_to: newAssignee } : c)
+      );
+    } catch (err) {
+      console.error('Failed to assign consultation', err);
+      alert('Failed to assign consultation. Please try again.');
     }
   };
 
@@ -86,27 +106,32 @@ export default function AdminDashboard() {
           >
             Consultations
           </button>
-          <button 
-            className={`nav-item ${activeTab === 'Clients' ? 'active' : ''}`}
-            onClick={() => setActiveTab('Clients')}
-          >
-            Clients
-          </button>
-          <button 
-            className={`nav-item ${activeTab === 'Reports' ? 'active' : ''}`}
-            onClick={() => setActiveTab('Reports')}
-          >
-            Reports
-          </button>
+          {adminProfile === 'Main Admin' && (
+            <>
+              <button 
+                className={`nav-item ${activeTab === 'Clients' ? 'active' : ''}`}
+                onClick={() => setActiveTab('Clients')}
+              >
+                Clients
+              </button>
+              <button 
+                className={`nav-item ${activeTab === 'Reports' ? 'active' : ''}`}
+                onClick={() => setActiveTab('Reports')}
+              >
+                Reports
+              </button>
+            </>
+          )}
         </nav>
         <div className="sidebar-footer">
-          <button className="btn btn-outline" onClick={logout}>Sign Out</button>
+          <button className="btn btn-outline" onClick={() => { localStorage.removeItem('admin_profile'); navigate('/admin/profiles'); }}>Switch Profile</button>
+          <button className="btn btn-outline" style={{ marginTop: '0.5rem' }} onClick={logout}>Sign Out</button>
         </div>
       </aside>
 
       <main className="admin-main">
         <header className="admin-header">
-          <h1>Admin Portal</h1>
+          <h1>Welcome back, {adminProfile}</h1>
           <p className="subtitle">Manage consultations and firm operations.</p>
         </header>
 
@@ -171,6 +196,7 @@ export default function AdminDashboard() {
                           <th>Date</th>
                           <th>Client Name</th>
                           <th>Subject</th>
+                          <th>Assigned To</th>
                           <th>Status</th>
                           <th>Actions</th>
                         </tr>
@@ -197,6 +223,25 @@ export default function AdminDashboard() {
                               </button>
                             </td>
                             <td>{c.subject}</td>
+                            <td>
+                              {adminProfile === 'Main Admin' ? (
+                                <select 
+                                  className="status-select"
+                                  value={c.assigned_to || 'Unassigned'}
+                                  onChange={(e) => handleAssignChange(c.id, e.target.value)}
+                                  style={{ border: '1px solid #cbd5e1', padding: '4px', borderRadius: '4px' }}
+                                >
+                                  <option value="Unassigned">Unassigned</option>
+                                  <option value="Main Admin">Main Admin</option>
+                                  <option value="Garima">Garima</option>
+                                  <option value="Pankaj">Pankaj</option>
+                                </select>
+                              ) : (
+                                <span className="status-badge" style={{ background: '#f1f5f9', color: '#475569' }}>
+                                  {c.assigned_to || 'Unassigned'}
+                                </span>
+                              )}
+                            </td>
                             <td>
                               <span className={`status-badge status-${c.status.toLowerCase()}`}>
                                 {c.status}

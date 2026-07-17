@@ -16,9 +16,26 @@ const simpleAdminAuth = (req, res, next) => {
 router.use(simpleAdminAuth);
 
 router.get('/consultations', adminController.getAllConsultations);
+router.patch('/consultations/:id/assign', adminController.assignConsultation);
 router.patch('/consultations/:id/status', adminController.updateConsultationStatus);
 router.post('/consultations', adminController.createConsultation);
 router.delete('/consultations/:id', adminController.deleteConsultation);
+
+// Profile Verification
+router.post('/verify-profile', (req, res) => {
+  const { profileName, password } = req.body;
+  const profiles = {
+    'Main Admin': 'Admin@123',
+    'Garima': 'Garima@123',
+    'Pankaj': 'Pankaj@123'
+  };
+
+  if (profiles[profileName] && profiles[profileName] === password) {
+    res.json({ success: true });
+  } else {
+    res.status(401).json({ success: false, message: 'Invalid profile password.' });
+  }
+});
 
 router.get('/clients', adminController.getAllClients);
 router.patch('/clients/:id/lock', adminController.toggleUserLock);

@@ -10,7 +10,7 @@ export default function AdminLogin() {
     e.preventDefault();
     if (password === 'Welcome@123#') {
       localStorage.setItem('admin_password', password);
-      navigate('/admin/dashboard');
+      navigate('/admin/profiles');
     } else {
       setError('Incorrect password');
     }

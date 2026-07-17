@@ -72,16 +72,28 @@ class ConsultationRepository {
     return await query;
   }
 
-  async getAllConsultations() {
-    return await db('consultations')
-      .where('deleted_at', null)
-      .orderBy('created_at', 'desc');
+  async getAllConsultations(assignedTo = null) {
+    let query = db('consultations').where('deleted_at', null);
+    
+    if (assignedTo && assignedTo !== 'Main Admin') {
+      query = query.where('assigned_to', assignedTo);
+    }
+    
+    return await query.orderBy('created_at', 'desc');
   }
 
   async updateConsultationStatus(id, status) {
     const updated = await db('consultations')
       .where({ id })
       .update({ status })
+      .returning('*');
+    return updated[0];
+  }
+  
+  async assignConsultation(id, assignedTo) {
+    const updated = await db('consultations')
+      .where({ id })
+      .update({ assigned_to: assignedTo })
       .returning('*');
     return updated[0];
   }

@@ -5,8 +5,25 @@ const { successResponse } = require('../utils/response');
 class AdminController {
   async getAllConsultations(req, res, next) {
     try {
-      const consultations = await consultationRepo.getAllConsultations();
+      const assignedTo = req.query.assigned_to;
+      const consultations = await consultationRepo.getAllConsultations(assignedTo);
       successResponse(res, 200, 'All consultations retrieved successfully', consultations);
+    } catch (err) {
+      next(err);
+    }
+  }
+
+  async assignConsultation(req, res, next) {
+    try {
+      const { id } = req.params;
+      const { assigned_to } = req.body;
+
+      const updated = await consultationRepo.assignConsultation(id, assigned_to);
+      if (!updated) {
+        return next({ status: 404, message: 'Consultation not found', isOperational: true });
+      }
+
+      successResponse(res, 200, 'Consultation assigned successfully', updated);
     } catch (err) {
       next(err);
     }

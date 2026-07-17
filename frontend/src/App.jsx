@@ -6,6 +6,7 @@ import ClientRegister from './pages/Auth/ClientRegister';
 import ForgotPassword from './pages/Auth/ForgotPassword';
 import AdminDashboard from './pages/AdminPortal/AdminDashboard';
 import AdminLogin from './pages/AdminPortal/AdminLogin';
+import AdminProfiles from './pages/AdminPortal/AdminProfiles';
 import AdminRoute from './components/AdminRoute';
 import ProtectedRoute from './components/ProtectedRoute';
 
@@ -39,7 +40,6 @@ function Layout({ children }) {
   const [isSolid, setIsSolid] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [lang, setLang] = useState('English');
-
 
   useEffect(() => {
     const handleScroll = () => setIsSolid(window.scrollY > 50);
@@ -87,8 +87,6 @@ function Layout({ children }) {
     }
   };
 
-
-
   return (
     <>
       <div id="google_translate_element" style={{ display: 'none' }}></div>
@@ -116,7 +114,6 @@ function Layout({ children }) {
               <Link to="/services" onClick={() => setMenuOpen(false)}>Services</Link>
               <Link to="/testimonials" onClick={() => setMenuOpen(false)}>Testimonials</Link>
               <Link to="/faq" onClick={() => setMenuOpen(false)}>FAQ</Link>
-
             </div>
             <div className="mobile-auth-nav">
               {user ? (
@@ -217,7 +214,6 @@ function Layout({ children }) {
                 <li>+91 11 4567 8900</li>
                 <li>enquiries@justiceassociates.example</li>
               </ul>
-
             </div>
           </div>
 
@@ -251,6 +247,7 @@ function MainApp() {
         <Routes>
           <Route path="/admin" element={<AdminLogin />} />
           <Route element={<AdminRoute />}>
+            <Route path="/admin/profiles" element={<AdminProfiles />} />
             <Route path="/admin/dashboard/*" element={<AdminDashboard />} />
           </Route>
         </Routes>
