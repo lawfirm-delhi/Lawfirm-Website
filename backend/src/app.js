@@ -56,6 +56,16 @@ app.get('/api/v1/logs', (req, res) => {
 });
 
 // API Routes
+app.get('/api/v1/health', async (req, res) => {
+  try {
+    const db = require('./config/db');
+    await db.raw('SELECT 1');
+    res.status(200).json({ status: 'ok', message: 'Server and Database are awake' });
+  } catch (error) {
+    res.status(500).json({ status: 'error', message: 'Database unreachable' });
+  }
+});
+
 app.use('/api/v1/auth', require('./routes/auth.routes'));
 app.use('/api/v1/consultations', require('./routes/consultation.routes'));
 app.use('/api/v1/admin', require('./routes/admin.routes'));

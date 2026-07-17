@@ -62,3 +62,5 @@
 {"level":"info","message":"Running database migrations...","timestamp":"2026-07-17T12:16:02.501Z"}
 {"level":"info","message":"Database migrations complete.","timestamp":"2026-07-17T12:16:03.717Z"}
 {"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-07-17T12:16:03.720Z"}
+{"level":"info","message":"Running database migrations...","timestamp":"2026-07-17T15:27:35.586Z"}
+{"level":"error","message":"Failed to start server: getaddrinfo ENOTFOUND mysql-291f8694-lawfirmaiven1.d.aivencloud.com","timestamp":"2026-07-17T15:27:35.726Z"}
