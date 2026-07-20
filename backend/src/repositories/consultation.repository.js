@@ -84,25 +84,32 @@ class ConsultationRepository {
   }
 
   async updateConsultationStatus(id, status) {
-    const updated = await db('consultations')
+    const rowsAffected = await db('consultations')
       .where({ id })
-      .update({ status })
-      .returning('*');
-    return updated[0];
+      .update({ status });
+    if (rowsAffected) {
+      return await db('consultations').where({ id }).first();
+    }
+    return null;
   }
   
   async assignConsultation(id, assignedTo) {
-    const updated = await db('consultations')
+    const rowsAffected = await db('consultations')
       .where({ id })
-      .update({ assigned_to: assignedTo })
-      .returning('*');
-    return updated[0];
+      .update({ assigned_to: assignedTo });
+    if (rowsAffected) {
+      return await db('consultations').where({ id }).first();
+    }
+    return null;
   }
   async deleteConsultation(id) {
-    return await db('consultations')
+    const rowsAffected = await db('consultations')
       .where({ id })
-      .update({ deleted_at: new Date() })
-      .returning('*');
+      .update({ deleted_at: new Date() });
+    if (rowsAffected) {
+      return [await db('consultations').where({ id }).first()];
+    }
+    return [];
   }
 }
 
