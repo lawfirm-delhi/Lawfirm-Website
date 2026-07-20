@@ -101,6 +101,11 @@ export default function Login() {
         <Link to="/signup" className="auth-link">
           Create an account
         </Link>
+        <div style={{ marginTop: '1.5rem', textAlign: 'center' }}>
+          <Link to="/admin" style={{ color: '#666', fontSize: '0.85rem', textDecoration: 'none' }}>
+            Staff / Admin Login
+          </Link>
+        </div>
       </div>
     </AuthLayout>
   );
