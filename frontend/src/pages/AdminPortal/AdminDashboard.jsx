@@ -7,6 +7,16 @@ import ClientsModule from './ClientsModule';
 import NewConsultationModal from './NewConsultationModal';
 import ReportsModule from './ReportsModule';
 import { useNavigate } from 'react-router-dom';
+import { FileText, Receipt, Mail, Search, ChevronUp, ChevronDown, Users, BarChart } from 'lucide-react';
+
+const DIRECTORY = [
+  { name: 'Main Admin', role: 'Advocate', time: 'Active now', color: 'linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%)', avatar: 'M' },
+  { name: 'Garima', role: 'Barrister', time: '2 hours ago', color: 'linear-gradient(135deg, #1E293B 0%, #0F172A 100%)', avatar: 'G' },
+  { name: 'Tariq Adeeb', role: 'Barrister', time: '1 day ago', color: 'linear-gradient(135deg, #064E3B 0%, #022C22 100%)', avatar: 'T' },
+  { name: 'Pankaj', role: 'Advocate', time: '5 hours ago', color: 'linear-gradient(135deg, #334155 0%, #1E293B 100%)', avatar: 'P' },
+  { name: 'Kulwinder', role: 'Advocate', time: '1 day ago', color: 'linear-gradient(135deg, #7F1D1D 0%, #450A0A 100%)', avatar: 'K' },
+  { name: 'Associate Advocate', role: 'Advocate', time: '3 days ago', color: 'linear-gradient(135deg, #4C1D95 0%, #2E1065 100%)', avatar: 'A' }
+];
 
 export default function AdminDashboard() {
   const [consultations, setConsultations] = useState([]);
@@ -95,32 +105,75 @@ export default function AdminDashboard() {
     <div className="admin-dashboard-container">
       <aside className="admin-sidebar">
         <div className="sidebar-header">
-          <h2>Firm Admin</h2>
+          <h2>Client Hub Overview</h2>
         </div>
         <nav className="sidebar-nav">
           <button 
             className={`nav-item ${activeTab === 'Consultations' ? 'active' : ''}`}
             onClick={() => setActiveTab('Consultations')}
           >
-            Consultations
+            <FileText size={18} className="nav-icon" /> Documents
           </button>
+          
+          <button 
+            className={`nav-item ${activeTab === 'Billings' ? 'active' : ''}`}
+            onClick={() => setActiveTab('Billings')}
+          >
+            <Receipt size={18} className="nav-icon" /> Billings
+          </button>
+          <button 
+            className={`nav-item ${activeTab === 'Messages' ? 'active' : ''}`}
+            onClick={() => setActiveTab('Messages')}
+          >
+            <Mail size={18} className="nav-icon" /> Messages
+          </button>
+          
           {adminProfile === 'Main Admin' && (
             <>
               <button 
                 className={`nav-item ${activeTab === 'Clients' ? 'active' : ''}`}
                 onClick={() => setActiveTab('Clients')}
               >
-                Clients
+                <Users size={18} className="nav-icon" /> Clients
               </button>
               <button 
                 className={`nav-item ${activeTab === 'Reports' ? 'active' : ''}`}
                 onClick={() => setActiveTab('Reports')}
               >
-                Reports
+                <BarChart size={18} className="nav-icon" /> Reports
               </button>
             </>
           )}
         </nav>
+
+        <div className="sidebar-search-container">
+          <div className="sidebar-search">
+            <Search size={16} />
+            <input type="text" placeholder="Search" />
+          </div>
+        </div>
+
+        <div className="sidebar-directory">
+          <div className="directory-header">
+            <h3>Client Directory</h3>
+            <ChevronUp size={16} />
+          </div>
+          <div className="directory-list">
+            {DIRECTORY.map((member, idx) => (
+              <div key={idx} className="directory-item">
+                <div className="dir-avatar" style={{ background: member.color }}>
+                  {member.avatar}
+                </div>
+                <div className="dir-info">
+                  <div className="dir-name">{member.name}</div>
+                  <div className="dir-role">{member.role}</div>
+                </div>
+                <div className="dir-time">{member.time}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
         <div className="sidebar-footer">
           <button className="btn btn-outline" onClick={() => { localStorage.removeItem('admin_profile'); navigate('/admin/profiles'); }}>Switch Profile</button>
           <button className="btn btn-outline" style={{ marginTop: '0.5rem' }} onClick={() => { localStorage.removeItem('admin_token'); localStorage.removeItem('admin_profile'); navigate('/admin'); }}>Sign Out</button>
