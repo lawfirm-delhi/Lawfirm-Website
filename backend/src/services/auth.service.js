@@ -107,12 +107,26 @@ class AuthService {
   async updateProfile(userId, profileData) {
     const { fullName, phone, company } = profileData;
     
-    await db('clients').where({ user_id: userId }).update({
-      full_name: fullName,
-      mobile: phone,
-      company: company || null,
-      updated_at: new Date()
-    });
+    // Check if client record exists first
+    const existingClient = await db('clients').where({ user_id: userId }).first();
+    
+    if (existingClient) {
+      await db('clients').where({ user_id: userId }).update({
+        full_name: fullName,
+        mobile: phone,
+        company: company || null,
+        updated_at: new Date()
+      });
+    } else {
+      // Create it if it's missing (e.g. legacy accounts or admins testing)
+      await db('clients').insert({
+        id: uuidv4(),
+        user_id: userId,
+        full_name: fullName,
+        mobile: phone,
+        company: company || null
+      });
+    }
 
     const updatedClient = await db('clients').where({ user_id: userId }).first();
     const user = await db('users').where({ id: userId }).first();
