@@ -29,13 +29,67 @@ export default function AdminDashboard() {
   const navigate = useNavigate();
   const adminProfile = localStorage.getItem('admin_profile');
 
+  // Real-time presence state
+  const [lastSeen, setLastSeen] = useState(() => {
+    const stored = localStorage.getItem('admin_last_seen');
+    if (stored) return JSON.parse(stored);
+    
+    // Seed initial data based on mock if not exists
+    const now = Date.now();
+    const initial = {
+      'Main Admin': now,
+      'Garima': now - 2 * 60 * 60 * 1000, // 2 hours ago
+      'Tariq Adeeb': now - 24 * 60 * 60 * 1000, // 1 day ago
+      'Pankaj': now - 5 * 60 * 60 * 1000, // 5 hours ago
+      'Kulwinder': now - 24 * 60 * 60 * 1000, // 1 day ago
+      'Associate Advocate': now - 3 * 24 * 60 * 60 * 1000 // 3 days ago
+    };
+    localStorage.setItem('admin_last_seen', JSON.stringify(initial));
+    return initial;
+  });
+
+  const [currentTime, setCurrentTime] = useState(Date.now());
+
   useEffect(() => {
     if (!adminProfile) {
       navigate('/admin/profiles');
       return;
     }
     fetchConsultations();
+
+    // Update current user's last seen and sync state
+    const updatePresence = () => {
+      const now = Date.now();
+      setCurrentTime(now);
+      
+      const stored = JSON.parse(localStorage.getItem('admin_last_seen') || '{}');
+      stored[adminProfile] = now;
+      localStorage.setItem('admin_last_seen', JSON.stringify(stored));
+      setLastSeen(stored);
+    };
+
+    updatePresence();
+    const interval = setInterval(updatePresence, 30000); // Check every 30 seconds
+
+    return () => clearInterval(interval);
   }, [adminProfile]);
+
+  const getTimeAgo = (timestamp) => {
+    if (!timestamp) return 'Offline';
+    const diffInSeconds = Math.floor((currentTime - timestamp) / 1000);
+    
+    if (diffInSeconds < 60) return 'Active now';
+    
+    const diffInMinutes = Math.floor(diffInSeconds / 60);
+    if (diffInMinutes < 60) return `${diffInMinutes} min${diffInMinutes > 1 ? 's' : ''} ago`;
+    
+    const diffInHours = Math.floor(diffInMinutes / 60);
+    if (diffInHours < 24) return `${diffInHours} hour${diffInHours > 1 ? 's' : ''} ago`;
+    
+    const diffInDays = Math.floor(diffInHours / 24);
+    if (diffInDays === 1) return '1 day ago';
+    return `${diffInDays} days ago`;
+  };
 
   const fetchConsultations = async () => {
     try {
@@ -159,18 +213,23 @@ export default function AdminDashboard() {
             <ChevronUp size={16} />
           </div>
           <div className="directory-list">
-            {DIRECTORY.map((member, idx) => (
-              <div key={idx} className="directory-item">
-                <div className="dir-avatar" style={{ background: member.color }}>
-                  {member.avatar}
+            {DIRECTORY.map((member, idx) => {
+              const displayTime = adminProfile === member.name ? 'Active now' : getTimeAgo(lastSeen[member.name]);
+              return (
+                <div key={idx} className="directory-item">
+                  <div className="dir-avatar" style={{ background: member.color }}>
+                    {member.avatar}
+                  </div>
+                  <div className="dir-info">
+                    <div className="dir-name">{member.name}</div>
+                    <div className="dir-role">{member.role}</div>
+                  </div>
+                  <div className="dir-time" style={{ color: displayTime === 'Active now' ? '#c5a880' : '' }}>
+                    {displayTime}
+                  </div>
                 </div>
-                <div className="dir-info">
-                  <div className="dir-name">{member.name}</div>
-                  <div className="dir-role">{member.role}</div>
-                </div>
-                <div className="dir-time">{member.time}</div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
 
