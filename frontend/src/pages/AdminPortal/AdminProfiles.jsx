@@ -4,9 +4,9 @@ import api from '../../api/axios';
 import './AdminProfiles.css';
 
 const PROFILES = [
-  { name: 'Main Admin', color: 'linear-gradient(135deg, #FFD700 0%, #B8860B 100%)', avatar: 'M' },
-  { name: 'Garima', color: 'linear-gradient(135deg, #10b981 0%, #047857 100%)', avatar: 'G' },
-  { name: 'Pankaj', color: 'linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%)', avatar: 'P' }
+  { name: 'Main Admin', color: 'linear-gradient(135deg, var(--primary-gold) 0%, #9e7b26 100%)', avatar: 'M' },
+  { name: 'Garima', color: 'linear-gradient(135deg, #2A3B5C 0%, var(--primary-navy) 100%)', avatar: 'G' },
+  { name: 'Pankaj', color: 'linear-gradient(135deg, #4A5568 0%, #2D3748 100%)', avatar: 'P' }
 ];
 
 export default function AdminProfiles() {
