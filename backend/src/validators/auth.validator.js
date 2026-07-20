@@ -1,23 +1,31 @@
-const Joi = require('joi');
+const { z } = require('zod');
 
-const signupSchema = Joi.object({
-  fullName: Joi.string().min(2).max(100).required(),
-  email: Joi.string().email().required(),
-  phone: Joi.string().min(10).max(15).required(),
-  password: Joi.string().min(6).required()
+const signupSchema = z.object({
+  fullName: z.string().min(2).max(100),
+  email: z.string().email(),
+  phone: z.string().min(10).max(15),
+  password: z.string().min(6)
 });
 
-const loginSchema = Joi.object({
-  email: Joi.string().email().required(),
-  password: Joi.string().required()
+const loginSchema = z.object({
+  email: z.string().email(),
+  password: z.string()
 });
 
 const validateSignup = (data) => {
-  return signupSchema.validate(data, { abortEarly: false });
+  const result = signupSchema.safeParse(data);
+  if (!result.success) {
+    return { error: { details: result.error.errors } };
+  }
+  return { value: result.data };
 };
 
 const validateLogin = (data) => {
-  return loginSchema.validate(data, { abortEarly: false });
+  const result = loginSchema.safeParse(data);
+  if (!result.success) {
+    return { error: { details: result.error.errors } };
+  }
+  return { value: result.data };
 };
 
 module.exports = {
