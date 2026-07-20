@@ -329,9 +329,30 @@ export default function Home() {
               <h3>Pankaj Sinha</h3>
               <p className="team-role">Advocate, Delhi High Court</p>
             </Link>
+            <Link to="/team/tariq-adeeb" className="team-card reveal" style={{ textDecoration: 'none', color: 'inherit', maxWidth: '300px', width: '100%' }}>
+              <div className="team-photo" style={{ background: 'var(--bg-tertiary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <span style={{ fontSize: '3rem', color: 'var(--primary-gold)' }}>T</span>
+              </div>
+              <h3>Tariq Adeeb</h3>
+              <p className="team-role">Advocate</p>
+            </Link>
+            <Link to="/team/kulwinder" className="team-card reveal" style={{ textDecoration: 'none', color: 'inherit', maxWidth: '300px', width: '100%' }}>
+              <div className="team-photo" style={{ background: 'var(--bg-tertiary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <span style={{ fontSize: '3rem', color: 'var(--primary-gold)' }}>K</span>
+              </div>
+              <h3>Kulwinder</h3>
+              <p className="team-role">Advocate</p>
+            </Link>
             <Link to="/team/garima" className="team-card reveal" style={{ textDecoration: 'none', color: 'inherit', maxWidth: '300px', width: '100%' }}>
               <div className="team-photo" style={{ backgroundImage: 'url(/images/team/garima.jpg)', backgroundSize: 'cover', backgroundPosition: 'center', backgroundPositionY: 'top' }}></div>
               <h3>Garima</h3>
+              <p className="team-role">Advocate</p>
+            </Link>
+            <Link to="/team/associate-advocate" className="team-card reveal" style={{ textDecoration: 'none', color: 'inherit', maxWidth: '300px', width: '100%' }}>
+              <div className="team-photo" style={{ background: 'var(--bg-tertiary)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <span style={{ fontSize: '3rem', color: 'var(--primary-gold)' }}>A</span>
+              </div>
+              <h3>Associate Advocate</h3>
               <p className="team-role">Advocate</p>
             </Link>
           </div>
