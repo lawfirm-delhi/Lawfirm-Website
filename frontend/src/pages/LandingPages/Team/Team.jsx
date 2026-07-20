@@ -124,6 +124,26 @@ export default function Team() {
       image: '/images/team/pankaj.jpg'
     },
     { 
+      id: 'tariq-adeeb', 
+      name: 'Tariq Adeeb', 
+      designation: 'Advocate', 
+      practiceArea: 'Civil, Criminal & Constitutional Law', 
+      experience: '20+ Years', 
+      education: 'LL.B., Post Graduate (Economics)',
+      email: 'contact@justiceassociates.com',
+      image: null
+    },
+    { 
+      id: 'kulwinder', 
+      name: 'Kulwinder', 
+      designation: 'Advocate', 
+      practiceArea: 'Litigation & Dispute Resolution', 
+      experience: '17+ Years IT, Legal practice', 
+      education: 'LL.B.',
+      email: 'contact@justiceassociates.com',
+      image: null
+    },
+    { 
       id: 'garima', 
       name: 'Garima', 
       designation: 'Advocate', 
@@ -132,6 +152,16 @@ export default function Team() {
       education: 'LL.B. Campus Law Centre, DU',
       email: 'garima040810@gmail.com',
       image: '/images/team/garima.jpg'
+    },
+    { 
+      id: 'associate-advocate', 
+      name: 'Associate Advocate', 
+      designation: 'Advocate', 
+      practiceArea: 'Litigation & Legal Research', 
+      experience: 'Experienced', 
+      education: 'LL.B., M.Com, B.Com',
+      email: 'contact@justiceassociates.com',
+      image: null
     }
   ];
 

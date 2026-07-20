@@ -69,6 +69,68 @@ const teamData = {
       'Participated in seminar on "ENVIRONMENTAL JUSTICE" by Project Saksham 3.0 in 2024.'
     ],
     hobbies: ['Photography', 'Designing', 'Baking', 'Badminton']
+  },
+  'tariq-adeeb': {
+    name: 'Tariq Adeeb',
+    role: 'Advocate',
+    email: 'contact@justiceassociates.com',
+    phone: '',
+    image: null,
+    bio: 'A seasoned legal professional with over 20 years of experience in litigation, legal advisory, and dispute resolution. Specializes in civil, criminal, constitutional, commercial, and regulatory matters, with extensive practice before the Supreme Court of India, High Courts, Tribunals, and other judicial forums. Experienced in legal drafting, arbitration, mediation, project management, and advising government bodies on complex legal and policy issues, with a commitment to delivering strategic and client-focused legal solutions.',
+    education: [
+      'LL.B. – MJP Rohilkhand University',
+      'Post Graduate (Economics) – MJP Rohilkhand University (Specialization: International Trade)'
+    ],
+    expertise: [
+      'Constitutional, Civil & Criminal Litigation',
+      'Arbitration, Mediation & Conciliation',
+      'Legal Drafting (Petitions, Contracts & Legal Instruments)',
+      'Banking, Insolvency & Commercial Laws',
+      'Intellectual Property & Foreign Exchange Laws',
+      'Legal Advisory, Policy Review & Case Strategy'
+    ],
+    experience: []
+  },
+  'kulwinder': {
+    name: 'Kulwinder',
+    role: 'Advocate',
+    email: 'contact@justiceassociates.com',
+    phone: '',
+    image: null,
+    bio: 'A dedicated LL.B. graduate and enrolled Advocate with a unique blend of legal and technology expertise, backed by 17 years of experience in IT as a Portfolio/Program Manager. Experienced in legal drafting, litigation support, and court proceedings before the Delhi High Court and District Courts. Combines strong stakeholder management, strategic problem-solving, and legal knowledge to deliver practical, client-focused legal solutions.',
+    education: [
+      'LL.B.'
+    ],
+    expertise: [
+      'Litigation Support',
+      'Legal Drafting (Written Statements, Writ Petitions, Affidavits & Applications)',
+      'Legal Research & Case Analysis',
+      'Client Counselling & Case Strategy',
+      'Court Proceedings & Advocacy',
+      'Stakeholder & Project Management'
+    ],
+    experience: []
+  },
+  'associate-advocate': {
+    name: 'Associate Advocate',
+    role: 'Advocate',
+    email: 'contact@justiceassociates.com',
+    phone: '',
+    image: null,
+    bio: 'A dedicated legal professional with experience in litigation, legal research, drafting, and dispute resolution. Has assisted in matters before the Supreme Court, Delhi High Court, NCLT, Consumer Commissions, and District Courts. Skilled in preparing petitions, appeals, written submissions, and case briefs, with a commitment to delivering practical, strategic, and client-focused legal solutions.',
+    education: [
+      'LL.B. – Campus Law Centre, Faculty of Law, University of Delhi',
+      'M.Com – Dr. Ram Manohar Lohia Avadh University',
+      'B.Com – Dr. Ram Manohar Lohia Avadh University'
+    ],
+    expertise: [
+      'Litigation Support',
+      'Legal Research & Case Analysis',
+      'Legal Drafting (Petitions, Appeals & Written Submissions)',
+      'Civil, Criminal & Consumer Law',
+      'Client Counselling & Case Strategy'
+    ],
+    experience: []
   }
 };
 
