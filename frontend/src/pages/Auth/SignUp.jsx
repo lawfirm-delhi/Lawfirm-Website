@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AuthLayout from './AuthLayout';
+import { useAuth } from '../../context/AuthContext';
+import toast from 'react-hot-toast';
+import axios from 'axios';
+
+const api = axios.create({
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api/v1',
+  withCredentials: true
+});
 
 export default function SignUp() {
   const [formData, setFormData] = useState({
@@ -10,13 +18,27 @@ export default function SignUp() {
     password: ''
   });
 
+  const { login } = useAuth();
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert('This is just a frontend demo. Backend sign up logic is not implemented yet.');
+    setLoading(true);
+    try {
+      const response = await api.post('/auth/signup', formData);
+      login(response.data.data);
+      toast.success('Account created successfully!');
+      navigate('/');
+    } catch (err) {
+      toast.error(err.response?.data?.message || 'Sign up failed. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -85,8 +107,8 @@ export default function SignUp() {
           />
         </div>
 
-        <button type="submit" className="auth-button">
-          Sign Up
+        <button type="submit" className="auth-button" disabled={loading}>
+          {loading ? 'Signing Up...' : 'Sign Up'}
         </button>
       </form>
 

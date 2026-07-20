@@ -8,6 +8,7 @@ import AdminProfiles from './pages/AdminPortal/AdminProfiles';
 import AdminRoute from './components/AdminRoute';
 import Login from './pages/Auth/Login';
 import SignUp from './pages/Auth/SignUp';
+import { AuthProvider, useAuth } from './context/AuthContext';
 
 // Landing Pages
 import AboutUs from './pages/LandingPages/AboutUs/AboutUs';
@@ -35,6 +36,7 @@ function Layout({ children }) {
   const [isSolid, setIsSolid] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [lang, setLang] = useState('English');
+  const { user, logout } = useAuth();
 
   useEffect(() => {
     const handleScroll = () => setIsSolid(window.scrollY > 50);
@@ -111,15 +113,27 @@ function Layout({ children }) {
               <Link to="/faq" onClick={() => setMenuOpen(false)}>FAQ</Link>
             </div>
             <div className="mobile-auth-nav">
-              <Link to="/login" className="btn btn-ghost" onClick={() => setMenuOpen(false)}>Login</Link>
-              <Link to="/signup" className="btn btn-primary" onClick={() => setMenuOpen(false)}>Sign Up</Link>
+              {user ? (
+                <button className="btn btn-ghost" onClick={() => { logout(); setMenuOpen(false); }}>Logout</button>
+              ) : (
+                <>
+                  <Link to="/login" className="btn btn-ghost" onClick={() => setMenuOpen(false)}>Login</Link>
+                  <Link to="/signup" className="btn btn-primary" onClick={() => setMenuOpen(false)}>Sign Up</Link>
+                </>
+              )}
             </div>
           </div>
 
           <div className="nav-actions">
             <div className="desktop-auth-nav">
-              <Link to="/login" className="btn btn-ghost" onClick={() => setMenuOpen(false)}>Login</Link>
-              <Link to="/signup" className="btn btn-primary" onClick={() => setMenuOpen(false)}>Sign Up</Link>
+              {user ? (
+                <button className="btn btn-ghost" onClick={() => { logout(); setMenuOpen(false); }}>Logout</button>
+              ) : (
+                <>
+                  <Link to="/login" className="btn btn-ghost" onClick={() => setMenuOpen(false)}>Login</Link>
+                  <Link to="/signup" className="btn btn-primary" onClick={() => setMenuOpen(false)}>Sign Up</Link>
+                </>
+              )}
             </div>
             <button className={`nav-toggle ${menuOpen ? 'is-active' : ''}`} aria-expanded={menuOpen} onClick={() => { setMenuOpen(!menuOpen); }} aria-label="Open menu">
               <span></span><span></span><span></span>
@@ -238,12 +252,14 @@ function MainApp() {
 
 function App() {
   return (
-    <Router>
-      <ErrorBoundary>
-        <Toaster position="top-center" />
-        <MainApp />
-      </ErrorBoundary>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <ErrorBoundary>
+          <Toaster position="top-center" />
+          <MainApp />
+        </ErrorBoundary>
+      </Router>
+    </AuthProvider>
   );
 }
 

@@ -1,6 +1,15 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import AuthLayout from './AuthLayout';
+import { useAuth } from '../../context/AuthContext';
+import toast from 'react-hot-toast';
+import axios from 'axios';
+
+// Ensure axios uses the correct base URL
+const api = axios.create({
+  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api/v1',
+  withCredentials: true
+});
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -8,13 +17,27 @@ export default function Login() {
     password: ''
   });
 
+  const { login } = useAuth();
+  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert('This is just a frontend demo. Backend login logic is not implemented yet.');
+    setLoading(true);
+    try {
+      const response = await api.post('/auth/login', formData);
+      login(response.data.data);
+      toast.success('Logged in successfully!');
+      navigate('/');
+    } catch (err) {
+      toast.error(err.response?.data?.message || 'Login failed. Please try again.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -66,8 +89,8 @@ export default function Login() {
           </Link>
         </div>
 
-        <button type="submit" className="auth-button">
-          Log In
+        <button type="submit" className="auth-button" disabled={loading}>
+          {loading ? 'Logging in...' : 'Log In'}
         </button>
       </form>
 
