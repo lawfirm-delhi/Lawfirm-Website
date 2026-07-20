@@ -8,6 +8,7 @@ import AdminProfiles from './pages/AdminPortal/AdminProfiles';
 import AdminRoute from './components/AdminRoute';
 import Login from './pages/Auth/Login';
 import SignUp from './pages/Auth/SignUp';
+import Profile from './pages/ClientPortal/Profile';
 import { AuthProvider, useAuth } from './context/AuthContext';
 
 // Landing Pages
@@ -115,9 +116,9 @@ function Layout({ children }) {
             <div className="mobile-auth-nav">
               {user ? (
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                  <span style={{ color: 'var(--primary-gold)', fontFamily: 'var(--font-body)', fontSize: '0.9rem', fontWeight: '500' }}>
+                  <Link to="/profile" onClick={() => setMenuOpen(false)} style={{ color: 'var(--primary-gold)', fontFamily: 'var(--font-body)', fontSize: '0.9rem', fontWeight: '500', textDecoration: 'none' }}>
                     Welcome, {user.full_name || 'User'}
-                  </span>
+                  </Link>
                   <button className="btn btn-ghost" onClick={() => { logout(); setMenuOpen(false); }}>Logout</button>
                 </div>
               ) : (
@@ -133,9 +134,9 @@ function Layout({ children }) {
             <div className="desktop-auth-nav">
               {user ? (
                 <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-                  <span style={{ color: 'var(--primary-gold)', fontFamily: 'var(--font-body)', fontSize: '0.95rem', fontWeight: '500' }}>
+                  <Link to="/profile" style={{ color: 'var(--primary-gold)', fontFamily: 'var(--font-body)', fontSize: '0.95rem', fontWeight: '500', textDecoration: 'none' }}>
                     Welcome, {user.full_name || 'User'}
-                  </span>
+                  </Link>
                   <button className="btn btn-ghost" onClick={() => { logout(); setMenuOpen(false); }}>Logout</button>
                 </div>
               ) : (
@@ -251,8 +252,10 @@ function MainApp() {
             <Route path="/team/:slug" element={<TeamMember />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfUse />} />
+            {/* Auth Routes */}
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
         </Layout>
       )}

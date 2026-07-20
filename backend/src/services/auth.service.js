@@ -103,6 +103,29 @@ class AuthService {
     // Since we just need the backend method for now as per requirements:
     return { message: 'Reset email functionality is mocked for now.' };
   }
+
+  async updateProfile(userId, profileData) {
+    const { fullName, phone, company } = profileData;
+    
+    await db('clients').where({ user_id: userId }).update({
+      full_name: fullName,
+      mobile: phone,
+      company: company || null,
+      updated_at: new Date()
+    });
+
+    const updatedClient = await db('clients').where({ user_id: userId }).first();
+    const user = await db('users').where({ id: userId }).first();
+    
+    return {
+      id: user.id,
+      email: user.email,
+      role: user.role,
+      full_name: updatedClient.full_name,
+      mobile: updatedClient.mobile,
+      company: updatedClient.company
+    };
+  }
 }
 
 module.exports = new AuthService();

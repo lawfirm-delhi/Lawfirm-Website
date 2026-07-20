@@ -48,8 +48,24 @@ const forgotPassword = async (req, res) => {
   }
 };
 
+const updateProfile = async (req, res) => {
+  try {
+    const { fullName, phone, company } = req.body;
+    if (!fullName || !phone) {
+      return errorResponse(res, 400, 'Full name and phone are required');
+    }
+    
+    // req.user is set by the authenticate middleware
+    const updatedUser = await authService.updateProfile(req.user.id, { fullName, phone, company });
+    return successResponse(res, 200, 'Profile updated successfully', updatedUser);
+  } catch (error) {
+    return errorResponse(res, 500, error.message);
+  }
+};
+
 module.exports = {
   signup,
   login,
-  forgotPassword
+  forgotPassword,
+  updateProfile
 };
