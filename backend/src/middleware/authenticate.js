@@ -1,5 +1,5 @@
 const { verifyAccessToken } = require('../utils/jwt');
-const authRepo = require('../repositories/auth.repository');
+const { db } = require('../config/database');
 
 const authenticate = async (req, res, next) => {
   try {
@@ -16,8 +16,19 @@ const authenticate = async (req, res, next) => {
     const decoded = verifyAccessToken(token);
     
     // We optionally verify the user still exists in the DB (for extra security)
-    // but decoded.id is the primary truth for now
-    const user = await authRepo.getUserById(decoded.id);
+    const user = await db('users')
+      .leftJoin('clients', 'users.id', 'clients.user_id')
+      .where('users.id', decoded.id)
+      .select(
+        'users.id',
+        'users.email',
+        'users.role',
+        'clients.full_name',
+        'clients.company',
+        'clients.mobile'
+      )
+      .first();
+
     if (!user) {
       return next({ status: 401, message: 'User no longer exists', isOperational: true });
     }
