@@ -6,6 +6,8 @@ import AdminDashboard from './pages/AdminPortal/AdminDashboard';
 import AdminLogin from './pages/AdminPortal/AdminLogin';
 import AdminProfiles from './pages/AdminPortal/AdminProfiles';
 import AdminRoute from './components/AdminRoute';
+import Login from './pages/Auth/Login';
+import SignUp from './pages/Auth/SignUp';
 
 // Landing Pages
 import AboutUs from './pages/LandingPages/AboutUs/AboutUs';
@@ -108,9 +110,17 @@ function Layout({ children }) {
               <Link to="/testimonials" onClick={() => setMenuOpen(false)}>Testimonials</Link>
               <Link to="/faq" onClick={() => setMenuOpen(false)}>FAQ</Link>
             </div>
+            <div className="mobile-auth-nav">
+              <Link to="/login" className="btn btn-ghost" onClick={() => setMenuOpen(false)}>Login</Link>
+              <Link to="/signup" className="btn btn-primary" onClick={() => setMenuOpen(false)}>Sign Up</Link>
+            </div>
           </div>
 
           <div className="nav-actions">
+            <div className="desktop-auth-nav">
+              <Link to="/login" className="btn btn-ghost" onClick={() => setMenuOpen(false)}>Login</Link>
+              <Link to="/signup" className="btn btn-primary" onClick={() => setMenuOpen(false)}>Sign Up</Link>
+            </div>
             <button className={`nav-toggle ${menuOpen ? 'is-active' : ''}`} aria-expanded={menuOpen} onClick={() => { setMenuOpen(!menuOpen); }} aria-label="Open menu">
               <span></span><span></span><span></span>
             </button>
@@ -217,6 +227,8 @@ function MainApp() {
             <Route path="/team/:slug" element={<TeamMember />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfUse />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<SignUp />} />
           </Routes>
         </Layout>
       )}
