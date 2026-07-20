@@ -114,7 +114,12 @@ function Layout({ children }) {
             </div>
             <div className="mobile-auth-nav">
               {user ? (
-                <button className="btn btn-ghost" onClick={() => { logout(); setMenuOpen(false); }}>Logout</button>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                  <span style={{ color: 'var(--primary-gold)', fontFamily: 'var(--font-body)', fontSize: '0.9rem', fontWeight: '500' }}>
+                    Welcome, {user.full_name || 'User'}
+                  </span>
+                  <button className="btn btn-ghost" onClick={() => { logout(); setMenuOpen(false); }}>Logout</button>
+                </div>
               ) : (
                 <>
                   <Link to="/login" className="btn btn-ghost" onClick={() => setMenuOpen(false)}>Login</Link>
@@ -127,7 +132,12 @@ function Layout({ children }) {
           <div className="nav-actions">
             <div className="desktop-auth-nav">
               {user ? (
-                <button className="btn btn-ghost" onClick={() => { logout(); setMenuOpen(false); }}>Logout</button>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+                  <span style={{ color: 'var(--primary-gold)', fontFamily: 'var(--font-body)', fontSize: '0.95rem', fontWeight: '500' }}>
+                    Welcome, {user.full_name || 'User'}
+                  </span>
+                  <button className="btn btn-ghost" onClick={() => { logout(); setMenuOpen(false); }}>Logout</button>
+                </div>
               ) : (
                 <>
                   <Link to="/login" className="btn btn-ghost" onClick={() => setMenuOpen(false)}>Login</Link>
