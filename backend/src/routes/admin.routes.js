@@ -27,7 +27,10 @@ router.post('/verify-profile', (req, res) => {
   const profiles = {
     'Main Admin': 'Admin@123',
     'Garima': 'Garima@123',
-    'Pankaj': 'Pankaj@123'
+    'Pankaj': 'Pankaj@123',
+    'Tariq Adeeb': 'Tariq@123',
+    'Kulwinder': 'Kulwinder@123',
+    'Associate Advocate': 'Associate@123'
   };
 
   if (profiles[profileName] && profiles[profileName] === password) {

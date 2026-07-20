@@ -6,7 +6,10 @@ import './AdminProfiles.css';
 const PROFILES = [
   { name: 'Main Admin', color: 'linear-gradient(135deg, var(--primary-gold) 0%, #9e7b26 100%)', avatar: 'M' },
   { name: 'Garima', color: 'linear-gradient(135deg, #2A3B5C 0%, var(--primary-navy) 100%)', avatar: 'G' },
-  { name: 'Pankaj', color: 'linear-gradient(135deg, #4A5568 0%, #2D3748 100%)', avatar: 'P' }
+  { name: 'Pankaj', color: 'linear-gradient(135deg, #4A5568 0%, #2D3748 100%)', avatar: 'P' },
+  { name: 'Tariq Adeeb', color: 'linear-gradient(135deg, #5c422a 0%, #3e2b19 100%)', avatar: 'T' },
+  { name: 'Kulwinder', color: 'linear-gradient(135deg, #283626 0%, #151e14 100%)', avatar: 'K' },
+  { name: 'Associate Advocate', color: 'linear-gradient(135deg, #4a4a4a 0%, #2b2b2b 100%)', avatar: 'A' }
 ];
 
 export default function AdminProfiles() {
