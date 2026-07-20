@@ -48,6 +48,24 @@ const forgotPassword = async (req, res) => {
   }
 };
 
+const resetPassword = async (req, res) => {
+  try {
+    const { email, otp, newPassword } = req.body;
+    if (!email || !otp || !newPassword) {
+      return errorResponse(res, 400, 'Email, OTP, and new password are required');
+    }
+    if (newPassword.length < 6) {
+      return errorResponse(res, 400, 'Password must be at least 6 characters');
+    }
+
+    const result = await authService.resetPassword(email, otp, newPassword);
+    return successResponse(res, 200, result.message);
+  } catch (error) {
+    const statusCode = error.statusCode || 500;
+    return errorResponse(res, statusCode, error.message);
+  }
+};
+
 const updateProfile = async (req, res) => {
   try {
     const { fullName, phone, company } = req.body;
@@ -67,5 +85,6 @@ module.exports = {
   signup,
   login,
   forgotPassword,
+  resetPassword,
   updateProfile
 };

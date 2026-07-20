@@ -67,3 +67,6 @@
 {"level":"info","message":"Running database migrations...","timestamp":"2026-07-20T14:33:30.298Z"}
 {"level":"info","message":"Database migrations complete.","timestamp":"2026-07-20T14:33:30.378Z"}
 {"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-07-20T14:33:30.384Z"}
+{"level":"info","message":"Running database migrations...","timestamp":"2026-07-20T15:02:49.586Z"}
+{"level":"info","message":"Database migrations complete.","timestamp":"2026-07-20T15:02:49.607Z"}
+{"level":"info","message":"Server running in development mode on port 5000","timestamp":"2026-07-20T15:02:49.609Z"}

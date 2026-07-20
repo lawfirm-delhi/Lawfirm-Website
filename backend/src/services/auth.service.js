@@ -2,6 +2,8 @@ const { db } = require('../config/database');
 const { v4: uuidv4 } = require('uuid');
 const { hashPassword, verifyPassword } = require('../utils/password');
 const { generateTokens } = require('../utils/jwt');
+const { sendOTPVerificationEmail } = require('../utils/email');
+const crypto = require('crypto');
 
 class AuthService {
   async signup(data) {
@@ -92,16 +94,65 @@ class AuthService {
   }
 
   async forgotPassword(email) {
-    // Generate an OTP or reset token
     const user = await db('users').where({ email }).first();
     if (!user) {
       // For security, don't throw error to prevent email enumeration
       return { message: 'If the email exists, a reset link will be sent.' };
     }
     
-    // NOTE: This would normally generate an OTP and send via email.
-    // Since we just need the backend method for now as per requirements:
-    return { message: 'Reset email functionality is mocked for now.' };
+    // Generate a 6-digit OTP
+    const otp = Math.floor(100000 + Math.random() * 900000).toString();
+    
+    // Set expiration to 15 minutes from now
+    const expiresAt = new Date(Date.now() + 15 * 60 * 1000);
+
+    // Save OTP to user record
+    await db('users').where({ id: user.id }).update({
+      reset_otp: otp,
+      reset_otp_expires_at: expiresAt,
+      updated_at: new Date()
+    });
+
+    // Send email
+    await sendOTPVerificationEmail(user.email, otp);
+
+    return { message: 'OTP sent successfully to your email.' };
+  }
+
+  async resetPassword(email, otp, newPassword) {
+    const user = await db('users').where({ email }).first();
+    
+    if (!user) {
+      const error = new Error('Invalid email or OTP');
+      error.statusCode = 400;
+      throw error;
+    }
+
+    // Check if OTP matches and is not expired
+    if (user.reset_otp !== otp) {
+      const error = new Error('Invalid OTP');
+      error.statusCode = 400;
+      throw error;
+    }
+
+    if (!user.reset_otp_expires_at || new Date(user.reset_otp_expires_at) < new Date()) {
+      const error = new Error('OTP has expired');
+      error.statusCode = 400;
+      throw error;
+    }
+
+    // Hash new password
+    const hashedPassword = await hashPassword(newPassword);
+
+    // Update password and clear OTP
+    await db('users').where({ id: user.id }).update({
+      password_hash: hashedPassword,
+      reset_otp: null,
+      reset_otp_expires_at: null,
+      updated_at: new Date()
+    });
+
+    return { message: 'Password reset successfully. You can now log in.' };
   }
 
   async updateProfile(userId, profileData) {

@@ -84,7 +84,7 @@ export default function Login() {
             />
             Remember me
           </label>
-          <Link to="#" className="auth-link">
+          <Link to="/forgot-password" className="auth-link">
             Forgot password?
           </Link>
         </div>

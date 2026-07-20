@@ -8,6 +8,7 @@ import AdminProfiles from './pages/AdminPortal/AdminProfiles';
 import AdminRoute from './components/AdminRoute';
 import Login from './pages/Auth/Login';
 import SignUp from './pages/Auth/SignUp';
+import ForgotPassword from './pages/Auth/ForgotPassword';
 import Profile from './pages/ClientPortal/Profile';
 import { AuthProvider, useAuth } from './context/AuthContext';
 
@@ -255,6 +256,7 @@ function MainApp() {
             {/* Auth Routes */}
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/profile" element={<Profile />} />
           </Routes>
         </Layout>
