@@ -316,11 +316,12 @@ export default function Home() {
 
       {/* TEAM */}
       <section className="section" id="team">
-        <div className="container">
-          <div className="section-head reveal">
-            <p className="eyebrow">Our Team</p>
-            <h2>The partners behind the practice.</h2>
-            <p className="section-lede">Eight practices, one bench of partners each recognised individually in their field.</p>
+          <div className="container">
+            <div className="section-head center reveal">
+              <p className="eyebrow">Our Team</p>
+              <h2>The partners behind the practice.</h2>
+              <p className="section-lede">Eight practices, one bench of partners each recognised individually in their field.</p>
+            </div>
             <div className="team-grid" style={{ display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
               <Link to="/team/pankaj-sinha" className="team-card reveal" style={{ textDecoration: 'none', color: 'inherit', maxWidth: '300px', width: '100%' }}>
                 <div className="team-photo" style={{ backgroundImage: 'url(/team/pankaj.jpeg)', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
@@ -349,22 +350,7 @@ export default function Home() {
               </Link>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CALL TO ACTION */}
-      <section className="section consultation-cta" id="consultation">
-        <div className="container" style={{textAlign: 'center'}}>
-           <div className="reveal">
-              <p className="eyebrow" style={{justifyContent: 'center'}}>Your Legal Matter Deserves Expert Attention</p>
-              <h2>Schedule a confidential consultation today.</h2>
-              <p className="section-lede" style={{margin: '0 auto 2.5rem'}}>Receive strategic legal guidance from experienced professionals dedicated to protecting your interests.</p>
-              <div style={{ marginTop: '4rem', textAlign: 'left' }}>
-                <ConsultationWizard />
-              </div>
-           </div>
-        </div>
-      </section>
-    </>
-  );
-}
+  
+
