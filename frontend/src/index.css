@@ -1083,8 +1083,8 @@ h1, h2, h3, h4 {
   border-color: var(--border);
 }
 .team-photo {
-  aspect-ratio: 3 / 4;
-  border-radius: 12px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
   margin-bottom: 1.1rem;
   position: relative;
   overflow: hidden;
@@ -1094,7 +1094,7 @@ h1, h2, h3, h4 {
   content: '';
   position: absolute;
   inset: 0;
-  border-radius: 12px;
+  border-radius: 50%;
   border: 1px solid var(--divider);
 }
 .team-card h3 {

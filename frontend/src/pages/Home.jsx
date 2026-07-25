@@ -323,27 +323,27 @@ export default function Home() {
             <p className="section-lede">Eight practices, one bench of partners each recognised individually in their field.</p>
             <div className="team-grid" style={{ display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
               <Link to="/team/pankaj-sinha" className="team-card reveal" style={{ textDecoration: 'none', color: 'inherit', maxWidth: '300px', width: '100%' }}>
-                <div className="team-photo" style={{ backgroundImage: 'url(/team/pankaj.jpeg)', backgroundSize: 'cover', backgroundPosition: 'center top' }}></div>
+                <div className="team-photo" style={{ backgroundImage: 'url(/team/pankaj.jpeg)', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
                 <h3>Pankaj Sinha</h3>
                 <p className="team-role">Advocate</p>
               </Link>
               <Link to="/team/tariq-adeeb" className="team-card reveal" style={{ textDecoration: 'none', color: 'inherit', maxWidth: '300px', width: '100%' }}>
-                <div className="team-photo" style={{ backgroundImage: 'url(/team/tariq.jpeg)', backgroundSize: 'cover', backgroundPosition: 'center top' }}></div>
+                <div className="team-photo" style={{ backgroundImage: 'url(/team/tariq.jpeg)', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
                 <h3>Tariq Adeeb</h3>
                 <p className="team-role">Advocate</p>
               </Link>
               <Link to="/team/kulwinder" className="team-card reveal" style={{ textDecoration: 'none', color: 'inherit', maxWidth: '300px', width: '100%' }}>
-                <div className="team-photo" style={{ backgroundImage: 'url(/team/kulwinder.jpeg)', backgroundSize: 'cover', backgroundPosition: 'center top' }}></div>
+                <div className="team-photo" style={{ backgroundImage: 'url(/team/kulwinder.jpeg)', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
                 <h3>Kulwinder</h3>
                 <p className="team-role">Advocate</p>
               </Link>
               <Link to="/team/garima" className="team-card reveal" style={{ textDecoration: 'none', color: 'inherit', maxWidth: '300px', width: '100%' }}>
-                <div className="team-photo" style={{ backgroundImage: 'url(/team/garima.jpeg)', backgroundSize: 'cover', backgroundPosition: 'center top' }}></div>
+                <div className="team-photo" style={{ backgroundImage: 'url(/team/garima.jpeg)', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
                 <h3>Garima</h3>
                 <p className="team-role">Advocate</p>
               </Link>
               <Link to="/team/humaira" className="team-card reveal" style={{ textDecoration: 'none', color: 'inherit', maxWidth: '300px', width: '100%' }}>
-                <div className="team-photo" style={{ backgroundImage: 'url(/team/humaira.jpeg)', backgroundSize: 'cover', backgroundPosition: 'center top' }}></div>
+                <div className="team-photo" style={{ backgroundImage: 'url(/team/humaira.jpeg)', backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
                 <h3>Humaira</h3>
                 <p className="team-role">Advocate</p>
               </Link>
