@@ -113,57 +113,57 @@ function LawyerCard({ lawyer }) {
 
 export default function Team() {
   const lawyers = [
-    { 
-      id: 'pankaj-sinha', 
-      name: 'Pankaj Sinha', 
-      designation: 'Advocate, Delhi High Court', 
-      practiceArea: 'Litigation, Civil & Criminal', 
-      experience: '19+ Years', 
-      education: 'L.L.B Campus Law Centre, New Delhi',
-      email: 'sinhapankaj81@gmail.com',
-      image: '/images/team/pankaj.jpg'
-    },
-    { 
-      id: 'tariq-adeeb', 
-      name: 'Tariq Adeeb', 
-      designation: 'Advocate', 
-      practiceArea: 'Civil, Criminal & Constitutional Law', 
-      experience: '20+ Years', 
-      education: 'LL.B., Post Graduate (Economics)',
-      email: 'contact@justiceassociates.com',
-      image: null
-    },
-    { 
-      id: 'kulwinder', 
-      name: 'Kulwinder', 
-      designation: 'Advocate', 
-      practiceArea: 'Litigation & Dispute Resolution', 
-      experience: '17+ Years IT, Legal practice', 
-      education: 'LL.B.',
-      email: 'contact@justiceassociates.com',
-      image: null
-    },
-    { 
-      id: 'garima', 
-      name: 'Garima', 
-      designation: 'Advocate', 
-      practiceArea: 'Service matters, Criminal cases', 
-      experience: '3 Years', 
-      education: 'LL.B. Campus Law Centre, DU',
-      email: 'garima040810@gmail.com',
-      image: '/images/team/garima.jpg'
-    },
-    { 
-      id: 'associate-advocate', 
-      name: 'Associate Advocate', 
-      designation: 'Advocate', 
-      practiceArea: 'Litigation & Legal Research', 
-      experience: 'Experienced', 
-      education: 'LL.B., M.Com, B.Com',
-      email: 'contact@justiceassociates.com',
-      image: null
-    }
-  ];
+      { 
+        id: 'pankaj-sinha', 
+        name: 'Pankaj Sinha', 
+        designation: 'Advocate', 
+        practiceArea: 'Litigation, Civil & Criminal', 
+        experience: '19+ Years', 
+        education: 'L.L.B Campus Law Centre, New Delhi',
+        email: 'sinhapankaj81@gmail.com',
+        image: '/team/pankaj.jpeg'
+      },
+      { 
+        id: 'tariq-adeeb', 
+        name: 'Tariq Adeeb', 
+        designation: 'Advocate', 
+        practiceArea: 'Civil, Criminal & Constitutional Law', 
+        experience: '20+ Years', 
+        education: 'LL.B., Post Graduate (Economics)',
+        email: 'contact@justiceassociates.com',
+        image: '/team/tariq.jpeg'
+      },
+      { 
+        id: 'kulwinder', 
+        name: 'Kulwinder', 
+        designation: 'Advocate', 
+        practiceArea: 'IT & Legal Expertise', 
+        experience: '17+ Years IT, Legal practice', 
+        education: 'LL.B.',
+        email: 'contact@justiceassociates.com',
+        image: '/team/kulwinder.jpeg'
+      },
+      { 
+        id: 'garima', 
+        name: 'Garima', 
+        designation: 'Advocate', 
+        practiceArea: 'Civil, Criminal & Medico-Legal', 
+        experience: '2+ Years', 
+        education: 'L.L.B Campus Law Centre, Delhi',
+        email: 'garima040810@gmail.com',
+        image: '/team/garima.jpeg'
+      },
+      { 
+        id: 'humaira', 
+        name: 'Humaira', 
+        designation: 'Advocate', 
+        practiceArea: 'Litigation, NCLT & Consumer', 
+        experience: 'Legal practice', 
+        education: 'LL.B., M.Com',
+        email: 'contact@justiceassociates.com',
+        image: '/team/humaira.jpeg'
+      }
+    ];
 
   return (
     <PageWrapper title="Our Team">

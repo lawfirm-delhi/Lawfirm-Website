@@ -5,11 +5,11 @@ import './AdminProfiles.css';
 
 const PROFILES = [
   { name: 'Main Admin', color: 'linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%)', avatar: 'M' },
-  { name: 'Garima', color: 'linear-gradient(135deg, #1E293B 0%, #0F172A 100%)', avatar: 'G' },
-  { name: 'Pankaj', color: 'linear-gradient(135deg, #334155 0%, #1E293B 100%)', avatar: 'P' },
-  { name: 'Tariq Adeeb', color: 'linear-gradient(135deg, #064E3B 0%, #022C22 100%)', avatar: 'T' },
-  { name: 'Kulwinder', color: 'linear-gradient(135deg, #7F1D1D 0%, #450A0A 100%)', avatar: 'K' },
-  { name: 'Associate Advocate', color: 'linear-gradient(135deg, #4C1D95 0%, #2E1065 100%)', avatar: 'A' }
+  { name: 'Garima', color: 'linear-gradient(135deg, #1E293B 0%, #0F172A 100%)', avatar: 'G', img: '/team/garima.jpeg' },
+  { name: 'Pankaj', color: 'linear-gradient(135deg, #334155 0%, #1E293B 100%)', avatar: 'P', img: '/team/pankaj.jpeg' },
+  { name: 'Tariq Adeeb', color: 'linear-gradient(135deg, #064E3B 0%, #022C22 100%)', avatar: 'T', img: '/team/tariq.jpeg' },
+  { name: 'Kulwinder', color: 'linear-gradient(135deg, #7F1D1D 0%, #450A0A 100%)', avatar: 'K', img: '/team/kulwinder.jpeg' },
+  { name: 'Humaira', color: 'linear-gradient(135deg, #4C1D95 0%, #2E1065 100%)', avatar: 'H', img: '/team/humaira.jpeg' }
 ];
 
 export default function AdminProfiles() {
@@ -55,8 +55,8 @@ export default function AdminProfiles() {
             &larr; Back to Profiles
           </button>
           
-          <div className="selected-avatar" style={{ background: selectedProfile.color }}>
-            {selectedProfile.avatar}
+          <div className="selected-avatar" style={{ background: selectedProfile.img ? 'transparent' : selectedProfile.color, backgroundImage: selectedProfile.img ? `url(${selectedProfile.img})` : 'none', backgroundSize: 'cover', backgroundPosition: 'center', border: selectedProfile.img ? '3px solid var(--primary-gold)' : 'none' }}>
+            {!selectedProfile.img && selectedProfile.avatar}
           </div>
           <h2>Hi, {selectedProfile.name}</h2>
           <p>Please enter your PIN / Password</p>
@@ -87,8 +87,8 @@ export default function AdminProfiles() {
       <div className="profiles-grid">
         {PROFILES.map(p => (
           <div key={p.name} className="profile-card" onClick={() => handleProfileClick(p)}>
-            <div className="profile-avatar" style={{ background: p.color }}>
-              {p.avatar}
+            <div className="profile-avatar" style={{ background: p.img ? 'transparent' : p.color, backgroundImage: p.img ? `url(${p.img})` : 'none', backgroundSize: 'cover', backgroundPosition: 'center', border: p.img ? '4px solid rgba(255, 255, 255, 0.1)' : 'none' }}>
+              {!p.img && p.avatar}
             </div>
             <div className="profile-name">{p.name}</div>
           </div>

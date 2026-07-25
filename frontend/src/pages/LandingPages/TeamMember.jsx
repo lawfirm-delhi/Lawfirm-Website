@@ -6,89 +6,46 @@ import './TeamMember.css';
 const teamData = {
   'pankaj-sinha': {
     name: 'Pankaj Sinha',
-    role: 'Advocate, Delhi High Court',
+    role: 'Advocate',
     email: 'sinhapankaj81@gmail.com',
     phone: '+91-9910247816',
-    image: '/images/team/pankaj.jpg',
-    bio: 'Pankaj Sinha is a highly experienced Advocate practicing in the Supreme Court of India, Delhi High Court, and Subordinate Courts since 2006. With over 19 years of legal experience, he represents clients in civil and criminal matters, Consumer Forums from District to National level, Central Administrative Tribunal, and cases involving Juveniles in conflict with Law. He also has teaching experience as Guest Faculty Assistant Professor at Law Centre II, Delhi University.',
+    image: '/team/pankaj.jpeg',
+    bio: 'A seasoned legal professional with over 19 years of litigation experience across constitutional, civil, criminal, consumer, service, and human rights matters. Has represented clients before the Supreme Court of India, Delhi High Court, Central Administrative Tribunal (CAT), Consumer Commissions, District & Sessions Courts, and various statutory authorities. Empanelled with the Delhi High Court Legal Services Committee, Government of NCT of Delhi, and Punjab & Sind Bank. Also served as a Guest Faculty at the Faculty of Law, University of Delhi, combining extensive courtroom advocacy with academic and legal research expertise.',
     education: [
-      'L.L.B., Campus Law Centre, New Delhi (2003-2006)',
-      'B.A. (History), St. Stephen\'s College, New Delhi (2000-2003)',
-      'J.P.M. Senior Secondary School, New Delhi (1988-2000)'
+      'LL.B. � Campus Law Centre, Faculty of Law, University of Delhi',
+      'B.A. (History) � St. Stephen\'s College, University of Delhi',
+      'CBSE (Arts) � J.P.M. Senior Secondary School, New Delhi'
     ],
-    expertise: ['Criminal Law', 'Civil Litigation', 'Human Rights', 'Consumer Disputes', 'Administrative Law'],
-    experience: [
-      'Panel advocate Criminal Law-I in Legal Aid Services of Delhi High Court (2025-2028).',
-      'Panel advocate of Punjab & Sind Bank Since May, 2015.',
-      'Civil Panel Advocate of Govt. of NCT of Delhi in Delhi High Court since June, 2015.',
-      'Legal Consultant with Human Rights Law Network (HRLN) since August 2008 till April, 2015.',
-      'Practiced as an Associate under Advocate S C Vashishth, Delhi High Court (2007-2008).',
-      'Practiced under Senior Advocate S. K. Rungta, Delhi High Court (2006-2007).'
-    ],
-    extraCurricular: [
-      'Participated as a panelist at the ICON-S 2016 Conference held at Berlin, Germany on "Borders, Otherness and Public Law".',
-      'Represented Socio Legal Information Centre (SLIC) in a conference on Access to Justice in Ireland (2014).',
-      'Represented International Jurist Organisation in UN Headquarters, NY (2005) & Ottawa (2005).'
-    ],
-    miscellaneous: [
-      'Participating in advocacy initiatives in the disability sector on the Rights of Persons with Disabilities.',
-      'Resource person and participant in seminars relating to Human Rights (Women, Dalits, HIV/AIDS).',
-      'Edited a book on "Indian Laws for Protecting Children".',
-      'Attended Basic Mountaineering and Adventure course ARU Jammu and Kashmir (1999).'
-    ]
+    expertise: ['Constitutional, Civil & Criminal Litigation', 'Consumer & Service Law', 'Human Rights & Disability Rights', 'Legal Research & Case Strategy', 'Legal Drafting (Petitions, Appeals, Writs & Written Submissions)', 'Court Advocacy & Client Representation'],
+    experience: []
   },
   'garima': {
     name: 'Garima',
     role: 'Advocate',
     email: 'garima040810@gmail.com',
     phone: '+91 7210067910',
-    image: '/images/team/garima.jpg',
-    bio: 'A dedicated and highly motivated legal professional with experience in legal research, drafting, litigation support, and case management. Garima is proficient in handling service matters, criminal cases, and civil litigation. Adept at legal documentation, court procedures, and e-filing, with strong analytical and problem-solving skills.',
+    image: '/team/garima.jpeg',
+    bio: 'A dedicated legal professional with experience in litigation, legal research, drafting, and case management. Has worked on service, civil, criminal, and medico-legal matters, with practical exposure before the Supreme Court of India, Delhi High Court, Central Administrative Tribunal (CAT), and District Courts. Skilled in drafting petitions, affidavits, appeals, and legal applications, with experience in e-filing, client counselling, and legal documentation.',
     education: [
-      'LL.B., Campus Law Centre, Faculty of Law, University of Delhi (2021-2024)',
-      'B.A. (Hons.) Political Science, Indraprastha College for Women, University of Delhi (2018-2021)',
-      'CBSE (12th Std.), Rajkiya Pratibha Vikas Vidyalaya, Delhi (2017-2018)'
+      'LL.B. � Campus Law Centre, Faculty of Law, University of Delhi',
+      'B.A. (Hons.) Political Science � Indraprastha College for Women, University of Delhi',
+      'CBSE Class XII � Rajkiya Pratibha Vikas Vidyalaya, Delhi'
     ],
-    expertise: ['Service Matters', 'Criminal Cases', 'Civil Litigation', 'Legal Research'],
-    experience: [
-      'Medico Legal Associate, Health Rights Associates: Assisting in drafting applications for medical board proceedings, managing end-to-end process of filing applications.',
-      'Legal Associate (Advocate Pankaj Sinha): Assisted in handling Service matters, Criminal cases and Civil matters. Provided research support, drafted Writ Petitions and Appeals. Appeared before Delhi High Court and Supreme Court.',
-      'Internship at NEEV Foundation for Legal Aid: Filed RTI and Appeals, assisted in legal research and mediation proceedings.'
-    ],
-    positions: [
-      'Member, Enabling Unit, Campus Law Centre (2023)',
-      'Member, Legal Aid Society, Campus Law Centre (2021-2024)',
-      'Member, Criminal Law Society, Campus Law Centre (2023-2024)',
-      'Member, ADR Society Campus Law Centre (2023-2024)',
-      'Volunteer in Saksham 2.0 project by Nek Mission Foundation'
-    ],
-    extraCurricular: [
-      'Contributed as a student member at the 3rd International Conference on Artificial Intelligence and International Law at CLC, DU.',
-      'Team Leader of a 5 membered team in "Outreach Programme 2023" to dispense legal awareness among slum areas in Delhi with DSLSA.',
-      'Student Volunteer, 19th K.K. Luthra Moot Court Competition.',
-      'Participated in seminar on "ENVIRONMENTAL JUSTICE" by Project Saksham 3.0 in 2024.'
-    ],
-    hobbies: ['Photography', 'Designing', 'Baking', 'Badminton']
+    expertise: ['Litigation Support', 'Legal Research & Case Analysis', 'Legal Drafting (Writ Petitions, Appeals, Affidavits & Applications)', 'Civil, Criminal, Service & Medico-Legal Matters', 'E-Filing & Court Documentation', 'Client Counselling & Case Management'],
+    experience: []
   },
   'tariq-adeeb': {
     name: 'Tariq Adeeb',
     role: 'Advocate',
     email: 'contact@justiceassociates.com',
     phone: '',
-    image: null,
-    bio: 'A seasoned legal professional with over 20 years of experience in litigation, legal advisory, and dispute resolution. Specializes in civil, criminal, constitutional, commercial, and regulatory matters, with extensive practice before the Supreme Court of India, High Courts, Tribunals, and other judicial forums. Experienced in legal drafting, arbitration, mediation, project management, and advising government bodies on complex legal and policy issues, with a commitment to delivering strategic and client-focused legal solutions.',
+    image: '/team/tariq.jpeg',
+    bio: 'A seasoned legal professional with over 20 years of experience in litigation, legal advisory, and dispute resolution. Specializes in civil, criminal, constitutional, commercial, and regulatory matters, with extensive practice before the Supreme Court of India, High Courts, Tribunals, and other judicial forums. Experienced in legal drafting, arbitration, mediation, project management, and advising government bodies on complex legal and policy issues, with a strong commitment to delivering strategic and client-focused legal solutions.',
     education: [
-      'LL.B. – MJP Rohilkhand University',
-      'Post Graduate (Economics) – MJP Rohilkhand University (Specialization: International Trade)'
+      'LL.B. � MJP Rohilkhand University',
+      'Post Graduate (Economics) � MJP Rohilkhand University (Specialization: International Trade)'
     ],
-    expertise: [
-      'Constitutional, Civil & Criminal Litigation',
-      'Arbitration, Mediation & Conciliation',
-      'Legal Drafting (Petitions, Contracts & Legal Instruments)',
-      'Banking, Insolvency & Commercial Laws',
-      'Intellectual Property & Foreign Exchange Laws',
-      'Legal Advisory, Policy Review & Case Strategy'
-    ],
+    expertise: ['Constitutional, Civil & Criminal Litigation', 'Arbitration, Mediation & Conciliation', 'Legal Drafting (Petitions, Contracts & Legal Instruments)', 'Banking, Insolvency & Commercial Laws', 'Intellectual Property & Foreign Exchange Laws', 'Legal Advisory, Policy Review & Case Strategy'],
     experience: []
   },
   'kulwinder': {
@@ -96,40 +53,27 @@ const teamData = {
     role: 'Advocate',
     email: 'contact@justiceassociates.com',
     phone: '',
-    image: null,
+    image: '/team/kulwinder.jpeg',
     bio: 'A dedicated LL.B. graduate and enrolled Advocate with a unique blend of legal and technology expertise, backed by 17 years of experience in IT as a Portfolio/Program Manager. Experienced in legal drafting, litigation support, and court proceedings before the Delhi High Court and District Courts. Combines strong stakeholder management, strategic problem-solving, and legal knowledge to deliver practical, client-focused legal solutions.',
     education: [
       'LL.B.'
     ],
-    expertise: [
-      'Litigation Support',
-      'Legal Drafting (Written Statements, Writ Petitions, Affidavits & Applications)',
-      'Legal Research & Case Analysis',
-      'Client Counselling & Case Strategy',
-      'Court Proceedings & Advocacy',
-      'Stakeholder & Project Management'
-    ],
+    expertise: ['Litigation Support', 'Legal Drafting (Written Statements, Writ Petitions, Affidavits & Applications)', 'Legal Research & Case Analysis', 'Client Counselling & Case Strategy', 'Court Proceedings & Advocacy', 'Stakeholder & Project Management'],
     experience: []
   },
-  'associate-advocate': {
-    name: 'Associate Advocate',
+  'humaira': {
+    name: 'Humaira',
     role: 'Advocate',
     email: 'contact@justiceassociates.com',
     phone: '',
-    image: null,
+    image: '/team/humaira.jpeg',
     bio: 'A dedicated legal professional with experience in litigation, legal research, drafting, and dispute resolution. Has assisted in matters before the Supreme Court, Delhi High Court, NCLT, Consumer Commissions, and District Courts. Skilled in preparing petitions, appeals, written submissions, and case briefs, with a commitment to delivering practical, strategic, and client-focused legal solutions.',
     education: [
-      'LL.B. – Campus Law Centre, Faculty of Law, University of Delhi',
-      'M.Com – Dr. Ram Manohar Lohia Avadh University',
-      'B.Com – Dr. Ram Manohar Lohia Avadh University'
+      'LL.B. � Campus Law Centre, Faculty of Law, University of Delhi',
+      'M.Com � Dr. Ram Manohar Lohia Avadh University',
+      'B.Com � Dr. Ram Manohar Lohia Avadh University'
     ],
-    expertise: [
-      'Litigation Support',
-      'Legal Research & Case Analysis',
-      'Legal Drafting (Petitions, Appeals & Written Submissions)',
-      'Civil, Criminal & Consumer Law',
-      'Client Counselling & Case Strategy'
-    ],
+    expertise: ['Litigation Support', 'Legal Research & Case Analysis', 'Legal Drafting (Petitions, Appeals & Written Submissions)', 'Civil, Criminal & Consumer Law', 'Client Counselling & Case Strategy'],
     experience: []
   }
 };

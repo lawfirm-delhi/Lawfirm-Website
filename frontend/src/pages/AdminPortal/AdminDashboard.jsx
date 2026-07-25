@@ -11,11 +11,11 @@ import { FileText, Receipt, Mail, Search, ChevronUp, ChevronDown, Users, BarChar
 
 const DIRECTORY = [
   { name: 'Main Admin', role: 'Advocate', time: 'Active now', color: 'linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%)', avatar: 'M' },
-  { name: 'Garima', role: 'Barrister', time: '2 hours ago', color: 'linear-gradient(135deg, #1E293B 0%, #0F172A 100%)', avatar: 'G' },
-  { name: 'Tariq Adeeb', role: 'Barrister', time: '1 day ago', color: 'linear-gradient(135deg, #064E3B 0%, #022C22 100%)', avatar: 'T' },
-  { name: 'Pankaj', role: 'Advocate', time: '5 hours ago', color: 'linear-gradient(135deg, #334155 0%, #1E293B 100%)', avatar: 'P' },
-  { name: 'Kulwinder', role: 'Advocate', time: '1 day ago', color: 'linear-gradient(135deg, #7F1D1D 0%, #450A0A 100%)', avatar: 'K' },
-  { name: 'Associate Advocate', role: 'Advocate', time: '3 days ago', color: 'linear-gradient(135deg, #4C1D95 0%, #2E1065 100%)', avatar: 'A' }
+  { name: 'Garima', role: 'Barrister', time: '2 hours ago', color: 'linear-gradient(135deg, #1E293B 0%, #0F172A 100%)', avatar: 'G', img: '/team/garima.jpeg' },
+  { name: 'Tariq Adeeb', role: 'Barrister', time: '1 day ago', color: 'linear-gradient(135deg, #064E3B 0%, #022C22 100%)', avatar: 'T', img: '/team/tariq.jpeg' },
+  { name: 'Pankaj', role: 'Advocate', time: '5 hours ago', color: 'linear-gradient(135deg, #334155 0%, #1E293B 100%)', avatar: 'P', img: '/team/pankaj.jpeg' },
+  { name: 'Kulwinder', role: 'Advocate', time: '1 day ago', color: 'linear-gradient(135deg, #7F1D1D 0%, #450A0A 100%)', avatar: 'K', img: '/team/kulwinder.jpeg' },
+  { name: 'Humaira', role: 'Advocate', time: '3 days ago', color: 'linear-gradient(135deg, #4C1D95 0%, #2E1065 100%)', avatar: 'H', img: '/team/humaira.jpeg' }
 ];
 
 export default function AdminDashboard() {
@@ -217,8 +217,8 @@ export default function AdminDashboard() {
               const displayTime = adminProfile === member.name ? 'Active now' : getTimeAgo(lastSeen[member.name]);
               return (
                 <div key={idx} className="directory-item">
-                  <div className="dir-avatar" style={{ background: member.color }}>
-                    {member.avatar}
+                  <div className="dir-avatar" style={{ background: member.img ? 'transparent' : member.color, backgroundImage: member.img ? `url(${member.img})` : 'none', backgroundSize: 'cover', backgroundPosition: 'center', border: member.img ? '1px solid rgba(255,255,255,0.1)' : 'none' }}>
+                    {!member.img && member.avatar}
                   </div>
                   <div className="dir-info">
                     <div className="dir-name">{member.name}</div>
