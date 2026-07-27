@@ -1,13 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
-import axios from 'axios';
 import toast from 'react-hot-toast';
-
-const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api/v1',
-  withCredentials: true
-});
+import api from '../../api/axios';
 
 export default function Profile() {
   const { user, token, login } = useAuth();

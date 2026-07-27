@@ -2,10 +2,11 @@ const logger = require('../config/logger');
 const { errorResponse } = require('../utils/response');
 
 const errorHandler = (err, req, res, next) => {
-  logger.error(`${err.status || 500} - ${err.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
+  const statusCode = err.status || err.statusCode || 500;
   
-  const statusCode = err.status || 500;
-  const message = err.isOperational ? err.message : 'Internal Server Error';
+  logger.error(`${statusCode} - ${err.message} - ${req.originalUrl} - ${req.method} - ${req.ip}`);
+  
+  const message = (err.isOperational || statusCode < 500) ? err.message : 'Internal Server Error';
   
   if (err.name === 'ZodError') {
     return errorResponse(res, 400, 'Validation failed', err.errors);

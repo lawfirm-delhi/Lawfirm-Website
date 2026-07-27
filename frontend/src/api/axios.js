@@ -15,6 +15,11 @@ export const setAuthToken = (token) => {
 };
 
 api.interceptors.request.use((config) => {
+  const clientToken = localStorage.getItem('client_token');
+  if (clientToken) {
+    config.headers['Authorization'] = `Bearer ${clientToken}`;
+  }
+
   if (config.url && config.url.includes('/admin/')) {
     const adminPassword = localStorage.getItem('admin_password');
     if (adminPassword) {

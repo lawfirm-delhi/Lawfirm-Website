@@ -2,12 +2,7 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import AuthLayout from './AuthLayout';
 import toast from 'react-hot-toast';
-import axios from 'axios';
-
-const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || 'http://localhost:5000/api/v1',
-  withCredentials: true
-});
+import api from '../../api/axios';
 
 export default function ForgotPassword() {
   const navigate = useNavigate();

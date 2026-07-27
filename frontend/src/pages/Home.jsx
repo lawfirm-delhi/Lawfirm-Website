@@ -343,5 +343,19 @@ export default function Home() {
           </div>
         </section>
 
-  
-
+      {/* CALL TO ACTION */}
+      <section className="section consultation-cta" id="consultation">
+        <div className="container" style={{textAlign: 'center'}}>
+           <div className="reveal">
+              <p className="eyebrow" style={{justifyContent: 'center'}}>Your Legal Matter Deserves Expert Attention</p>
+              <h2>Schedule a confidential consultation today.</h2>
+              <p className="section-lede" style={{margin: '0 auto 2.5rem'}}>Receive strategic legal guidance from experienced professionals dedicated to protecting your interests.</p>
+              <div style={{ marginTop: '4rem', textAlign: 'left' }}>
+                <ConsultationWizard />
+              </div>
+           </div>
+        </div>
+      </section>
+    </>
+  );
+}

@@ -12,8 +12,12 @@ const app = express();
 
 // Security Middlewares
 app.use(helmet());
+const origins = process.env.CORS_ORIGIN 
+  ? process.env.CORS_ORIGIN.split(',').map(o => o.trim()) 
+  : ['http://localhost:5173', 'http://127.0.0.1:5173'];
+
 app.use(cors({
-  origin: process.env.CORS_ORIGIN || ['http://localhost:5173', 'http://127.0.0.1:5173'],
+  origin: origins,
   credentials: true
 }));
 
@@ -58,7 +62,7 @@ app.get('/api/v1/logs', (req, res) => {
 // API Routes
 app.get('/api/v1/health', async (req, res) => {
   try {
-    const db = require('./config/db');
+    const { db } = require('./config/database');
     await db.raw('SELECT 1');
     res.status(200).json({ status: 'ok', message: 'Server and Database are awake' });
   } catch (error) {

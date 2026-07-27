@@ -19,14 +19,16 @@ async function seedAdmin() {
     const passwordHash = await hashPassword(adminPassword);
 
     await db.transaction(async (trx) => {
-      const user = await trx('users').insert({
-        id: uuidv4(),
+      const adminId = uuidv4();
+      await trx('users').insert({
+        id: adminId,
         email: adminEmail,
         password_hash: passwordHash,
-        role: 'admin'
-      }).returning('*');
+        role: 'admin',
+        is_verified: true
+      });
 
-      console.log(`Created admin user with ID: ${user[0].id}`);
+      console.log(`Created admin user with ID: ${adminId}`);
       console.log(`Email: ${adminEmail}`);
       console.log(`Password: ${adminPassword}`);
     });

@@ -3,8 +3,9 @@ const { v4: uuidv4 } = require('uuid');
 
 class DocumentRepository {
   async saveDocumentMetadata({ consultationId, uploadedBy, originalName, filename, mimeType, size, path }) {
-    const document = await db('documents').insert({
-      id: uuidv4(),
+    const documentId = uuidv4();
+    await db('documents').insert({
+      id: documentId,
       consultation_id: consultationId,
       uploaded_by: uploadedBy,
       original_name: originalName,
@@ -12,9 +13,9 @@ class DocumentRepository {
       mime_type: mimeType,
       size: size,
       path: path
-    }).returning('*');
+    });
     
-    return document[0];
+    return await this.getDocumentById(documentId);
   }
 
   async getDocumentsByConsultationId(consultationId) {

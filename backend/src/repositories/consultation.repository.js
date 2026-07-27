@@ -15,9 +15,16 @@ class ConsultationRepository {
       const refNumber = await this.getNextReferenceNumber(trx);
       const consultationId = uuidv4();
       
+      const existingUser = await trx('users')
+        .join('clients', 'users.id', 'clients.user_id')
+        .where('users.email', data.email)
+        .select('clients.id')
+        .first();
+
       const newConsultation = {
         id: consultationId,
         reference_number: refNumber,
+        client_id: existingUser ? existingUser.id : null,
         name: data.name,
         email: data.email,
         phone: data.phone,
@@ -26,8 +33,8 @@ class ConsultationRepository {
         subject: data.subject,
         description: data.description,
         consultation_mode: data.consultationMode,
-        preferred_date: data.preferredDate,
-        preferred_time: data.preferredTime,
+        preferred_date: data.preferredDate || null,
+        preferred_time: data.preferredTime || null,
         status: 'Pending'
       };
 

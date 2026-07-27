@@ -19,19 +19,24 @@ class AuthRepository {
   }
 
   async getAllClients() {
-    return await db('users')
+    const clients = await db('users')
       .join('clients', 'users.id', 'clients.user_id')
       .where('users.role', 'client')
       .select(
-        'users.id',
+        'users.id as userId',
         'users.email',
-        'users.is_locked',
-        'users.created_at',
-        'clients.full_name',
+        'users.is_locked as isLocked',
+        'users.created_at as createdAt',
+        'clients.full_name as fullName',
         'clients.company',
         'clients.mobile',
         'clients.admin_notes'
       );
+
+    return clients.map(c => ({
+      ...c,
+      isLocked: Boolean(c.isLocked)
+    }));
   }
 
   async getClientHistoryByEmail(email) {
@@ -43,6 +48,7 @@ class AuthRepository {
         'users.email',
         'users.is_locked',
         'users.created_at',
+        'clients.id as client_id',
         'clients.full_name',
         'clients.company',
         'clients.mobile',
@@ -54,11 +60,31 @@ class AuthRepository {
 
     // Fetch their consultations
     const consultations = await db('consultations')
-      .where('user_id', clientData.id)
+      .where('client_id', clientData.client_id)
+      .orWhere('email', clientData.email)
+      .andWhere('deleted_at', null)
       .orderBy('created_at', 'desc');
 
-    clientData.consultations = consultations;
-    return clientData;
+    // Fetch login history
+    const loginHistory = await db('login_history')
+      .where('user_id', clientData.id)
+      .orderBy('created_at', 'desc')
+      .limit(10);
+
+    return {
+      profile: {
+        id: clientData.id,
+        email: clientData.email,
+        isLocked: Boolean(clientData.is_locked),
+        created_at: clientData.created_at,
+        fullName: clientData.full_name,
+        company: clientData.company,
+        mobile: clientData.mobile,
+        admin_notes: clientData.admin_notes
+      },
+      consultations,
+      loginHistory
+    };
   }
 
   async toggleUserLock(id, isLocked) {
