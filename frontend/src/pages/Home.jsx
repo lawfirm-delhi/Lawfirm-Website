@@ -323,16 +323,19 @@ export default function Home() {
               <p className="section-lede">Eight practices, one bench of partners each recognised individually in their field.</p>
             </div>
             <div className="team-grid" style={{ display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap', width: '100%' }}>
-              <Link to="/team/pankaj-sinha" className="team-card reveal" style={{ textDecoration: 'none', color: 'inherit', flex: '0 1 300px', minWidth: '250px' }}>
-                <div className="team-photo" style={{ backgroundImage: 'url(/team/pankaj.jpeg)', backgroundSize: 'cover', backgroundPosition: 'center', width: '100%', aspectRatio: '1/1', borderRadius: '50%' }}></div>
-                <h3>Pankaj Sinha</h3>
-                <p className="team-role">Advocate</p>
-              </Link>
-              <Link to="/team/tariq-adeeb" className="team-card reveal" style={{ textDecoration: 'none', color: 'inherit', flex: '0 1 300px', minWidth: '250px' }}>
-                <div className="team-photo" style={{ backgroundImage: 'url(/team/tariq.jpeg)', backgroundSize: 'cover', backgroundPosition: 'center', width: '100%', aspectRatio: '1/1', borderRadius: '50%' }}></div>
-                <h3>Tariq Adeeb</h3>
-                <p className="team-role">Advocate</p>
-              </Link>
+              {[
+                { name: 'Pankaj Sinha', slug: 'pankaj-sinha', image: 'pankaj' },
+                { name: 'Garima', slug: 'garima', image: 'garima' },
+                { name: 'Tariq Adeeb', slug: 'tariq-adeeb', image: 'tariq' },
+                { name: 'Kulwinder', slug: 'kulwinder', image: 'kulwinder' },
+                { name: 'Humaira', slug: 'humaira', image: 'humaira' }
+              ].map((member, i) => (
+                <Link to={`/team/${member.slug}`} className="team-card reveal" key={i} style={{ textDecoration: 'none', color: 'inherit', flex: '0 1 220px', minWidth: '200px' }}>
+                  <div className="team-photo" style={{ backgroundImage: `url(/team/${member.image}.jpeg)`, backgroundSize: 'cover', backgroundPosition: 'center', width: '100%', aspectRatio: '1/1', borderRadius: '50%' }}></div>
+                  <h3>{member.name}</h3>
+                  <p className="team-role">Advocate</p>
+                </Link>
+              ))}
             </div>
             
             <div className="section-cta reveal" style={{ marginTop: '3rem', textAlign: 'center' }}>
