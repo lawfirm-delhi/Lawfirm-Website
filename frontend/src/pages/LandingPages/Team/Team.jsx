@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion, useMotionValue, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Mail, ArrowRight, Globe } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PageWrapper from '../Shared/PageWrapper';
@@ -18,41 +18,14 @@ const fadeInUp = {
 };
 
 function LawyerCard({ lawyer }) {
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  
-  const rotateX = useTransform(y, [-100, 100], [10, -10]);
-  const rotateY = useTransform(x, [-100, 100], [-10, 10]);
-
-  const handleMouseMove = (event) => {
-    const rect = event.currentTarget.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    const mouseX = event.clientX - rect.left;
-    const mouseY = event.clientY - rect.top;
-    
-    x.set(mouseX - width / 2);
-    y.set(mouseY - height / 2);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
   return (
     <motion.div
       variants={fadeInUp}
-      style={{ perspective: 1000, height: '100%' }}
+      style={{ height: '100%' }}
     >
       <motion.div
         className="premium-card"
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
         style={{ 
-          rotateX, 
-          rotateY,
-          transformStyle: "preserve-3d",
           padding: 0,
           overflow: 'hidden',
           display: 'flex',
@@ -60,11 +33,11 @@ function LawyerCard({ lawyer }) {
           height: '100%'
         }}
         whileHover={{ 
-          scale: 1.02, 
-          boxShadow: '0 25px 50px -12px rgba(0,0,0,0.5), 0 0 20px rgba(200,164,106,0.2)',
-          borderColor: 'rgba(200,164,106,0.4)'
+          y: -8, 
+          boxShadow: '0 20px 35px -10px rgba(0,0,0,0.2), 0 0 15px rgba(200,164,106,0.1)',
+          borderColor: 'rgba(200,164,106,0.3)'
         }}
-        transition={{ type: 'spring', stiffness: 300, damping: 20 }}
+        transition={{ duration: 0.3, ease: 'easeOut' }}
       >
         <div style={{ height: '300px', background: 'var(--bg-tertiary)', position: 'relative', overflow: 'hidden' }}>
           {lawyer.image ? (
