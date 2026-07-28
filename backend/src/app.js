@@ -10,6 +10,9 @@ const { successResponse } = require('./utils/response');
 
 const app = express();
 
+// Trust proxy for express-rate-limit behind Render reverse proxy
+app.set('trust proxy', 1);
+
 // Security Middlewares
 app.use(helmet());
 const origins = process.env.CORS_ORIGIN 
