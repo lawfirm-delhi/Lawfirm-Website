@@ -20,7 +20,13 @@ const origins = process.env.CORS_ORIGIN
   : ['http://localhost:5173', 'http://127.0.0.1:5173'];
 
 app.use(cors({
-  origin: origins,
+  origin: function (origin, callback) {
+    if (!origin || origins.includes(origin) || origins.includes('*')) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
 
