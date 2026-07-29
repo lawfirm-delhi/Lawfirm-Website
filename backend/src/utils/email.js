@@ -9,6 +9,7 @@ const transporter = nodemailer.createTransport({
   host: process.env.SMTP_HOST || 'smtp.gmail.com',
   port: smtpPort,
   secure: smtpSecure,
+  family: 4, // Force IPv4 to resolve ENETUNREACH IPv6 issue on cloud hosts
   auth: {
     user: process.env.SMTP_USER || 'lawfirm.delhi.official@gmail.com',
     pass: process.env.SMTP_PASS || 'tvmjvtqopyugkmnp',
