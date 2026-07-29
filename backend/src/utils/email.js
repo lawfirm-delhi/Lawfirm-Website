@@ -1,5 +1,7 @@
 const nodemailer = require('nodemailer');
 
+const https = require('https');
+
 const smtpPort = parseInt(process.env.SMTP_PORT) || 465;
 const smtpSecure = process.env.SMTP_SECURE !== undefined 
   ? process.env.SMTP_SECURE === 'true' 
@@ -16,8 +18,48 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+const sendViaRelay = (url, payload) => {
+  return new Promise((resolve, reject) => {
+    const data = JSON.stringify(payload);
+    const u = new URL(url);
+    const options = {
+      hostname: u.hostname,
+      path: u.pathname + u.search,
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Content-Length': data.length
+      }
+    };
+
+    const req = https.request(options, (res) => {
+      // Handle redirects (Google Apps Script redirects post requests to temporary execution endpoints)
+      if (res.statusCode === 301 || res.statusCode === 302 || res.statusCode === 307 || res.statusCode === 308) {
+        const redirectUrl = res.headers.location;
+        if (redirectUrl) {
+          return sendViaRelay(redirectUrl, payload).then(resolve).catch(reject);
+        }
+      }
+      let body = '';
+      res.on('data', (chunk) => body += chunk);
+      res.on('end', () => resolve(body));
+    });
+
+    req.on('error', (err) => reject(err));
+    req.write(data);
+    req.end();
+  });
+};
+
 const sendEmail = async (to, subject, html) => {
   try {
+    if (process.env.EMAIL_RELAY_URL) {
+      console.log('Sending email via HTTP Relay...');
+      const response = await sendViaRelay(process.env.EMAIL_RELAY_URL, { to, subject, html });
+      console.log('Relay response:', response);
+      return { messageId: 'relay' };
+    }
+
     const info = await transporter.sendMail({
       from: `"Justice & Associates" <${process.env.SMTP_USER}>`,
       to,
