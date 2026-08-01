@@ -2,7 +2,7 @@ const { db } = require('../config/database');
 const { v4: uuidv4 } = require('uuid');
 const { hashPassword, verifyPassword } = require('../utils/password');
 const { generateTokens } = require('../utils/jwt');
-const { sendOTPVerificationEmail } = require('../utils/email');
+const { sendOTPVerificationEmail, sendEmail } = require('../utils/email');
 const crypto = require('crypto');
 
 class AuthService {
@@ -20,7 +20,7 @@ class AuthService {
     const hashedPassword = await hashPassword(password);
 
     // Create user and client profile in transaction
-    return await db.transaction(async (trx) => {
+    const result = await db.transaction(async (trx) => {
       const userId = uuidv4();
 
       await trx('users').insert({
@@ -46,6 +46,63 @@ class AuthService {
         tokens
       };
     });
+
+    // Send emails in the background after transaction completes successfully
+    const clientEmailHtml = `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px;">
+        <h2 style="color: #A38342; text-align: center;">Welcome to NYATI</h2>
+        <p style="font-size: 16px; color: #333;">Dear ${fullName},</p>
+        <p style="font-size: 16px; color: #333;">Thank you for registering on the NYATI Client Portal. Your account has been successfully created.</p>
+        <p style="font-size: 16px; color: #333;">You can now log in to your portal to book consultations, track your cases, and upload legal documentation securely.</p>
+        <div style="text-align: center; margin: 30px 0;">
+          <a href="https://lawfirm-frontend-gnti.onrender.com/login" style="background-color: #A38342; color: #ffffff; padding: 12px 24px; text-decoration: none; border-radius: 4px; font-weight: bold;">Log In to Portal</a>
+        </div>
+        <p style="font-size: 14px; color: #666;">If you have any questions or require immediate legal assistance, please reply to this email.</p>
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;" />
+        <p style="font-size: 12px; color: #999; text-align: center;">&copy; ${new Date().getFullYear()} NYATI. All rights reserved.</p>
+      </div>
+    `;
+
+    const adminEmailHtml = `
+      <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px;">
+        <h2 style="color: #0B1D45; text-align: center;">New Client Registration</h2>
+        <p style="font-size: 16px; color: #333;">Hello Case Management Team,</p>
+        <p style="font-size: 16px; color: #333;">A new client has registered on the NYATI Portal. Here are their details:</p>
+        <table style="width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 16px;">
+          <tr>
+            <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold; width: 30%;">Full Name:</td>
+            <td style="padding: 8px; border-bottom: 1px solid #eee;">${fullName}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Email Address:</td>
+            <td style="padding: 8px; border-bottom: 1px solid #eee;">${email}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Phone Number:</td>
+            <td style="padding: 8px; border-bottom: 1px solid #eee;">${phone || 'Not provided'}</td>
+          </tr>
+          <tr>
+            <td style="padding: 8px; border-bottom: 1px solid #eee; font-weight: bold;">Registration Date:</td>
+            <td style="padding: 8px; border-bottom: 1px solid #eee;">${new Date().toLocaleString('en-US', { timeZone: 'Asia/Kolkata' })} (IST)</td>
+          </tr>
+        </table>
+        <p style="font-size: 14px; color: #666;">This profile is now active in the system.</p>
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;" />
+        <p style="font-size: 12px; color: #999; text-align: center;">&copy; ${new Date().getFullYear()} NYATI. All rights reserved.</p>
+      </div>
+    `;
+
+    // Fire-and-forget in background
+    sendEmail(email, 'Welcome to NYATI Client Portal', clientEmailHtml).catch(err => {
+      console.error('Failed to send welcome email:', err);
+    });
+
+    const adminEmail = process.env.ADMIN_EMAIL || 'lawfirm.delhi.official@gmail.com';
+    sendEmail(adminEmail, `New Client Registration - ${fullName}`, adminEmailHtml).catch(err => {
+      console.error('Failed to send admin notification email:', err);
+    });
+
+    return result;
   }
 
   async login(email, password) {
