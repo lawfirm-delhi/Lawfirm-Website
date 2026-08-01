@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, ChevronDown, Phone, Mail, MessageCircle } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Search, ChevronDown } from 'lucide-react';
 import PageWrapper from '../Shared/PageWrapper';
 import PageHero from '../Shared/PageHero';
+import './FAQ.css';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 40 },
@@ -77,38 +77,36 @@ export default function FAQ() {
         subtitle="Clear answers to common inquiries regarding our services, processes, and engagement models."
       />
 
-      <section className="section bg-light">
-        <div className="container">
-          <div className="max-w-3xl mx-auto mb-12">
-            <div className="relative">
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-neutral-400" size={20} />
-              <input 
-                type="text" 
-                placeholder="Search our FAQ..." 
-                className="w-full pl-12 pr-4 py-4 rounded-lg border border-neutral-200 focus:outline-none focus:border-primary-600 focus:ring-1 focus:ring-primary-600 transition-shadow"
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-            </div>
+      <section className="faq-section">
+        <div className="faq-container">
+          <div className="faq-search-wrapper">
+            <Search className="faq-search-icon" size={20} />
+            <input 
+              type="text" 
+              placeholder="Search our FAQ..." 
+              className="faq-search-input"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
           </div>
 
-          <motion.div className="max-w-3xl mx-auto" variants={staggerContainer} initial="initial" whileInView="whileInView" viewport={{ once: true }}>
+          <motion.div className="faq-content-wrapper" variants={staggerContainer} initial="initial" whileInView="whileInView" viewport={{ once: true }}>
             {categories.map(category => {
               const categoryFaqs = filteredFaqs.filter(f => f.category === category);
               if (categoryFaqs.length === 0) return null;
 
               return (
-                <div key={category} className="mb-10">
-                  <h3 className="text-xl font-serif text-primary-900 mb-6">{category}</h3>
-                  <div className="space-y-4">
+                <div key={category} className="faq-category-section">
+                  <h3 className="faq-category-title">{category}</h3>
+                  <div className="faq-accordion-list">
                     {categoryFaqs.map((faq) => (
-                      <motion.div key={faq.id} variants={fadeInUp} className="bg-white rounded-lg shadow-sm border border-neutral-100 overflow-hidden">
+                      <motion.div key={faq.id} variants={fadeInUp} className="faq-accordion-item">
                         <button 
-                          className="w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none"
+                          className="faq-accordion-header"
                           onClick={() => setOpenId(openId === faq.id ? null : faq.id)}
                         >
-                          <span className="font-medium text-neutral-900 pr-8">{faq.q}</span>
-                          <ChevronDown className={`text-primary-600 transition-transform duration-300 ${openId === faq.id ? 'rotate-180' : ''}`} size={20} />
+                          <span className="faq-question-text">{faq.q}</span>
+                          <ChevronDown className={`faq-chevron-icon ${openId === faq.id ? 'rotate' : ''}`} size={20} />
                         </button>
                         <AnimatePresence>
                           {openId === faq.id && (
@@ -117,8 +115,9 @@ export default function FAQ() {
                               animate={{ height: 'auto', opacity: 1 }}
                               exit={{ height: 0, opacity: 0 }}
                               transition={{ duration: 0.3 }}
+                              className="faq-accordion-content"
                             >
-                              <div className="px-6 pb-4 pt-2 text-neutral-600 leading-relaxed border-t border-neutral-50">
+                              <div className="faq-answer-inner">
                                 {faq.a}
                               </div>
                             </motion.div>
@@ -132,8 +131,8 @@ export default function FAQ() {
             })}
 
             {filteredFaqs.length === 0 && (
-              <div className="text-center py-12">
-                <p className="text-neutral-500 text-lg">No results found for "{searchTerm}". Please try a different search or contact us directly.</p>
+              <div className="faq-no-results">
+                <p>No results found for "{searchTerm}". Please try a different search or contact us directly.</p>
               </div>
             )}
           </motion.div>
