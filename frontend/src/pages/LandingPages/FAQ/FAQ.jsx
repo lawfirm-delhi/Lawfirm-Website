@@ -25,12 +25,42 @@ export default function FAQ() {
   const [openId, setOpenId] = useState(null);
 
   const faqs = [
-    { id: 1, category: "Consultations", q: "How do I schedule an initial consultation?", a: "You can schedule a consultation using our online portal or by calling our firm directly. Our intake specialists will gather preliminary details to pair you with the most appropriate senior partner." },
-    { id: 2, category: "Consultations", q: "Is there a fee for the first meeting?", a: "Initial consultations carry a standard advisory fee, which is fully adjusted against your final billing should you choose to retain our services within 30 days." },
-    { id: 3, category: "Services", q: "Do you handle international corporate disputes?", a: "Yes, our Corporate & Commercial bench frequently represents multinational clients in cross-border disputes, international arbitration, and global compliance matters." },
-    { id: 4, category: "Services", q: "Can you assist with IP registration outside India?", a: "Through our network of international partner firms, we facilitate end-to-end IP protection across major global jurisdictions including the US, EU, and APAC regions." },
-    { id: 5, category: "Process", q: "How will I be kept updated about my case?", a: "You will be assigned a dedicated relationship manager and given access to our secure client portal, where you can track case progress, view filed documents, and schedule calls." },
-    { id: 6, category: "Billing", q: "What is your billing structure?", a: "We offer flexible billing models including hourly rates, fixed-fee retainers, and milestone-based billing, tailored to the specific needs and scale of your mandate." }
+    { 
+      id: 1, 
+      category: "NYATI Firm Info", 
+      q: "Why did PK Sinha and Associates change its name to NYATI?", 
+      a: "After 19 successful years of practice, our name transition to NYATI reflects our growth and a modernized, forward-thinking approach to modern jurisprudence. While our name has evolved to represent swift, definitive justice and integrated consultancy, our founding leadership under Advocate Pankaj Sinha, our team, and our core values remain entirely unchanged." 
+    },
+    { 
+      id: 2, 
+      category: "NYATI Firm Info", 
+      q: "What types of courts do you practice in?", 
+      a: "We offer comprehensive, end-to-end legal representation. Our team actively practices across all tiers of the judiciary, including the High Courts, District & Sessions Courts, and specialized tribunals like the Central Administrative Tribunal (CAT)." 
+    },
+    { 
+      id: 3, 
+      category: "Consultations", 
+      q: "How do I schedule an initial consultation with Advocate Pankaj Sinha or the team?", 
+      a: "You can easily request a consultation by filling out the 'Contact Us' form on our website, sending an email, or calling our office directly during operational hours. Our case management team will review your details and get back to you within 24 to 48 business hours." 
+    },
+    { 
+      id: 4, 
+      category: "Consultations", 
+      q: "Does filling out the online consultation form establish an attorney-client relationship?", 
+      a: "No. Filling out the form is an initial request for a consultation so our team can evaluate your case. A formal attorney-client relationship is only established once we formally agree to take your case and a legal vakalatnama or engagement agreement is signed." 
+    },
+    { 
+      id: 5, 
+      category: "Practice Areas", 
+      q: "I am a government employee facing a department dispute. Can NYATI help me?", 
+      a: "Yes, absolutely. Service law is one of our core pillars of expertise. We have nearly two decades of experience representing government and public sector employees before the Central Administrative Tribunal (CAT) for matters concerning promotions, pensions, charge sheets, and wrongful termination." 
+    },
+    { 
+      id: 6, 
+      category: "Confidentiality", 
+      q: "Will my case details and documents remain confidential?", 
+      a: "Security and client confidentiality are fundamental to our firm's philosophy. Any information, case history, or documentation shared with NYATI—whether through our website or during an in-person meeting—is protected by strict privacy policies and attorney-client privilege." 
+    }
   ];
 
   const filteredFaqs = faqs.filter(faq => 
