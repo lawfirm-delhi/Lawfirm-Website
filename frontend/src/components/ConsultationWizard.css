@@ -317,9 +317,21 @@
 .wizard-actions {
   display: flex;
   justify-content: space-between;
+  gap: 1rem;
   margin-top: 3rem;
   padding-top: 2rem;
   border-top: 1px solid var(--border);
+}
+
+@media (max-width: 480px) {
+  .wizard-actions {
+    flex-direction: column-reverse;
+    gap: 1rem;
+  }
+  .wizard-actions button {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 /* Review Step */
