@@ -82,32 +82,24 @@ export default function WhyUs() {
 
       {/* Our Philosophy */}
       <section className="landing-section">
-        <div className="grid-2">
-          <motion.div variants={fadeInUp} initial="initial" whileInView="whileInView" viewport={{ once: true }}>
-            <h2 className="section-title text-left" style={{ textAlign: 'left' }}>Our Philosophy</h2>
+        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+          <motion.div variants={fadeInUp} initial="initial" whileInView="whileInView" viewport={{ once: true }} style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <h2 className="section-title" style={{ textAlign: 'center' }}>Our Philosophy</h2>
             <div style={{ width: '60px', height: '3px', background: 'var(--primary-gold)', marginBottom: '2rem' }}></div>
-            <p className="card-text mb-4" style={{ fontSize: '1.1rem', marginBottom: '1.5rem' }}>
+            <p className="card-text mb-4" style={{ fontSize: '1.15rem', marginBottom: '1.5rem', lineHeight: 1.8 }}>
               We believe that exceptional legal representation requires more than just knowing the law. It requires strategic vision, uncompromising integrity, and a relentless commitment to our clients' success.
             </p>
-            <p className="card-text mb-6" style={{ marginBottom: '2rem' }}>
+            <p className="card-text mb-6" style={{ marginBottom: '2rem', lineHeight: 1.8 }}>
               Our firm was built on the principle that every client deserves partner-level attention and bespoke legal solutions. We do not offer generic advice; we engineer legal strategies designed to achieve definitive results in high-stakes environments.
             </p>
-            <ul style={{ listStyle: 'none', padding: 0 }}>
+            <ul style={{ listStyle: 'none', padding: 0, display: 'inline-flex', flexDirection: 'column', alignItems: 'flex-start', gap: '1rem' }}>
               {['Uncompromising Integrity', 'Fierce Advocacy', 'Strategic Foresight'].map((item, i) => (
-                <li key={i} style={{ display: 'flex', alignItems: 'center', marginBottom: '1rem', color: 'var(--heading)' }}>
-                  <CheckCircle size={20} color="var(--primary-gold)" style={{ marginRight: '1rem' }} />
+                <li key={i} style={{ display: 'flex', alignItems: 'center', color: 'var(--heading)', fontSize: '1.1rem', fontWeight: 600 }}>
+                  <CheckCircle size={22} color="var(--primary-gold)" style={{ marginRight: '1rem' }} />
                   {item}
                 </li>
               ))}
             </ul>
-          </motion.div>
-          <motion.div 
-            variants={fadeInUp} initial="initial" whileInView="whileInView" viewport={{ once: true }}
-            style={{ position: 'relative', height: '100%', minHeight: '400px', borderRadius: '16px', overflow: 'hidden' }}
-          >
-            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'var(--bg-secondary)', border: '1px solid var(--border)', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-               <Scale size={120} color="var(--primary-gold)" opacity={0.2} />
-            </div>
           </motion.div>
         </div>
       </section>
