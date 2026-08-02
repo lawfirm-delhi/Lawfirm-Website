@@ -122,14 +122,7 @@ export default function Testimonials() {
         </div>
       </section>
 
-      {/* Written Testimonials */}
-      <section className="landing-section alt">
-        <motion.div className="grid-3" variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-50px" }}>
-          {reviews.map((review, idx) => (
-            <TestimonialCard key={idx} {...review} />
-          ))}
-        </motion.div>
-      </section>
+
 
       {/* Awards */}
       <section className="landing-section">
