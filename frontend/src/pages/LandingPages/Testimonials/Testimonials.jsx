@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Star, Play, Quote, Award } from 'lucide-react';
+import { Star, Play, Quote, Award, Scale, Briefcase, FileText } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PageWrapper from '../Shared/PageWrapper';
 import PageHero from '../Shared/PageHero';
@@ -53,6 +53,30 @@ export default function Testimonials() {
     { name: "Dr. Alistair Webb", role: "Chief of Surgery", practiceArea: "White Collar Defense", text: "Confidentiality and integrity were my highest priorities. NYATI handled my case with absolute discretion and secured an unconditional dismissal." }
   ];
 
+  const landmarkCases = [
+    {
+      title: "Union of India v. Sharma & Ors.",
+      category: "Service Law (CAT & High Court)",
+      description: "Represented senior administrative officers before the Central Administrative Tribunal (CAT) in a complex retrospective seniority and promotion dispute, establishing key guidelines on administrative promotions.",
+      outcome: "Unconditional Relief Secured",
+      icon: Scale
+    },
+    {
+      title: "Meridian Tech Cross-Border Acquisition",
+      category: "Corporate M&A",
+      description: "Advised on a multi-jurisdictional merger valued at over ₹1,200 Crores, structuring the deal flow to resolve complex cross-border intellectual property ownership issues and regulatory clearances.",
+      outcome: "Merger Completed successfully",
+      icon: Briefcase
+    },
+    {
+      title: "Delhi Commercial Corridor Rezoning Appeal",
+      category: "Real Estate & Infrastructure",
+      description: "Successfully appealed a commercial zoning restriction on behalf of a major developer, securing building permissions for a prime commercial corridor development project valued at ₹500 Crores.",
+      outcome: "Zoning Board Rejection Overturned",
+      icon: FileText
+    }
+  ];
+
   return (
     <PageWrapper title="Client Success Stories">
       <PageHero 
@@ -60,32 +84,38 @@ export default function Testimonials() {
         subtitle="We measure our success not by the hours we bill, but by the decisive victories we secure for our clients."
       />
 
-      {/* Video Testimonials */}
+      {/* Landmark Cases */}
       <section className="landing-section">
         <div className="section-header">
-          <motion.h2 className="section-title" variants={fadeInUp} initial="initial" whileInView="whileInView">Featured Client Stories</motion.h2>
+          <motion.h2 className="section-title" variants={fadeInUp} initial="initial" whileInView="whileInView">Landmark Cases & Victories</motion.h2>
+          <motion.p className="section-subtitle" variants={fadeInUp} initial="initial" whileInView="whileInView">Decisive outcomes secured through meticulous research and courtroom expertise.</motion.p>
         </div>
-        <div className="grid-2">
-          {[1, 2].map((video) => (
+        <div className="grid-3">
+          {landmarkCases.map((caseItem, idx) => (
             <motion.div 
-              key={video}
+              key={idx}
               variants={fadeInUp} 
               initial="initial" 
               whileInView="whileInView" 
               viewport={{ once: true }}
-              style={{ position: 'relative', height: '350px', borderRadius: '16px', overflow: 'hidden', cursor: 'pointer' }}
-              whileHover={{ scale: 1.02 }}
+              className="premium-card"
+              style={{ display: 'flex', flexDirection: 'column', height: '100%' }}
             >
-              <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'var(--bg-secondary)', border: '1px solid var(--border)', borderRadius: '16px' }}>
-                <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(to top, rgba(11,22,40,0.9), rgba(11,22,40,0.2))', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                  <div style={{ width: '80px', height: '80px', borderRadius: '50%', background: 'rgba(200,164,106,0.2)', display: 'flex', alignItems: 'center', justifyContent: 'center', border: '2px solid var(--primary-gold)', backdropFilter: 'blur(5px)', WebkitBackdropFilter: 'blur(5px)' }}>
-                    <Play fill="var(--primary-gold)" color="var(--primary-gold)" size={30} style={{ marginLeft: '5px' }} />
-                  </div>
-                </div>
-                <div style={{ position: 'absolute', bottom: '2rem', left: '2rem' }}>
-                  <h3 className="card-title " style={{ marginBottom: '0.2rem', color: 'var(--heading)' }}>{video === 1 ? 'Meridian Tech Acquisition' : 'Rostova Development Appeal'}</h3>
-                  <p style={{ color: 'var(--primary-gold)' }}>Watch Case Study</p>
-                </div>
+              <div className="card-icon" style={{ color: 'var(--primary-gold)', marginBottom: '1.5rem' }}>
+                <caseItem.icon size={40} strokeWidth={1} />
+              </div>
+              <span style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--primary-gold)', fontWeight: 600, marginBottom: '0.75rem', display: 'block' }}>
+                {caseItem.category}
+              </span>
+              <h3 className="card-title" style={{ fontSize: '1.35rem', color: 'var(--heading)', marginBottom: '1rem', lineHeight: 1.4 }}>
+                {caseItem.title}
+              </h3>
+              <p className="card-text" style={{ flexGrow: 1, fontSize: '0.95rem', color: 'var(--body)', lineHeight: 1.6, marginBottom: '1.5rem' }}>
+                {caseItem.description}
+              </p>
+              <div style={{ paddingTop: '1rem', borderTop: '1px solid var(--border)', fontSize: '0.9rem', color: 'var(--heading)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <span style={{ display: 'inline-block', width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--primary-gold)' }}></span>
+                Outcome: {caseItem.outcome}
               </div>
             </motion.div>
           ))}
