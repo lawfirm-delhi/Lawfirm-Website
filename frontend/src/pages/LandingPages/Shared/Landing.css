@@ -84,12 +84,11 @@
 
 /* Shared Premium Cards */
 .premium-card {
-  background: rgba(255, 255, 255, 0.6);
+  background: #ffffff;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   padding: 2.5rem;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 20px rgba(11, 29, 69, 0.03);
   transition: transform var(--duration) var(--ease), box-shadow var(--duration) var(--ease), border-color var(--duration) var(--ease);
   display: flex;
   flex-direction: column;
@@ -97,8 +96,8 @@
 
 .premium-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(11, 29, 69, 0.08), 0 0 20px rgba(74, 122, 255, 0.15);
-  border-color: rgba(74, 122, 255, 0.4);
+  box-shadow: 0 15px 35px rgba(11, 29, 69, 0.08), 0 0 20px rgba(163, 131, 66, 0.15);
+  border-color: var(--primary-gold);
 }
 
 .card-icon {
