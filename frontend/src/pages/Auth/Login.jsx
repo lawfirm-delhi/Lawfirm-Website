@@ -90,7 +90,7 @@ export default function Login() {
 
       <div className="auth-footer">
         <div className="auth-divider">
-          <span>New to Justice & Associates?</span>
+          <span>New to NYATI?</span>
         </div>
         <Link to="/signup" className="auth-link">
           Create an account

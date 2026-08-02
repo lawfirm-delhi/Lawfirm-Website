@@ -26,12 +26,12 @@ export default function TermsOfUse() {
 
             <h2 style={{ color: 'var(--heading)', marginBottom: '1rem', fontSize: '1.8rem' }}>2. Use of Website Content</h2>
             <p style={{ marginBottom: '2rem' }}>
-              All content on this website, including text, graphics, logos, and articles, is the property of Justice & Associates and is protected by copyright laws. You may not reproduce, distribute, or modify any content without our prior written consent.
+              All content on this website, including text, graphics, logos, and articles, is the property of NYATI Law Chamber and is protected by copyright laws. You may not reproduce, distribute, or modify any content without our prior written consent.
             </p>
 
             <h2 style={{ color: 'var(--heading)', marginBottom: '1rem', fontSize: '1.8rem' }}>3. Limitation of Liability</h2>
             <p style={{ marginBottom: '2rem' }}>
-              Justice & Associates makes no warranties, expressed or implied, regarding the accuracy or completeness of the information provided on this website. We shall not be held liable for any damages arising from your use of this site.
+              NYATI Law Chamber makes no warranties, expressed or implied, regarding the accuracy or completeness of the information provided on this website. We shall not be held liable for any damages arising from your use of this site.
             </p>
 
             <h2 style={{ color: 'var(--heading)', marginBottom: '1rem', fontSize: '1.8rem' }}>4. Governing Law</h2>

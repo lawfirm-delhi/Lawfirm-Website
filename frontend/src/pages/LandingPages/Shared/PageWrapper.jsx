@@ -5,7 +5,7 @@ import './Landing.css';
 export default function PageWrapper({ children, title }) {
   useEffect(() => {
     if (title) {
-      document.title = `${title} | Justice & Associates`;
+      document.title = `${title} | NYATI Law Chamber`;
     }
   }, [title]);
 

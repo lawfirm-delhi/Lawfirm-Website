@@ -45,12 +45,12 @@ function TestimonialCard({ name, role, company, practiceArea, text, rating = 5 }
 
 export default function Testimonials() {
   const reviews = [
-    { name: "Robert Caldwell", role: "CEO", company: "Meridian Tech", practiceArea: "Corporate M&A", text: "Justice & Associates executed our cross-border acquisition with flawless precision. Their strategic foresight saved us millions in potential liabilities." },
-    { name: "Elena Rostova", role: "Founder", company: "Rostova Holdings", practiceArea: "Real Estate", text: "When the zoning board rejected our $500M development, Justice & Associates stepped in. Not only did they win the appeal, they secured favorable terms for future expansions." },
+    { name: "Robert Caldwell", role: "CEO", company: "Meridian Tech", practiceArea: "Corporate M&A", text: "NYATI executed our cross-border acquisition with flawless precision. Their strategic foresight saved us millions in potential liabilities." },
+    { name: "Elena Rostova", role: "Founder", company: "Rostova Holdings", practiceArea: "Real Estate", text: "When the zoning board rejected our $500M development, NYATI stepped in. Not only did they win the appeal, they secured favorable terms for future expansions." },
     { name: "David Chen", role: "Private Client", practiceArea: "Tax Controversy", text: "The IRS audit was a nightmare until I retained this firm. Their tax controversy team handled everything and reduced my penalty exposure to zero." },
     { name: "Sarah Jenkins", role: "General Counsel", company: "AeroDynamics", practiceArea: "Intellectual Property", text: "Their IP litigation team successfully defended our core patents against a major competitor. Aggressive, highly prepared, and incredibly strategic." },
     { name: "Marcus Thorne", role: "Managing Director", company: "Thorne Capital", practiceArea: "Arbitration", text: "In our ICC arbitration in Geneva, their partners out-maneuvered opposing counsel at every turn. A masterclass in international dispute resolution." },
-    { name: "Dr. Alistair Webb", role: "Chief of Surgery", practiceArea: "White Collar Defense", text: "Confidentiality and integrity were my highest priorities. Justice & Associates handled my case with absolute discretion and secured an unconditional dismissal." }
+    { name: "Dr. Alistair Webb", role: "Chief of Surgery", practiceArea: "White Collar Defense", text: "Confidentiality and integrity were my highest priorities. NYATI handled my case with absolute discretion and secured an unconditional dismissal." }
   ];
 
   return (

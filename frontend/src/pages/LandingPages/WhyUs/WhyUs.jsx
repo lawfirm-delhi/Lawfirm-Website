@@ -77,7 +77,7 @@ export default function WhyUs() {
     <PageWrapper title="Why Choose Us">
       <PageHero 
         title="Excellence in Legal Strategy."
-        subtitle="Discover why Fortune 500 companies, high-net-worth individuals, and leading institutions trust Justice & Associates with their most critical legal matters."
+        subtitle="Discover why Fortune 500 companies, high-net-worth individuals, and leading institutions trust NYATI with their most critical legal matters."
       />
 
       {/* Our Philosophy */}

@@ -14,7 +14,7 @@ export default function PrivacyPolicy() {
     <PageWrapper title="Privacy Policy">
       <PageHero 
         title="Privacy Policy"
-        subtitle="Last updated: July 2026. This Privacy Policy describes how Justice & Associates collects, uses, and shares your personal data."
+        subtitle="Last updated: July 2026. This Privacy Policy describes how NYATI Law Chamber collects, uses, and shares your personal data."
       />
       <section className="landing-section">
         <div style={{ maxWidth: '800px', margin: '0 auto', color: 'var(--body)', fontSize: '1.1rem', lineHeight: '1.8' }}>

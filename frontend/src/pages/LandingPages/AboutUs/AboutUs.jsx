@@ -61,7 +61,7 @@ export default function AboutUs() {
             >
               <div style={{ position: 'absolute', inset: 0, opacity: 0.1, background: 'radial-gradient(circle at 50% 50%, var(--primary-gold) 0%, transparent 70%)' }} />
               <div style={{ display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'center', alignItems: 'center', color: 'var(--primary-gold)' }}>
-                <Scale size={80} strokeWidth={1} style={{ marginBottom: '2rem' }} />
+                <img src="/images/logo.png" alt="Nyati Law Chamber Logo" style={{ width: '150px', height: '150px', objectFit: 'contain', marginBottom: '2rem' }} />
                 <h4 style={{ fontSize: '2rem', color: 'white', textAlign: 'center', padding: '0 2rem' }}>Fiat Justitia</h4>
                 <p style={{ marginTop: '1rem', opacity: 0.8 }}>Let Justice Be Done</p>
               </div>

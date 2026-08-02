@@ -169,7 +169,7 @@ export default function FAQ() {
             <h3 className="faq-contact-card-title">WhatsApp</h3>
             <p className="faq-contact-card-text">Secure Messaging</p>
             <a href={`https://wa.me/919986378144?text=${encodeURIComponent(
-              "Hello, I am interested in scheduling a legal consultation with Justice & Associates."
+              "Hello, I am interested in scheduling a legal consultation with NYATI Law Chamber."
             )}`} target="_blank" rel="noopener noreferrer" className="btn btn-ghost faq-contact-btn">Message Us</a>
           </motion.div>
         </div>

@@ -93,14 +93,12 @@ function Layout({ children }) {
       <header className={`site-header ${isSolid ? 'is-solid' : ''}`} id="siteHeader">
         <nav className="nav-bar" aria-label="Primary">
           <Link to="/" className="brand" onClick={() => setMenuOpen(false)}>
-            <span className="brand-mark" aria-hidden="true">
-              <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M15 3V27M6 9L2 17.5C2 20 4.5 21.5 6 21.5C7.5 21.5 10 20 10 17.5L6 9ZM24 9L20 17.5C20 20 22.5 21.5 24 21.5C25.5 21.5 28 20 28 17.5L24 9ZM6 9L15 6L24 9M9 27H21" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/>
-              </svg>
+            <span className="brand-mark" aria-hidden="true" style={{ display: 'flex', alignItems: 'center' }}>
+              <img src="/images/logo.png" alt="NYATI Logo" style={{ width: '40px', height: '40px', objectFit: 'contain' }} />
             </span>
             <span className="brand-text">
-              <span className="brand-name">Justice &amp; Associates</span>
-              <span className="brand-sub">Advocates &amp; Solicitors</span>
+              <span className="brand-name">NYATI</span>
+              <span className="brand-sub">Law Chamber</span>
             </span>
           </Link>
 
@@ -162,11 +160,11 @@ function Layout({ children }) {
         <div className="container">
           <div className="footer-grid">
             <div>
-              <div className="brand brand-footer">
-                <span className="brand-mark" aria-hidden="true">
-                  <svg width="26" height="26" viewBox="0 0 30 30" fill="none"><path d="M15 3V27M6 9L2 17.5C2 20 4.5 21.5 6 21.5C7.5 21.5 10 20 10 17.5L6 9ZM24 9L20 17.5C20 20 22.5 21.5 24 21.5C25.5 21.5 28 20 28 17.5L24 9ZM6 9L15 6L24 9M9 27H21" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              <div className="brand brand-footer" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                <span className="brand-mark" aria-hidden="true" style={{ display: 'flex', alignItems: 'center' }}>
+                  <img src="/images/logo.png" alt="NYATI Logo" style={{ width: '32px', height: '32px', objectFit: 'contain' }} />
                 </span>
-                <span className="brand-name">Justice &amp; Associates</span>
+                <span className="brand-name">NYATI Law Chamber</span>
               </div>
               <p className="footer-tagline">
                 {lang === 'English' 
@@ -213,7 +211,7 @@ function Layout({ children }) {
           </div>
 
           <div className="footer-bottom">
-            <span>© 2026 Justice &amp; Associates. All rights reserved.</span>
+            <span>© 2026 NYATI Law Chamber. All rights reserved.</span>
             <div className="footer-legal">
               <Link to="/privacy">Privacy Policy</Link>
               <Link to="/terms">Terms of Use</Link>
