@@ -325,10 +325,10 @@ export default function Home() {
             <div className="team-grid" style={{ display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap', width: '100%' }}>
               {[
                 { name: 'Pankaj Sinha', slug: 'pankaj-sinha', image: 'pankaj' },
-                { name: 'Garima', slug: 'garima', image: 'garima' },
                 { name: 'Tariq Adeeb', slug: 'tariq-adeeb', image: 'tariq' },
-                { name: 'Kulwinder', slug: 'kulwinder', image: 'kulwinder' },
-                { name: 'Humaira', slug: 'humaira', image: 'humaira' }
+                { name: 'Garima', slug: 'garima', image: 'garima' },
+                { name: 'Humaira', slug: 'humaira', image: 'humaira' },
+                { name: 'Kulwinder', slug: 'kulwinder', image: 'kulwinder' }
               ].map((member, i) => (
                 <Link to={`/team/${member.slug}`} className="team-card reveal" key={i} style={{ textDecoration: 'none', color: 'inherit', flex: '0 1 220px', minWidth: '200px' }}>
                   <div className="team-photo" style={{ backgroundImage: `url(/team/${member.image}.jpeg)`, backgroundSize: 'cover', backgroundPosition: 'center', width: '100%', aspectRatio: '1/1', borderRadius: '50%' }}></div>

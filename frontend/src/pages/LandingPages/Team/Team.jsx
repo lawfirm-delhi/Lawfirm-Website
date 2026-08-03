@@ -107,16 +107,6 @@ export default function Team() {
         image: '/team/tariq.jpeg'
       },
       { 
-        id: 'kulwinder', 
-        name: 'Kulwinder', 
-        designation: 'Advocate', 
-        practiceArea: 'IT & Legal Expertise', 
-        experience: '17+ Years IT, Legal practice', 
-        education: 'LL.B.',
-        email: 'contact@justiceassociates.com',
-        image: '/team/kulwinder.jpeg'
-      },
-      { 
         id: 'garima', 
         name: 'Garima', 
         designation: 'Advocate', 
@@ -135,6 +125,16 @@ export default function Team() {
         education: 'LL.B., M.Com',
         email: 'contact@justiceassociates.com',
         image: '/team/humaira.jpeg'
+      },
+      { 
+        id: 'kulwinder', 
+        name: 'Kulwinder', 
+        designation: 'Advocate', 
+        practiceArea: 'IT & Legal Expertise', 
+        experience: '17+ Years IT, Legal practice', 
+        education: 'LL.B.',
+        email: 'contact@justiceassociates.com',
+        image: '/team/kulwinder.jpeg'
       }
     ];
 
