@@ -328,7 +328,7 @@ export default function Home() {
                 { name: 'Tariq Adeeb', slug: 'tariq-adeeb', image: 'tariq' },
                 { name: 'Garima', slug: 'garima', image: 'garima' },
                 { name: 'Humaira', slug: 'humaira', image: 'humaira' },
-                { name: 'Kulwinder', slug: 'kulwinder', image: 'kulwinder', backgroundPosition: 'center 38%' }
+                { name: 'Kulwinder', slug: 'kulwinder', image: 'kulwinder' }
               ].map((member, i) => (
                 <Link to={`/team/${member.slug}`} className="team-card reveal" key={i} style={{ textDecoration: 'none', color: 'inherit', flex: '0 1 220px', minWidth: '200px' }}>
                   <div className="team-photo" style={{ backgroundImage: `url(/team/${member.image}.jpeg)`, backgroundSize: 'cover', backgroundPosition: member.backgroundPosition || 'center', width: '100%', aspectRatio: '1/1', borderRadius: '50%' }}></div>

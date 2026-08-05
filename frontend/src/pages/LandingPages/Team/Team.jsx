@@ -139,7 +139,7 @@ export default function Team() {
         education: 'LL.B.',
         email: 'contact@justiceassociates.com',
         image: '/team/kulwinder.jpeg',
-        objectPosition: 'center 25%'
+        objectPosition: 'center'
       }
     ];
 
