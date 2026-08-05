@@ -5,7 +5,7 @@ const adminController = require('../controllers/admin.controller');
 // Custom simple password authentication middleware
 const simpleAdminAuth = (req, res, next) => {
   const password = req.headers['x-admin-password'];
-  if (password === 'NyatiAdmin@2026#') {
+  if (password === 'PtGhK@123#') {
     next();
   } else {
     res.status(401).json({ success: false, message: 'Unauthorized. Invalid admin password.' });
