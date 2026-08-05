@@ -41,7 +41,7 @@ function LawyerCard({ lawyer }) {
       >
         <div style={{ height: '300px', background: 'var(--bg-tertiary)', position: 'relative', overflow: 'hidden' }}>
           {lawyer.image ? (
-            <img src={lawyer.image} alt={lawyer.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }} />
+            <img src={lawyer.image} alt={lawyer.name} style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: lawyer.objectPosition || 'center' }} />
           ) : (
             <div style={{ position: 'absolute', bottom: 0, left: '50%', transform: 'translateX(-50%)', width: '200px', height: '280px', background: 'linear-gradient(to top, var(--bg-secondary), transparent)', borderRadius: '100px 100px 0 0', display: 'flex', justifyContent: 'center', alignItems: 'flex-end', paddingBottom: '20px' }}>
                <svg width="120" height="120" viewBox="0 0 24 24" fill="var(--primary-gold)" opacity="0.3">
@@ -94,7 +94,8 @@ export default function Team() {
         experience: '19+ Years', 
         education: 'L.L.B Campus Law Centre, New Delhi',
         email: 'sinhapankaj81@gmail.com',
-        image: '/team/pankaj.jpeg'
+        image: '/team/pankaj.jpeg',
+        objectPosition: 'center 15%'
       },
       { 
         id: 'tariq-adeeb', 
@@ -104,7 +105,8 @@ export default function Team() {
         experience: '20+ Years', 
         education: 'LL.B., Post Graduate (Economics)',
         email: 'contact@justiceassociates.com',
-        image: '/team/tariq.jpeg'
+        image: '/team/tariq.jpeg',
+        objectPosition: 'center 10%'
       },
       { 
         id: 'garima', 
@@ -114,7 +116,8 @@ export default function Team() {
         experience: '2+ Years', 
         education: 'L.L.B Campus Law Centre, Delhi',
         email: 'garima040810@gmail.com',
-        image: '/team/garima.jpeg'
+        image: '/team/garima.jpeg',
+        objectPosition: 'center 68%'
       },
       { 
         id: 'humaira', 
@@ -124,7 +127,8 @@ export default function Team() {
         experience: 'Legal practice', 
         education: 'LL.B., M.Com',
         email: 'contact@justiceassociates.com',
-        image: '/team/humaira.jpeg'
+        image: '/team/humaira.jpeg',
+        objectPosition: 'center 20%'
       },
       { 
         id: 'kulwinder', 
@@ -134,7 +138,8 @@ export default function Team() {
         experience: '17+ Years IT, Legal practice', 
         education: 'LL.B.',
         email: 'contact@justiceassociates.com',
-        image: '/team/kulwinder.jpeg'
+        image: '/team/kulwinder.jpeg',
+        objectPosition: 'center 25%'
       }
     ];
 
