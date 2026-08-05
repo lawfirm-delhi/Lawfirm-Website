@@ -29,7 +29,7 @@ router.post('/verify-profile', (req, res) => {
     'Garima': 'Garima@123',
     'Pankaj': 'Pankaj@123',
     'Tariq Adeeb': 'Tariq@123',
-    'Kulwinder': 'Kulwinder@123',
+    'Kulwinder': 'KULW2810',
     'Humaira': 'Associate@123'
   };
 
