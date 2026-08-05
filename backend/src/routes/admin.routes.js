@@ -5,7 +5,7 @@ const adminController = require('../controllers/admin.controller');
 // Custom simple password authentication middleware
 const simpleAdminAuth = (req, res, next) => {
   const password = req.headers['x-admin-password'];
-  if (password === 'PtGhK@123#') {
+  if (password === 'Admin@123') {
     next();
   } else {
     res.status(401).json({ success: false, message: 'Unauthorized. Invalid admin password.' });
@@ -25,7 +25,7 @@ router.delete('/consultations/:id', adminController.deleteConsultation);
 router.post('/verify-profile', (req, res) => {
   const { profileName, password } = req.body;
   const profiles = {
-    'Main Admin': 'MainAdminSecure2026!',
+    'Main Admin': 'PtGhK@123#',
     'Garima': 'Garima@123',
     'Pankaj': 'Pankaj@123',
     'Tariq Adeeb': 'Tariq@123',
