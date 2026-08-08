@@ -17,12 +17,12 @@ class EmailService {
   async sendPasswordResetEmail(email, otp) {
     try {
       const mailOptions = {
-        from: `"Justice & Associates" <${process.env.SMTP_USER}>`,
+        from: `"NYATI Law Chamber" <${process.env.SMTP_USER}>`,
         to: email,
         subject: 'Password Reset Verification Code',
         html: `
           <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <h2 style="color: #c8a46a;">Justice & Associates</h2>
+            <h2 style="color: #c8a46a;">NYATI Law Chamber</h2>
             <p>You requested a password reset. Please use the following 6-digit code to verify your identity:</p>
             <div style="background: #f1f5f9; padding: 20px; text-align: center; font-size: 24px; letter-spacing: 5px; font-weight: bold; border-radius: 8px; margin: 20px 0;">
               ${otp}
