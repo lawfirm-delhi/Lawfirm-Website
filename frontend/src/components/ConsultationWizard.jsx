@@ -96,22 +96,22 @@ export default function ConsultationWizard() {
             </div>
             <div className="form-row-split">
               <div className="floating-input">
-                <input type="text" placeholder=" " value={formData.fullName} onChange={e=>updateForm('fullName', e.target.value)}/>
                 <label>Full Name *</label>
+                <input type="text" placeholder="Enter your full name" value={formData.fullName} onChange={e=>updateForm('fullName', e.target.value)}/>
               </div>
               <div className="floating-input">
-                <input type="email" placeholder=" " value={formData.email} onChange={e=>updateForm('email', e.target.value)}/>
                 <label>Email Address *</label>
+                <input type="email" placeholder="name@example.com" value={formData.email} onChange={e=>updateForm('email', e.target.value)}/>
               </div>
             </div>
             <div className="form-row-split">
               <div className="floating-input">
-                <input type="tel" placeholder=" " value={formData.mobile} onChange={e=>updateForm('mobile', e.target.value)}/>
                 <label>Mobile Number *</label>
+                <input type="tel" placeholder="e.g. +91 99999 99999" value={formData.mobile} onChange={e=>updateForm('mobile', e.target.value)}/>
               </div>
               <div className="floating-input">
-                <input type="text" placeholder=" " value={formData.company} onChange={e=>updateForm('company', e.target.value)}/>
                 <label>Company / Organization (Optional)</label>
+                <input type="text" placeholder="Enter company name if applicable" value={formData.company} onChange={e=>updateForm('company', e.target.value)}/>
               </div>
             </div>
             <div className="wizard-actions" style={{justifyContent: 'flex-end'}}>
@@ -127,6 +127,7 @@ export default function ConsultationWizard() {
               <p>Select the area of law and describe your situation.</p>
             </div>
             <div className="floating-input">
+              <label>Practice Area *</label>
               <select value={formData.practiceArea} onChange={e=>updateForm('practiceArea', e.target.value)}>
                 <option value="" disabled>Select Practice Area</option>
                 <option>Corporate Law</option>
@@ -137,15 +138,14 @@ export default function ConsultationWizard() {
                 <option>Employment Law</option>
                 <option>Real Estate</option>
               </select>
-              <label>Practice Area *</label>
             </div>
             <div className="floating-input">
-              <input type="text" placeholder=" " value={formData.subject} onChange={e=>updateForm('subject', e.target.value)}/>
               <label>Subject *</label>
+              <input type="text" placeholder="What is your case about?" value={formData.subject} onChange={e=>updateForm('subject', e.target.value)}/>
             </div>
             <div className="floating-input" style={{marginBottom: 0}}>
-              <textarea rows="4" placeholder=" " value={formData.description} onChange={e=>updateForm('description', e.target.value)}></textarea>
               <label>Detailed Description *</label>
+              <textarea rows="4" placeholder="Describe the background and details of your legal situation..." value={formData.description} onChange={e=>updateForm('description', e.target.value)}></textarea>
             </div>
             <div style={{textAlign: 'right', fontSize: '0.8rem', color: 'var(--muted)', marginTop: '0.5rem'}}>
               {formData.description.length} / 1000 characters
@@ -179,12 +179,12 @@ export default function ConsultationWizard() {
             </div>
             <div className="form-row-split">
               <div className="floating-input">
-                <input type="date" value={formData.date} onChange={e=>updateForm('date', e.target.value)}/>
                 <label>Preferred Date</label>
+                <input type="date" value={formData.date} onChange={e=>updateForm('date', e.target.value)}/>
               </div>
               <div className="floating-input">
-                <input type="time" value={formData.time} onChange={e=>updateForm('time', e.target.value)}/>
                 <label>Preferred Time</label>
+                <input type="time" value={formData.time} onChange={e=>updateForm('time', e.target.value)}/>
               </div>
             </div>
             <div className="wizard-actions">

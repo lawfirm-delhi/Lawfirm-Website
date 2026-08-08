@@ -162,50 +162,62 @@
   color: var(--muted);
 }
 
-/* Floating Labels */
+/* Rectangular Inputs matching the theme */
 .floating-input {
-  position: relative;
-  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 1.75rem;
+  width: 100%;
+}
+
+.floating-input label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--heading);
+  margin-bottom: 0.5rem;
+  display: inline-block;
+  text-align: left;
 }
 
 .floating-input input,
 .floating-input textarea,
 .floating-input select {
   width: 100%;
-  background: transparent;
-  border: none;
-  border-bottom: 1px solid var(--border);
-  padding: 1rem 0 0.5rem;
+  background-color: #ffffff;
+  border: 1px solid var(--border);
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
   color: var(--heading);
-  font-size: 1rem;
-  transition: border-color 0.3s var(--ease);
+  font-size: 0.95rem;
+  transition: all 0.25s var(--ease);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.floating-input input::placeholder,
+.floating-input textarea::placeholder {
+  color: var(--muted);
+  opacity: 0.7;
 }
 
 .floating-input input:focus,
 .floating-input textarea:focus,
 .floating-input select:focus {
   outline: none;
-  border-bottom-color: var(--primary-gold);
+  border-color: var(--primary-gold);
+  background-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(200, 164, 106, 0.15), inset 0 1px 2px rgba(0, 0, 0, 0.02);
 }
 
-.floating-input label {
-  position: absolute;
-  left: 0;
-  top: 1rem;
-  color: var(--muted);
-  pointer-events: none;
-  transition: all 0.3s var(--ease);
-}
-
-.floating-input input:focus ~ label,
-.floating-input input:not(:placeholder-shown) ~ label,
-.floating-input textarea:focus ~ label,
-.floating-input textarea:not(:placeholder-shown) ~ label,
-.floating-input select:focus ~ label,
-.floating-input select:not([value=""]) ~ label {
-  top: -0.5rem;
-  font-size: 0.75rem;
-  color: var(--primary-gold);
+/* Custom styling for date/time/select arrow */
+.floating-input select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23A38342'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.25rem;
+  padding-right: 2.5rem;
 }
 
 /* Options Grid */
