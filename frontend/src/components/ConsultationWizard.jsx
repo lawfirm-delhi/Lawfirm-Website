@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { UploadCloud, CheckCircle, Briefcase, ChevronRight, X, Video, Phone } from 'lucide-react';
 import api from '../api/axios';
+import { toast } from 'react-hot-toast';
 import './ConsultationWizard.css';
 
 export default function ConsultationWizard() {
@@ -18,7 +19,71 @@ export default function ConsultationWizard() {
 
   const updateForm = (key, val) => setFormData(p => ({ ...p, [key]: val }));
 
-  const handleNext = () => setStep(s => Math.min(s + 1, 6));
+  const validateStep = () => {
+    if (step === 1) {
+      if (!formData.fullName.trim()) {
+        toast.error("Please enter your Full Name.");
+        return false;
+      }
+      if (!formData.email.trim()) {
+        toast.error("Please enter your Email Address.");
+        return false;
+      }
+      if (!formData.email.includes('@')) {
+        toast.error("Please enter a valid email address.");
+        return false;
+      }
+      if (!formData.mobile.trim()) {
+        toast.error("Please enter your Mobile Number.");
+        return false;
+      }
+      return true;
+    }
+    
+    if (step === 2) {
+      if (!formData.practiceArea) {
+        toast.error("Please select a Practice Area.");
+        return false;
+      }
+      if (!formData.subject.trim()) {
+        toast.error("Please enter the Subject of your consultation.");
+        return false;
+      }
+      if (!formData.description.trim()) {
+        toast.error("Please provide a Detailed Description.");
+        return false;
+      }
+      if (formData.description.trim().length < 10) {
+        toast.error("Description must be at least 10 characters.");
+        return false;
+      }
+      return true;
+    }
+
+    if (step === 3) {
+      if (!formData.mode) {
+        toast.error("Please select a Consultation Mode.");
+        return false;
+      }
+      if (!formData.date) {
+        toast.error("Please select a preferred Date.");
+        return false;
+      }
+      if (!formData.time) {
+        toast.error("Please select a preferred Time.");
+        return false;
+      }
+      return true;
+    }
+
+    return true;
+  };
+
+  const handleNext = () => {
+    if (validateStep()) {
+      setStep(s => Math.min(s + 1, 6));
+    }
+  };
   const handleBack = () => setStep(s => Math.max(s - 1, 1));
 
   const submitForm = async () => {
@@ -115,7 +180,7 @@ export default function ConsultationWizard() {
               </div>
             </div>
             <div className="wizard-actions" style={{justifyContent: 'flex-end'}}>
-              <button className="btn btn-primary" onClick={handleNext} disabled={!formData.fullName || !formData.email || !formData.mobile}>Next Step <ChevronRight size={16}/></button>
+              <button className="btn btn-primary" onClick={handleNext}>Next Step <ChevronRight size={16}/></button>
             </div>
           </motion.div>
         )}
@@ -152,7 +217,7 @@ export default function ConsultationWizard() {
             </div>
             <div className="wizard-actions">
               <button className="btn btn-ghost" onClick={handleBack}>Back</button>
-              <button className="btn btn-primary" onClick={handleNext} disabled={!formData.practiceArea || !formData.subject || formData.description.length < 10}>Next Step <ChevronRight size={16}/></button>
+              <button className="btn btn-primary" onClick={handleNext}>Next Step <ChevronRight size={16}/></button>
             </div>
           </motion.div>
         )}
@@ -189,7 +254,7 @@ export default function ConsultationWizard() {
             </div>
             <div className="wizard-actions">
               <button className="btn btn-ghost" onClick={handleBack}>Back</button>
-              <button className="btn btn-primary" onClick={handleNext} disabled={!formData.mode || !formData.date || !formData.time}>Next Step <ChevronRight size={16}/></button>
+              <button className="btn btn-primary" onClick={handleNext}>Next Step <ChevronRight size={16}/></button>
             </div>
           </motion.div>
         )}
