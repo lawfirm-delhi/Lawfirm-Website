@@ -524,3 +524,17 @@
   border-color: var(--primary-gold);
 }
 
+/* Custom styles for native date & time picker indicators to match the gold theme */
+.floating-input input[type="date"]::-webkit-calendar-picker-indicator,
+.floating-input input[type="time"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  filter: invert(53%) sepia(21%) saturate(935%) hue-rotate(6deg) brightness(97%) contrast(85%); /* Converts standard black/grey icon to premium Gold #A38342 */
+  padding: 0.2rem;
+  transition: transform 0.2s var(--ease);
+}
+
+.floating-input input[type="date"]::-webkit-calendar-picker-indicator:hover,
+.floating-input input[type="time"]::-webkit-calendar-picker-indicator:hover {
+  transform: scale(1.15);
+}
+

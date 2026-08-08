@@ -19,6 +19,14 @@ export default function ConsultationWizard() {
 
   const updateForm = (key, val) => setFormData(p => ({ ...p, [key]: val }));
 
+  const getTodayDateString = () => {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const dd = String(today.getDate()).padStart(2, '0');
+    return `${yyyy}-${mm}-${dd}`;
+  };
+
   const validateStep = () => {
     if (step === 1) {
       if (!formData.fullName.trim()) {
@@ -245,7 +253,7 @@ export default function ConsultationWizard() {
             <div className="form-row-split">
               <div className="floating-input">
                 <label>Preferred Date</label>
-                <input type="date" value={formData.date} onChange={e=>updateForm('date', e.target.value)}/>
+                <input type="date" min={getTodayDateString()} value={formData.date} onChange={e=>updateForm('date', e.target.value)}/>
               </div>
               <div className="floating-input">
                 <label>Preferred Time</label>
