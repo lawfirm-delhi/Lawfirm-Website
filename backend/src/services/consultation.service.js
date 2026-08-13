@@ -69,6 +69,38 @@ class ConsultationService {
       }).catch(err => {
         logger.error(`Failed to send consultation booking email: ${err.message}`);
       });
+
+      // Send automated email confirmation response to client (as per PDF page 6)
+      const clientSubject = 'Thank you for contacting NYATI | Consultation Request Received';
+      const clientHtml = `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 8px; line-height: 1.6; color: #333;">
+          <h2 style="color: #c7a962; margin-bottom: 20px;">NYATI Law Chamber</h2>
+          <p>Dear ${data.name},</p>
+          <p>Thank you for reaching out to NYATI (formerly PK Sinha and Associates). We have successfully received your inquiry and any attached documents submitted through our website contact form.</p>
+          <p>Our legal team, under the guidance of our founder, Advocate Pankaj Sinha, is currently reviewing the details of your query. Given the critical nature of legal timelines, we treat every inquiry with the utmost priority.</p>
+          
+          <h3 style="color: #c7a962; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-top: 25px;">What happens next?</h3>
+          <ul style="padding-left: 20px; margin: 10px 0;">
+            <li style="margin-bottom: 8px;"><strong>Case Assessment:</strong> We will assess the initial details provided regarding your matter (District Court, High Court, or CAT/Service matter).</li>
+            <li style="margin-bottom: 8px;"><strong>Response Time:</strong> A member of our team or an associate will contact you via phone or email to discuss the next steps or to schedule a formal consultation.</li>
+          </ul>
+          
+          <p style="font-style: italic; font-size: 13px; color: #666; margin-top: 25px;">Please note: Submitting this form or receiving this confirmation does not establish a formal attorney-client relationship.</p>
+          <p>Thank you for placing your trust in NYATI.</p>
+          
+          <hr style="border: 0; border-top: 1px solid #eee; margin: 25px 0;" />
+          <p style="margin: 0; font-size: 14px; font-weight: bold; color: #333;">Warm regards,</p>
+          <p style="margin: 3px 0; font-size: 14px; font-weight: bold; color: #c7a962;">NYATI Team</p>
+          <p style="margin: 5px 0 0 0; font-size: 12px; color: #999;">
+            <a href="https://lawfirm-frontend-gnti.onrender.com" style="color: #c7a962; text-decoration: none;">lawfirm-frontend-gnti.onrender.com</a>
+          </p>
+        </div>
+      `;
+      sendEmail(data.email, clientSubject, clientHtml).then(() => {
+        logger.info(`Automated confirmation response email sent to client: ${data.email}`);
+      }).catch(err => {
+        logger.error(`Failed to send automated confirmation email to client: ${err.message}`);
+      });
     } catch (err) {
       logger.error('Failed to configure email: ' + err.message);
     }

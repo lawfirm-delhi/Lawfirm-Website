@@ -63,12 +63,11 @@ function StatCard({ icon: Icon, target, suffix = '', title }) {
 
 export default function WhyUs() {
   const features = [
-    { icon: Shield, title: "Confidential Legal Advice", desc: "Absolute privacy and attorney-client privilege strictly maintained at all times." },
-    { icon: Award, title: "Experienced Partners", desc: "Decades of combined experience navigating complex domestic and international law." },
-    { icon: CheckCircle, title: "Transparent Communication", desc: "Clear, jargon-free updates and honest assessments of your legal position." },
-    { icon: Globe, title: "Nationwide Representation", desc: "Capable of handling cross-border and multi-jurisdictional disputes efficiently." },
-    { icon: Target, title: "Proven Results", desc: "A track record of high-stakes victories, favorable settlements, and successful closures." },
-    { icon: Users, title: "Personalized Strategy", desc: "We don't use boilerplate solutions. Every case is handled with bespoke legal strategies." }
+    { icon: Award, title: "19-Year Legacy", desc: "Under the leadership of Advocate Pankaj Sinha, our firm carries nearly two decades of courtroom excellence built during our tenure as PK Sinha and Associates." },
+    { icon: Scale, title: "Comprehensive Court Coverage", desc: "Unified representation across all tiers of the judiciary: District Courts, High Courts, and Central Administrative Tribunal (CAT)." },
+    { icon: Shield, title: "Advocacy & Consultancy", desc: "We bridge the gap between aggressive courtroom advocacy and proactive, strategic legal consultancy to save client resources." },
+    { icon: Users, title: "Specialised Tribunal Expertise", desc: "Extensive experience before the CAT makes us a preferred choice for government and public sector employees." },
+    { icon: Target, title: "Client-Centric Trust", desc: "We believe in absolute transparency, rigorous research, realistic legal assessments, and an ethical approach." }
   ];
 
 
@@ -76,8 +75,8 @@ export default function WhyUs() {
   return (
     <PageWrapper title="Why Choose Us">
       <PageHero 
-        title="Excellence in Legal Strategy."
-        subtitle="Discover why Fortune 500 companies, high-net-worth individuals, and leading institutions trust NYATI with their most critical legal matters."
+        title="Why NYATI?"
+        subtitle="Choosing the right legal partner is critical to achieving a favorable outcome. Discover the pillars that define our practice."
       />
 
       {/* Our Philosophy */}
@@ -87,13 +86,13 @@ export default function WhyUs() {
             <h2 className="section-title" style={{ textAlign: 'center' }}>Our Philosophy</h2>
             <div style={{ width: '60px', height: '3px', background: 'var(--primary-gold)', marginBottom: '2rem' }}></div>
             <p className="card-text mb-4" style={{ fontSize: '1.15rem', marginBottom: '1.5rem', lineHeight: 1.8 }}>
-              We believe that exceptional legal representation requires more than just knowing the law. It requires strategic vision, uncompromising integrity, and a relentless commitment to our clients' success.
+              At NYATI, our philosophy is anchored in the balance of <strong>Empathy and Assertiveness</strong>.
             </p>
             <p className="card-text mb-6" style={{ marginBottom: '2rem', lineHeight: 1.8 }}>
-              Our firm was built on the principle that every client deserves partner-level attention and bespoke legal solutions. We do not offer generic advice; we engineer legal strategies designed to achieve definitive results in high-stakes environments.
+              We believe that every client deserves a listening ear and an individualised strategy, backed by an aggressive, intellectually sharp defense in the courtroom. For 19 years, our guiding principle has been that justice is not just a destination, but a meticulous process of ethical practice, thorough research, and unyielding perseverance.
             </p>
             <ul style={{ listStyle: 'none', padding: 0, display: 'inline-flex', flexDirection: 'column', alignItems: 'flex-start', gap: '1rem' }}>
-              {['Uncompromising Integrity', 'Fierce Advocacy', 'Strategic Foresight'].map((item, i) => (
+              {['Empathy & Understanding', 'Assertive Courtroom Defense', 'Meticulous Ethical Process'].map((item, i) => (
                 <li key={i} style={{ display: 'flex', alignItems: 'center', color: 'var(--heading)', fontSize: '1.1rem', fontWeight: 600 }}>
                   <CheckCircle size={22} color="var(--primary-gold)" style={{ marginRight: '1rem' }} />
                   {item}
@@ -124,10 +123,9 @@ export default function WhyUs() {
       {/* Statistics / Counters */}
       <section className="landing-section" style={{ background: 'var(--bg-gradient)' }}>
         <div className="grid-3" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))' }}>
-          <StatCard icon={Award} target={25} suffix="+" title="Years Experience" />
-          <StatCard icon={Target} target={98} suffix="%" title="Success Rate" />
-          <StatCard icon={Users} target={150} suffix="+" title="Expert Lawyers" />
-          <StatCard icon={Globe} target={12} title="Global Offices" />
+          <StatCard icon={Award} target={19} suffix="+" title="Years of Legacy" />
+          <StatCard icon={Target} target={98} suffix="%" title="Client Satisfaction" />
+          <StatCard icon={Users} target={5} title="Dedicated Advocates" />
         </div>
       </section>
 

@@ -196,29 +196,27 @@ export default function ConsultationWizard() {
         {step === 2 && (
           <motion.div key="step2" initial={{opacity:0, x:20}} animate={{opacity:1, x:0}} exit={{opacity:0, x:-20}}>
             <div className="wizard-header">
-              <h2>Legal Matter</h2>
+              <h2>Nature of Legal Assistance</h2>
               <p>Select the area of law and describe your situation.</p>
             </div>
             <div className="floating-input">
-              <label>Practice Area *</label>
+              <label>Nature of Legal Assistance Required *</label>
               <select value={formData.practiceArea} onChange={e=>updateForm('practiceArea', e.target.value)}>
-                <option value="" disabled>Select Practice Area</option>
-                <option>Corporate Law</option>
-                <option>Litigation</option>
-                <option>Arbitration</option>
-                <option>Intellectual Property</option>
-                <option>Taxation</option>
-                <option>Employment Law</option>
-                <option>Real Estate</option>
+                <option value="" disabled>Select Option</option>
+                <option>High Court Matter</option>
+                <option>District Court Matter</option>
+                <option>Central Administrative Tribunal (CAT) / Service Matter</option>
+                <option>Legal Consultation & Advisory</option>
+                <option>Other Legal Queries</option>
               </select>
             </div>
             <div className="floating-input">
               <label>Subject *</label>
-              <input type="text" placeholder="What is your case about?" value={formData.subject} onChange={e=>updateForm('subject', e.target.value)}/>
+              <input type="text" placeholder="What is your case or query about?" value={formData.subject} onChange={e=>updateForm('subject', e.target.value)}/>
             </div>
             <div className="floating-input" style={{marginBottom: 0}}>
-              <label>Detailed Description *</label>
-              <textarea rows="4" placeholder="Describe the background and details of your legal situation..." value={formData.description} onChange={e=>updateForm('description', e.target.value)}></textarea>
+              <label>Brief Overview of Your Case / Query *</label>
+              <textarea rows="4" placeholder="Please provide a brief description of your matter (avoid sharing highly sensitive or confidential credentials at this stage)." value={formData.description} onChange={e=>updateForm('description', e.target.value)}></textarea>
             </div>
             <div style={{textAlign: 'right', fontSize: '0.8rem', color: 'var(--muted)', marginTop: '0.5rem'}}>
               {formData.description.length} / 1000 characters
@@ -341,6 +339,10 @@ export default function ConsultationWizard() {
                 <div className="review-item"><p>Date & Time</p><span>{formData.date} at {formData.time}</span></div>
                 <div className="review-item"><p>Documents</p><span>{formData.files.length} file(s) attached</span></div>
               </div>
+            </div>
+
+            <div style={{ padding: '1rem', border: '1px solid var(--border)', borderRadius: 'var(--radius-sm)', background: 'rgba(255,255,255,0.02)', margin: '1.5rem 0', fontSize: '0.85rem', color: 'var(--muted)', fontStyle: 'italic', textAlign: 'left' }}>
+              <strong>Disclaimer:</strong> Submitting this form or contacting NYATI (formerly PK Sinha and Associates) does not automatically create an attorney-client relationship. All information shared through this form will be kept strictly confidential in accordance with our privacy policy.
             </div>
 
             <div className="wizard-actions">

@@ -104,7 +104,7 @@ export default function Team() {
         practiceArea: 'Civil, Criminal & Constitutional Law', 
         experience: '20+ Years', 
         education: 'LL.B., Post Graduate (Economics)',
-        email: 'contact@justiceassociates.com',
+        email: 'lawfirm.delhi.official@gmail.com',
         image: '/team/tariq.jpeg',
         objectPosition: 'center 10%'
       },
@@ -126,7 +126,7 @@ export default function Team() {
         practiceArea: 'Litigation, NCLT & Consumer', 
         experience: 'Legal practice', 
         education: 'LL.B., M.Com',
-        email: 'contact@justiceassociates.com',
+        email: 'lawfirm.delhi.official@gmail.com',
         image: '/team/humaira.jpeg',
         objectPosition: 'center 20%'
       },
@@ -137,7 +137,7 @@ export default function Team() {
         practiceArea: 'IT & Legal Expertise', 
         experience: '17+ Years IT, Legal practice', 
         education: 'LL.B.',
-        email: 'contact@justiceassociates.com',
+        email: 'lawfirm.delhi.official@gmail.com',
         image: '/team/kulwinder.jpeg',
         objectPosition: 'center'
       }

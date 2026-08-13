@@ -37,7 +37,7 @@ const teamData = {
   'tariq-adeeb': {
     name: 'Tariq Adeeb',
     role: 'Advocate',
-    email: 'contact@justiceassociates.com',
+    email: 'lawfirm.delhi.official@gmail.com',
     phone: '',
     image: '/team/tariq.jpeg',
     bio: 'A seasoned legal professional with over 20 years of experience in litigation, legal advisory, and dispute resolution. Specializes in civil, criminal, constitutional, commercial, and regulatory matters, with extensive practice before the Supreme Court of India, High Courts, Tribunals, and other judicial forums. Experienced in legal drafting, arbitration, mediation, project management, and advising government bodies on complex legal and policy issues, with a strong commitment to delivering strategic and client-focused legal solutions.',
@@ -51,7 +51,7 @@ const teamData = {
   'kulwinder': {
     name: 'Kulwinder',
     role: 'Advocate',
-    email: 'contact@justiceassociates.com',
+    email: 'lawfirm.delhi.official@gmail.com',
     phone: '',
     image: '/team/kulwinder.jpeg',
     bio: 'A dedicated LL.B. graduate and enrolled Advocate with a unique blend of legal and technology expertise, backed by 17 years of experience in IT as a Portfolio/Program Manager. Experienced in legal drafting, litigation support, and court proceedings before the Delhi High Court and District Courts. Combines strong stakeholder management, strategic problem-solving, and legal knowledge to deliver practical, client-focused legal solutions.',
@@ -64,7 +64,7 @@ const teamData = {
   'humaira': {
     name: 'Humaira',
     role: 'Advocate',
-    email: 'contact@justiceassociates.com',
+    email: 'lawfirm.delhi.official@gmail.com',
     phone: '',
     image: '/team/humaira.jpeg',
     bio: 'A dedicated legal professional with experience in litigation, legal research, drafting, and dispute resolution. Has assisted in matters before the Supreme Court, Delhi High Court, NCLT, Consumer Commissions, and District Courts. Skilled in preparing petitions, appeals, written submissions, and case briefs, with a commitment to delivering practical, strategic, and client-focused legal solutions.',

@@ -128,7 +128,7 @@ export default function Home() {
             <p className="eyebrow eyebrow-light">Welcome to Nyati Law Chamber</p>
             <p className="tagline">"Counsel that stands where the law is tested."</p>
             <h1 className="hero-headline">Precision advocacy for businesses that cannot afford to be wrong.</h1>
-            <p className="hero-support">Justice &amp; Associates advises boards, promoters, and institutions on the matters that define them — from courtroom litigation to the fine print of a billion‑rupee merger.</p>
+            <p className="hero-support">NYATI advises boards, promoters, and institutions on the matters that define them — from courtroom litigation to the fine print of a billion‑rupee merger.</p>
             <div className="hero-cta-row">
               <a href="#consultation" className="btn btn-primary">Book a Consultation</a>
               <a href="#practice-areas" className="btn btn-ghost">Explore Practice Areas</a>
@@ -139,7 +139,7 @@ export default function Home() {
                 <dd>Cases Handled</dd>
               </div>
               <div>
-                <dt><CounterNumber value={15} suffix="+" /></dt>
+                <dt><CounterNumber value={19} suffix="+" /></dt>
                 <dd>Years at the Bar</dd>
               </div>
               <div>
@@ -212,7 +212,7 @@ export default function Home() {
                 <rect x="1" y="1" width="418" height="458" fill="none" stroke="#A38342" strokeOpacity="0.1"/>
               </svg>
               <div className="hero-art-caption">
-                <span>Est. Delhi, 2011</span>
+                <span>Est. Delhi, 2007</span>
                 <span>Fiat Justitia</span>
               </div>
             </div>
