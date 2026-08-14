@@ -17,7 +17,7 @@ app.set('trust proxy', 1);
 app.use(helmet());
 const origins = process.env.CORS_ORIGIN 
   ? process.env.CORS_ORIGIN.split(',').map(o => o.trim()) 
-  : ['http://localhost:5173', 'http://127.0.0.1:5173'];
+  : ['http://localhost:5173', 'http://127.0.0.1:5173', 'https://www.nyatilegal.com', 'https://nyatilegal.com'];
 
 app.use(cors({
   origin: function (origin, callback) {

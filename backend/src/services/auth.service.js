@@ -55,7 +55,7 @@ class AuthService {
         <p style="font-size: 16px; color: #333;">Thank you for registering on the NYATI Client Portal. Your account has been successfully created.</p>
         <p style="font-size: 16px; color: #333;">You can now log in to your portal to book consultations, track your cases, and upload legal documentation securely.</p>
         <div style="text-align: center; margin: 30px 0;">
-          <a href="https://lawfirm-frontend-gnti.onrender.com/login" style="background-color: #A38342; color: #ffffff; padding: 12px 24px; text-decoration: none; border-radius: 4px; font-weight: bold;">Log In to Portal</a>
+          <a href="https://www.nyatilegal.com/login" style="background-color: #A38342; color: #ffffff; padding: 12px 24px; text-decoration: none; border-radius: 4px; font-weight: bold;">Log In to Portal</a>
         </div>
         <p style="font-size: 14px; color: #666;">If you have any questions or require immediate legal assistance, please reply to this email.</p>
         <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;" />

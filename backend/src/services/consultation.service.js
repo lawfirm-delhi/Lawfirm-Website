@@ -92,7 +92,7 @@ class ConsultationService {
           <p style="margin: 0; font-size: 14px; font-weight: bold; color: #333;">Warm regards,</p>
           <p style="margin: 3px 0; font-size: 14px; font-weight: bold; color: #c7a962;">NYATI Team</p>
           <p style="margin: 5px 0 0 0; font-size: 12px; color: #999;">
-            <a href="https://lawfirm-frontend-gnti.onrender.com" style="color: #c7a962; text-decoration: none;">lawfirm-frontend-gnti.onrender.com</a>
+            <a href="https://www.nyatilegal.com" style="color: #c7a962; text-decoration: none;">www.nyatilegal.com</a>
           </p>
         </div>
       `;
