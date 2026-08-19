@@ -325,7 +325,7 @@ export default function Home() {
             <div className="team-grid" style={{ display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap', width: '100%' }}>
               {[
                 { name: 'Pankaj Sinha', slug: 'pankaj-sinha', image: 'pankaj' },
-                { name: 'Tariq Adeeb', slug: 'tariq-adeeb', image: 'tariq' },
+                { name: 'Tariq Adeeb', slug: 'tariq-adeeb', image: 'tariq', backgroundPosition: 'center 10%' },
                 { name: 'Garima', slug: 'garima', image: 'garima' },
                 { name: 'Humaira', slug: 'humaira', image: 'humaira', backgroundPosition: 'center 20%' },
                 { name: 'Kulwinder', slug: 'kulwinder', image: 'kulwinder' }
