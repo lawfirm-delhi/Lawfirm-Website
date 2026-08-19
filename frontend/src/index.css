@@ -16,11 +16,11 @@
   --bg-tertiary: #E8E2D2;
   --nav-bg: rgba(11, 29, 69, 0.95);
 
-  /* Luxury Gradient - Royal Navy & Blue */
+  /* Luxury Theme - Royal Navy & Blue */
   --gradient-start: #0A1931;
   --gradient-middle: #15305B;
   --gradient-end: #1E3E72;
-  --bg-gradient: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-middle) 45%, var(--gradient-end) 100%);
+  --bg-gradient: #0A1D3F;
 
   /* Brand Colors (Muted Gold) */
   --primary-gold: #A38342;
@@ -74,6 +74,7 @@
   --gradient-start: #0A1128;
   --gradient-middle: #101F42;
   --gradient-end: #1C305C;
+  --bg-gradient: #070D1E;
   
   /* Typography */
   --heading: #F9FAFB;
