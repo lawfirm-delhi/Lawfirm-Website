@@ -14,13 +14,13 @@
   --bg-primary: #FAF9F6;
   --bg-secondary: #F3EFE6;
   --bg-tertiary: #E8E2D2;
-  --nav-bg: rgba(9, 13, 23, 0.95);
+  --nav-bg: rgba(11, 29, 69, 0.95);
 
-  /* Luxury Gradient - Darker Navy */
-  --gradient-start: #090D17;
-  --gradient-middle: #0C121F;
-  --gradient-end: #101726;
-  --bg-gradient: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-middle) 40%, var(--gradient-end) 100%);
+  /* Luxury Gradient - Royal Navy & Blue */
+  --gradient-start: #0A1931;
+  --gradient-middle: #15305B;
+  --gradient-end: #1E3E72;
+  --bg-gradient: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-middle) 45%, var(--gradient-end) 100%);
 
   /* Brand Colors (Muted Gold) */
   --primary-gold: #A38342;
@@ -64,16 +64,16 @@
 [data-theme="dark"] {
   color-scheme: dark;
   
-  /* Backgrounds (Dark Mode) */
-  --bg-primary: #0A0F1A;
-  --bg-secondary: #111827;
-  --bg-tertiary: #1F2937;
-  --nav-bg: rgba(10, 15, 26, 0.85);
+  /* Backgrounds (Dark Mode - Navy & Royal) */
+  --bg-primary: #0A1128;
+  --bg-secondary: #101F42;
+  --bg-tertiary: #1C305C;
+  --nav-bg: rgba(10, 17, 40, 0.9);
 
   /* Luxury Gradient for Dark Mode */
-  --gradient-start: #0A0F1A;
-  --gradient-middle: #111827;
-  --gradient-end: #1F2937;
+  --gradient-start: #0A1128;
+  --gradient-middle: #101F42;
+  --gradient-end: #1C305C;
   
   /* Typography */
   --heading: #F9FAFB;
@@ -81,7 +81,7 @@
   --muted: #9CA3AF;
 
   /* Borders */
-  --border: #374151;
+  --border: #1E3A8A;
   --divider: rgba(255, 255, 255, 0.1);
 
   /* Shadows for Dark Mode (Subtle glow/darker shadows) */
