@@ -327,7 +327,7 @@ export default function Home() {
                 { name: 'Pankaj Sinha', slug: 'pankaj-sinha', image: 'pankaj' },
                 { name: 'Tariq Adeeb', slug: 'tariq-adeeb', image: 'tariq' },
                 { name: 'Garima', slug: 'garima', image: 'garima' },
-                { name: 'Humaira', slug: 'humaira', image: 'humaira' },
+                { name: 'Humaira', slug: 'humaira', image: 'humaira', backgroundPosition: 'center 20%' },
                 { name: 'Kulwinder', slug: 'kulwinder', image: 'kulwinder' }
               ].map((member, i) => (
                 <Link to={`/team/${member.slug}`} className="team-card reveal" key={i} style={{ textDecoration: 'none', color: 'inherit', flex: '0 1 220px', minWidth: '200px' }}>
