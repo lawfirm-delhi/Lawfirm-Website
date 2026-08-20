@@ -107,7 +107,6 @@ export default function TeamMember() {
             <p className="profile-role">{member.role}</p>
             
             <div className="profile-section" style={{ marginTop: '2rem' }}>
-              <h2>Biography</h2>
               <p className="profile-bio" style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'var(--text-secondary)' }}>
                 {member.bio}
               </p>
