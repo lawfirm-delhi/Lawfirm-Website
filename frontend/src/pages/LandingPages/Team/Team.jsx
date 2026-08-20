@@ -139,7 +139,7 @@ export default function Team() {
         education: 'LL.B.',
         email: 'lawfirm.delhi.official@gmail.com',
         image: '/team/kulwinder.jpeg',
-        objectPosition: 'center'
+        objectPosition: 'center 15%'
       }
     ];
 
