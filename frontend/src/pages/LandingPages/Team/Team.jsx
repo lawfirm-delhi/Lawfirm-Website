@@ -55,22 +55,7 @@ function LawyerCard({ lawyer }) {
           <h3 className="card-title" style={{ marginBottom: '0.2rem' }}>{lawyer.name}</h3>
           <p style={{ color: 'var(--primary-gold)', fontWeight: 600, fontSize: '0.9rem', marginBottom: '1.5rem', letterSpacing: '1px', textTransform: 'uppercase' }}>{lawyer.designation}</p>
           
-          <div style={{ marginBottom: '1.5rem', flex: 1 }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem', fontSize: '0.9rem' }}>
-              <span style={{ color: 'var(--muted)' }}>Practice:</span>
-              <span style={{ color: 'var(--heading)', fontWeight: 500, textAlign: 'right' }}>{lawyer.practiceArea}</span>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem', fontSize: '0.9rem' }}>
-              <span style={{ color: 'var(--muted)' }}>Experience:</span>
-              <span style={{ color: 'var(--heading)', fontWeight: 500, textAlign: 'right' }}>{lawyer.experience}</span>
-            </div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.9rem' }}>
-              <span style={{ color: 'var(--muted)' }}>Education:</span>
-              <span style={{ color: 'var(--heading)', fontWeight: 500, textAlign: 'right' }}>{lawyer.education}</span>
-            </div>
-          </div>
-          
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '1.5rem', borderTop: '1px solid var(--border)' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '1.5rem', borderTop: '1px solid var(--border)', marginTop: 'auto' }}>
             <div style={{ display: 'flex', gap: '1rem' }}>
               <a href={`mailto:${lawyer.email}`} style={{ color: 'var(--muted)' }}><Mail size={18} /></a>
             </div>
@@ -146,14 +131,14 @@ export default function Team() {
   return (
     <PageWrapper title="Our Team">
       <PageHero 
-        title="Legal Brilliance."
-        subtitle="Meet the exceptional minds driving our firm's success. Our team brings decades of high-stakes experience from the world's most prestigious institutions."
+        title="Our Team"
+        subtitle="NYATI Law Chamber is led by Founding Directors Mr. Pankaj Sinha and Mr. Tariq Adeeb, supported by a team of dedicated advocates committed to providing strategic, dependable and result-oriented legal solutions."
       />
 
       <section className="landing-section">
         <div className="section-header">
-          <motion.h2 className="section-title" variants={fadeInUp} initial="initial" whileInView="whileInView">Leadership & Partners</motion.h2>
-          <motion.p className="section-subtitle" variants={fadeInUp} initial="initial" whileInView="whileInView">The strategists behind our landmark victories.</motion.p>
+          <motion.h2 className="section-title" variants={fadeInUp} initial="initial" whileInView="whileInView">Advocates</motion.h2>
+          <motion.p className="section-subtitle" variants={fadeInUp} initial="initial" whileInView="whileInView">Professional legal representation and trusted advisory.</motion.p>
         </div>
         
         <motion.div 
@@ -169,17 +154,6 @@ export default function Team() {
               <LawyerCard lawyer={lawyer} />
             </div>
           ))}
-        </motion.div>
-      </section>
-
-      {/* Recruitment CTA */}
-      <section className="landing-section alt text-center">
-        <motion.div variants={fadeInUp} initial="initial" whileInView="whileInView" style={{ maxWidth: '700px', margin: '0 auto' }}>
-          <h2 className="section-title mb-6">Join Our Ranks</h2>
-          <p className="hero-subtitle mb-8">We are always looking for exceptional talent to join our growing international practice. Discover a career defined by excellence.</p>
-          <a href="#" className="btn btn-ghost" style={{ padding: '1rem 2.5rem', fontSize: '1.1rem' }}>
-            View Opportunities
-          </a>
         </motion.div>
       </section>
     </PageWrapper>
