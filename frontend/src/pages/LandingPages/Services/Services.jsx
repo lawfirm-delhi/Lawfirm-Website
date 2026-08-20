@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FileText, Briefcase, Scale, ShieldCheck, Search, Users, ClipboardList, CheckCircle } from 'lucide-react';
+import { FileText, Briefcase, Scale, ShieldCheck, Search, Users, ClipboardList, CheckCircle, AlertTriangle, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import PageWrapper from '../Shared/PageWrapper';
 import PageHero from '../Shared/PageHero';
@@ -21,54 +21,48 @@ export default function Services() {
   const services = [
     {
       icon: Users,
-      title: "Legal Consultation",
-      desc: "Comprehensive advisory on business structuring, regulatory compliance, and risk mitigation.",
-      benefits: ["Strategic Foresight", "Risk Assessment", "Compliance Checks"]
+      title: "Legal Consultation & Opinion",
+      desc: "Independent and practical legal advice on complex legal questions, disputes, transactions and regulatory issues.",
+      benefits: ["Independent Advice", "Risk Analysis", "Regulatory Guidance"]
     },
     {
       icon: Scale,
-      title: "Litigation Support",
-      desc: "Robust representation across all judicial tiers, focusing on commercial and civil disputes.",
-      benefits: ["Trial Preparation", "Appellate Strategy", "Expert Testimony"]
+      title: "Litigation & Dispute Resolution",
+      desc: "Strategic assistance in negotiation, mediation, conciliation and arbitration with the objective of resolving disputes efficiently wherever possible.",
+      benefits: ["Strategic Negotiation", "Mediation & Conciliation", "Efficient Settlements"]
     },
     {
       icon: Briefcase,
-      title: "Corporate Advisory",
-      desc: "End-to-end legal support for M&A, joint ventures, and corporate restructuring.",
-      benefits: ["Deal Structuring", "Negotiation", "Regulatory Filings"]
+      title: "Corporate & Business Legal Support",
+      desc: "Legal assistance to businesses and organisations in relation to contracts, disputes, regulatory matters, compliance and litigation management.",
+      benefits: ["Contract Drafting & Review", "Corporate Governance", "Compliance Audits"]
     },
     {
-      icon: Search,
-      title: "Due Diligence",
-      desc: "Meticulous investigation and legal audits for mergers, acquisitions, and major investments.",
-      benefits: ["Asset Verification", "Liability Assessment", "IP Audits"]
+      icon: AlertTriangle,
+      title: "Emergency Legal Assistance",
+      desc: "Time-sensitive legal intervention in matters involving arrest, urgent injunctions, demolition, eviction, coercive administrative action and other circumstances requiring immediate legal strategy.",
+      benefits: ["Urgent Injunctions", "Arrest & Eviction Defence", "24/7 Rapid Response"]
     },
     {
-      icon: FileText,
-      title: "Contract Drafting",
-      desc: "Precise drafting, reviewing, and negotiation of complex commercial agreements.",
-      benefits: ["Clarity & Precision", "Loophole Closure", "Dispute Prevention"]
-    },
-    {
-      icon: ShieldCheck,
-      title: "Regulatory Compliance",
-      desc: "Ensuring your business operations adhere to complex domestic and international laws.",
-      benefits: ["Policy Review", "Data Protection", "Anti-Bribery (FCPA/UKBA)"]
+      icon: Award,
+      title: "Appeals & Higher Court Strategy",
+      desc: "Assistance in developing and implementing litigation strategy for appeals, revisions, writ proceedings, Special Leave Petitions and other proceedings before superior courts.",
+      benefits: ["Writ Proceedings", "Special Leave Petitions", "Appellate Court Advocacy"]
     }
   ];
 
   return (
     <PageWrapper title="Our Services">
       <PageHero 
-        title="Comprehensive Legal Services."
-        subtitle="We provide elite, end-to-end legal solutions tailored for corporations, financial institutions, and high-net-worth individuals."
+        title="Services"
+        subtitle="Legal Services Designed Around Your Needs. NYATI Law Chamber provides end-to-end legal services with a focus on clarity, strategy, advocacy and effective resolution."
       />
 
       {/* Main Services Grid */}
       <section className="landing-section">
         <div className="section-header">
           <motion.h2 className="section-title" variants={fadeInUp} initial="initial" whileInView="whileInView">How We Assist You</motion.h2>
-          <motion.p className="section-subtitle" variants={fadeInUp} initial="initial" whileInView="whileInView">Precision engineered legal services for complex challenges.</motion.p>
+          <motion.p className="section-subtitle" variants={fadeInUp} initial="initial" whileInView="whileInView">Tailored legal services for individual and corporate requirements.</motion.p>
         </div>
         
         <motion.div className="grid-3" variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-50px" }}>
@@ -103,8 +97,8 @@ export default function Services() {
           >
             <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'var(--bg-primary)', border: '1px solid var(--border)', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '3rem' }}>
               <div style={{ position: 'relative', zIndex: 2 }}>
-                <h3 className="card-title text-primary-gold mb-4 text-3xl" style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>The Justice Difference</h3>
-                <p className="card-text" style={{ fontSize: '1.1rem', lineHeight: 1.6 }}>Unlike traditional firms that react to legal issues, we proactively engineer strategies to prevent them. Our services are designed not just to defend, but to advance your strategic objectives.</p>
+                <h3 className="card-title text-primary-gold mb-4 text-3xl" style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>The NYATI Difference</h3>
+                <p className="card-text" style={{ fontSize: '1.1rem', lineHeight: 1.6 }}>At NYATI, we believe in end-to-end legal support that is practical and legally sustainable. We listen, analyze, and strategize to protect our client's interests and long-term objectives.</p>
               </div>
               <ClipboardList size={200} color="var(--primary-gold)" opacity={0.05} style={{ position: 'absolute', right: '-20px', bottom: '-20px' }} />
             </div>
