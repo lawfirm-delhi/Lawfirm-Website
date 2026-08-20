@@ -27,39 +27,75 @@ export default function FAQ() {
   const faqs = [
     { 
       id: 1, 
-      category: "NYATI Firm Info", 
-      q: "Why did PK Sinha and Associates change its name to NYATI?", 
-      a: "After 19 successful years of practice, our name transition to NYATI reflects our growth and a modernized, forward-thinking approach to modern jurisprudence. While our name has evolved to represent swift, definitive justice and integrated consultancy, our founding leadership under Advocate Pankaj Sinha, our team, and our core values remain entirely unchanged." 
+      category: "Practice & Firm", 
+      q: "What areas of law does NYATI Law Chamber practise?", 
+      a: "NYATI has a broad litigation and legal practice covering civil, criminal, constitutional, commercial, corporate, property, service, regulatory and administrative matters, along with arbitration, mediation and other dispute-resolution mechanisms." 
     },
     { 
       id: 2, 
-      category: "NYATI Firm Info", 
-      q: "What types of courts do you practice in?", 
-      a: "We offer comprehensive, end-to-end legal representation. Our team actively practices across all tiers of the judiciary, including the High Courts, District & Sessions Courts, and specialized tribunals like the Central Administrative Tribunal (CAT)." 
+      category: "Practice & Firm", 
+      q: "Where is NYATI Law Chamber located?", 
+      a: "NYATI Law Chamber is based in New Delhi and undertakes matters before courts, tribunals and authorities in Delhi and, through appropriate professional arrangements, other jurisdictions." 
     },
     { 
       id: 3, 
-      category: "Consultations", 
-      q: "How do I schedule an initial consultation with Advocate Pankaj Sinha or the team?", 
-      a: "You can easily request a consultation by filling out the 'Contact Us' form on our website, sending an email, or calling our office directly during operational hours. Our case management team will review your details and get back to you within 24 to 48 business hours." 
+      category: "Practice & Firm", 
+      q: "Does NYATI represent clients before the Supreme Court of India?", 
+      a: "Yes. The Firm's founding directors have experience in matters before the Supreme Court of India, as well as the Delhi High Court, various High Courts, District Courts, Tribunals and other judicial and quasi-judicial authorities." 
     },
     { 
       id: 4, 
       category: "Consultations", 
-      q: "Does filling out the online consultation form establish an attorney-client relationship?", 
-      a: "No. Filling out the form is an initial request for a consultation so our team can evaluate your case. A formal attorney-client relationship is only established once we formally agree to take your case and a legal vakalatnama or engagement agreement is signed." 
+      q: "Can I consult NYATI before filing a case?", 
+      a: "Yes. In fact, early legal consultation can be extremely valuable. We can assess the legal position, available remedies, potential risks, documentation and appropriate litigation or settlement strategy before proceedings are initiated." 
     },
     { 
       id: 5, 
-      category: "Practice Areas", 
-      q: "I am a government employee facing a department dispute. Can NYATI help me?", 
-      a: "Yes, absolutely. Service law is one of our core pillars of expertise. We have nearly two decades of experience representing government and public sector employees before the Central Administrative Tribunal (CAT) for matters concerning promotions, pensions, charge sheets, and wrongful termination." 
+      category: "Consultations", 
+      q: "Does NYATI handle urgent legal matters?", 
+      a: "Yes. Subject to the nature of the matter, we assist with urgent legal situations including bail, arrest-related matters, urgent injunctions, eviction or demolition issues, coercive administrative action and other time-sensitive legal proceedings." 
     },
     { 
       id: 6, 
-      category: "Confidentiality", 
-      q: "Will my case details and documents remain confidential?", 
-      a: "Security and client confidentiality are fundamental to our firm's philosophy. Any information, case history, or documentation shared with NYATI—whether through our website or during an in-person meeting—is protected by strict privacy policies and attorney-client privilege." 
+      category: "Practice & Firm", 
+      q: "Does NYATI provide legal opinions?", 
+      a: "Yes. The Firm provides legal opinions and advisory services on matters falling within its areas of practice, based upon the facts and documents made available for consideration." 
+    },
+    { 
+      id: 7, 
+      category: "Practice & Firm", 
+      q: "Does NYATI handle matters outside Delhi?", 
+      a: "Yes. Depending upon the nature of the matter and applicable professional requirements, NYATI can coordinate representation and legal assistance in other jurisdictions through its professional network and local counsel arrangements." 
+    },
+    { 
+      id: 8, 
+      category: "Practice & Firm", 
+      q: "Does the Firm handle arbitration and mediation?", 
+      a: "Yes. NYATI assists clients with arbitration, mediation, conciliation and related court proceedings, including interim measures, appointment of arbitrators, challenges and enforcement-related proceedings." 
+    },
+    { 
+      id: 9, 
+      category: "Engagement & Fees", 
+      q: "How do I engage NYATI for a legal matter?", 
+      a: "You may contact the Firm through the contact details provided on this website. After understanding the nature of the matter and reviewing the relevant information and documents, the Firm can advise you regarding the appropriate legal course of action." 
+    },
+    { 
+      id: 10, 
+      category: "Engagement & Fees", 
+      q: "Will my information remain confidential?", 
+      a: "Client confidentiality and professional responsibility are fundamental to the lawyer-client relationship. Information shared with the Firm is handled with appropriate professional care and in accordance with applicable law and professional obligations." 
+    },
+    { 
+      id: 11, 
+      category: "Engagement & Fees", 
+      q: "How are legal fees determined?", 
+      a: "Professional fees depend upon factors including the nature and complexity of the matter, the forum, the work involved, the urgency and the anticipated duration of the engagement. The applicable fee structure will be discussed with the client before engagement, subject to applicable professional rules." 
+    },
+    { 
+      id: 12, 
+      category: "Engagement & Fees", 
+      q: "Does contacting NYATI automatically create a lawyer-client relationship?", 
+      a: "No. An initial enquiry or communication does not, by itself, constitute formal engagement or establish an advocate-client relationship. Such a relationship arises only upon appropriate acceptance of the engagement and completion of the necessary formalities." 
     }
   ];
 
@@ -74,7 +110,7 @@ export default function FAQ() {
     <PageWrapper>
       <PageHero 
         title="Frequently Asked Questions" 
-        subtitle="Clear answers to common inquiries regarding our services, processes, and engagement models."
+        subtitle="Frequently Asked Questions about NYATI Law Chamber's services, consultations, fees, and client confidentiality."
       />
 
       <section className="faq-section">
