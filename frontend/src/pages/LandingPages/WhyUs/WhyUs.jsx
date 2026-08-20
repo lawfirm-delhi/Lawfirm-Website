@@ -85,16 +85,16 @@ export default function WhyUs() {
           <motion.div variants={fadeInUp} initial="initial" whileInView="whileInView" viewport={{ once: true }} style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <h2 className="section-title" style={{ textAlign: 'center' }}>Our Philosophy</h2>
             <div style={{ width: '60px', height: '3px', background: 'var(--primary-gold)', marginBottom: '2rem' }}></div>
-            <p className="card-text mb-4" style={{ fontSize: '1.15rem', marginBottom: '1.5rem', lineHeight: 1.8 }}>
-              At NYATI, our philosophy is anchored in the balance of <strong>Empathy and Assertiveness</strong>.
+            <p className="card-text mb-4" style={{ fontSize: '1.25rem', fontWeight: 600, color: 'var(--primary-gold)', marginBottom: '1.5rem', lineHeight: 1.8 }}>
+              Understand. Strategize. Advocate. Resolve.
             </p>
-            <p className="card-text mb-6" style={{ marginBottom: '2rem', lineHeight: 1.8 }}>
-              We believe that every client deserves a listening ear and an individualised strategy, backed by an aggressive, intellectually sharp defense in the courtroom. For 19 years, our guiding principle has been that justice is not just a destination, but a meticulous process of ethical practice, thorough research, and unyielding perseverance.
+            <p className="card-text mb-6" style={{ marginBottom: '2rem', lineHeight: 1.8, fontSize: '1.1rem' }}>
+              We listen before we advise, analyze before we act and strategize before we litigate. Every matter is approached with the objective of protecting our client's legal rights, interests and long-term objectives.
             </p>
-            <ul style={{ listStyle: 'none', padding: 0, display: 'inline-flex', flexDirection: 'column', alignItems: 'flex-start', gap: '1rem' }}>
-              {['Empathy & Understanding', 'Assertive Courtroom Defense', 'Meticulous Ethical Process'].map((item, i) => (
-                <li key={i} style={{ display: 'flex', alignItems: 'center', color: 'var(--heading)', fontSize: '1.1rem', fontWeight: 600 }}>
-                  <CheckCircle size={22} color="var(--primary-gold)" style={{ marginRight: '1rem' }} />
+            <ul style={{ listStyle: 'none', padding: 0, display: 'inline-flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', gap: '2rem' }}>
+              {['Understand', 'Strategize', 'Advocate', 'Resolve'].map((item, i) => (
+                <li key={i} style={{ display: 'flex', alignItems: 'center', color: 'var(--heading)', fontSize: '1.15rem', fontWeight: 600 }}>
+                  <CheckCircle size={22} color="var(--primary-gold)" style={{ marginRight: '0.75rem' }} />
                   {item}
                 </li>
               ))}
