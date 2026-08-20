@@ -55,10 +55,7 @@ function LawyerCard({ lawyer }) {
           <h3 className="card-title" style={{ marginBottom: '0.2rem' }}>{lawyer.name}</h3>
           <p style={{ color: 'var(--primary-gold)', fontWeight: 600, fontSize: '0.9rem', marginBottom: '1.5rem', letterSpacing: '1px', textTransform: 'uppercase' }}>{lawyer.designation}</p>
           
-          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingTop: '1.5rem', borderTop: '1px solid var(--border)', marginTop: 'auto' }}>
-            <div style={{ display: 'flex', gap: '1rem' }}>
-              <a href={`mailto:${lawyer.email}`} style={{ color: 'var(--muted)' }}><Mail size={18} /></a>
-            </div>
+          <div style={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center', paddingTop: '1.5rem', borderTop: '1px solid var(--border)', marginTop: 'auto' }}>
             <Link to={`/team/${lawyer.id}`} style={{ color: 'var(--primary-gold)', fontSize: '0.9rem', display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 500 }}>
               View Profile <ArrowRight size={16} />
             </Link>

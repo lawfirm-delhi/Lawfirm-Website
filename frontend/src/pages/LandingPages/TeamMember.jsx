@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Mail, Phone } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import './TeamMember.css';
 
 const teamData = {
@@ -85,20 +85,6 @@ export default function TeamMember() {
                 alt={member.name} 
                 style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: member.objectPosition || 'center', borderRadius: '50%' }} 
               />
-            </div>
-            <div className="profile-contact">
-              {member.email && (
-                <a href={`mailto:${member.email}`} className="contact-item">
-                  <Mail size={18} />
-                  {member.email}
-                </a>
-              )}
-              {member.phone && (
-                <a href={`tel:${member.phone}`} className="contact-item">
-                  <Phone size={18} />
-                  {member.phone}
-                </a>
-              )}
             </div>
           </div>
           
