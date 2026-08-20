@@ -69,19 +69,7 @@ export default function Services() {
             <motion.div key={idx} className="premium-card" variants={fadeInUp}>
               <svc.icon className="card-icon" />
               <h3 className="card-title">{svc.title}</h3>
-              <p className="card-text mb-6" style={{ marginBottom: '2rem' }}>{svc.desc}</p>
-              
-              <div style={{ marginTop: 'auto', borderTop: '1px solid var(--border)', paddingTop: '1.5rem' }}>
-                <h4 style={{ color: 'var(--primary-gold)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '1rem' }}>Key Benefits</h4>
-                <ul style={{ listStyle: 'none', padding: 0 }}>
-                  {svc.benefits.map((benefit, bIdx) => (
-                    <li key={bIdx} style={{ display: 'flex', alignItems: 'center', marginBottom: '0.5rem', color: 'var(--muted)', fontSize: '0.9rem' }}>
-                      <CheckCircle size={14} color="var(--primary-gold)" style={{ marginRight: '0.5rem' }} />
-                      {benefit}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <p className="card-text mb-6" style={{ marginBottom: 0 }}>{svc.desc}</p>
             </motion.div>
           ))}
         </motion.div>
