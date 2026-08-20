@@ -75,41 +75,6 @@ export default function Services() {
         </motion.div>
       </section>
 
-      {/* Comparison/Approach Section */}
-      <section className="landing-section alt">
-        <div className="grid-2">
-          <motion.div 
-            variants={fadeInUp} initial="initial" whileInView="whileInView" viewport={{ once: true }}
-            style={{ position: 'relative', height: '100%', minHeight: '400px', borderRadius: '16px', overflow: 'hidden' }}
-          >
-            <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'var(--bg-primary)', border: '1px solid var(--border)', borderRadius: '16px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '3rem' }}>
-              <div style={{ position: 'relative', zIndex: 2 }}>
-                <h3 className="card-title text-primary-gold mb-4 text-3xl" style={{ fontSize: '2rem', marginBottom: '1.5rem' }}>The NYATI Difference</h3>
-                <p className="card-text" style={{ fontSize: '1.1rem', lineHeight: 1.6 }}>At NYATI, we believe in end-to-end legal support that is practical and legally sustainable. We listen, analyze, and strategize to protect our client's interests and long-term objectives.</p>
-              </div>
-              <ClipboardList size={200} color="var(--primary-gold)" opacity={0.05} style={{ position: 'absolute', right: '-20px', bottom: '-20px' }} />
-            </div>
-          </motion.div>
-          <motion.div variants={fadeInUp} initial="initial" whileInView="whileInView" viewport={{ once: true }}>
-            <h2 className="section-title text-left" style={{ textAlign: 'left' }}>Our Approach</h2>
-            <div style={{ width: '60px', height: '3px', background: 'var(--primary-gold)', marginBottom: '2rem' }}></div>
-            
-            <div style={{ marginBottom: '2rem' }}>
-              <h4 style={{ color: 'var(--heading)', fontSize: '1.2rem', marginBottom: '0.5rem' }}>1. Initial Assessment</h4>
-              <p style={{ color: 'var(--muted)' }}>We conduct a deep dive into your business operations and the specific legal challenges you face.</p>
-            </div>
-            <div style={{ marginBottom: '2rem' }}>
-              <h4 style={{ color: 'var(--heading)', fontSize: '1.2rem', marginBottom: '0.5rem' }}>2. Strategic Blueprinting</h4>
-              <p style={{ color: 'var(--muted)' }}>Our partners draft a bespoke legal blueprint outlining the precise steps, timelines, and resources required.</p>
-            </div>
-            <div style={{ marginBottom: '2rem' }}>
-              <h4 style={{ color: 'var(--heading)', fontSize: '1.2rem', marginBottom: '0.5rem' }}>3. Aggressive Execution</h4>
-              <p style={{ color: 'var(--muted)' }}>Whether in the boardroom or the courtroom, we execute the strategy with relentless precision.</p>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* CTA */}
       <section className="landing-section text-center">
         <motion.div variants={fadeInUp} initial="initial" whileInView="whileInView">

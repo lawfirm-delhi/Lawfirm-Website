@@ -1769,3 +1769,7 @@ tr:hover {
     text-align: center;
   }
 }
+
+p, .card-text, .profile-bio, .hero-subtitle, .section-subtitle, .about-text {
+  text-align: justify;
+}
