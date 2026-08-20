@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Star, Play, Quote, Award, Scale, Briefcase, FileText } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Quote } from 'lucide-react';
 import PageWrapper from '../Shared/PageWrapper';
 import PageHero from '../Shared/PageHero';
 
@@ -17,26 +16,20 @@ const fadeInUp = {
   transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] }
 };
 
-function TestimonialCard({ name, role, company, practiceArea, text, rating = 5 }) {
+function TestimonialCard({ text, clientType }) {
   return (
-    <motion.div className="premium-card" variants={fadeInUp} style={{ position: 'relative' }}>
+    <motion.div className="premium-card" variants={fadeInUp} style={{ position: 'relative', display: 'flex', flexDirection: 'column', height: '100%' }}>
       <Quote size={40} color="var(--primary-gold)" opacity={0.15} style={{ position: 'absolute', top: '1.5rem', right: '1.5rem' }} />
-      <div style={{ display: 'flex', marginBottom: '1.5rem' }}>
-        {[...Array(rating)].map((_, i) => (
-          <Star key={i} size={16} fill="var(--primary-gold)" color="var(--primary-gold)" style={{ marginRight: '4px' }} />
-        ))}
-      </div>
-      <p className="card-text mb-6" style={{ fontSize: '1.05rem', fontStyle: 'italic', lineHeight: 1.7 }}>
+      <p className="card-text mb-6" style={{ fontSize: '1.1rem', fontStyle: 'italic', lineHeight: 1.8, marginBottom: '2rem', flexGrow: 1 }}>
         "{text}"
       </p>
-      <div style={{ display: 'flex', alignItems: 'center', marginTop: 'auto' }}>
-        <div style={{ width: '50px', height: '50px', borderRadius: '50%', background: 'var(--bg-tertiary)', border: '2px solid var(--primary-gold)', marginRight: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary-gold)', fontWeight: 'bold' }}>
-          {name.charAt(0)}
+      <div style={{ display: 'flex', alignItems: 'center', borderTop: '1px solid var(--border)', paddingTop: '1.5rem' }}>
+        <div style={{ width: '45px', height: '45px', borderRadius: '50%', background: 'rgba(197, 160, 89, 0.1)', marginRight: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--primary-gold)', fontWeight: 'bold' }}>
+          C
         </div>
         <div>
-          <h4 style={{ color: 'var(--heading)', marginBottom: '0.2rem' }}>{name}</h4>
-          <p style={{ color: 'var(--muted)', fontSize: '0.85rem' }}>{role}{company ? `, ${company}` : ''}</p>
-          <p style={{ color: 'var(--primary-gold)', fontSize: '0.8rem', marginTop: '0.2rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>{practiceArea}</p>
+          <h4 style={{ color: 'var(--heading)', marginBottom: '0.1rem', fontSize: '1.05rem' }}>Client</h4>
+          <p style={{ color: 'var(--primary-gold)', fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '0.5px' }}>{clientType}</p>
         </div>
       </div>
     </motion.div>
@@ -45,110 +38,65 @@ function TestimonialCard({ name, role, company, practiceArea, text, rating = 5 }
 
 export default function Testimonials() {
   const reviews = [
-    { name: "Robert Caldwell", role: "CEO", company: "Meridian Tech", practiceArea: "Corporate M&A", text: "NYATI executed our cross-border acquisition with flawless precision. Their strategic foresight saved us millions in potential liabilities." },
-    { name: "Elena Rostova", role: "Founder", company: "Rostova Holdings", practiceArea: "Real Estate", text: "When the zoning board rejected our $500M development, NYATI stepped in. Not only did they win the appeal, they secured favorable terms for future expansions." },
-    { name: "David Chen", role: "Private Client", practiceArea: "Tax Controversy", text: "The IRS audit was a nightmare until I retained this firm. Their tax controversy team handled everything and reduced my penalty exposure to zero." },
-    { name: "Sarah Jenkins", role: "General Counsel", company: "AeroDynamics", practiceArea: "Intellectual Property", text: "Their IP litigation team successfully defended our core patents against a major competitor. Aggressive, highly prepared, and incredibly strategic." },
-    { name: "Marcus Thorne", role: "Managing Director", company: "Thorne Capital", practiceArea: "Arbitration", text: "In our ICC arbitration in Geneva, their partners out-maneuvered opposing counsel at every turn. A masterclass in international dispute resolution." },
-    { name: "Dr. Alistair Webb", role: "Chief of Surgery", practiceArea: "White Collar Defense", text: "Confidentiality and integrity were my highest priorities. NYATI handled my case with absolute discretion and secured an unconditional dismissal." }
-  ];
-
-  const landmarkCases = [
     {
-      title: "Union of India v. Sharma & Ors.",
-      category: "Service Law (CAT & High Court)",
-      description: "Represented senior administrative officers before the Central Administrative Tribunal (CAT) in a complex retrospective seniority and promotion dispute, establishing key guidelines on administrative promotions.",
-      outcome: "Unconditional Relief Secured",
-      icon: Scale
+      text: "The team demonstrated exceptional professionalism, preparedness and commitment throughout the matter. Their ability to understand the complexities of the case and provide clear legal guidance gave us considerable confidence.",
+      clientType: "Civil Litigation"
     },
     {
-      title: "Meridian Tech Cross-Border Acquisition",
-      category: "Corporate M&A",
-      description: "Advised on a multi-jurisdictional merger valued at over ₹1,200 Crores, structuring the deal flow to resolve complex cross-border intellectual property ownership issues and regulatory clearances.",
-      outcome: "Merger Completed successfully",
-      icon: Briefcase
+      text: "What stood out was the personal attention given to the matter. The legal position was explained clearly at every stage, and the team remained accessible throughout the proceedings.",
+      clientType: "Commercial Dispute"
     },
     {
-      title: "Delhi Commercial Corridor Rezoning Appeal",
-      category: "Real Estate & Infrastructure",
-      description: "Successfully appealed a commercial zoning restriction on behalf of a major developer, securing building permissions for a prime commercial corridor development project valued at ₹500 Crores.",
-      outcome: "Zoning Board Rejection Overturned",
-      icon: FileText
+      text: "The Firm approached the matter strategically and with complete diligence. Their courtroom experience and attention to detail made a significant difference.",
+      clientType: "Constitutional Matter"
     }
   ];
 
   return (
-    <PageWrapper title="Client Success Stories">
+    <PageWrapper title="Testimonials">
       <PageHero 
-        title="Results That Speak."
-        subtitle="We measure our success not by the hours we bill, but by the decisive victories we secure for our clients."
+        title="Testimonials"
+        subtitle="At NYATI, we value the trust placed in us by our clients. Every matter represents not merely a legal dispute, but a person, family, business or institution seeking guidance and representation. Our client relationships are built upon trust, accessibility, professional integrity and commitment."
       />
 
-      {/* Landmark Cases */}
-      <section className="landing-section">
+      {/* Main Testimonials Grid */}
+      <section className="landing-section" style={{ background: 'var(--bg-primary)' }}>
         <div className="section-header">
-          <motion.h2 className="section-title" variants={fadeInUp} initial="initial" whileInView="whileInView">Landmark Cases & Victories</motion.h2>
-          <motion.p className="section-subtitle" variants={fadeInUp} initial="initial" whileInView="whileInView">Decisive outcomes secured through meticulous research and courtroom expertise.</motion.p>
+          <motion.h2 className="section-title" variants={fadeInUp} initial="initial" whileInView="whileInView">What Our Clients Say</motion.h2>
+          <motion.p className="section-subtitle" variants={fadeInUp} initial="initial" whileInView="whileInView">Feedback and reflections from our client relationships.</motion.p>
         </div>
-        <div className="grid-3">
-          {landmarkCases.map((caseItem, idx) => (
-            <motion.div 
-              key={idx}
-              variants={fadeInUp} 
-              initial="initial" 
-              whileInView="whileInView" 
-              viewport={{ once: true }}
-              className="premium-card"
-              style={{ display: 'flex', flexDirection: 'column', height: '100%' }}
-            >
-              <div className="card-icon" style={{ color: 'var(--primary-gold)', marginBottom: '1.5rem' }}>
-                <caseItem.icon size={40} strokeWidth={1} />
-              </div>
-              <span style={{ fontSize: '0.85rem', textTransform: 'uppercase', letterSpacing: '1px', color: 'var(--primary-gold)', fontWeight: 600, marginBottom: '0.75rem', display: 'block' }}>
-                {caseItem.category}
-              </span>
-              <h3 className="card-title" style={{ fontSize: '1.35rem', color: 'var(--heading)', marginBottom: '1rem', lineHeight: 1.4 }}>
-                {caseItem.title}
-              </h3>
-              <p className="card-text" style={{ flexGrow: 1, fontSize: '0.95rem', color: 'var(--body)', lineHeight: 1.6, marginBottom: '1.5rem' }}>
-                {caseItem.description}
-              </p>
-              <div style={{ paddingTop: '1rem', borderTop: '1px solid var(--border)', fontSize: '0.9rem', color: 'var(--heading)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <span style={{ display: 'inline-block', width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--primary-gold)' }}></span>
-                Outcome: {caseItem.outcome}
-              </div>
-            </motion.div>
+        
+        <motion.div className="grid-3" variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-50px" }}>
+          {reviews.map((svc, idx) => (
+            <div key={idx}>
+              <TestimonialCard text={svc.text} clientType={svc.clientType} />
+            </div>
           ))}
+        </motion.div>
+      </section>
+
+      {/* Trust Responsibility CTA */}
+      <section className="landing-section alt" style={{ background: 'var(--bg-secondary)', borderTop: '1px solid var(--border)' }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+          <motion.h2 className="section-title" variants={fadeInUp} initial="initial" whileInView="whileInView">Your Trust Is Our Responsibility</motion.h2>
+          <div style={{ width: '60px', height: '3px', background: 'var(--primary-gold)', margin: '0 auto 2rem' }}></div>
+          <motion.p variants={fadeInUp} initial="initial" whileInView="whileInView" style={{ color: 'var(--text-secondary)', fontSize: '1.25rem', lineHeight: 1.8, marginBottom: '2rem' }}>
+            We are grateful to every client who has entrusted NYATI with their legal affairs. We remain committed to earning that trust through every matter we undertake.
+          </motion.p>
         </div>
       </section>
 
-
-
-      {/* Awards */}
-      <section className="landing-section">
-        <div className="section-header">
-          <motion.h2 className="section-title" variants={fadeInUp} initial="initial" whileInView="whileInView">Industry Recognition</motion.h2>
-        </div>
-        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '3rem', maxWidth: '900px', margin: '0 auto' }}>
-          {[
-            "Chambers Global Band 1", 
-            "Legal 500 Tier 1", 
-            "Best Lawyers in America", 
-            "IFLR1000 Top Tier"
-          ].map((award, idx) => (
-            <motion.div 
-              key={idx}
-              variants={fadeInUp}
-              initial="initial"
-              whileInView="whileInView"
-              viewport={{ once: true }}
-              style={{ textAlign: 'center', width: '200px' }}
-            >
-              <Award size={60} color="var(--primary-gold)" strokeWidth={1} style={{ margin: '0 auto 1rem' }} />
-              <h4 style={{ color: 'var(--heading)', fontSize: '1rem', fontWeight: 500 }}>{award}</h4>
-              <p style={{ color: 'var(--muted)', fontSize: '0.85rem', marginTop: '0.5rem' }}>2025 - 2026</p>
-            </motion.div>
-          ))}
+      {/* Legal Disclaimer */}
+      <section className="landing-section" style={{ background: 'var(--bg-primary)', borderTop: '1px solid var(--border)', padding: '3rem 0' }}>
+        <div style={{ maxWidth: '900px', margin: '0 auto', px: '2rem' }}>
+          <motion.p 
+            variants={fadeInUp} 
+            initial="initial" 
+            whileInView="whileInView" 
+            style={{ color: 'var(--muted)', fontSize: '0.9rem', lineHeight: 1.6, textAlign: 'center', fontStyle: 'italic' }}
+          >
+            Client testimonials displayed on the website should be published only with the appropriate consent and in compliance with applicable professional and ethical rules governing advocates.
+          </motion.p>
         </div>
       </section>
     </PageWrapper>
