@@ -90,7 +90,7 @@ export default function Team() {
       designation: 'Associate Litigation Lawyer', 
       email: 'garima040810@gmail.com',
       image: '/team/garima.jpeg',
-      objectPosition: 'center 20%'
+      objectPosition: 'center 45%'
     },
     { 
       id: 'humaira', 

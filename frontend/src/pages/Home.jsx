@@ -326,7 +326,7 @@ export default function Home() {
               {[
                 { name: 'Pankaj Sinha', slug: 'pankaj-sinha', image: 'pankaj' },
                 { name: 'Tariq Adeeb', slug: 'tariq-adeeb', image: 'tariq', backgroundPosition: 'center 10%' },
-                { name: 'Garima', slug: 'garima', image: 'garima', backgroundPosition: 'center 20%' },
+                { name: 'Garima', slug: 'garima', image: 'garima', backgroundPosition: 'center 45%' },
                 { name: 'Humaira Salam', slug: 'humaira', image: 'humaira', backgroundPosition: 'center 20%' },
                 { name: 'Kulvinder Sehjal', slug: 'kulwinder', image: 'kulwinder', backgroundPosition: 'center 40%' }
               ].map((member, i) => (
