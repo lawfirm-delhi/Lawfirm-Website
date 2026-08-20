@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Building2, Scale, Briefcase, Calculator, Landmark, Shield, BookOpen, Search, X } from 'lucide-react';
+import { Building2, Scale, Briefcase, Calculator, Landmark, Shield, BookOpen, Search, X, Gavel, Handshake, Heart } from 'lucide-react';
 import PageWrapper from '../Shared/PageWrapper';
 import PageHero from '../Shared/PageHero';
 
@@ -23,40 +23,155 @@ export default function PracticeAreas() {
 
   const practiceAreas = [
     { 
-      id: 'corporate', icon: Building2, title: "Corporate Law", 
-      desc: "Mergers, acquisitions, corporate governance, and complex commercial transactions for Fortune 500 companies.",
-      details: "Our corporate practice is unparalleled. We advise on restructuring, compliance, and international trade.",
-      services: ["M&A", "Joint Ventures", "Corporate Restructuring", "Private Equity"]
+      id: 'civil', 
+      icon: Scale, 
+      title: "Civil Litigation", 
+      desc: "Property disputes, recovery claims, eviction matters, and contractual disagreements.",
+      details: "We represent clients across all levels of civil courts in disputes involving property title, declaration, recovery, contract enforcement, and estate partition.",
+      services: [
+        "Property and ownership disputes",
+        "Possession and eviction matters",
+        "Recovery and money claims",
+        "Injunctions and specific performance",
+        "Contractual disputes",
+        "Partition and succession disputes",
+        "Declaration and cancellation proceedings",
+        "Civil appeals and revisions",
+        "Execution proceedings"
+      ]
     },
     { 
-      id: 'litigation', icon: Scale, title: "Litigation & Disputes", 
-      desc: "High-stakes commercial litigation, class actions, and appellate advocacy in federal and state courts.",
-      details: "We have a track record of winning landmark cases that set legal precedents.",
-      services: ["Commercial Litigation", "Appellate Practice", "Class Actions", "White Collar Defense"]
+      id: 'criminal', 
+      icon: Gavel, 
+      title: "Criminal Law", 
+      desc: "Criminal trials, bail hearings, white-collar offences, and appellate representation.",
+      details: "Our criminal defense team handles everything from bail applications to trial proceedings, quashing petitions, and appeals in state and economic offences.",
+      services: [
+        "Criminal trials and proceedings",
+        "Bail and anticipatory bail",
+        "Quashing of criminal proceedings",
+        "Criminal appeals and revisions",
+        "Complaints and criminal investigations",
+        "White-collar and economic offences",
+        "Cheating, fraud and breach of trust matters",
+        "Cyber-related criminal matters",
+        "Criminal writ proceedings"
+      ]
     },
     { 
-      id: 'arbitration', icon: Briefcase, title: "Arbitration", 
-      desc: "International and domestic arbitration representing sovereign states and multinational corporations.",
-      details: "Specializing in ICC, LCIA, and SIAC arbitration rules.",
-      services: ["Investor-State Arbitration", "Commercial Arbitration", "Enforcement of Awards"]
+      id: 'constitutional', 
+      icon: Landmark, 
+      title: "Constitutional & Public Law", 
+      desc: "Writ petitions, fundamental rights protection, judicial reviews, and public interest litigation.",
+      details: "We challenge arbitrary administrative actions and represent clients before the High Courts and Supreme Court in constitutional disputes, writ matters, and civil rights actions.",
+      services: [
+        "Writ petitions",
+        "Fundamental rights matters",
+        "Constitutional challenges",
+        "Judicial review",
+        "Administrative actions",
+        "Government and regulatory decisions",
+        "Public interest matters",
+        "Service and employment-related constitutional issues"
+      ]
     },
     { 
-      id: 'taxation', icon: Calculator, title: "Taxation", 
-      desc: "Strategic tax planning, transfer pricing, and representation in complex tax controversies.",
-      details: "We help multinational corporations optimize their global tax footprint.",
-      services: ["Corporate Tax", "International Tax", "Tax Controversy", "Wealth Planning"]
+      id: 'commercial', 
+      icon: Building2, 
+      title: "Commercial & Corporate Litigation", 
+      desc: "Contractual disputes, corporate governance, insolvency matters, and commercial recoveries.",
+      details: "Providing robust advocacy in commercial courts and tribunals on matters concerning business agreements, partnerships, shareholder rights, and corporate insolvency.",
+      services: [
+        "Commercial disputes",
+        "Contractual and business disputes",
+        "Commercial recovery proceedings",
+        "Shareholder and partnership disputes",
+        "Corporate governance issues",
+        "Insolvency-related litigation",
+        "Arbitration-related court proceedings",
+        "Commercial appeals and enforcement proceedings"
+      ]
     },
     { 
-      id: 'real-estate', icon: Landmark, title: "Real Estate", 
-      desc: "Acquisitions, financing, development, and leasing of commercial real estate globally.",
-      details: "Advising REITs, developers, and institutional investors.",
-      services: ["Commercial Leasing", "Real Estate Finance", "Zoning & Land Use"]
+      id: 'property', 
+      icon: Briefcase, 
+      title: "Property & Real Estate", 
+      desc: "Landlord-tenant litigation, property due diligence, construction disputes, and title verification.",
+      details: "Advising developers, landowners, and tenants on municipal regulations, development agreements, property acquisition checks, and real estate litigation.",
+      services: [
+        "Title and ownership disputes",
+        "Land and property litigation",
+        "Landlord-tenant disputes",
+        "Eviction proceedings",
+        "Development and construction disputes",
+        "Property documentation and due diligence",
+        "Possession and injunction matters",
+        "Regulatory and municipal property disputes"
+      ]
     },
     { 
-      id: 'ip', icon: Shield, title: "Intellectual Property", 
-      desc: "Patent litigation, trademark enforcement, and IP portfolio management for tech innovators.",
-      details: "Protecting the core assets of leading technology and pharmaceutical companies.",
-      services: ["Patent Prosecution", "IP Litigation", "Trademark Registration", "Copyrights"]
+      id: 'adr', 
+      icon: Handshake, 
+      title: "Arbitration, Mediation & ADR", 
+      desc: "Appointment of arbitrators, interim measures, enforcement, and negotiated settlements.",
+      details: "Managing domestic and international arbitration proceedings, arbitrator appointments, and representing clients in mediation and pre-litigation settlements.",
+      services: [
+        "Arbitration proceedings",
+        "Appointment of arbitrators",
+        "Interim measures",
+        "Enforcement of arbitral awards",
+        "Challenges to arbitral awards",
+        "Mediation and negotiated settlements",
+        "Conciliation proceedings",
+        "Pre-litigation dispute resolution"
+      ]
+    },
+    { 
+      id: 'service', 
+      icon: BookOpen, 
+      title: "Service & Employment Law", 
+      desc: "Disciplinary proceedings, seniority disputes, termination, and service writs.",
+      details: "Specialized representation for public sector and government employees in service disputes, retirement benefits, disciplinary actions, and Central Administrative Tribunal (CAT) applications.",
+      services: [
+        "Service disputes",
+        "Disciplinary proceedings",
+        "Promotion and seniority disputes",
+        "Termination and employment disputes",
+        "Government and public-sector employment matters",
+        "Pension and retirement-related disputes",
+        "Service appeals and writ proceedings"
+      ]
+    },
+    { 
+      id: 'regulatory', 
+      icon: Shield, 
+      title: "Regulatory & Administrative Law", 
+      desc: "Statutory compliance, administrative hearings, licensing, and representation before regulators.",
+      details: "Representing organizations and individuals in licensing disputes, compliance audits, and statutory appeals before regulatory commissions and boards.",
+      services: [
+        "Regulatory compliance",
+        "Government notifications and orders",
+        "Licensing and regulatory disputes",
+        "Administrative actions",
+        "Statutory appeals and remedies",
+        "Representation before regulatory authorities"
+      ]
+    },
+    { 
+      id: 'matrimonial', 
+      icon: Heart, 
+      title: "Matrimonial, Consumer & Civil Rights", 
+      desc: "Family law, matrimonial disputes, consumer protection, and deficiency of service claims.",
+      details: "Providing advocacy in family court matters, consumer protection commissions, and seeking legal remedies for deficiency in services or civil rights violations.",
+      services: [
+        "Matrimonial Disputes",
+        "Consumer disputes",
+        "Deficiency in services",
+        "Unfair trade practices",
+        "Compensation claims",
+        "Civil rights and legal remedies",
+        "Appeals before consumer forums and higher courts"
+      ]
     }
   ];
 
@@ -68,8 +183,8 @@ export default function PracticeAreas() {
   return (
     <PageWrapper title="Practice Areas">
       <PageHero 
-        title="Our Expertise."
-        subtitle="Comprehensive legal solutions spanning across corporate, commercial, and contentious matters. We deliver strategic counsel where it matters most."
+        title="Practice Areas"
+        subtitle="Comprehensive Legal Expertise. Focused Advocacy. NYATI Law Chamber provides legal advice, representation and litigation services across a broad spectrum of practice areas."
       />
 
       <section className="landing-section">
