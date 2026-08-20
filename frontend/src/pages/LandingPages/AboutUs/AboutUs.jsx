@@ -85,6 +85,63 @@ export default function AboutUs() {
         </div>
       </section>
 
+      {/* Our Commitment */}
+      <section className="section" style={{ background: 'var(--bg-secondary)', borderTop: '1px solid var(--border)' }}>
+        <div className="container" style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
+          <motion.div
+            initial="initial"
+            whileInView="whileInView"
+            viewport={{ once: true }}
+            variants={stagger}
+          >
+            <motion.p variants={fadeInUp} className="eyebrow" style={{ color: 'var(--primary-gold)' }}>Our Commitment</motion.p>
+            <motion.h2 variants={fadeInUp} style={{ fontSize: '2.5rem', color: 'var(--heading)', marginBottom: '1.5rem' }}>Law with Purpose. Advocacy with Integrity.</motion.h2>
+            <div style={{ width: '60px', height: '3px', background: 'var(--primary-gold)', margin: '0 auto 2.5rem' }}></div>
+            
+            <motion.p variants={fadeInUp} style={{ color: 'var(--text-secondary)', fontSize: '1.15rem', lineHeight: 1.8, marginBottom: '1.5rem' }}>
+              At NYATI, we recognize that legal problems can have consequences far beyond the courtroom. They can affect businesses, livelihoods, families, reputation, property, liberty and personal futures.
+            </motion.p>
+            <motion.p variants={fadeInUp} style={{ color: 'var(--text-secondary)', fontSize: '1.15rem', lineHeight: 1.8, marginBottom: '2.5rem', fontWeight: 500 }}>
+              That is why we approach every matter with seriousness, discretion and dedication.
+            </motion.p>
+
+            <motion.div 
+              variants={fadeInUp}
+              style={{ 
+                background: 'var(--bg-primary)', 
+                border: '1px solid var(--border)', 
+                borderRadius: 'var(--radius-md)', 
+                padding: '2.5rem',
+                textAlign: 'left',
+                marginBottom: '3rem',
+                boxShadow: 'var(--shadow-sm)'
+              }}
+            >
+              <h3 style={{ fontSize: '1.3rem', color: 'var(--heading)', marginBottom: '1.5rem', borderBottom: '1px solid var(--border)', paddingBottom: '0.75rem' }}>Our commitment is simple:</h3>
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                {[
+                  "To understand your problem.",
+                  "To protect your interests.",
+                  "To provide clear legal advice.",
+                  "To build a sound strategy.",
+                  "And to advocate for you with integrity."
+                ].map((item, idx) => (
+                  <li key={idx} style={{ display: 'flex', alignItems: 'center', color: 'var(--text-secondary)', fontSize: '1.1rem' }}>
+                    <div style={{ width: '6px', height: '6px', background: 'var(--primary-gold)', borderRadius: '50%', marginRight: '12px', flexShrink: 0 }}></div>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            <motion.div variants={fadeInUp} style={{ marginTop: '2rem' }}>
+              <h4 style={{ fontSize: '1.8rem', color: 'var(--heading)', marginBottom: '0.25rem', fontFamily: 'var(--font-display)', letterSpacing: '2px' }}>NYATI</h4>
+              <p style={{ color: 'var(--primary-gold)', fontSize: '0.95rem', textTransform: 'uppercase', letterSpacing: '1px', marginBottom: '1.5rem' }}>Network for Your Advocacy, Trust and Integrity</p>
+              <p style={{ fontSize: '1.25rem', fontWeight: 600, color: 'var(--heading)', fontStyle: 'italic' }}>Your Rights. Our Responsibility.</p>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
 
     </PageWrapper>
   );
