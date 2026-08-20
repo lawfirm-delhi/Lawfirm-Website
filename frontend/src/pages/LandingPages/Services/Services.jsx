@@ -62,7 +62,6 @@ export default function Services() {
       <section className="landing-section">
         <div className="section-header">
           <motion.h2 className="section-title" variants={fadeInUp} initial="initial" whileInView="whileInView">How We Assist You</motion.h2>
-          <motion.p className="section-subtitle" variants={fadeInUp} initial="initial" whileInView="whileInView">Tailored legal services for individual and corporate requirements.</motion.p>
         </div>
         
         <motion.div className="grid-3" variants={stagger} initial="initial" whileInView="animate" viewport={{ once: true, margin: "-50px" }}>
