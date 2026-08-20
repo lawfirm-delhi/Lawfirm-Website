@@ -63,11 +63,46 @@ function StatCard({ icon: Icon, target, suffix = '', title }) {
 
 export default function WhyUs() {
   const features = [
-    { icon: Award, title: "19-Year Legacy", desc: "Under the leadership of Advocate Pankaj Sinha, our firm carries nearly two decades of courtroom excellence built during our tenure as PK Sinha and Associates." },
-    { icon: Scale, title: "Comprehensive Court Coverage", desc: "Unified representation across all tiers of the judiciary: District Courts, High Courts, and Central Administrative Tribunal (CAT)." },
-    { icon: Shield, title: "Advocacy & Consultancy", desc: "We bridge the gap between aggressive courtroom advocacy and proactive, strategic legal consultancy to save client resources." },
-    { icon: Users, title: "Specialised Tribunal Expertise", desc: "Extensive experience before the CAT makes us a preferred choice for government and public sector employees." },
-    { icon: Target, title: "Client-Centric Trust", desc: "We believe in absolute transparency, rigorous research, realistic legal assessments, and an ethical approach." }
+    { 
+      icon: Award, 
+      title: "Experience That Matters", 
+      desc: "With more than four decades of collective litigation experience at senior judicial and quasi-judicial forums, our lawyers bring practical courtroom knowledge and strategic insight to complex legal matters." 
+    },
+    { 
+      icon: Target, 
+      title: "Strategic Legal Thinking", 
+      desc: "We do not believe in a one-size-fits-all approach. Every dispute presents different facts, risks and opportunities. Our strategy is developed after understanding the client's objectives, the legal position and the broader implications of the matter." 
+    },
+    { 
+      icon: Scale, 
+      title: "Strong Litigation Practice", 
+      desc: "Our experience before the Supreme Court of India, High Courts, District Courts, Tribunals and other forums enables us to handle matters across different stages—from legal consultation and pre-litigation strategy to trial, appeal and final adjudication." 
+    },
+    { 
+      icon: Users, 
+      title: "Personalized Attention", 
+      desc: "Every client and every dispute is different. We believe that clients deserve accessibility, clarity and meaningful involvement in the legal process." 
+    },
+    { 
+      icon: Shield, 
+      title: "Integrity & Transparency", 
+      desc: "Trust is the foundation of an effective lawyer-client relationship. We maintain professional transparency in our advice, strategy, communication and conduct." 
+    },
+    { 
+      icon: Globe, 
+      title: "Multi-Dimensional Legal Expertise", 
+      desc: "Our practice extends across civil, criminal, constitutional, commercial, corporate, regulatory and administrative law, allowing us to address complex matters that may involve multiple areas of law." 
+    },
+    { 
+      icon: Clock, 
+      title: "Diligence & Responsiveness", 
+      desc: "Legal disputes often demand timely action. We place strong emphasis on preparation, documentation, deadlines, procedural compliance and timely communication." 
+    },
+    { 
+      icon: CheckCircle, 
+      title: "A Long-Term Legal Partnership", 
+      desc: "Our objective is not merely to appear in a case. We seek to understand our clients' legal requirements and remain a dependable legal partner through changing circumstances and evolving challenges." 
+    }
   ];
 
 
