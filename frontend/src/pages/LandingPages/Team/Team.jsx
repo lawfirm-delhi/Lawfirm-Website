@@ -109,7 +109,7 @@ export default function Team() {
       designation: 'Associate Litigation Lawyer', 
       email: 'lawfirm.delhi.official@gmail.com',
       image: '/team/kulwinder.jpeg',
-      objectPosition: 'center 15%'
+      objectPosition: 'center 45%'
     }
   ];
 
