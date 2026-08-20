@@ -319,16 +319,16 @@ export default function Home() {
           <div className="container">
             <div className="section-head reveal">
               <p className="eyebrow">Our Team</p>
-              <h2>The partners behind the practice.</h2>
-              <p className="section-lede">Eight practices, one bench of partners each recognised individually in their field.</p>
+              <h2>Our Team</h2>
+              <p className="section-lede">NYATI comprises experienced advocates and legal professionals who combine legal knowledge, courtroom experience, research capabilities and strategic thinking.</p>
             </div>
             <div className="team-grid" style={{ display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap', width: '100%' }}>
               {[
                 { name: 'Pankaj Sinha', slug: 'pankaj-sinha', image: 'pankaj' },
                 { name: 'Tariq Adeeb', slug: 'tariq-adeeb', image: 'tariq', backgroundPosition: 'center 10%' },
                 { name: 'Garima', slug: 'garima', image: 'garima' },
-                { name: 'Humaira', slug: 'humaira', image: 'humaira', backgroundPosition: 'center 20%' },
-                { name: 'Kulwinder', slug: 'kulwinder', image: 'kulwinder', backgroundPosition: 'center 15%' }
+                { name: 'Humaira Salam', slug: 'humaira', image: 'humaira', backgroundPosition: 'center 20%' },
+                { name: 'Kulvinder Sehjal', slug: 'kulwinder', image: 'kulwinder', backgroundPosition: 'center 15%' }
               ].map((member, i) => (
                 <Link to={`/team/${member.slug}`} className="team-card reveal" key={i} style={{ textDecoration: 'none', color: 'inherit', flex: '0 1 220px', minWidth: '200px' }}>
                   <div className="team-photo" style={{ backgroundImage: `url(/team/${member.image}.jpeg)`, backgroundSize: 'cover', backgroundPosition: member.backgroundPosition || 'center', width: '100%', aspectRatio: '1/1', borderRadius: '50%' }}></div>

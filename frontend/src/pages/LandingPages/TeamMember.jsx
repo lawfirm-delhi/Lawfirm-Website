@@ -1,80 +1,48 @@
 import React, { useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, Mail, Phone, BookOpen, Award, CheckCircle, Briefcase, Star, Users } from 'lucide-react';
+import { ArrowLeft, Mail, Phone } from 'lucide-react';
 import './TeamMember.css';
 
 const teamData = {
   'pankaj-sinha': {
     name: 'Pankaj Sinha',
-    role: 'Advocate',
+    role: 'Founding Director | Senior Litigation Counsel',
     email: 'sinhapankaj81@gmail.com',
     phone: '+91-9910247816',
     image: '/team/pankaj.jpeg',
-    bio: 'A seasoned legal professional with over 19 years of litigation experience across constitutional, civil, criminal, consumer, service, and human rights matters. Has represented clients before the Supreme Court of India, Delhi High Court, Central Administrative Tribunal (CAT), Consumer Commissions, District & Sessions Courts, and various statutory authorities. Empanelled with the Delhi High Court Legal Services Committee, Government of NCT of Delhi, and Punjab & Sind Bank. Also served as a Guest Faculty at the Faculty of Law, University of Delhi, combining extensive courtroom advocacy with academic and legal research expertise.',
-    education: [
-      'LL.B.  Campus Law Centre, Faculty of Law, University of Delhi',
-      'B.A. (History)  St. Stephen\'s College, University of Delhi',
-      'CBSE (Arts)  J.P.M. Senior Secondary School, New Delhi'
-    ],
-    expertise: ['Constitutional, Civil & Criminal Litigation', 'Consumer & Service Law', 'Human Rights & Disability Rights', 'Legal Research & Case Strategy', 'Legal Drafting (Petitions, Appeals, Writs & Written Submissions)', 'Court Advocacy & Client Representation'],
-    experience: []
-  },
-  'garima': {
-    name: 'Garima',
-    role: 'Advocate',
-    email: 'garima040810@gmail.com',
-    phone: '+91 7210067910',
-    image: '/team/garima.jpeg',
-    bio: 'A dedicated legal professional with experience in litigation, legal research, drafting, and case management. Has worked on service, civil, criminal, and medico-legal matters, with practical exposure before the Supreme Court of India, Delhi High Court, Central Administrative Tribunal (CAT), and District Courts. Skilled in drafting petitions, affidavits, appeals, and legal applications, with experience in e-filing, client counselling, and legal documentation.',
-    education: [
-      'LL.B.  Campus Law Centre, Faculty of Law, University of Delhi',
-      'B.A. (Hons.) Political Science  Indraprastha College for Women, University of Delhi',
-      'CBSE Class XII  Rajkiya Pratibha Vikas Vidyalaya, Delhi'
-    ],
-    expertise: ['Litigation Support', 'Legal Research & Case Analysis', 'Legal Drafting (Writ Petitions, Appeals, Affidavits & Applications)', 'Civil, Criminal, Service & Medico-Legal Matters', 'E-Filing & Court Documentation', 'Client Counselling & Case Management'],
-    experience: []
+    bio: 'Pankaj Sinha is a distinguished litigation lawyer with over 20 years of professional experience, known for his unwavering commitment to justice, human rights, disability rights, and the protection of vulnerable and marginalized sections of society. Throughout his extensive legal career, he has appeared before the Supreme Court of India, Delhi High Court, various High Courts, Tribunals and other judicial forums, handling complex constitutional, civil, criminal, commercial and public-law matters. His professional journey has been marked by a strong advocacy for fundamental rights, dignity, equality, access to justice and the rule of law. His two decades of practice reflect not merely extensive litigation experience but a sustained commitment to using the law as an instrument of social justice, accountability and protection of individual rights with number of Landmark cases in his account.'
   },
   'tariq-adeeb': {
     name: 'Tariq Adeeb',
-    role: 'Advocate',
+    role: 'Founding Director | Senior Litigation Counsel',
     email: 'lawfirm.delhi.official@gmail.com',
     phone: '',
     image: '/team/tariq.jpeg',
-    bio: 'A seasoned legal professional with over 20 years of experience in litigation, legal advisory, and dispute resolution. Specializes in civil, criminal, constitutional, commercial, and regulatory matters, with extensive practice before the Supreme Court of India, High Courts, Tribunals, and other judicial forums. Experienced in legal drafting, arbitration, mediation, project management, and advising government bodies on complex legal and policy issues, with a strong commitment to delivering strategic and client-focused legal solutions.',
-    education: [
-      'LL.B.  MJP Rohilkhand University',
-      'Post Graduate (Economics)  MJP Rohilkhand University (Specialization: International Trade)'
-    ],
-    expertise: ['Constitutional, Civil & Criminal Litigation', 'Arbitration, Mediation & Conciliation', 'Legal Drafting (Petitions, Contracts & Legal Instruments)', 'Banking, Insolvency & Commercial Laws', 'Intellectual Property & Foreign Exchange Laws', 'Legal Advisory, Policy Review & Case Strategy'],
-    experience: []
+    bio: 'Tariq Adeeb, is a seasoned litigation lawyer and legal consultant with over 20 years of professional experience, with a practice spanning constitutional, civil, criminal, commercial and public law before the Supreme Court of India, Delhi High Court, various High Courts, Tribunals and other judicial forums. Throughout his career, he has been recognized for his determined advocacy on behalf of deprived, marginalized and vulnerable sections of society, while simultaneously developing substantial expertise in complex commercial disputes, contractual matters, corporate and regulatory issues, and strategic legal advisory. His two decades of practice reflect a distinctive combination of courtroom advocacy, commercial acumen, governmental legal consultancy and rights-based litigation with number of Landmark cases under his umbrella.'
   },
-  'kulwinder': {
-    name: 'Kulwinder',
-    role: 'Advocate',
-    email: 'lawfirm.delhi.official@gmail.com',
-    phone: '',
-    image: '/team/kulwinder.jpeg',
-    bio: 'A dedicated LL.B. graduate and enrolled Advocate with a unique blend of legal and technology expertise, backed by 17 years of experience in IT as a Portfolio/Program Manager. Experienced in legal drafting, litigation support, and court proceedings before the Delhi High Court and District Courts. Combines strong stakeholder management, strategic problem-solving, and legal knowledge to deliver practical, client-focused legal solutions.',
-    education: [
-      'LL.B.'
-    ],
-    expertise: ['Litigation Support', 'Legal Drafting (Written Statements, Writ Petitions, Affidavits & Applications)', 'Legal Research & Case Analysis', 'Client Counselling & Case Strategy', 'Court Proceedings & Advocacy', 'Stakeholder & Project Management'],
-    experience: []
+  'garima': {
+    name: 'Garima',
+    role: 'Associate Litigation Lawyer',
+    email: 'garima040810@gmail.com',
+    phone: '+91 7210067910',
+    image: '/team/garima.jpeg',
+    bio: 'She is young dynamic lawyer who bring enthusiasm, diligence and a strong commitment to legal practice. She is actively involved in legal research, drafting pleadings, case preparation, court proceedings, documentation and client coordination, while working closely with senior advocates. Her professionalism, cooperative approach and readiness to assist the team contribute significantly to the smooth and effective functioning of the litigation practice.'
   },
   'humaira': {
-    name: 'Humaira',
-    role: 'Advocate',
+    name: 'Humaira Salam',
+    role: 'Associate Litigation Lawyer',
     email: 'lawfirm.delhi.official@gmail.com',
     phone: '',
     image: '/team/humaira.jpeg',
-    bio: 'A dedicated legal professional with experience in litigation, legal research, drafting, and dispute resolution. Has assisted in matters before the Supreme Court, Delhi High Court, NCLT, Consumer Commissions, and District Courts. Skilled in preparing petitions, appeals, written submissions, and case briefs, with a commitment to delivering practical, strategic, and client-focused legal solutions.',
-    education: [
-      'LL.B.  Campus Law Centre, Faculty of Law, University of Delhi',
-      'M.Com  Dr. Ram Manohar Lohia Avadh University',
-      'B.Com  Dr. Ram Manohar Lohia Avadh University'
-    ],
-    expertise: ['Litigation Support', 'Legal Research & Case Analysis', 'Legal Drafting (Petitions, Appeals & Written Submissions)', 'Civil, Criminal & Consumer Law', 'Client Counselling & Case Strategy'],
-    experience: []
+    bio: 'She is a young hardworking and result oriented lawyer who form an integral part of the firm’s professional team. She has gained practical exposure to court proceedings, legal research, drafting of pleadings and applications, preparation of case briefs, compilation of records and day-to-day litigation management which demonstrate a keen willingness to learn and develop her advocacy skills while ensuring that matters are prepared with diligence and precision.'
+  },
+  'kulwinder': {
+    name: 'Kulvinder Sehjal',
+    role: 'Associate Litigation Lawyer',
+    email: 'lawfirm.delhi.official@gmail.com',
+    phone: '',
+    image: '/team/kulwinder.jpeg',
+    bio: 'An enthusiastic member of the legal team with 17 years of IT experience who brings an exceptional hunger to learn, grow and understand every aspect of the legal profession. With an open mind and a strong willingness to take on new responsibilities, she is keen to gain practical exposure to legal research, drafting, court proceedings, case preparation, and client interaction and litigation strategy. Her curiosity, dedication and readiness to learn make her a promising addition to the team, with the potential to develop into a well-rounded and accomplished litigation professional.'
   }
 };
 
@@ -114,14 +82,18 @@ export default function TeamMember() {
               />
             </div>
             <div className="profile-contact">
-              <a href={`mailto:${member.email}`} className="contact-item">
-                <Mail size={18} />
-                {member.email}
-              </a>
-              <a href={`tel:${member.phone}`} className="contact-item">
-                <Phone size={18} />
-                {member.phone}
-              </a>
+              {member.email && (
+                <a href={`mailto:${member.email}`} className="contact-item">
+                  <Mail size={18} />
+                  {member.email}
+                </a>
+              )}
+              {member.phone && (
+                <a href={`tel:${member.phone}`} className="contact-item">
+                  <Phone size={18} />
+                  {member.phone}
+                </a>
+              )}
             </div>
           </div>
           
@@ -129,88 +101,11 @@ export default function TeamMember() {
             <h1 className="profile-name">{member.name}</h1>
             <p className="profile-role">{member.role}</p>
             
-            <div className="profile-section">
+            <div className="profile-section" style={{ marginTop: '2rem' }}>
               <h2>Biography</h2>
-              <p className="profile-bio">{member.bio}</p>
-            </div>
-            
-            <div className="profile-grid">
-              <div className="profile-column">
-                <div className="profile-section">
-                  <h2><BookOpen size={20} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'text-bottom', color: 'var(--primary-gold)' }}/> Education</h2>
-                  <ul className="profile-list">
-                    {member.education.map((edu, idx) => (
-                      <li key={idx}>{edu}</li>
-                    ))}
-                  </ul>
-                </div>
-                
-                {member.experience && (
-                  <div className="profile-section">
-                    <h2><Briefcase size={20} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'text-bottom', color: 'var(--primary-gold)' }}/> Work Experience</h2>
-                    <ul className="profile-list">
-                      {member.experience.map((exp, idx) => (
-                        <li key={idx}>{exp}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                
-                {member.extraCurricular && (
-                  <div className="profile-section">
-                    <h2><Award size={20} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'text-bottom', color: 'var(--primary-gold)' }}/> Extra-Curricular Activities</h2>
-                    <ul className="profile-list">
-                      {member.extraCurricular.map((item, idx) => (
-                        <li key={idx}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-              </div>
-              
-              <div className="profile-column">
-                <div className="profile-section">
-                  <h2><CheckCircle size={20} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'text-bottom', color: 'var(--primary-gold)' }}/> Practice Areas</h2>
-                  <div className="expertise-tags">
-                    {member.expertise.map((exp, idx) => (
-                      <span key={idx} className="expertise-tag">{exp}</span>
-                    ))}
-                  </div>
-                </div>
-
-                {member.positions && (
-                  <div className="profile-section">
-                    <h2><Users size={20} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'text-bottom', color: 'var(--primary-gold)' }}/> Positions of Responsibility</h2>
-                    <ul className="profile-list">
-                      {member.positions.map((item, idx) => (
-                        <li key={idx}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-                
-                {member.miscellaneous && (
-                  <div className="profile-section">
-                    <h2><Star size={20} style={{ display: 'inline', marginRight: '8px', verticalAlign: 'text-bottom', color: 'var(--primary-gold)' }}/> Miscellaneous</h2>
-                    <ul className="profile-list">
-                      {member.miscellaneous.map((item, idx) => (
-                        <li key={idx}>{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {member.hobbies && (
-                  <div className="profile-section">
-                    <h2>Hobbies</h2>
-                    <div className="expertise-tags">
-                      {member.hobbies.map((hobby, idx) => (
-                        <span key={idx} className="expertise-tag">{hobby}</span>
-                      ))}
-                    </div>
-                  </div>
-                )}
-              </div>
+              <p className="profile-bio" style={{ fontSize: '1.15rem', lineHeight: 1.8, color: 'var(--text-secondary)' }}>
+                {member.bio}
+              </p>
             </div>
           </div>
         </div>

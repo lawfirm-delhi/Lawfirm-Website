@@ -71,74 +71,59 @@ function LawyerCard({ lawyer }) {
 
 export default function Team() {
   const lawyers = [
-      { 
-        id: 'pankaj-sinha', 
-        name: 'Pankaj Sinha', 
-        designation: 'Advocate', 
-        practiceArea: 'Litigation, Civil & Criminal', 
-        experience: '19+ Years', 
-        education: 'L.L.B Campus Law Centre, New Delhi',
-        email: 'sinhapankaj81@gmail.com',
-        image: '/team/pankaj.jpeg',
-        objectPosition: 'center 15%'
-      },
-      { 
-        id: 'tariq-adeeb', 
-        name: 'Tariq Adeeb', 
-        designation: 'Advocate', 
-        practiceArea: 'Civil, Criminal & Constitutional Law', 
-        experience: '20+ Years', 
-        education: 'LL.B., Post Graduate (Economics)',
-        email: 'lawfirm.delhi.official@gmail.com',
-        image: '/team/tariq.jpeg',
-        objectPosition: 'center 10%'
-      },
-      { 
-        id: 'garima', 
-        name: 'Garima', 
-        designation: 'Advocate', 
-        practiceArea: 'Civil, Criminal & Medico-Legal', 
-        experience: '2+ Years', 
-        education: 'L.L.B Campus Law Centre, Delhi',
-        email: 'garima040810@gmail.com',
-        image: '/team/garima.jpeg',
-        objectPosition: 'center 68%'
-      },
-      { 
-        id: 'humaira', 
-        name: 'Humaira', 
-        designation: 'Advocate', 
-        practiceArea: 'Litigation, NCLT & Consumer', 
-        experience: 'Legal practice', 
-        education: 'LL.B., M.Com',
-        email: 'lawfirm.delhi.official@gmail.com',
-        image: '/team/humaira.jpeg',
-        objectPosition: 'center 20%'
-      },
-      { 
-        id: 'kulwinder', 
-        name: 'Kulwinder', 
-        designation: 'Advocate', 
-        practiceArea: 'IT & Legal Expertise', 
-        experience: '17+ Years IT, Legal practice', 
-        education: 'LL.B.',
-        email: 'lawfirm.delhi.official@gmail.com',
-        image: '/team/kulwinder.jpeg',
-        objectPosition: 'center 15%'
-      }
-    ];
+    { 
+      id: 'pankaj-sinha', 
+      name: 'Pankaj Sinha', 
+      designation: 'Founding Director | Senior Litigation Counsel', 
+      email: 'sinhapankaj81@gmail.com',
+      image: '/team/pankaj.jpeg',
+      objectPosition: 'center 15%'
+    },
+    { 
+      id: 'tariq-adeeb', 
+      name: 'Tariq Adeeb', 
+      designation: 'Founding Director | Senior Litigation Counsel', 
+      email: 'lawfirm.delhi.official@gmail.com',
+      image: '/team/tariq.jpeg',
+      objectPosition: 'center 10%'
+    },
+    { 
+      id: 'garima', 
+      name: 'Garima', 
+      designation: 'Associate Litigation Lawyer', 
+      email: 'garima040810@gmail.com',
+      image: '/team/garima.jpeg',
+      objectPosition: 'center 68%'
+    },
+    { 
+      id: 'humaira', 
+      name: 'Humaira Salam', 
+      designation: 'Associate Litigation Lawyer', 
+      email: 'lawfirm.delhi.official@gmail.com',
+      image: '/team/humaira.jpeg',
+      objectPosition: 'center 20%'
+    },
+    { 
+      id: 'kulwinder', 
+      name: 'Kulvinder Sehjal', 
+      designation: 'Associate Litigation Lawyer', 
+      email: 'lawfirm.delhi.official@gmail.com',
+      image: '/team/kulwinder.jpeg',
+      objectPosition: 'center 15%'
+    }
+  ];
 
   return (
     <PageWrapper title="Our Team">
       <PageHero 
         title="Our Team"
-        subtitle="NYATI Law Chamber is led by Founding Directors Mr. Pankaj Sinha and Mr. Tariq Adeeb, supported by a team of dedicated advocates committed to providing strategic, dependable and result-oriented legal solutions."
+        subtitle="NYATI comprises experienced advocates and legal professionals who combine legal knowledge, courtroom experience, research capabilities and strategic thinking to address complex legal challenges."
       />
 
-      <section className="landing-section">
+      <section className="landing-section" style={{ background: 'var(--bg-primary)' }}>
         <div className="section-header">
-          <motion.h2 className="section-title" variants={fadeInUp} initial="initial" whileInView="whileInView">Advocates</motion.h2>
-          <motion.p className="section-subtitle" variants={fadeInUp} initial="initial" whileInView="whileInView">Professional legal representation and trusted advisory.</motion.p>
+          <motion.h2 className="section-title" variants={fadeInUp} initial="initial" whileInView="whileInView">Founding Directors</motion.h2>
+          <motion.p className="section-subtitle" variants={fadeInUp} initial="initial" whileInView="whileInView">Founding leadership and Senior Litigation Counsel.</motion.p>
         </div>
         
         <motion.div 
@@ -147,14 +132,62 @@ export default function Team() {
           initial="initial" 
           whileInView="animate" 
           viewport={{ once: true, margin: "-50px" }}
-          style={{ display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}
+          style={{ display: 'flex', justifyContent: 'center', gap: '2.5rem', flexWrap: 'wrap', marginBottom: '4rem' }}
         >
-          {lawyers.map(lawyer => (
+          {lawyers.filter(l => l.designation.includes('Founding Director')).map(lawyer => (
             <div key={lawyer.id} style={{ maxWidth: '350px', width: '100%' }}>
               <LawyerCard lawyer={lawyer} />
             </div>
           ))}
         </motion.div>
+
+        <div className="section-header" style={{ marginTop: '4rem' }}>
+          <motion.h2 className="section-title" variants={fadeInUp} initial="initial" whileInView="whileInView">Associate Litigation Lawyers</motion.h2>
+          <motion.p className="section-subtitle" variants={fadeInUp} initial="initial" whileInView="whileInView">Dynamic associate legal professionals.</motion.p>
+        </div>
+
+        <motion.div 
+          className="grid-3" 
+          variants={stagger} 
+          initial="initial" 
+          whileInView="animate" 
+          viewport={{ once: true, margin: "-50px" }}
+          style={{ display: 'flex', justifyContent: 'center', gap: '2.5rem', flexWrap: 'wrap' }}
+        >
+          {lawyers.filter(l => l.designation.includes('Associate')).map(lawyer => (
+            <div key={lawyer.id} style={{ maxWidth: '350px', width: '100%' }}>
+              <LawyerCard lawyer={lawyer} />
+            </div>
+          ))}
+        </motion.div>
+      </section>
+
+      {/* Our Wider Team */}
+      <section className="landing-section alt" style={{ background: 'var(--bg-secondary)', borderTop: '1px solid var(--border)' }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+          <motion.h2 className="section-title" variants={fadeInUp} initial="initial" whileInView="whileInView">Our Wider Team</motion.h2>
+          <div style={{ width: '60px', height: '3px', background: 'var(--primary-gold)', margin: '0 auto 2rem' }}></div>
+          <motion.p variants={fadeInUp} initial="initial" whileInView="whileInView" style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', lineHeight: 1.8, marginBottom: '1.5rem' }}>
+            NYATI works through a collaborative team structure involving advocates, associates, researchers and professionals with expertise across different areas of law.
+          </motion.p>
+          <motion.p variants={fadeInUp} initial="initial" whileInView="whileInView" style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', lineHeight: 1.8 }}>
+            For matters requiring specialized expertise or proceedings outside Delhi, the Firm may work with local counsel and professional associates, enabling coordinated legal representation across jurisdictions.
+          </motion.p>
+        </div>
+      </section>
+
+      {/* One Team. One Objective. */}
+      <section className="landing-section" style={{ background: 'var(--bg-primary)', borderTop: '1px solid var(--border)' }}>
+        <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+          <motion.h2 className="section-title" variants={fadeInUp} initial="initial" whileInView="whileInView">One Team. One Objective.</motion.h2>
+          <div style={{ width: '60px', height: '3px', background: 'var(--primary-gold)', margin: '0 auto 2rem' }}></div>
+          <motion.p className="card-text" variants={fadeInUp} initial="initial" whileInView="whileInView" style={{ fontSize: '1.3rem', color: 'var(--primary-gold)', fontStyle: 'italic', marginBottom: '1.5rem', fontWeight: 600 }}>
+            Regardless of the size or complexity of a matter, our team works towards one objective:
+          </motion.p>
+          <motion.p className="hero-subtitle" variants={fadeInUp} initial="initial" whileInView="whileInView" style={{ fontSize: '1.2rem', color: 'var(--heading)', fontWeight: 500 }}>
+            To protect the client's legal interests through informed advice, diligent preparation and effective advocacy.
+          </motion.p>
+        </div>
       </section>
     </PageWrapper>
   );
