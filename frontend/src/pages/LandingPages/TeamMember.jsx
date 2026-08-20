@@ -28,7 +28,7 @@ const teamData = {
     email: 'garima040810@gmail.com',
     phone: '+91 7210067910',
     image: '/team/garima.jpeg',
-    objectPosition: 'center 68%',
+    objectPosition: 'center 20%',
     bio: 'She is young dynamic lawyer who bring enthusiasm, diligence and a strong commitment to legal practice. She is actively involved in legal research, drafting pleadings, case preparation, court proceedings, documentation and client coordination, while working closely with senior advocates. Her professionalism, cooperative approach and readiness to assist the team contribute significantly to the smooth and effective functioning of the litigation practice.'
   },
   'humaira': {
