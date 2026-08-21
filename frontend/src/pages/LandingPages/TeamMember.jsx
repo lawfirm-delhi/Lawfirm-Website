@@ -41,7 +41,7 @@ const teamData = {
     bio: 'She is a young hardworking and result oriented lawyer who form an integral part of the firm’s professional team. She has gained practical exposure to court proceedings, legal research, drafting of pleadings and applications, preparation of case briefs, compilation of records and day-to-day litigation management which demonstrate a keen willingness to learn and develop her advocacy skills while ensuring that matters are prepared with diligence and precision.'
   },
   'kulwinder': {
-    name: 'Kulvinder Sehjal',
+    name: 'Kulwinder Sehjal',
     role: 'Associate Litigation Lawyer',
     email: 'lawfirm.delhi.official@gmail.com',
     phone: '',
