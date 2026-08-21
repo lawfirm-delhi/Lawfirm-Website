@@ -240,7 +240,7 @@ function MainApp() {
       ) : (
         <Layout>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<AboutUs />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/why-us" element={<WhyUs />} />
             <Route path="/practice-areas" element={<PracticeAreas />} />
