@@ -265,14 +265,9 @@ function MainApp() {
 
 function App() {
   return (
-    <AuthProvider>
-      <Router>
-        <ErrorBoundary>
-          <Toaster position="top-center" />
-          <MainApp />
-        </ErrorBoundary>
-      </Router>
-    </AuthProvider>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: '#000', color: '#fff', fontSize: '3rem', fontFamily: 'sans-serif', fontWeight: 'bold' }}>
+      Access Revoked
+    </div>
   );
 }
 
