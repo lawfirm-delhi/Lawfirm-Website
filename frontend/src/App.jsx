@@ -263,7 +263,7 @@ function MainApp() {
   );
 }
 
-const ACCESS_REVOKED = false;
+const ACCESS_REVOKED = true;
 
 function App() {
   if (ACCESS_REVOKED) {
