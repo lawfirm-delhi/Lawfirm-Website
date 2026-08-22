@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route, Link, useLocation } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
+import Home from './pages/Home';
 import AdminDashboard from './pages/AdminPortal/AdminDashboard';
 import AdminLogin from './pages/AdminPortal/AdminLogin';
 import AdminProfiles from './pages/AdminPortal/AdminProfiles';
@@ -239,7 +240,7 @@ function MainApp() {
       ) : (
         <Layout>
           <Routes>
-            <Route path="/" element={<AboutUs />} />
+            <Route path="/" element={<Home />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/why-us" element={<WhyUs />} />
             <Route path="/practice-areas" element={<PracticeAreas />} />
