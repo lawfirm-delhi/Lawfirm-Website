@@ -102,7 +102,7 @@ export default function Team() {
     },
     { 
       id: 'kulwinder', 
-      name: 'Kulwinder Sehjal', 
+      name: 'Kulvinder Sehjal', 
       designation: 'Associate Litigation Lawyer', 
       email: 'lawfirm.delhi.official@gmail.com',
       image: '/team/kulwinder.jpeg',
