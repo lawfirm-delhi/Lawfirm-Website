@@ -263,7 +263,17 @@ function MainApp() {
   );
 }
 
+const ACCESS_REVOKED = true;
+
 function App() {
+  if (ACCESS_REVOKED) {
+    return (
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', backgroundColor: '#000', color: '#fff', fontSize: '3rem', fontFamily: 'sans-serif', fontWeight: 'bold' }}>
+        Access Revoked
+      </div>
+    );
+  }
+
   return (
     <AuthProvider>
       <Router>
